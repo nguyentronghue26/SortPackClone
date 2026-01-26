@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "price": 2000,
+    "image": "avatar_1",
+    "type": 1,
+    "tailColor": "75#30#148"
+  },
+  {
+    "id": 2,
+    "price": 2000,
+    "image": "avatar_2",
+    "type": 2,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 3,
+    "price": 2000,
+    "image": "avatar_3",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 4,
+    "price": 2000,
+    "image": "avatar_4",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 5,
+    "price": 2000,
+    "image": "avatar_5",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 6,
+    "price": 2000,
+    "image": "avatar_6",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 7,
+    "price": 2000,
+    "image": "avatar_7",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 8,
+    "price": 2000,
+    "image": "avatar_8",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 9,
+    "price": 2000,
+    "image": "avatar_9",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 10,
+    "price": 2000,
+    "image": "avatar_10",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 11,
+    "price": 2000,
+    "image": "avatar_11",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 12,
+    "price": 2000,
+    "image": "avatar_12",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 13,
+    "price": 2000,
+    "image": "avatar_13",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 14,
+    "price": 2000,
+    "image": "avatar_14",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 15,
+    "price": 2000,
+    "image": "avatar_15",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 16,
+    "price": 2000,
+    "image": "avatar_16",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 17,
+    "price": 2000,
+    "image": "avatar_17",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 18,
+    "price": 2000,
+    "image": "avatar_18",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 19,
+    "price": 2000,
+    "image": "avatar_19",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 20,
+    "price": 2000,
+    "image": "avatar_20",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 21,
+    "price": 2000,
+    "image": "avatar_21",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 22,
+    "price": 2000,
+    "image": "avatar_22",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 23,
+    "price": 2000,
+    "image": "avatar_23",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 24,
+    "price": 2000,
+    "image": "avatar_24",
+    "type": 1,
+    "tailColor": "60#152#237"
+  }
+]

@@ -1,0 +1,77 @@
+[
+	{
+		"id": 1,
+		"type": 22,
+		"name": "advancedpack1",
+		"pid": "com.funspace.goodssort.advancedpack1",
+		"count": 0,
+		"price": 1.99,
+		"inGamePackCount": 0,
+		"startGamePackCount": 0,
+		"startGamePropTimeInMin": 60,
+		"unlimitEnergyTimeInMin": 0
+	},
+	{
+		"id": 2,
+		"type": 22,
+		"name": "advancedpack2",
+		"pid": "com.funspace.goodssort.advancedpack2",
+		"count": 2000,
+		"price": 3.99,
+		"inGamePackCount": 2,
+		"startGamePackCount": 0,
+		"startGamePropTimeInMin": 0,
+		"unlimitEnergyTimeInMin": 120
+	},
+	{
+		"id": 3,
+		"type": 22,
+		"name": "advancedpack3",
+		"pid": "com.funspace.goodssort.advancedpack3",
+		"count": 3000,
+		"price": 5.99,
+		"inGamePackCount": 2,
+		"startGamePackCount": 2,
+		"startGamePropTimeInMin": 0,
+		"unlimitEnergyTimeInMin": 240
+	},
+	{
+		"id": 4,
+		"type": 22,
+		"name": "advancedpack4",
+		"pid": "com.funspace.goodssort.advancedpack4",
+		"count": 5000,
+		"price": 6.99,
+		"inGamePackCount": 4,
+		"startGamePackCount": 2,
+		"startGamePropTimeInMin": 60,
+		"unlimitEnergyTimeInMin": 360,
+		"discount": 90
+	},
+	{
+		"id": 5,
+		"type": 22,
+		"name": "advancedpack5",
+		"pid": "com.funspace.goodssort.advancedpack5",
+		"count": 5000,
+		"price": 7.99,
+		"inGamePackCount": 4,
+		"startGamePackCount": 2,
+		"startGamePropTimeInMin": 60,
+		"unlimitEnergyTimeInMin": 360,
+		"discount": 80
+	},
+	{
+		"id": 6,
+		"type": 22,
+		"name": "advancedpack6",
+		"pid": "com.funspace.goodssort.advancedpack6",
+		"count": 5000,
+		"price": 9.99,
+		"inGamePackCount": 4,
+		"startGamePackCount": 2,
+		"startGamePropTimeInMin": 60,
+		"unlimitEnergyTimeInMin": 360,
+		"discount": 60
+	}
+]

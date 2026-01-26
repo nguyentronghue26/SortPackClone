@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "price": 2000,
+    "image": "house_1",
+    "type": 1,
+    "tailColor": "75#30#148"
+  },
+  {
+    "id": 2,
+    "price": 2000,
+    "image": "house_2",
+    "type": 2,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 3,
+    "price": 2000,
+    "image": "house_3",
+    "type": 1,
+    "tailColor": "255#61#70"
+  },
+  {
+    "id": 4,
+    "price": 2000,
+    "image": "house_4",
+    "type": 1,
+    "tailColor": "196#105#39"
+  },
+  {
+    "id": 5,
+    "price": 2000,
+    "image": "house_5",
+    "type": 1,
+    "tailColor": "1#28#48"
+  },
+  {
+    "id": 6,
+    "price": 2000,
+    "image": "house_6",
+    "type": 1,
+    "tailColor": "1#28#48"
+  },
+  {
+    "id": 7,
+    "price": 2000,
+    "image": "house_7",
+    "type": 1,
+    "tailColor": "1#28#48"
+  },
+  {
+    "id": 8,
+    "price": 2000,
+    "image": "house_8",
+    "type": 1,
+    "tailColor": "1#28#48"
+  },
+  {
+    "id": 9,
+    "price": 2000,
+    "image": "house_9",
+    "type": 1,
+    "tailColor": "1#28#48"
+  }
+]

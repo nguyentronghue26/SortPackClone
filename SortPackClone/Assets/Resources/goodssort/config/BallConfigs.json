@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "type": 30,
+    "name": "Fire Ball",
+    "image": "ball_fireball"
+  },
+  {
+    "id": 2,
+    "type": 31,
+    "name": "Ice Ball",
+    "image": "ball_ice"
+  },
+  {
+    "id": 3,
+    "type": 32,
+    "name": "Thunder Ball",
+    "image": "ball_thunder"
+  },
+  {
+    "id": 4,
+    "type": 33,
+    "name": "Ghost Ball",
+    "image": "ball_ghost"
+  },
+  {
+    "id": 5,
+    "type": 34,
+    "name": "Wave Ball",
+    "image": "ball_shockwave"
+  }
+]

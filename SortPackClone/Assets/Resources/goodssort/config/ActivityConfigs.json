@@ -1,0 +1,76 @@
+[
+  {
+    "id": 1,
+    "type": 1,
+    "unlockLevel": 23,
+    "timeInSec": 3600,
+    "playerCount": 10,
+    "name": "HourActivity",
+    "rewardMaxRank": 0,
+    "group": 3,
+    "intervalSec": 82800,
+    "notifyName": "UpdateRace",
+    "delayShowEndTimeInSec": 43200
+  },
+  {
+    "id": 2,
+    "type": 2,
+    "unlockLevel": 28,
+    "timeInSec": 172800,
+    "playerCount": 50,
+    "name": "DayActivity",
+    "rewardMaxRank": 9,
+    "group": 5,
+    "intervalSec": 86400,
+    "notifyName": "UpdateRace",
+    "delayShowEndTimeInSec": 43200
+  },
+  {
+    "id": 3,
+    "type": 3,
+    "unlockLevel": 33,
+    "timeInSec": 345600,
+    "name": "GoodsActivity",
+    "intervalSec": 172800,
+    "notifyName": "UpdateRace",
+    "delayShowEndTimeInSec": 43200
+  },
+  {
+    "id": 4,
+    "type": 4,
+    "unlockLevel": 20,
+    "timeInSec": 259200,
+    "name": "TruckActivity",
+    "intervalSec": 259200,
+    "notifyName": "UpdateTruck",
+    "delayShowEndTimeInSec": 43200
+  },
+  {
+    "id": 5,
+    "type": 5,
+    "unlockLevel": 30,
+    "timeInSec": 10800,
+    "playerCount": 100,
+    "name": "PyramidActivity",
+    "intervalSec": 75600,
+    "notifyName": "UpdatePyramid",
+    "appearIntervalInSec": 86400,
+    "waitIntervalInSec": 0,
+    "showInEveryDay": true,
+    "delayShowEndTimeInSec": 0
+  },
+  {
+    "id": 6,
+    "type": 6,
+    "unlockLevel": 20,
+    "timeInSec": 259200,
+    "playerCount": 7,
+    "name": "TimeContestActivity",
+    "rewardMaxRank": 3,
+    "intervalSec": 259200,
+    "notifyName": "UpdateTimeContest",
+    "appearIntervalInSec": 259200,
+    "waitIntervalInSec": 0,
+    "delayShowEndTimeInSec": 0
+  }
+]

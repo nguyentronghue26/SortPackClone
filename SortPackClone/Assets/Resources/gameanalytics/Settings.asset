@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cced7019a5f5d9570f88fdc17461e50, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier:
+  TotalMessagesSubmitted: 0
+  TotalMessagesFailed: 0
+  DesignMessagesSubmitted: 0
+  DesignMessagesFailed: 0
+  QualityMessagesSubmitted: 0
+  QualityMessagesFailed: 0
+  ErrorMessagesSubmitted: 0
+  ErrorMessagesFailed: 0
+  BusinessMessagesSubmitted: 0
+  BusinessMessagesFailed: 0
+  UserMessagesSubmitted: 0
+  UserMessagesFailed: 0
+  CustomArea:
+  gameKey:
+  - a492e8a8833e6a9ca089fe3d4804836c
+  - 80afe54356062160bd5ec3b6bf8fc9f5
+  secretKey:
+  - 755cd63cfe91b73eec3f1920d5a4e82c244a7d7a
+  - 4a7d1cb2ae518f90931015a3695ccfe28149d6d3
+  Build:
+  - 1.0.0
+  - 1.0.0
+  SelectedPlatformOrganization:
+  - 
+  - 
+  SelectedPlatformStudio:
+  - 
+  - 
+  SelectedPlatformGame:
+  - 
+  - 
+  SelectedPlatformGameID: ffffff/fffffff/f
+  SelectedOrganization: 0000000000000000
+  SelectedStudio: 0000000000000000
+  SelectedGame: 0000000000000000
+  NewVersion:
+  Changes:
+  SignUpOpen: 0
+  StudioName: TinyTap
+  GameName: Goods Merge
+  OrganizationName:
+  OrganizationIdentifier:
+  EmailGA: qinning199@163.com
+  IntroScreen: 0
+  InfoLogEditor: 1
+  InfoLogBuild: 1
+  VerboseLogBuild: 0
+  UseManualSessionHandling: 0
+  SendExampleGameDataToMyGame: 0
+  InternetConnectivity: 0
+  CustomDimensions01: []
+  CustomDimensions02: []
+  CustomDimensions03: []
+  ResourceItemTypes:
+  - iap
+  - watch_ads
+  - activity
+  - free_pack
+  - rank
+  - shopping_pass
+  - level_rewards
+  - daily_bonus
+  - revive
+  - skin
+  - store_free
+  - pass
+  - energy
+  - gift_box
+  - purchase_item
+  - bind_fb
+  - in_game
+  - wheel
+  - return_rewards
+  - video_meter
+  ResourceCurrencies:
+  - bomb
+  - shelf
+  - diamonds
+  - magichat
+  - shopcart
+  - magicwand
+  - paintbucket
+  - energy
+  - unlimitedenergy
+  - clock
+  LastCreatedGamePlatform: 0
+  Platforms: 0b00000008000000
+  CurrentInspectorState: 1
+  ClosedHints:
+  DisplayHints: 0
+  DisplayHintsScrollState: {x: 0, y: 0}
+  Logo: {fileID: 2800000, guid: 5739b28902184704a9c2b7801a91f328, type: 3}
+  UpdateIcon: {fileID: 2800000, guid: 5eb63ea8556beaa46bb9571e50bbcc38, type: 3}
+  InfoIcon: {fileID: 2800000, guid: 5fd3bad391febd54684cea2be383647a, type: 3}
+  DeleteIcon: {fileID: 2800000, guid: 2246c1958db979644bc9303491f63516, type: 3}
+  GameIcon: {fileID: 2800000, guid: fb85aa60c24314a49a77db62b4435665, type: 3}
+  HomeIcon: {fileID: 2800000, guid: 342aadee38b83504eb059e94b0f7c7a9, type: 3}
+  InstrumentIcon: {fileID: 2800000, guid: 2b7b871e89ed28e47a025d0357f40d6c, type: 3}
+  QuestionIcon: {fileID: 2800000, guid: 6811354cb395a1543a4f97deb6d684e0, type: 3}
+  UserIcon: {fileID: 2800000, guid: f8953daba0038974a96c96eddb4cf8f9, type: 3}
+  AmazonIcon: {fileID: 0}
+  GooglePlayIcon: {fileID: 0}
+  iosIcon: {fileID: 0}
+  macIcon: {fileID: 0}
+  windowsPhoneIcon: {fileID: 0}
+  UsePlayerSettingsBuildNumber: 1
+  SubmitErrors: 1
+  NativeErrorReporting: 1
+  MaxErrorCount: 10
+  SubmitFpsAverage: 1
+  SubmitFpsCritical: 1
+  IncludeGooglePlay: 1
+  FpsCriticalThreshold: 20
+  FpsCirticalSubmitInterval: 1
+  PlatformFoldOut: 0101
+  CustomDimensions01FoldOut: 1
+  CustomDimensions02FoldOut: 0
+  CustomDimensions03FoldOut: 0
+  ResourceItemTypesFoldOut: 1
+  ResourceCurrenciesFoldOut: 1
+  EnableMemoryHistogram: 0
+  EnableHealthEvent: 0
+  EnableFPSHistogram: 0
+  EnableSDKInitEvent: 0
+  EnableHardwareTracking: 0
+  EnableMemoryTracking: 0

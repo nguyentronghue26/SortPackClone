@@ -1,0 +1,37 @@
+[
+  {
+    "id": 0,
+    "type": 0,
+    "image": "state_none"
+  },
+  {
+    "id": 1,
+    "type": 1,
+    "image": "irongate_closed"
+  },
+  {
+    "id": 2,
+    "type": 2,
+    "image": "backstab"
+  },
+  {
+    "id": 3,
+    "type": 3,
+    "image": "ice_1"
+  },
+  {
+    "id": 4,
+    "type": 4,
+    "image": "ice_2"
+  },
+  {
+    "id": 5,
+    "type": 5,
+    "image": "ice_3"
+  },
+  {
+    "id": 6,
+    "type": 6,
+    "image": "irongate_opened"
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "price": 2000,
+    "image": "skin_1",
+    "type": 1,
+    "tailColor": "75#30#148"
+  },
+  {
+    "id": 2,
+    "price": 2000,
+    "image": "skin_2",
+    "type": 2,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 3,
+    "price": 2000,
+    "image": "skin_3",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 4,
+    "price": 2000,
+    "image": "skin_4",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 5,
+    "price": 2000,
+    "image": "skin_5",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 6,
+    "price": 2000,
+    "image": "skin_6",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 7,
+    "price": 2000,
+    "image": "skin_7",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 8,
+    "price": 2000,
+    "image": "skin_8",
+    "type": 1,
+    "tailColor": "60#152#237"
+  },
+  {
+    "id": 9,
+    "price": 2000,
+    "image": "skin_9",
+    "type": 1,
+    "tailColor": "60#152#237"
+  }
+]

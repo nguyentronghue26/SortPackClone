@@ -1,0 +1,29 @@
+[
+	{
+		"id": 1,
+		"pid": "com.funspace.bricksbreaker.vip.week",
+		"price": 7.99,
+		"type": 10,
+		"name": "1 week",
+		"day": 7,
+		"discount": 300
+	},
+	{
+		"id": 2,
+		"pid": "com.funspace.bricksbreaker.vip.month",
+		"price": 19.99,
+		"type": 10,
+		"name": "1 month",
+		"day": 30,
+		"discount": 500
+	},
+	{
+		"id": 3,
+		"pid": "com.funspace.bricksbreaker.vip.year",
+		"price": 99.99,
+		"type": 10,
+		"name": "1 year",
+		"day": 365,
+		"discount": 1000
+	}
+]

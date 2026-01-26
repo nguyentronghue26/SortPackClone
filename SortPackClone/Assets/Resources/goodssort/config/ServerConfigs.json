@@ -1,0 +1,22 @@
+{
+  "release": {
+    "url": "http://server.minigame.io",
+    "port": 9500,
+    "secret": "3a4f10f0fd9e5ecd87655965156f9af6418c6a7d"
+  },
+  "debug": {
+    "url": "http://server.minigame.io",
+    "port": 8500,
+    "secret": "foobar"
+  },
+  "local": {
+    "url": "http://localhost",
+    "port": 8500,
+    "secret": "foobar"
+  },
+  "localprod": {
+    "url": "http://localhost",
+    "port": 9500,
+    "secret": "3a4f10f0fd9e5ecd87655965156f9af6418c6a7d"
+  }
+}

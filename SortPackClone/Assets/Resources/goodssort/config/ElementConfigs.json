@@ -1,0 +1,483 @@
+[
+  {
+    "id": 0,
+    "type": 0,
+    "modelName": "Gold",
+    "special": true
+  },
+  {
+    "id": 1,
+    "type": 1,
+    "modelName": "Goods_1",
+    "unlockLevel": 0
+  },
+  {
+    "id": 2,
+    "type": 2,
+    "modelName": "Goods_2",
+    "unlockLevel": 0
+  },
+  {
+    "id": 3,
+    "type": 3,
+    "modelName": "Goods_3",
+    "color": 3,
+    "unlockLevel": 0
+  },
+  {
+    "id": 4,
+    "type": 4,
+    "modelName": "Goods_4",
+    "color": 4,
+    "unlockLevel": 0
+  },
+  {
+    "id": 5,
+    "type": 5,
+    "modelName": "Goods_5",
+    "unlockLevel": 70
+  },
+  {
+    "id": 6,
+    "type": 6,
+    "modelName": "Goods_6",
+    "color": 6,
+    "unlockLevel": 0
+  },
+  {
+    "id": 7,
+    "type": 7,
+    "modelName": "Goods_7",
+    "unlockLevel": 70
+  },
+  {
+    "id": 8,
+    "type": 8,
+    "modelName": "Goods_8",
+    "unlockLevel": 70
+  },
+  {
+    "id": 9,
+    "type": 9,
+    "color": 5,
+    "modelName": "Goods_9",
+    "unlockLevel": 70
+  },
+  {
+    "id": 10,
+    "type": 10,
+    "modelName": "Goods_10",
+    "unlockLevel": 0
+  },
+  {
+    "id": 11,
+    "type": 11,
+    "modelName": "Goods_11",
+    "unlockLevel": 70
+  },
+  {
+    "id": 12,
+    "type": 12,
+    "modelName": "Goods_12",
+    "unlockLevel": 90
+  },
+  {
+    "id": 13,
+    "type": 13,
+    "modelName": "Goods_13",
+    "unlockLevel": 90
+  },
+  {
+    "id": 14,
+    "type": 14,
+    "color": 5,
+    "modelName": "Goods_14",
+    "unlockLevel": 90
+  },
+  {
+    "id": 15,
+    "type": 15,
+    "modelName": "Goods_15",
+    "unlockLevel": 90
+  },
+  {
+    "id": 16,
+    "type": 16,
+    "modelName": "Goods_16",
+    "unlockLevel": 0
+  },
+  {
+    "id": 17,
+    "type": 17,
+    "modelName": "Goods_17",
+    "unlockLevel": 90
+  },
+  {
+    "id": 18,
+    "type": 18,
+    "modelName": "Goods_18",
+    "color": 6,
+    "unlockLevel": 0
+  },
+  {
+    "id": 19,
+    "type": 19,
+    "modelName": "Goods_19",
+    "unlockLevel": 120
+  },
+  {
+    "id": 20,
+    "type": 20,
+    "modelName": "Goods_20",
+    "unlockLevel": 0
+  },
+  {
+    "id": 21,
+    "type": 21,
+    "modelName": "Goods_21",
+    "unlockLevel": 0
+  },
+  {
+    "id": 22,
+    "type": 22,
+    "modelName": "Goods_22",
+    "unlockLevel": 120
+  },
+  {
+    "id": 23,
+    "type": 23,
+    "modelName": "Goods_23",
+    "color": 4,
+    "unlockLevel": 0
+  },
+  {
+    "id": 24,
+    "type": 24,
+    "modelName": "Goods_24",
+    "unlockLevel": 120
+  },
+  {
+    "id": 25,
+    "type": 25,
+    "modelName": "Goods_25",
+    "unlockLevel": 0
+  },
+  {
+    "id": 26,
+    "type": 26,
+    "modelName": "Goods_26",
+    "color": 8,
+    "unlockLevel": 0
+  },
+  {
+    "id": 27,
+    "type": 27,
+    "modelName": "Goods_27",
+    "unlockLevel": 0
+  },
+  {
+    "id": 28,
+    "type": 28,
+    "modelName": "Goods_28",
+    "unlockLevel": 120
+  },
+  {
+    "id": 29,
+    "type": 29,
+    "color": 3,
+    "modelName": "Goods_29",
+    "unlockLevel": 0
+  },
+  {
+    "id": 30,
+    "type": 30,
+    "modelName": "Goods_30",
+    "color": 5,
+    "unlockLevel": 0
+  },
+  {
+    "id": 31,
+    "type": 31,
+    "modelName": "Goods_31",
+    "color": 3,
+    "unlockLevel": 0
+  },
+  {
+    "id": 32,
+    "type": 32,
+    "modelName": "Goods_32",
+    "color": 4,
+    "unlockLevel": 0
+  },
+  {
+    "id": 33,
+    "type": 33,
+    "modelName": "Goods_33",
+    "color": 4,
+    "unlockLevel": 0
+  },
+  {
+    "id": 34,
+    "type": 34,
+    "modelName": "Goods_34",
+    "color": 5,
+    "unlockLevel": 0
+  },
+  {
+    "id": 35,
+    "type": 35,
+    "modelName": "Goods_35",
+    "unlockLevel": 0
+  },
+  {
+    "id": 36,
+    "type": 36,
+    "modelName": "Goods_36",
+    "color": 2,
+    "unlockLevel": 0
+  },
+  {
+    "id": 37,
+    "type": 37,
+    "modelName": "Goods_37",
+    "unlockLevel": 0
+  },
+  {
+    "id": 38,
+    "type": 38,
+    "modelName": "Goods_38",
+    "unlockLevel": 0
+  },
+  {
+    "id": 39,
+    "type": 39,
+    "modelName": "Goods_39",
+    "color": 3,
+    "unlockLevel": 0
+  },
+  {
+    "id": 40,
+    "type": 40,
+    "modelName": "Goods_40",
+    "color": 5,
+    "unlockLevel": 0
+  },
+  {
+    "id": 41,
+    "type": 41,
+    "modelName": "Goods_41",
+    "unlockLevel": 0
+  },
+  {
+    "id": 42,
+    "type": 42,
+    "modelName": "Goods_42",
+    "color": 6,
+    "unlockLevel": 0
+  },
+  {
+    "id": 43,
+    "type": 43,
+    "modelName": "Goods_43",
+    "color": 2,
+    "unlockLevel": 0
+  },
+  {
+    "id": 44,
+    "type": 44,
+    "modelName": "Goods_44",
+    "unlockLevel": 0
+  },
+  {
+    "id": 45,
+    "type": 45,
+    "modelName": "Goods_45",
+    "unlockLevel": 0
+  },
+  {
+    "id": 46,
+    "type": 46,
+    "modelName": "Goods_46",
+    "unlockLevel": 20
+  },
+  {
+    "id": 47,
+    "type": 47,
+    "modelName": "Goods_47",
+    "unlockLevel": 20
+  },
+  {
+    "id": 48,
+    "type": 48,
+    "modelName": "Goods_48",
+    "unlockLevel": 20
+  },
+  {
+    "id": 49,
+    "type": 49,
+    "modelName": "Goods_49",
+    "unlockLevel": 20
+  },
+  {
+    "id": 50,
+    "type": 50,
+    "modelName": "Goods_50",
+    "color": 3,
+    "unlockLevel": 20
+  },
+  {
+    "id": 51,
+    "type": 51,
+    "modelName": "Goods_51",
+    "unlockLevel": 30
+  },
+  {
+    "id": 52,
+    "type": 52,
+    "modelName": "Goods_52",
+    "unlockLevel": 50
+  },
+  {
+    "id": 53,
+    "type": 53,
+    "modelName": "Goods_53",
+    "unlockLevel": 30
+  },
+  {
+    "id": 54,
+    "type": 54,
+    "modelName": "Goods_54",
+    "unlockLevel": 30
+  },
+  {
+    "id": 55,
+    "type": 55,
+    "modelName": "Goods_55",
+    "color": 4,
+    "unlockLevel": 50
+  },
+  {
+    "id": 56,
+    "type": 56,
+    "modelName": "Goods_56",
+    "color": 4,
+    "unlockLevel": 50
+  },
+  {
+    "id": 57,
+    "type": 57,
+    "modelName": "Goods_57",
+    "unlockLevel": 30
+  },
+  {
+    "id": 58,
+    "type": 58,
+    "modelName": "Goods_58",
+    "unlockLevel": 30
+  },
+  {
+    "id": 59,
+    "type": 59,
+    "modelName": "Goods_59",
+    "color": 5,
+    "unlockLevel": 50
+  },
+  {
+    "id": 60,
+    "type": 60,
+    "modelName": "Goods_60",
+    "unlockLevel": 60
+  },
+  
+  {
+    "id": 65,
+    "type": 65,
+    "color": 3,
+    "modelName": "Goods_65",
+    "unlockLevel": 50
+  },
+  {
+    "id": 66,
+    "type": 66,
+    "modelName": "Goods_66",
+    "unlockLevel": 20
+  },
+  {
+    "id": 67,
+    "type": 67,
+    "modelName": "Goods_67",
+    "unlockLevel": 30
+  },
+  {
+    "id": 68,
+    "type": 68,
+    "color": 4,
+    "modelName": "Goods_68",
+    "unlockLevel": 70
+  },
+  {
+    "id": 69,
+    "type": 69,
+    "color": 4,
+    "modelName": "Goods_69",
+    "unlockLevel": 90
+  },
+  {
+    "id": 70,
+    "type": 70,
+    "color": 4,
+    "modelName": "Goods_70",
+    "unlockLevel": 120
+  },
+  {
+    "id": 72,
+    "type": 72,
+    "modelName": "Goods_72",
+    "unlockLevel": 120
+  },
+  {
+    "id": 73,
+    "type": 73,
+    "modelName": "Goods_73",
+    "unlockLevel": 150
+  },
+  {
+    "id": 74,
+    "type": 74,
+    "color": 3,
+    "modelName": "Goods_74",
+    "unlockLevel": 150
+  },
+  {
+    "id": 75,
+    "type": 75,
+    "modelName": "Goods_75",
+    "unlockLevel": 150
+  },
+  {
+    "id": 100,
+    "type": 100,
+    "modelName": "Tnt",
+    "special": true
+  },
+  {
+    "id": 101,
+    "type": 101,
+    "modelName": "Box",
+    "special": true
+  },
+  {
+    "id": 102,
+    "type": 102,
+    "modelName": "Bulb",
+    "prefabName": "Bulb",
+    "special": true
+  },
+  {
+    "id": 103,
+    "type": 103,
+    "modelName": "Snowman",
+    "prefabName": "Snowman",
+    "special": true
+  }
+]

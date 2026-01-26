@@ -1,0 +1,76 @@
+[
+	{
+		"id": 1,
+		"type": 1,
+		"image": "top_coin"
+	},
+	{
+		"id": 2,
+		"type": 10,
+		"image": "prop_bomb"
+	},
+	{
+		"id": 3,
+		"type": 11,
+		"image": "prop_stick"
+	},
+	{
+		"id": 4,
+		"type": 12,
+		"image": "prop_container"
+	},
+	{
+		"id": 5,
+		"type": 13,
+		"image": "prop_hat"
+	},
+	{
+		"id": 6,
+		"type": 14,
+		"image": "prop_clock"
+	},
+	{
+		"id": 7,
+		"type": 15,
+		"image": "prop_cart"
+	},
+	{
+		"id": 8,
+		"type": 16,
+		"image": "prop_paint"
+	},
+	{
+		"id": 9,
+		"type": 14,
+		"infinite": true,
+		"image": "prop_clock_infinite"
+	},
+	{
+		"id": 10,
+		"type": 15,
+		"infinite": true,
+		"image": "prop_cart_infinite"
+	},
+	{
+		"id": 11,
+		"type": 16,
+		"infinite": true,
+		"image": "prop_paint_infinite"
+	},
+	{
+		"id": 12,
+		"type": 6,
+		"image": "live"
+	},
+	{
+		"id": 13,
+		"type": 8,
+		"infinite": true,
+		"image": "prop_heart_infinite"
+	},
+	{
+		"id": 14,
+		"type": 20,
+		"image": "prop_avatar"
+	}
+]

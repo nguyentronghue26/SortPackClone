@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "groupCount": 50,
+    "colorGroup": [8, 10],
+    "time": 250,
+    "unknownCount": [5, 8],
+    "pair": 30
+  },
+  {
+    "id": 2,
+    "groupCount": 50,
+    "colorGroup": [8, 10],
+    "time": 200,
+    "unknownCount": [7, 10],
+    "pair": 30
+  },
+  {
+    "id": 3,
+    "groupCount": 55,
+    "colorGroup": [8, 12],
+    "time": 200,
+    "unknownCount": [8, 12],
+    "pair": 30
+  },
+  {
+    "id": 4,
+    "groupCount": 60,
+    "colorGroup": [10, 15],
+    "time": 170,
+    "unknownCount": [10, 15],
+    "pair": 20
+  },
+  {
+    "id": 5,
+    "groupCount": 65,
+    "colorGroup": [12, 18],
+    "time": 130,
+    "unknownCount": [12, 16],
+    "pair": 20
+  }
+]

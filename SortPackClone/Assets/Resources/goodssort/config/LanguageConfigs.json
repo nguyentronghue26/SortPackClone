@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "English",
+    "code": "English",
+    "font": "FZLT"
+  },
+  {
+    "id": 2,
+    "name": "简体中文",
+    "code": "ChineseSimplified",
+    "font": "CN"
+  },
+  {
+    "id": 3,
+    "name": "繁体中文",
+    "code": "ChineseTraditional",
+    "font": "ZH-TW"
+  },
+  {
+    "id": 4,
+    "name": "Français",
+    "code": "French",
+    "font": "FZLT"
+  },
+  {
+    "id": 5,
+    "name": "Deutsch",
+    "code": "German",
+    "font": "FZLT"
+  },
+  {
+    "id": 6,
+    "name": "日本語",
+    "code": "Japanese",
+    "font": "JP"
+  },
+  {
+    "id": 7,
+    "name": "한국인",
+    "code": "Korean",
+    "font": "KO"
+  },
+  {
+    "id": 8,
+    "name": "Русский",
+    "code": "Russian",
+    "font": "Russian"
+  },
+  {
+    "id": 9,
+    "name": "Español",
+    "code": "Spanish",
+    "font": "Spanish"
+  },
+  {
+    "id": 10,
+    "name": "Português",
+    "code": "Portuguese",
+    "font": "Spanish"
+  },
+  {
+    "id": 11,
+    "name": "Italiano",
+    "code": "Italian",
+    "font": "FZLT"
+  },
+  {
+    "id": 12,
+    "name": "Indonesian",
+    "code": "Indonesian",
+    "font": "FZLT"
+  },
+  {
+    "id": 13,
+    "name": "Tiếng Việt",
+    "code": "Vietnamese",
+    "font": "Vietnamese"
+  },
+  {
+    "id": 14,
+    "name": "แบบไทย",
+    "code": "Thai",
+    "font": "Thai"
+  }
+]

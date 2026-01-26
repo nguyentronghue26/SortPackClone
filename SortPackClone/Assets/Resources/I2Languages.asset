@@ -1,0 +1,5616 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3def4f9b9791e4ac309c3241680dc3ee, type: 3}
+  m_Name: I2Languages
+  m_EditorClassIdentifier:
+  mSource:
+    UserAgreesToHaveItOnTheScene: 0
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: privacy_policy
+      TermType: 0
+      Languages:
+      - Privacy Policy
+      - 隐私政策
+      - 개인정보 정책
+      - 隐私政策
+      - プライバシーポリシー
+      - Politique de confidentialité
+      - Datenschutzrichtlinie
+      - Политика конфиденциальности
+      - Política de privacidad
+      - Política de Privacidade
+      - Informativa sulla privacy
+      - Kebijakan Privasi
+      - Chính sách Bảo mật
+      - นโยบายความเป็นส่วนตัว
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: privacy_policy_content
+      TermType: 0
+      Languages:
+      - To continue playing,you need to confirm that you agree to our Privacy Policy and Terms of Service.
+      - 要继续玩游戏，您需要确认您同意我们的隐私政策和服务条款。
+      - 게임을 계속하려면 개인정보 정책 및 서비스 약관에 동의해야 합니다.
+      - 要继续玩游戏，您需要确认您同意我们的隐私政策和服务条款。
+      - ゲームを続けるには、プライバシーポリシーとサービス利用規約に同意する必要があります。
+      - Pour continuer à jouer, vous devez confirmer que vous acceptez notre politique de confidentialité et nos conditions de service.
+      - Um das Spiel fortzusetzen, müssen Sie bestätigen, dass Sie unseren Datenschutzbestimmungen und Nutzungsbedingungen zustimmen.
+      - Для продолжения игры необходимо подтвердить ваше согласие с нашей политикой конфиденциальности и условиями обслуживания.
+      - Para seguir jugando, debes confirmar que aceptas nuestra política de privacidad y los términos del servicio.
+      - Para continuar jogando, você precisa confirmar que concorda com nossa Política de Privacidade e Termos de Serviço.
+      - Per continuare a giocare, devi confermare di accettare la nostra Informativa sulla privacy e i Termini di servizio.
+      - Untuk melanjutkan bermain, Anda perlu mengkonfirmasi bahwa Anda menyetujui Kebijakan Privasi dan Persyaratan Layanan kami.
+      - Để tiếp tục chơi, bạn cần xác nhận rằng bạn đồng ý với Chính sách Bảo mật và Điều khoản Dịch vụ của chúng tôi.
+      - เพื่อทำการเล่นต่อไป คุณจำเป็นต้องยืนยันว่าคุณยินยอมตามนโยบายความเป็นส่วนตัวและข้อตกลงการให้บริการของเรา
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: agree
+      TermType: 0
+      Languages:
+      - I Agree
+      - 我同意
+      - 동의합니다
+      - 我同意
+      - 同意する
+      - J'accepte
+      - Ich stimme zu
+      - Я согласен
+      - Acepto
+      - Concordo
+      - Accetto
+      - Saya Setuju
+      - Tôi Đồng Ý
+      - ฉันยินยอม
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: terms_service
+      TermType: 0
+      Languages:
+      - Terms of Service
+      - 服务条款
+      - 서비스 약관
+      - 服务条款
+      - 利用規約
+      - Conditions de service
+      - Nutzungsbedingungen
+      - Условия обслуживания
+      - Términos del servicio
+      - Termos de Serviço
+      - Termini di servizio
+      - Persyaratan Layanan
+      - Điều khoản Dịch vụ
+      - ข้อตกลงการให้บริการ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: speed_contest
+      TermType: 0
+      Languages:
+      - SPEED CONTEST
+      - 竞速大赛
+      - 레이스 콘테스트
+      - 竞速大赛
+      - レースコンテスト
+      - COURSE DE VITESSE
+      - RENNWETTBEWERB
+      - ГОНОЧНОЕ СОРЕВНОВАНИЕ
+      - CARRERA RÁPIDA
+      - CONCURSO DE VELOCIDADE
+      - GARA VELOCE
+      - KOMPETISI KECEPATAN
+      - CUỘC THI TỐC ĐỘ
+      - การแข่งขันความเร็ว
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: contest_info1
+      TermType: 0
+      Languages:
+      - Complete the level to earn cups and compete with other players within an hour.The first player will be rewarded.
+      - 在1小时内，通过完成关卡来获得奖杯和其他玩家进行比赛，第1名获得奖励。
+      - 1시간 이내에 스테이지를 완료하여 트로피 및 다른 플레이어와 경쟁하고 1등시 보상을 받으세요.
+      - 在1小时内，通过完成关卡来获得奖杯和其他玩家进行比赛，第1名获得奖励。
+      - 1時間以内にステージをクリアしてトロフィーを獲得し、他のプレイヤーと競争し、1位になると報酬がもらえます。
+      - En 1 heure, remportez des trophées en terminant des niveaux et affrontez d'autres joueurs. Le premier remporte une récompense.
+      - Innerhalb von 1 Stunde durch das Abschließen von Levels Trophäen gewinnen und gegen andere Spieler antreten. Der 1. Platz erhält eine Belohnung.
+      - За 1 час завершите уровни, чтобы соревноваться за кубки с другими игроками. Первое место получает награду.
+      - En 1 hora, completa niveles para obtener trofeos y compite con otros jugadores. El primer lugar recibe una recompensa.
+      - Complete o nível para ganhar copos e competir com outros jogadores em uma hora. O primeiro jogador será recompensado.
+      - Completa il livello per guadagnare coppe e gareggiare con altri giocatori entro un'ora. Il primo giocatore sarà premiato.
+      - Selesaikan level untuk mendapatkan piala dan bersaing dengan pemain lain dalam waktu satu jam. Pemain pertama akan mendapatkan hadiah.
+      - Hoàn thành cấp độ để kiếm cúp và cạnh tranh với các người chơi khác trong vòng một giờ. Người chơi đầu tiên sẽ được thưởng.
+      - เสร็จสิ้นระดับเพื่อทำการได้รับถ้วยและแข่งขันกับผู้เล่นคนอื่นในเวลาหนึ่งชั่วโมง ผู้เล่นคนแรกจะได้รับรางวัล
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: shopping_contest
+      TermType: 0
+      Languages:
+      - SHOPPING CONTEST
+      - 购物大赛
+      - 쇼핑 대회
+      - 购物大赛
+      - ショッピングコンテスト
+      - COURSE D'ACHATS
+      - SHOPPING WETTBEWERB
+      - ШОПИНГ-КОНКУРС
+      - COMPETENCIA DE COMPRAS
+      - CONCURSO DE COMPRAS
+      - CONCORSO DI ACQUISTI
+      - KOMPETISI BELANJA
+      - CUỘC THI MUA SẮM
+      - การแข่งขันช้อปปิ้ง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: contest_info2
+      TermType: 0
+      Languages:
+      - Over 2 days, 50 players competed by completing levels to collect cups. The top 10 will get rewards.
+      - 在2天内，50名玩家通过完成关卡来收集奖杯进行比赛。前10名会获得奖励！
+      - 2일 이내에 50명의 플레이어와 경쟁하여 스테이지를 완료하여 트로피를 수집하세요. 상위 10명은 보상을 받습니다!
+      - 在2天内，50名玩家通过完成关卡来收集奖杯进行比赛。前10名会获得奖励！
+      - 2日以内にステージをクリアしてトロフィーを収集し、50人のプレイヤーと競争します。上位10人には報酬があります！
+      - En 2 jours, 50 joueurs s'affrontent pour collecter des trophées en terminant des niveaux. Les 10 premiers recevront une récompense!
+      - Innerhalb von 2 Tagen treten 50 Spieler an, um Trophäen zu sammeln, indem sie Levels abschließen. Die besten 10 erhalten Belohnungen!
+      - В течение 2 дней 50 игроков собирают кубки, завершая уровни. Первые 10 получат награды!
+      - En 2 días, 50 jugadores recopilan trofeos completando niveles. ¡Los 10 primeros obtienen recompensas!
+      - Em 2 dias, 50 jogadores competiram completando níveis para coletar copos. Os 10 melhores receberão recompensas.
+      - In 2 giorni, 50 giocatori hanno gareggiato completando livelli per raccogliere coppe. I primi 10 riceveranno premi.
+      - Selama 2 hari, 50 pemain bersaing dengan menyelesaikan level untuk mengumpulkan piala. 10 besar akan mendapatkan hadiah.
+      - Trong vòng 2 ngày, 50 người chơi cạnh tranh bằng cách hoàn thành cấp độ để thu thập cúp. 10 người đứng đầu sẽ nhận được phần thưởng.
+      - ภายใน 2 วัน มี 50 คนแข่งขันโดยการเสร็จสิ้นระดับเพื่อเก็บถ้วย 10 อันดับแรกจะได้รับรางวัล
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: goods_reward
+      TermType: 0
+      Languages:
+      - Goods Reward
+      - 集物奖励
+      - 아이템 보상
+      - 集物奖励
+      - アイテム報酬
+      - Récompenses objets
+      - Sammlungsprämien
+      - Собирать товары
+      - Objetos Recompensa
+      - Itens Recompensa
+      - Ricompensa merci
+      - Mengumpulkan Barang
+      - Thu thập vật phẩm
+      - รางวัลสินค้า
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: activity_info1
+      TermType: 0
+      Languages:
+      - Merge goods and get rewards!
+      - 不断的合并商品来获得奖励！
+      - 상품을 계속 병합하여 보상을 받으세요!
+      - 不断的合并商品来获得奖励！
+      - アイテムをマージして報酬を手に入れましょう！
+      - Fusionnez constamment des produits pour obtenir des récompenses!
+      - Verschmelzen Sie ständig Produkte, um Belohnungen zu erhalten!
+      - Получайте награды, постоянно объединяя товары!
+      - Combina constantemente productos para obtener recompensas.
+      - Combine produtos e obtenha recompensas!
+      - Unisci merci e ottieni ricompense!
+      - Gabungkan barang dan dapatkan hadiah!
+      - Goods Merge và nhận phần thưởng!
+      - รวมสินค้าและรับรางวัล!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: welcome_pack
+      TermType: 0
+      Languages:
+      - WELCOME GIFT PACK
+      - 新手礼包
+      - 초보자 선물 팩
+      - 新手礼包
+      - 初心者ギフトパック
+      - PACK DÉBUTANT
+      - ANFÄNGER PAKET
+      - НАЧ. ПАКЕТ
+      - PAQUETE DE BIENVENIDA
+      - PACOTE DE BOAS-VINDAS
+      - PACK NUOVO
+      - PAKET PEMULA
+      - GÓI QUÀ CHÀO MỪNG
+      - ชุดของขวัญต้อนรับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: start
+      TermType: 0
+      Languages:
+      - Start
+      - 开始
+      - 시작
+      - 开始
+      - 開始
+      - Commencer
+      - Start
+      - Начать
+      - Comenzar
+      - Iniciar
+      - Inizia
+      - Mulai
+      - Bắt đầu
+      - เริ่มต้น
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: setting
+      TermType: 0
+      Languages:
+      - Setting
+      - 设置
+      - 설정
+      - 设置
+      - 設定
+      - Paramètres
+      - Einstellungen
+      - Настройки
+      - Configuración
+      - Configurações
+      - Impostazione
+      - Pengaturan
+      - Cài đặt
+      - การตั้งค่า
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: suggestion
+      TermType: 0
+      Languages:
+      - Suggestion
+      - 意见
+      - 의견
+      - 意见
+      - フィードバック
+      - Avis
+      - Feedback
+      - Отзыв
+      - Opiniones
+      - Sugestão
+      - Suggerimento
+      - Saran
+      - Gợi ý
+      - คำแนะนำ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: bind_fb
+      TermType: 0
+      Languages:
+      - Bind FB
+      - 绑定FB
+      - FB 바인딩
+      - 绑定FB
+      - FBにバインド
+      - Associer à FB
+      - FB verknüpfen
+      - Привязать к FB
+      - Conectar con FB
+      - Vincular ao FB
+      - Associa FB
+      - Ikatan FB
+      - Liên kết FB
+      - ผูก FB
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: restore
+      TermType: 0
+      Languages:
+      - Restore
+      - 恢复购买
+      - 구매 복원
+      - 恢复购买
+      - 購入を復元
+      - Restaurer les achats
+      - Kauf wiederherstellen
+      - Восстановить покупки
+      - Restaurar compras
+      - Restaurar
+      - Ripristina
+      - Pemulihan
+      - Khôi phục
+      - กู้คืน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: delete
+      TermType: 0
+      Languages:
+      - Delete Account
+      - 删除账户
+      - 계정 삭제
+      - 删除账户
+      - アカウントを削除
+      - Supprimer le compte
+      - Konto löschen
+      - Удалить аккаунт
+      - Eliminar cuenta
+      - Excluir Conta
+      - Elimina Account
+      - Hapus Akun
+      - Xóa Tài khoản
+      - ลบบัญชี
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: user_id
+      TermType: 0
+      Languages:
+      - User ID:{0}
+      - 用户ID：{0}
+      - '사용자 ID: {0}'
+      - 用户ID：{0}
+      - ユーザーID：{0}
+      - 'ID utilisateur : {0}'
+      - 'Benutzer ID: {0}'
+      - 'ID игрок: {0}'
+      - 'ID de usuario: {0}'
+      - ID do Usuário:{0}
+      - 'ID Utente: {0}'
+      - 'ID Pengguna: {0}'
+      - 'ID Người dùng: {0}'
+      - ไอดีผู้ใช้:{0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice
+      TermType: 0
+      Languages:
+      - Notice
+      - 通知
+      - 알림
+      - 通知
+      - 通知
+      - Notifications
+      - Benachrichtigungen
+      - Уведомление
+      - Notificaciones
+      - Aviso
+      - Avviso
+      - Pemberitahuan
+      - Thông báo
+      - แจ้งเตือน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice_delete
+      TermType: 0
+      Languages:
+      - Are you sure to delete account?
+      - 你确定要删除账户吗？
+      - 계정을 삭제하시겠습니까?
+      - 你确定要删除账户吗？
+      - アカウントを削除してもよろしいですか？
+      - Voulez-vous vraiment supprimer votre compte ?
+      - Möchten Sie Ihr Konto wirklich löschen?
+      - Вы уверены, что хотите удалить аккаунт?
+      - ¿Estás seguro de que quieres eliminar tu cuenta?
+      - Tem certeza de que deseja excluir a conta?
+      - Sei sicuro di voler eliminare l'account?
+      - Apakah Anda yakin ingin menghapus akun?
+      - Bạn có chắc chắn muốn xóa tài khoản không?
+      - คุณแน่ใจหรือไม่ว่าต้องการลบบัญชี?
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice_sure
+      TermType: 0
+      Languages:
+      - After the account is deleted, it can't be restored, are you sure?
+      - 删除账户后，就不会被恢复，你确定吗？
+      - 계정을 삭제하면 복구할 수 없습니다. 정말 삭제하시겠습니까?
+      - 删除账户后，就不会被恢复，你确定吗？
+      - アカウントを削除すると、復元できません。本当に削除しますか？
+      - Après la suppression, il ne pourra pas être récupéré. Êtes-vous sûr ?
+      - Nach dem Löschen kann es nicht wiederhergestellt werden. Sind Sie sicher?
+      - После удаления аккаунт не может быть восстановлен. Вы уверены?
+      - ¿Seguro que quieres eliminar tu cuenta? Esta acción no se puede deshacer.
+      - Depois que a conta for excluída, não poderá ser restaurada, tem certeza?
+      - Dopo l'eliminazione, non può essere ripristinato, sei sicuro?
+      - Setelah akun dihapus, tidak dapat dikembalikan, apakah Anda yakin?
+      - Sau khi tài khoản được xóa, không thể khôi phục được, bạn có chắc chắn không?
+      - หลังจากลบบัญชีแล้ว จะไม่สามารถกู้คืนได้ คุณแน่ใจหรือไม่?
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: cancel
+      TermType: 0
+      Languages:
+      - Cancel
+      - 取消
+      - 취소
+      - 取消
+      - キャンセル
+      - Annuler
+      - Abbrechen
+      - Отмена
+      - Cancelar
+      - Cancelar
+      - Annulla
+      - Batal
+      - Hủy
+      - ยกเลิก
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: yes
+      TermType: 0
+      Languages:
+      - Yes
+      - 确定
+      - 확인
+      - 确定
+      - 確認
+      - Confirmer
+      - Bestätigen
+      - Да
+      - Confirmar
+      - Sim
+      - Sì
+      - Ya
+      - Có
+      - ใช่
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: get_live
+      TermType: 0
+      Languages:
+      - Get more lives
+      - 获得更多体力
+      - 더 많은 체력 얻기
+      - 获得更多体力
+      - もっとスタミナを入手
+      - Obtenez plus d'énergie
+      - Mehr Energie erhalten
+      - Получить больше энергии
+      - Obtener más energía
+      - Obtenha mais vidas
+      - Ottieni più vite
+      - Mendapatkan energi
+      - Nhận thêm lượt sống
+      - ได้รับชีวิตมากขึ้น
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: piggy_bank
+      TermType: 0
+      Languages:
+      - Piggy Bank
+      - 小猪银行
+      - 작은 돼지 은행
+      - 小猪银行
+      - ピッグバンク
+      - Banque de cochons
+      - Schweinchenbank
+      - Копилка
+      - Banco del cerdito
+      - Cofrinho
+      - Salvadanaio
+      - Celengan
+      - Hòm tiền
+      - กระปุกออมสิน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: piggy_bank1
+      TermType: 0
+      Languages:
+      - The piggy bank is full, open it to get the gold coins inside!
+      - 小猪银行满了，打开可以获得里面的金币！
+      - 작은 돼지 은행이 가득 찼습니다. 열면 안에 동전이 나옵니다!
+      - 小猪银行满了，打开可以获得里面的金币！
+      - ピッグバンクがいっぱいです、開けて中のコインをゲットしましょう！
+      - La banque de cochons est pleine, ouvrez-la pour obtenir les pièces à l'intérieur!
+      - Die Schweinchenbank ist voll, öffne sie und erhalte die Münzen darin!
+      - Когда копилка полна, откройте ее, чтобы получить золото!
+      - ¡Ábrelo cuando esté lleno para obtener monedas!
+      - O cofrinho está cheio, abra-o para pegar as moedas de ouro!
+      - Il salvadanaio è pieno, aprilo per ottenere le monete d'oro!
+      - Celengan penuh, buka untuk mendapatkan koin emas di dalamnya!
+      - Hòm tiền đầy, mở để nhận được đồng xu vàng bên trong!
+      - กระปุกออมสินเต็มแล้ว ให้เปิดเพื่อรับเหรียญทองภายใน!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: piggy_bank2
+      TermType: 0
+      Languages:
+      - The piggy bank is almost full，open it to get the gold coins inside!
+      - 小猪银行快满了，打开可以获得里面的金币！
+      - 작은 돼지 은행이 거의 가득 찼습니다. 열면 안에 동전이 나옵니다!
+      - 小猪银行快满了，打开可以获得里面的金币！
+      - ピッグバンクがもうすぐいっぱいです、開けて中のコインをゲットしましょう！
+      - La banque de cochons est presque pleine, ouvrez-la pour obtenir les pièces à l'intérieur!
+      - Die Schweinchenbank ist fast voll, öffne sie und erhalte die Münzen darin!
+      - Копилка почти полна! Откройте ее, чтобы получить золото!
+      - ¡El banco del cerdito está casi lleno! ¡Ábrelo para obtener monedas!
+      - O cofrinho está quase cheio, abra-o para pegar as moedas de ouro!
+      - Il salvadanaio è quasi pieno, aprilo per ottenere le monete d'oro!
+      - Celengan hampir penuh, buka untuk mendapatkan koin emas di dalamnya!
+      - Hòm tiền gần đầy, mở để nhận được đồng xu vàng bên trong!
+      - กระปุกออมสินเต็มเกือบแล้ว ให้เปิดเพื่อรับเหรียญทองภายใน!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: remove_pack
+      TermType: 0
+      Languages:
+      - REMOVE ADS PACK
+      - 去广告礼包
+      - 광고 제거 선물 팩
+      - 去广告礼包
+      - 広告なしパック
+      - PACK PUBLICITÉ SUPPRIMÉE
+      - WERBUNG ENTFERNEN PAKET
+      - ПАКЕТ БЕЗ РЕКЛАМЫ
+      - PAQUETE SIN ANUNCIOS
+      - PACK DE REMOÇÃO DE ANÚNCIOS
+      - PACK RIMUOVI PUBBLICITÀ
+      - PAKET HAPUS IKLAN
+      - GÓI LOẠI BỎ QUẢNG CÁO
+      - ชุดลบโฆษณา
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: free_pack
+      TermType: 0
+      Languages:
+      - FREE PACK
+      - 免费大礼包
+      - 무료 대성공 팩
+      - 免费大礼包
+      - 無料ギフトパック
+      - PACK CADEAU GRATUIT
+      - GRATIS GESCHENKPAKET
+      - БЕСПЛАТН.ПАКЕТ
+      - REGALO GRATIS
+      - PACK GRATUITO
+      - PACK GRATUITO
+      - PAKET GRATIS
+      - GÓI MIỄN PHÍ
+      - ชุดฟรี
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: free
+      TermType: 0
+      Languages:
+      - Free
+      - 免费
+      - 무료
+      - 免费
+      - 無料
+      - Gratuit
+      - Gratis
+      - Бесплатно
+      - Gratis
+      - Grátis
+      - Gratis
+      - Gratis
+      - Miễn
+      - ฟรี
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: daily_bonus
+      TermType: 0
+      Languages:
+      - Daily Bonus
+      - 每日奖励
+      - 매일 보상
+      - 每日奖励
+      - デイリーリワード
+      - Récompense quotidienne
+      - Tägliche Belohnung
+      - Ежедневные награды
+      - Recompensas diarias
+      - Bônus Diário
+      - Bonus giornaliero
+      - Bonus Harian
+      - Thưởng hàng ngày
+      - โบนัสประจำวัน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: day
+      TermType: 0
+      Languages:
+      - Day {0}
+      - 第{0}天
+      - '{0}일'
+      - 第{0}天
+      - '{0}日目'
+      - Jour {0}
+      - Tag {0}
+      - День {0}
+      - Día {0}
+      - Dia {0}
+      - Giorno {0}
+      - Hari {0}
+      - Ngày {0}
+      - วันที่ {0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: next_day
+      TermType: 0
+      Languages:
+      - Next Day
+      - 下一天
+      - 다음 날
+      - 下一天
+      - 次の日
+      - Jour suivant
+      - Nächster Tag
+      - Следующий день
+      - Siguiente
+      - Próximo Dia
+      - Giorno successivo
+      - Hari Berikutnya
+      - Ngày Tiếp Theo
+      - วันถัดไป
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: no_thanks
+      TermType: 0
+      Languages:
+      - No thanks
+      - 不，谢谢
+      - 아니오, 감사합니다
+      - 不，谢谢
+      - いいえ、結構です
+      - Non merci
+      - Nein, danke
+      - Нет, спасибо
+      - No, gracias
+      - Não, obrigado
+      - No, grazie
+      - Tidak, terima kasih
+      - Không, cảm ơn
+      - ไม่เอาบริการ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: close
+      TermType: 0
+      Languages:
+      - Close
+      - 关闭
+      - 닫기
+      - 关闭
+      - 閉じる
+      - Fermer
+      - Schließen
+      - Закрыть
+      - Cerrar
+      - Fechar
+      - Chiudi
+      - Tutup
+      - Đóng
+      - ปิด
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: full
+      TermType: 0
+      Languages:
+      - FULL
+      - 满了
+      - 가득 참
+      - 满了
+      - いっぱい
+      - PLEIN
+      - VOLL
+      - ПОЛНАЯ
+      - LLENO
+      - CHEIO
+      - PIENO
+      - PENUH
+      - ĐẦY
+      - เต็ม
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: login
+      TermType: 0
+      Languages:
+      - Login
+      - 登入
+      - 로그인
+      - 登入
+      - ログイン
+      - Se connecter
+      - Einloggen
+      - Вход
+      - Iniciar sesión
+      - Login
+      - Accesso
+      - Masuk
+      - Đăng nhập
+      - เข้าสู่ระบบ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: store
+      TermType: 0
+      Languages:
+      - Store
+      - 商城
+      - 상점
+      - 商城
+      - ショッピングモール
+      - Boutique
+      - Shop
+      - Магазин
+      - Tienda
+      - Loja
+      - Negozio
+      - Toko
+      - Cửa hàng
+      - ร้านค้า
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: first_purchase_pack
+      TermType: 0
+      Languages:
+      - Welcome Gift Pack
+      - 新手礼包
+      - 초보자 선물 팩
+      - 新手礼包
+      - 初心者ギフトパック
+      - Pack débutant
+      - Anfänger Paket
+      - Нач.пакет
+      - Paquete de bienvenida
+      - Pacote de Boas-Vindas
+      - Pack nuovo
+      - Paket Pemula
+      - Gói Quà Chào Mừng
+      - ชุดของขวัญต้อนรับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: stocker_pack
+      TermType: 0
+      Languages:
+      - Shelf Stocker's Pack
+      - 店员礼包
+      - 점원 선물 팩
+      - 店员礼包
+      - 店員ギフトパック
+      - Pack de vendeur
+      - Verkäufer Paket
+      - Кл.пакет
+      - Paquete de dependiente
+      - Pacote de Estoquista
+      - Pack scaffalista
+      - Paket Karyawan Toko
+      - Gói Người Dọn Kho
+      - ชุดลงรายการ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: cashier_pack
+      TermType: 0
+      Languages:
+      - Cashier's Pack
+      - 收银员礼包
+      - 계산원 선물 팩
+      - 收银员礼包
+      - キャッシャーギフトパック
+      - Pack de caissier
+      - Kassierer Paket
+      - Кассир.пакет
+      - Paquete de cajero
+      - Pacote de Caixa
+      - Pack cassiere
+      - Paket Kasir
+      - Gói Thu Ngân
+      - ชุดผู้ให้บริการเงินสด
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: purchaser_pack
+      TermType: 0
+      Languages:
+      - Purchaser's Pack
+      - 采购员礼包
+      - 구매원 선물 팩
+      - 采购员礼包
+      - 購買員ギフトパック
+      - Pack d'acheteur
+      - Einkäufer Paket
+      - Закуп.пакет
+      - Paquete de comprador
+      - Pacote de Comprador
+      - Pack acquirente
+      - Paket Pembeli
+      - Gói Người Mua
+      - ชุดผู้ซื้อ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: guard_pack
+      TermType: 0
+      Languages:
+      - Security Guard's Pack
+      - 保安礼包
+      - 안전원 선물 팩
+      - 保安礼包
+      - セキュリティガードギフトパック
+      - Pack de sécurité
+      - Sicherheitspersonal Paket
+      - Охран.пакет
+      - Paquete de guardia
+      - Pacote de Segurança
+      - Pack guardia
+      - Paket Penjaga Keamanan
+      - Gói Bảo Vệ
+      - ชุดผู้รักษาความปลอดภัย
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: manager_pack
+      TermType: 0
+      Languages:
+      - Manager's Pack
+      - 经理礼包
+      - 매니저 선물 팩
+      - 经理礼包
+      - マネージャーギフトパック
+      - Pack de gestionnaire
+      - Manager Paket
+      - Менедж.пакет
+      - Paquete de gerente
+      - Pacote de Gerente
+      - Pack manager
+      - Paket Manajer
+      - Gói Quản Lý
+      - ชุดผู้จัดการ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: shareholde_pack
+      TermType: 0
+      Languages:
+      - Shareholde's Pack
+      - 股东礼包
+      - 주주 팩
+      - 股东礼包
+      - 株主パック
+      - Pack d'actionnaires
+      - Aktionärs Paket
+      - Акционеров.пакет
+      - Paquete de accionistas
+      - Pacote de Acionistas
+      - Pack azionisti
+      - Paket Pemegang Saham
+      - Gói Cổ đông
+      - แพ็คผู้ถือหุ้น
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: chairman_pack
+      TermType: 0
+      Languages:
+      - Chairman's Pack
+      - 董事长礼包
+      - 회장 팩
+      - 董事长礼包
+      - 会長パック
+      - Pack du président
+      - Vorstands Paket
+      - Паредседателя.пакет
+      - Paquete de presidente
+      - Pacote do Presidente
+      - Pack presidente
+      - Paket Ketua
+      - Gói của Chủ tịch
+      - แพ็คของประธาน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: most_popular
+      TermType: 0
+      Languages:
+      - Most Popular
+      - 最流行
+      - 가장 인기
+      - 最流行
+      - 最も人気
+      - Tendances
+      - Top Trends
+      - Популярное
+      - Populares
+      - Mais Popular
+      - Più popolare
+      - Paling Populer
+      - Phổ biến
+      - ยอดนิยมที่สุด
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: most_value
+      TermType: 0
+      Languages:
+      - Most Value
+      - 最有价值
+      - 초가치
+      - 最有价值
+      - お得
+      - Valeur maximale
+      - Höchster Wert
+      - Ценное
+      - Más valiosos
+      - Mais Valor
+      - Più valore
+      - Paling Berharga
+      - Giá trị cao
+      - มูลค่าสูงสุด
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: streak_reward
+      TermType: 0
+      Languages:
+      - Streak Reward
+      - 连胜奖励
+      - 연승 보상
+      - 连胜奖励
+      - 連勝報酬
+      - Récompense de série
+      - Siegesprämie
+      - Награда за серию побед
+      - Recompensas de racha
+      - Recompensa de Sequência
+      - Ricompensa serie
+      - Hadiah Beruntun
+      - Phần thưởng liên tục
+      - รางวัลเกิดต่อเนื่อง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: win
+      TermType: 0
+      Languages:
+      - Win {0}
+      - 赢{0}
+      - '{0}승'
+      - 赢{0}
+      - 勝つ{0}
+      - Gagnez {0}
+      - Gewinne {0}
+      - Выиграть {0}
+      - Gana {0}
+      - Ganhe {0}
+      - Vinci {0}
+      - Menang {0}
+      - Thắng {0}
+      - ชนะ {0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: select_boosters
+      TermType: 0
+      Languages:
+      - Select Boosters
+      - 选择道具
+      - 아이템 선택
+      - 选择道具
+      - アイテムを選択
+      - Choisissez des objets
+      - Wähle Gegenstände aus
+      - Выбрать предмет
+      - Seleccionar ítem
+      - Selecionar Impulsionadores
+      - Scegli Oggetto
+      - Pilih Penguat
+      - Chọn Bộ tăng cường
+      - เลือกบูสเตอร์
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: play
+      TermType: 0
+      Languages:
+      - Play
+      - 玩游戏
+      - 게임하다
+      - 玩游戏
+      - 遊ぶ
+      - Jouer
+      - Spielen
+      - Играть
+      - Jugar
+      - Jogar
+      - Gioca
+      - Bermain
+      - Chơi
+      - เล่น
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: free_gift
+      TermType: 0
+      Languages:
+      - Free Gift
+      - 免费礼包
+      - 무료 선물 팩
+      - 免费礼包
+      - 無料ギフト
+      - Pack Gratuit
+      - Gratis Paket
+      - Бесплатно
+      - Paquete Gratuito
+      - Presente Grátis
+      - Regalo Gratuito
+      - Hadiah Gratis
+      - Quà Miễn Phí
+      - ของขวัญฟรี
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: win_info
+      TermType: 0
+      Languages:
+      - Continuously win levels will get extra times!
+      - 连续通关关卡会获得额外的奖励时间！
+      - 연속해서 스테이지를 클리어하면 추가 보상 시간이 주어집니다!
+      - 连续通关关卡会获得额外的奖励时间！
+      - 連続してステージをクリアすると追加の報酬時間がもらえます！
+      - Terminer des niveaux consécutifs donne du temps bonus!
+      - Das aufeinanderfolgende Abschließen von Levels bringt zusätzliche Belohnungszeit!
+      - Последовательное прохождение уровней дает дополнительное время и награды!
+      - ¡Obtén tiempo extra y recompensas al superar niveles consecutivos!
+      - Vencer continuamente os níveis dará tempos extras!
+      - Vincere continuamente livelli otterrà tempi extra!
+      - Terus menang level akan mendapatkan waktu tambahan!
+      - Liên tục chiến thắng các cấp độ sẽ nhận thêm thời gian!
+      - การชนะเกมเลเวลต่อเนื่องจะได้เวลาพิเศษเพิ่มเติม!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: shopwatch_info
+      TermType: 0
+      Languages:
+      - 'Stopwatch: Increased game time by 30 seconds!'
+      - 秒表：游戏时间增加 30 秒！
+      - '스톱워치: 게임 시간이30초 증가합니다!'
+      - 秒表：游戏时间增加 30 秒！
+      - ストップウォッチ：ゲーム時間が30秒増えます！
+      - 'Chronomètre : Ajoute 30 secondes au temps de jeu!'
+      - 'Stoppuhr: Das Spiel wird um 30 Sekunden verlängert!'
+      - 'Секундомер: +30 секунд игрового времени!'
+      - 'Cronómetro: ¡Añade 30 segundos al tiempo de juego!'
+      - 'Cronômetro: Aumenta o tempo de jogo em 30 segundos!'
+      - 'Cronometro: Aumenta il tempo di gioco di 30 secondi!'
+      - 'Stopwatch: Meningkatkan waktu permainan sebanyak 30 detik!'
+      - 'Đồng hồ bấm giờ: Tăng thời gian chơi thêm 30 giây!'
+      - 'ตัวจับเวลา: เพิ่มเวลาเกมเพิ่มเติม 30 วินาที!'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: shopping_car_info
+      TermType: 0
+      Languages:
+      - 'Shopping Cart: Eliminate 2 goods!'
+      - 购物车：消除2组商品！
+      - '장바구니: 상품2세트를 제거합니다!'
+      - 购物车：消除2组商品！
+      - ショッピングカート：商品を2組消去します！
+      - 'Caddie : Élimine 2 groupes de produits!'
+      - 'Einkaufswagen: Eliminiere 2 Produktgruppen!'
+      - 'Тележка: Убрать 2 группы товаров!'
+      - 'Carrito de compras: ¡Elimina 2 grupos de productos!'
+      - 'Carrinho de Compras: Elimine 2 itens!'
+      - 'Carrello della spesa: Elimina 2 oggetti!'
+      - 'Troli Belanja: Menghilangkan 2 barang!'
+      - 'Giỏ hàng: Loại bỏ 2 hàng hóa!'
+      - 'รถเข็น: กำจัดสินค้า 2 ชิ้น!'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: paint_bucket_info
+      TermType: 0
+      Languages:
+      - 'Paint Bucket: Restores the colors of 2 sets of goods!'
+      - 油漆桶：恢复2组商品的默认色！
+      - '페인트 양동이: 상품 2세트의 기본 색상을 복원합니다!'
+      - 油漆桶：恢复2组商品的默认色！
+      - ペイントバケツ：商品の色を2組回復させます！
+      - 'Seau de peinture : Restaure la couleur de 2 groupes de produits!'
+      - 'Farbeimer: Stelle die Farbe von 2 Produktgruppen wieder her!'
+      - 'Ведро краски: Восстановить цвет 2 групп товаров!'
+      - 'Bote de pintura: ¡Restaura el color predeterminado de 2 grupos de productos!'
+      - 'Balde de Tinta: Restaura as cores de 2 conjuntos de itens!'
+      - 'Secchio di vernice: Ripristina i colori di 2 set di oggetti!'
+      - 'Ember Cat: Mengembalikan warna dari 2 set barang!'
+      - 'Xô sơn: Khôi phục màu sắc của 2 bộ hàng hóa!'
+      - 'ถังสี: กู้คืนสีของสินค้าชุด 2 ชุด!'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: bomb_info
+      TermType: 0
+      Languages:
+      - 'Bomb: Blow up a sets of goods!'
+      - 炸弹：炸毁指定商品！
+      - '폭탄: 특정 상품을 폭파시킵니다!'
+      - 炸弹：炸毁指定商品！
+      - 爆弾：指定された商品を爆破します！
+      - 'Bombe : Détruit le produit spécifié!'
+      - 'Bombe: Zerstöre das angegebene Produkt!'
+      - 'Бомба: Взорвать указанный товар!'
+      - 'Bomba: ¡Explota el producto especificado!'
+      - 'Bomba: Explode um item específico!'
+      - 'Bomba: Fai esplodere un oggetto specifico!'
+      - 'Bom: Meledakkan 1 set barang!'
+      - 'Bom: Nổ tung một bộ hàng hóa!'
+      - 'ระเบิด: ทำลายชุดสินค้า 1 ชุด!'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: magic_wand_info
+      TermType: 0
+      Languages:
+      - 'Magic Wand: Randomly turns 2 sets of goods into one item!'
+      - 魔法杖：随机将2组商品变成1种商品！
+      - '마법 지팡이: 무작위 상품2세트를 1종류로 변환합니다!'
+      - 魔法杖：随机将2组商品变成1种商品！
+      - マジックワンド：ランダムに商品を2組1種類に変えます！
+      - 'Baguette magique : Transforme 2 groupes de produits au hasard en 1 groupe!'
+      - 'Zauberstab: Verwandele zufällig 2 Produktgruppen in 1 Produkt!'
+      - 'Волшебная палочка: Случайным образом превратить 2 группы товаров в один вид!'
+      - 'Varita mágica: ¡Transforma aleatoriamente 2 grupos de productos en 1!'
+      - 'Varinha Mágica: Transforma aleatoriamente 2 conjuntos de itens em um!'
+      - 'Bacchetta magica: Trasforma casualmente 2 set di oggetti in un unico oggetto!'
+      - 'Tongkat Sihir: Mengubah secara acak 2 set barang menjadi satu item!'
+      - 'Đũa thần: Ngẫu nhiên biến đổi 2 bộ hàng hóa thành một mục!'
+      - 'ไไม้มายา: ทำให้ชุดสินค้า 2 ชุดกลายเป็นสินค้า 1 ชิ้นโดยสุ่ม!'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: temporary_container_info
+      TermType: 0
+      Languages:
+      - 'Temporary Container: A container with 2 slots appears!'
+      - 临时货柜：出现一个2个空位的货柜！
+      - '임시 화물 컨테이너: 2개의 빈 칸이 있는 화물 컨테이너가 나타납니다!'
+      - 临时货柜：出现一个2个空位的货柜！
+      - 一時的なコンテナ：2つの空きスペースがあるコンテナが出現します！
+      - 'Conteneur temporaire : Apparaît avec un conteneur de 2 emplacements vides!'
+      - 'Temporärer Container: Erscheint ein Container mit 2 leeren Plätzen!'
+      - 'Временный контейнер: Появится контейнер с 2 пустыми местами!'
+      - 'Contenedor temporal: ¡Aparece con 2 espacios vacíos!'
+      - 'Recipiente Temporário: Aparece um recipiente com 2 slots!'
+      - 'Contenitore temporaneo: Compare un contenitore con 2 slot!'
+      - 'Kontainer Sementara: Sebuah kontainer dengan 2 slot muncul!'
+      - 'Bình chứa tạm thời: Một cái hộp có 2 khe xuất hiện!'
+      - 'ซ่อนแอลกอฮอล์: มีอาหารในบาร์เซอร์ 2 ช่องปรากฏ!'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: magic_hat_info
+      TermType: 0
+      Languages:
+      - 'Magic Hat: Reshuffle the position of goods!'
+      - 魔法帽：重组商品的位置！
+      - '마법 모자: 상품의 위치를 재배열합니다!'
+      - 魔法帽：重组商品的位置！
+      - マジックハット：商品の位置を再構築します！
+      - 'Chapeau magique : Reconfigure la position des produits!'
+      - 'Zauberhut: Neu anordnen der Produktplatzierung!'
+      - 'Волшебная шляпа: Переместить товары!'
+      - 'Sombrero mágico: ¡Reorganiza la posición de los productos!'
+      - 'Chapéu Mágico: Reorganiza a posição dos itens!'
+      - 'Cappello magico: Rimescola la posizione degli oggetti!'
+      - 'Topi Sihir: Mengacak ulang posisi barang!'
+      - 'Mũ phép: Trộn lại vị trí của hàng hóa!'
+      - 'ตู้คลังสินค้าชั่วคราว: จัดเรียงตำแหน่งของสินค้าใหม่!'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: prop_explain
+      TermType: 0
+      Languages:
+      - Prop Explain
+      - 道具简介
+      - 아이템 소개
+      - 道具简介
+      - アイテムの説明
+      - Description des objets
+      - Objektvorstellung
+      - Описание предмета
+      - Descripción de ítems
+      - Explicação dos Itens
+      - Spiega Prop
+      - Penjelasan Properti
+      - Giải thích đạo cụ
+      - อธิบายพร็อพ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: game_pause
+      TermType: 0
+      Languages:
+      - GAME PAUSE
+      - 游戏暂停
+      - 게임 일시 중지
+      - 游戏暂停
+      - ゲーム一時停止
+      - PAUSE DU JEU
+      - SPIEL PAUSIEREN
+      - ПАУЗА В ИГРЕ
+      - PAUSA EN EL JUEGO
+      - PAUSA DO JOGO
+      - PAUSA DI GIOCO
+      - PAUSE PERMAINAN
+      - TẠM DỪNG
+      - หยุดเกม
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: home
+      TermType: 0
+      Languages:
+      - Home
+      - 主页
+      - 홈
+      - 主页
+      - ホーム
+      - Accueil
+      - Zuhause
+      - Домой
+      - Inicio
+      - Casa
+      - Casa
+      - Beranda
+      - Trang chủ
+      - หน้าหลัก
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: refresh
+      TermType: 0
+      Languages:
+      - Refresh
+      - 刷新
+      - 재시도
+      - 刷新
+      - リトライ
+      - Retenter
+      - Erneuern
+      - Обновить
+      - Actualizar
+      - Atualizar
+      - Aggiorna
+      - Segar
+      - Làm mới
+      - รีเฟรช
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: continue
+      TermType: 0
+      Languages:
+      - Continue
+      - 继续
+      - 계속
+      - 继续
+      - 続ける
+      - Continuer
+      - Fortsetzen
+      - Продолжи
+      - Continuar
+      - Continuar
+      - Continua
+      - Lanjutkan
+      - Tiếp tục
+      - ดำเนินการต่อ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: time_up
+      TermType: 0
+      Languages:
+      - Time up!
+      - 时间到！
+      - 시간 종료!
+      - 时间到！
+      - 時間切れ！
+      - Temps écoulé!
+      - Zeit abgelaufen!
+      - Время вышло!
+      - ¡Se acabó el tiempo!
+      - Tempo esgotado!
+      - Tempo scaduto!
+      - Waktu habis!
+      - Hết giờ!
+      - หมดเวลา!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: add_time
+      TermType: 0
+      Languages:
+      - Add {0}s to keep playing!
+      - 加{0}秒继续游戏！
+      - '{0}초 추가로 게임을 계속하세요!'
+      - 加{0}秒继续游戏！
+      - '{0}秒追加でゲームを続けます！'
+      - Ajoutez {0} secondes pour continuer le jeu!
+      - Füge {0} Sekunden hinzu, um das Spiel fortzusetzen!
+      - Добавить {0} секунд для продолжения игры!
+      - Agregar {0} segundos para continuar el juego.
+      - Adicione {0}s para continuar jogando!
+      - Aggiungi {0}s per continuare a giocare!
+      - Tambahkan {0}d untuk melanjutkan bermain!
+      - Thêm {0}s để tiếp tục chơi!
+      - เพิ่ม {0} วินาทีเพื่อเล่นต่อ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: revive
+      TermType: 0
+      Languages:
+      - Revive
+      - 复活
+      - 부활
+      - 复活
+      - 復活
+      - Réanimer
+      - Aufleben
+      - Воскрешение
+      - Resurrección
+      - Reviver
+      - Rianimare
+      - Bangkitkan
+      - Hồi sinh
+      - ฟื้นคืนชีวิต
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: lose_goods
+      TermType: 0
+      Languages:
+      - You will lose your goods!
+      - 你将失去你收集的商品！
+      - 수집한 상품이 손실됩니다!
+      - 你将失去你收集的商品！
+      - コレクションした商品が失われます！
+      - Vous perdrez les produits que vous avez collectés!
+      - Du wirst die gesammelten Produkte verlieren!
+      - Вы потеряете собранные товары!
+      - ¡Perderás los productos que hayas recolectado!
+      - Você perderá seus produtos!
+      - Perderai i tuoi oggetti!
+      - Anda akan kehilangan barang-barang Anda!
+      - Bạn sẽ mất hàng hóa của mình!
+      - คุณจะสูญเสียสินค้าของคุณ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: retry
+      TermType: 0
+      Languages:
+      - Retry
+      - 重试
+      - 재시도
+      - 重试
+      - リトライ
+      - Retenter
+      - Nochmal
+      - Повтор
+      - Reintentar
+      - Repetir
+      - Riprova
+      - Ulang
+      - Thử lại
+      - ลองใหม่
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: out_moves
+      TermType: 0
+      Languages:
+      - Out of moves
+      - 无法移动
+      - 이동할 수 없음
+      - 无法移动
+      - 移動できません
+      - Impossible de bouger
+      - Kann nicht bewegen
+      - Невозможно двигаться
+      - No se puede mover
+      - Sem movimentos
+      - Senza mosse
+      - Gerakan habis
+      - Hết nước đi
+      - หมดโอกาส
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: revoke_move
+      TermType: 0
+      Languages:
+      - Revoke {0} moves to keep playing!
+      - 撤销{0}步继续游戏！
+      - '{0}단계 되돌리기로 게임을 계속하세요!'
+      - 撤销{0}步继续游戏！
+      - 取り消し{0}歩でゲームを続けます！
+      - Annulez {0} mouvements pour continuer le jeu!
+      - Mache {0} Schritte rückgängig, um das Spiel fortzusetzen!
+      - Отменить {0} шагов для продолжения игры!
+      - Deshacer {0} pasos para continuar el juego.
+      - Revogar {0} movimentos para continuar jogando!
+      - Revoca {0} mosse per continuare a giocare!
+      - Mundur 0 langkah, lanjutkan permainan!
+      - Thu hồi {0} nước đi để tiếp tục chơi!
+      - เพื่อให้สามารถดำเนินการต่อได้ {0} การเลื่อน!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: bomb_tap
+      TermType: 0
+      Languages:
+      - Tap any item to smash it!
+      - 点击一个商品摧毁它！
+      - 상품을 클릭하여 파괴하세요!
+      - 点击一个商品摧毁它！
+      - 商品をクリックして破壊します！
+      - Cliquez sur un produit pour le détruire!
+      - Klicke auf ein Produkt, um es zu zerstören!
+      - Нажмите на товар, чтобы уничтожить его!
+      - Haz clic en un producto para destruirlo.
+      - Toque em qualquer objeto para destruí-lo!
+      - Tocca qualsiasi oggetto per distruggerlo!
+      - Ketuk item apa pun untuk menghancurkannya!
+      - Chạm vào bất kỳ mục nào để đập nó!
+      - แตะที่วัตถุใดก็ได้เพื่อทำลาย!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: bonus_level
+      TermType: 0
+      Languages:
+      - Bonus Level!
+      - 奖励关卡
+      - 보너스 스테이지
+      - 奖励关卡
+      - ボーナスステージ
+      - Niveau de récompense
+      - Belohnungslevel
+      - Бонусный уровень
+      - Nivel de recompensa
+      - Nível de Bônus!
+      - Livello bonus!
+      - Level Bonus!
+      - Cấp độ Thưởng!
+      - เลเวลโบนัส!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: next
+      TermType: 0
+      Languages:
+      - Next
+      - 下一关
+      - 다음
+      - 下一关
+      - 次の
+      - Suivant
+      - Nächstes
+      - Далее
+      - Siguiente
+      - Próximo
+      - Successivo
+      - Lanjut
+      - Tiếp
+      - ถัดไป
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: skins
+      TermType: 0
+      Languages:
+      - Skins
+      - 皮肤
+      - 스킨
+      - 皮肤
+      - スキン
+      - Peau
+      - Haut
+      - Скины
+      - Skins
+      - Skins
+      - Pelli
+      - Kulit
+      - Da
+      - สกิน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: cabinet
+      TermType: 0
+      Languages:
+      - Cabinet
+      - 货柜
+      - 컨테이너
+      - 货柜
+      - コンテナ
+      - Conteneur
+      - Container
+      - Контейнер
+      - Contenedor
+      - Armário
+      - Armadio
+      - Lemari
+      - Tủ
+      - ตู้
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: scene
+      TermType: 0
+      Languages:
+      - Scene
+      - 背景
+      - 배경
+      - 背景
+      - 背景
+      - Arrière plan
+      - Hintergrund
+      - Фон
+      - Fondo
+      - Cena
+      - Scena
+      - Lokasi
+      - Cảnh
+      - ฉาก
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: try
+      TermType: 0
+      Languages:
+      - Try
+      - 试用
+      - 사용해 보기
+      - 试用
+      - 試す
+      - Essayer
+      - Testen
+      - Проба
+      - Prueba
+      - Testar
+      - Prova
+      - Coba
+      - Thử
+      - ลอง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: coins_no
+      TermType: 0
+      Languages:
+      - Coins are not enough!
+      - 金币不足！
+      - 코인 부족!
+      - 金币不足！
+      - コイン不足！
+      - Pas assez de pièces!
+      - Goldmangel!
+      - Недостаточно золота!
+      - ¡Monedas insuficientes!
+      - Moedas não são suficientes!
+      - Non ci sono abbastanza monete!
+      - Koin tidak cukup!
+      - Số xu không đủ!
+      - เหรียญไม่เพียงพอ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: open
+      TermType: 0
+      Languages:
+      - Open
+      - 打开
+      - 열기
+      - 打开
+      - 開ける
+      - Ouvrir
+      - Öffnen
+      - Открыть
+      - Abrir
+      - Abrir
+      - Apri
+      - Buka
+      - Mở
+      - เปิด
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: shopping_pass
+      TermType: 0
+      Languages:
+      - Shopping Pass
+      - 购物通行证
+      - 쇼핑 패스
+      - 购物通行证
+      - パスポート
+      - Passe d'achat
+      - Einkaufspass
+      - Пропуск
+      - Pasaporte
+      - Passaporte
+      - Shopping Pass
+      - Pengelana Belanja
+      - Thẻ Mua Hàng
+      - บัตรช้อปปิ้ง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_info1
+      TermType: 0
+      Languages:
+      - The Shopping Pass will give you a chance to get special rewards!
+      - 购物通行证将给你获得特殊奖励的机会！
+      - 쇼핑 패스를 구매하여 특별 보상을 얻으세요!
+      - 购物通行证将给你获得特殊奖励的机会！
+      - ショッピングパスを購入して特別な報酬を手に入れましょう！
+      - La passe d'achat vous donne la chance de recevoir des récompenses spéciales!
+      - Der Einkaufspass gibt dir die Chance auf spezielle Belohnungen!
+      - Пропуск для шопинга предоставляет шанс получить специальные награды!
+      - ¡El pase de compras ofrece la oportunidad de obtener recompensas especiales!
+      - O Passe de Compras dará a você a chance de obter recompensas especiais!
+      - Lo Shopping Pass ti darà la possibilità di ottenere ricompense speciali!
+      - Pengelana Belanja akan memberi Anda kesempatan untuk mendapatkan hadiah spesial!
+      - Thẻ Mua Hàng sẽ mang lại cho bạn cơ hội nhận phần thưởng đặc biệt!
+      - การใช้บัตรช้อปปิ้งจะให้คุณโอกาสในการรับรางวัลพิเศษ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_info2
+      TermType: 0
+      Languages:
+      - You will have exclusive bonuses until the event ends!
+      - 活动结束前你将获得专属奖励！
+      - 이벤트 종료 전에 독점 보상을 받으세요!
+      - 活动结束前你将获得专属奖励！
+      - イベント終了までに専用の報酬がもらえます！
+      - Vous recevrez des récompenses exclusives si vous activez avant la fin de l'événement!
+      - Du erhältst exklusive Belohnungen, wenn du vor Aktionsende aktivierst!
+      - Перед окончанием мероприятия вы получите эксклюзивную награду!
+      - ¡Recibirás una recompensa exclusiva antes de que termine el evento!
+      - Você terá bônus exclusivos até o final do evento!
+      - Avrai bonus esclusivi fino alla fine dell'evento!
+      - Anda akan memiliki bonus eksklusif sampai acara berakhir!
+      - Bạn sẽ có các phần thưởng độc quyền cho đến khi sự kiện kết thúc!
+      - คุณจะได้รับโบนัสพิเศษจนกว่าเหตุการณ์จะจบลง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_info3
+      TermType: 0
+      Languages:
+      - 8 lives instead of 5
+      - 生命值从5变为8
+      - 5에서 8까지의 라이프를 얻으세요.
+      - 生命值从5变为8
+      - 5から8のライフポイント
+      - Les points de vie passent de 5 à 8
+      - Lebenspunkte von 5 auf 8 erhöht
+      - Уровень жизни увеличится с 5 до 8
+      - La vida aumenta de 5 a 8
+      - 8 vidas em vez de 5
+      - 8 vite invece di 5
+      - 8 nyawa daripada 5
+      - 8 mạng sống thay vì 5
+      - 8 ชีวิตแทน 5
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_info4
+      TermType: 0
+      Languages:
+      - Golden profile picture frame and golden name
+      - VIP头像框和金色姓名
+      - VIP 아바타 프레임 및 골드 이름
+      - VIP头像框和金色姓名
+      - VIPアバターフレームとゴールドネーム
+      - Cadre d'avatar VIP et nom en or
+      - VIP-Profilrahmen und goldener Name
+      - VIP рамка для аватара и золотое имя
+      - Marco VIP para avatar y nombre dorado
+      - Moldura de foto dourada e nome dourado
+      - Cornice del profilo dorata e nome dorato
+      - Bingkai foto profil emas dan nama emas
+      - Khung hình ảnh hồ sơ và tên vàng
+      - กรอบรูปโปรไฟล์สีทองและชื่อสีทอง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_info5
+      TermType: 0
+      Languages:
+      - More rewards
+      - 更多的奖励
+      - 추가 보상
+      - 更多的奖励
+      - 追加の報酬
+      - Plus de récompenses
+      - Mehr Belohnungen
+      - Больше наград
+      - Más recompensas
+      - Mais recompensas
+      - Più ricompense
+      - Lebih banyak hadiah
+      - Nhiều phần thưởng hơn
+      - รางวัลมากขึ้น
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: monthly_ranking
+      TermType: 0
+      Languages:
+      - Monthly ranking
+      - 月排行
+      - 월간 랭킹
+      - 月排行
+      - 月間ランキング
+      - Classement mensuel
+      - Monatsrangliste
+      - Ежемесячный рейтинг
+      - Clasificación mensual
+      - Classificação mensal
+      - Classifica mensile
+      - Peringkat bulanan
+      - Tháng
+      - อันดับรายเดือน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: overall_ranking
+      TermType: 0
+      Languages:
+      - All ranking
+      - 总排行
+      - 총 랭킹
+      - 总排行
+      - 総合ランキング
+      - Classement général
+      - Gesamtrangliste
+      - Общий рейтинг
+      - Clasificación general
+      - Classificação geral
+      - Classifica generale
+      - Semua peringkat
+      - Xếp hạng
+      - อันดับทั้งหมด
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: my_info
+      TermType: 0
+      Languages:
+      - My Info
+      - 我的信息
+      - 내 정보
+      - 我的信息
+      - 私の情報
+      - Mes informations
+      - Meine Informationen
+      - Моя информация
+      - Mis datos
+      - Minhas Informações
+      - Le mie info
+      - Info Saya
+      - Thông tin của tôi
+      - ข้อมูลของฉัน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: avatar
+      TermType: 0
+      Languages:
+      - Avatar
+      - 头像
+      - 아바타
+      - 头像
+      - アバター
+      - Avatar
+      - Profilbild
+      - Аватар
+      - Avatar
+      - Avatar
+      - Avatar
+      - Avatar
+      - Hình đại diện
+      - รูปโปรไฟล์
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: frame
+      TermType: 0
+      Languages:
+      - Frame
+      - 头像框
+      - 아바타 프레임
+      - 头像框
+      - フレーム
+      - Cadre d'avatar
+      - Profilrahmen
+      - Рамка
+      - Marco
+      - Moldura
+      - Cornice
+      - Bingkai
+      - Khung
+      - กรอบรูปโปรไฟล์
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: lose_streak
+      TermType: 0
+      Languages:
+      - You will lose your winning streak!
+      - 你将失去你的连胜奖励。
+      - 연승 보상이 손실됩니다.
+      - 你将失去你的连胜奖励。
+      - 連勝報酬が失われます。
+      - Vous perdrez votre récompense de série victorieuse.
+      - Du wirst deine Siegesserie Belohnung verlieren.
+      - Вы потеряете бонус за серию побед.
+      - Perderás tu recompensa por victorias consecutivas.
+      - Você perderá sua sequência de vitórias!
+      - Perderai la tua serie di vittorie!
+      - Anda akan kehilangan kemenangan beruntun Anda!
+      - Bạn sẽ mất chuỗi chiến thắng của mình!
+      - คุณจะสูญเสียความเป็นติดต่อการชนะของคุณ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: quit_level
+      TermType: 0
+      Languages:
+      - Quit Level
+      - 退出关卡
+      - 스테이지 나가기
+      - 退出关卡
+      - ステージを退出
+      - Quitter le niveau
+      - Level verlassen
+      - Выйти из уровня
+      - Salir del nivel
+      - Sair do Nível
+      - Esci dal livello
+      - Keluar Level
+      - Thoát Cấp độ
+      - ออกจากเลเวล
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: you_lose
+      TermType: 0
+      Languages:
+      - You will lose
+      - 你将失去
+      - 당신은 손실할 것입니다
+      - 你将失去
+      - あなたは失うでしょう
+      - Vous perdrez
+      - Du wirst verlieren
+      - Вы потеряете
+      - Perderás
+      - Você perderá
+      - Perderai
+      - Anda akan kehilangan
+      - Bạn sẽ mất
+      - คุณจะสูญเสีย
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: activate
+      TermType: 0
+      Languages:
+      - Activate
+      - 激活
+      - 활성화
+      - 激活
+      - 起動する
+      - Activer
+      - Aktivieren
+      - Активация
+      - Activar
+      - Ativar
+      - Attivare
+      - Aktifkan
+      - Kích hoạt
+      - เปิดใช้งาน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_info6
+      TermType: 0
+      Languages:
+      - Activate the Shopping Pass to unlock the Bonus Bank at the end of the stages!
+      - 激活购物通行证，在关卡结束时解锁奖励银行！
+      - 쇼핑 패스를 활성화하여 스테이지 종료 시 보상 은행을 잠금 해제하세요!
+      - 激活购物通行证，在关卡结束时解锁奖励银行！
+      - ショッピングパスをアクティベートし、ステージ終了時に報酬バンクをアンロックします！
+      - Activez la passe d'achat pour débloquer la banque de récompenses à la fin du niveau!
+      - Aktiviere den Einkaufspass, um am Ende des Levels Belohnungen freizuschalten!
+      - Активировать пропуск для шопинга, чтобы разблокировать банк наград в конце уровня!
+      - Activa el pase de compras para desbloquear el banco de recompensas al final del nivel.
+      - Ative o Passe de Compras para desbloquear o Banco de Bônus no final das etapas!
+      - Attiva lo Shopping Pass per sbloccare la Banca Bonus alla fine dei livelli!
+      - Aktifkan Pengelana Belanja untuk membuka Bank Bonus di akhir tahap!
+      - Kích hoạt Thẻ Mua Hàng để mở khóa Ngân Hàng Thưởng ở cuối các cấp độ!
+      - เปิดใช้งานบัตรช้อปปิ้งเพื่อปลดล็อคสินค้าโบนัสที่จะได้รับที่สิ้นสุดของเลเวล!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: try_free
+      TermType: 0
+      Languages:
+      - Try for free!
+      - 免费试用！
+      - 무료 체험!
+      - 免费试用！
+      - 無料トライアル!
+      - Essai gratuit!
+      - Gratis testen!
+      - Бесплатно!
+      - Prueba gratuita!
+      - Teste grátis!
+      - Prova gratuitamente!
+      - Coba gratis!
+      - Thử miễn phí!
+      - ลองใช้ฟรี!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: tnt_info
+      TermType: 0
+      Languages:
+      - Game failed at the end of the countdown!
+      - 倒计时结束会导致游戏失败！
+      - 카운트 다운 종료시 게임 실패로 이어집니다!
+      - 倒计时结束会导致游戏失败！
+      - カウントダウンが終了するとゲームに失敗します！
+      - La fin du compte à rebours entraînera un échec du jeu!
+      - Das Ende des Countdowns führt zum Scheitern des Spiels!
+      - Окончание отсчета приведет к поражению в игре!
+      - El final de la cuenta regresiva resultará en una derrota.
+      - Jogo falhou no final da contagem regressiva!
+      - Il gioco è fallito al termine del conto alla rovescia!
+      - Gagal permainan pada akhir hitungan mundur!
+      - Trò chơi thất bại vào cuối đếm ngược!
+      - เกมล้มเหลวที่สิ้นสุดลงเมื่อนับถอยหลัง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: prop_unlock
+      TermType: 0
+      Languages:
+      - This prop will be unlocked after level {0}.
+      - 这个道具将在第{0}关解锁。
+      - 이 아이템은{0}단계에서 잠금 해제됩니다.
+      - 这个道具将在第{0}关解锁。
+      - このアイテムは{0}ステージで解除されます。
+      - Cet objet sera débloqué au niveau {0}.
+      - Dieser Gegenstand wird im Level {0} freigeschaltet.
+      - Этот предмет разблоктируется на уровне {0}.
+      - Este ítem se desbloqueará en el nivel {0}.
+      - Este item será desbloqueado após o nível {0}.
+      - Questa prop sarà sbloccata dopo il livello {0}.
+      - Properti ini akan terbuka setelah level {0}.
+      - Đạo cụ này sẽ được mở khóa sau cấp độ {0}.
+      - พร็อพนี้จะถูกปลดล็อคหลังจากเลเวล {0} เสร็จสมบูรณ์
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: more_goods
+      TermType: 0
+      Languages:
+      - More Goods
+      - 更多商品
+      - 더 많은 상품
+      - 更多商品
+      - もっと商品
+      - Plus de produits
+      - Mehr Produkte
+      - Больше товаров
+      - Más productos
+      - Mais Produtos
+      - Più merci
+      - Lebih Banyak Barang
+      - Nhiều Hàng Hóa Hơn
+      - สินค้าเพิ่มเติม
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: trying
+      TermType: 0
+      Languages:
+      - Trying
+      - 试用中
+      - 사용 중
+      - 试用中
+      - 試用中
+      - Essai
+      - Testphase
+      - На пробе
+      - En prueba
+      - Em Uso
+      - Provando
+      - Mencoba
+      - Đang thử
+      - การพยายาม
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: ad_pack
+      TermType: 0
+      Languages:
+      - Purchase Success!You have removed all interstitial Ad and banner Ad.
+      - 购买成功！你已经移除所有插屏广告和横幅广告。
+      - 구매 완료! 모든 인터스티셜 광고 및 배너 광고가 제거되었습니다.
+      - 购买成功！你已经移除所有插屏广告和横幅广告。
+      - 購入成功！すべてのインタースティシャル広告とバナー広告が削除されました。
+      - Achat réussi! Toutes les publicités interstitielles et bannières ont été supprimées.
+      - Kauf erfolgreich! Alle Interstitial-Anzeigen und Banner-Anzeigen wurden entfernt.
+      - Покупка успешна! Теперь вы избавлены от всех всплывающих и баннерных объявлений.
+      - Compra exitosa. Has eliminado todos los anuncios y pancartas.
+      - Compra bem-sucedida! Você removeu todos os anúncios intersticiais e banners.
+      - Acquisto riuscito! Hai rimosso tutti gli annunci interstiziali e banner.
+      - Pembelian Berhasil! Anda telah menghapus semua Iklan interstitial dan Iklan banner.
+      - Mua Thành Công! Bạn đã loại bỏ tất cả quảng cáo trung gian và quảng cáo banner.
+      - การซื้อสำเร็จ! คุณได้ลบโฆษณาอินเตอร์สเตชั่นและโฆษณาแบนเนอร์ทั้งหมดแล้ว
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: no_internet
+      TermType: 0
+      Languages:
+      - NO INTERNET
+      - 无网络
+      - 네트워크 없음
+      - 无网络
+      - ネットワークなし
+      - PAS DE RÉSEAU
+      - KEIN NETZWERK
+      - Нет соединения
+      - Sin conexión
+      - SEM INTERNET
+      - NESSUNA CONNESSIONE INTERNET
+      - TIDAK ADA INTERNET
+      - KHÔNG CÓ INTERNET
+      - ไม่มีอินเทอร์เน็ต
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: check_internet
+      TermType: 0
+      Languages:
+      - Check your connection and try again!
+      - 检查你的网络设置再进行尝试！
+      - 다시 시도하기 전에 네트워크 설정을 확인하십시오!
+      - 检查你的网络设置再进行尝试！
+      - 再試行する前にネットワーク設定を確認してください！
+      - Veuillez vérifier vos paramètres réseau et réessayer!
+      - Versuche es erneut, nachdem du deine Netzwerkeinstellungen überprüft hast!
+      - Проверьте настройки сети и повторите попытку!
+      - Verifica la configuración de red y vuelve a intentarlo.
+      - Verifique sua conexão e tente novamente!
+      - Controlla la tua connessione e riprova!
+      - Periksa koneksi Anda dan coba lagi!
+      - Kiểm tra kết nối của bạn và thử lại!
+      - ตรวจสอบการเชื่อมต่อของคุณและลองอีกครั้ง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: shopwatch
+      TermType: 0
+      Languages:
+      - Stopwatch
+      - 秒表
+      - 스톱워치
+      - 秒表
+      - ストップウォッチ
+      - Chronomètre
+      - Stoppuhr
+      - Секундомер
+      - Cronómetro
+      - Cronômetro
+      - Cronometro
+      - Stopwatch
+      - Đồng hồ bấm giờ
+      - ตัวจับเวลา
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: shopping_car
+      TermType: 0
+      Languages:
+      - Shopping Cart
+      - 购物车
+      - 장바구니
+      - 购物车
+      - ショッピングカート
+      - Caddie
+      - Einkaufswagen
+      - Тележка
+      - Carrito de compras
+      - Carrinho de Compras
+      - Carrello della spesa
+      - Troli Belanja
+      - Giỏ hàng
+      - รถเข็น
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: paint_bucket
+      TermType: 0
+      Languages:
+      - Paint Bucket
+      - 油漆桶
+      - 페인트 양동이
+      - 油漆桶
+      - ペイントバケツ
+      - Seau de peinture
+      - Farbeimer
+      - Ведро краски
+      - Bote de pintura
+      - Balde de Tinta
+      - Secchio di vernice
+      - Ember Cat
+      - Xô sơn
+      - ถังสี
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: bomb
+      TermType: 0
+      Languages:
+      - Bomb
+      - 炸弹
+      - 폭탄
+      - 炸弹
+      - 爆弾
+      - Bombe
+      - Bombe
+      - Бомба
+      - Bomba
+      - Bomba
+      - Bomba
+      - Bom
+      - Bom
+      - ระเบิด
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: magic_wand
+      TermType: 0
+      Languages:
+      - Magic Wand
+      - 魔法杖
+      - 마법 지팡이
+      - 魔法杖
+      - マジックワンド
+      - Baguette magique
+      - Zauberstab
+      - Волшебная палочка
+      - Varita mágica
+      - Varinha Mágica
+      - Bacchetta magica
+      - Tongkat Sihir
+      - Đũa thần
+      - ไม้มายา
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: temporary_container
+      TermType: 0
+      Languages:
+      - Temporary Container
+      - 临时货柜
+      - 임시 화물 컨테이너
+      - 临时货柜
+      - 一時的なコンテナ
+      - Conteneur temporaire
+      - Temporärer Container
+      - Временный контейнер
+      - Contenedor temporal
+      - Recipiente Temporário
+      - Contenitore temporaneo
+      - Kontainer Sementara
+      - Bình chứa tạm thời
+      - ตู้คลังสินค้าชั่วคราว
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: magic_hat
+      TermType: 0
+      Languages:
+      - Magic Hat
+      - 魔法帽
+      - 마법 모자
+      - 魔法帽
+      - マジックハット
+      - Chapeau magique
+      - Zauberhut
+      - Волшебная шляпа
+      - Sombrero mágico
+      - Chapéu Mágico
+      - Cappello magico
+      - Topi Sihir
+      - Mũ phép
+      - หมวกเวทมนตร์
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: all_completed
+      TermType: 0
+      Languages:
+      - All levels are completed.You can waiting for our new levels.
+      - 所有关卡已通关。请等待新版本。
+      - 모든 스테이지를 클리어했습니다. 새 버전을 기다려주십시오.
+      - 所有关卡已通关。请等待新版本。
+      - すべてのステージがクリアされました。新しいバージョンをお待ちください。
+      - Tous les niveaux sont terminés. Attendez la prochaine version.
+      - Alle Levels wurden abgeschlossen. Bitte warte auf die nächste Version.
+      - Все уровни пройдены. Ожидайте новой версии.
+      - Todos los niveles están completos. Espera la nueva versión.
+      - Todos os níveis foram concluídos. Aguarde nossos novos níveis.
+      - Tutti i livelli sono completati. Puoi aspettare i nostri nuovi livelli.
+      - Semua level telah selesai. Anda bisa menunggu level baru kami.
+      - Tất cả các cấp độ đã hoàn thành. Bạn có thể đợi các cấp độ mới của chúng tôi.
+      - เลเวลทั้งหมดเสร็จสมบูรณ์ คุณสามารถรอเลเวลใหม่ของเราได้
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: skip
+      TermType: 0
+      Languages:
+      - Skip
+      - 跳过
+      - 건너뛰기
+      - 跳过
+      - スキップ
+      - Sauter
+      - Skippen
+      - Пропустить
+      - Saltar
+      - Pular
+      - Salta
+      - Lewati
+      - Bỏ qua
+      - ข้าม
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice1
+      TermType: 0
+      Languages:
+      - Big shopping promotion! Come and merge goods to get rewards!
+      - 购物大促销！快来合并商品获得奖励！
+      - 쇼핑 대프로모션! 상품을 병합하여 보상을 얻으세요!
+      - 購物大促銷！ 快來合併商品獲得獎勵！
+      - ショッピングセール！商品をマージして報酬を手に入れよう！
+      - Grande vente! Fusionnez les produits pour obtenir des récompenses!
+      - Großer Einkaufsrausch! Vereinige Produkte, um Belohnungen zu erhalten!
+      - Большая распродажа! Объединяй товары и получай награды!
+      - ¡Gran promoción de compras! ¡Ven y fusiona productos para obtener recompensas!
+      - Promoção de compras! Junte mercadorias para ganhar recompensas!
+      - Promozione shopping! Unisci merci per ottenere ricompense!
+      - Promosi belanja besar-besaran! Datang dan gabungkan barang untuk mendapatkan hadiah!
+      - Chương trình khuyến mãi lớn! Hãy đến và Goods Merge để nhận phần thưởng!
+      - โปรโมชั่นช้อปปิ้งใหญ่! มารวมสินค้าเพื่อรับรางวัล!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice2
+      TermType: 0
+      Languages:
+      - The customer is here, you should start organizing the goods!
+      - 顾客来啦，你该开始整理商品了！
+      - 손님이 오셨어요, 상품을 정리할 시간이에요!
+      - 顧客來啦，你該開始整理商品了！
+      - お客様が来ました、商品を整理し始めるべきです！
+      - Le client est là, vous devriez commencer à organiser les produits!
+      - Der Kunde ist da, du solltest anfangen, die Waren zu sortieren!
+      - Покупатель здесь, пора организовать товары!
+      - ¡El cliente está aquí, deberías empezar a organizar la mercancía!
+      - O cliente está aqui, comece a organizar a mercadoria!
+      - Il cliente è qui, dovresti iniziare a organizzare la merce!
+      - Pelanggan sudah datang, Anda harus mulai mengatur barang!
+      - Khách hàng đang đến, bạn nên bắt đầu sắp xếp hàng hóa!
+      - ลูกค้ามาแล้ว คุณควรเริ่มจัดระเบียบสินค้า!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice3
+      TermType: 0
+      Languages:
+      - Your place in the competition has been surpassed! Get it back!
+      - 你在比赛中的位置被超越了！抢回来！
+      - 대회에서 당신의 위치가 넘어졌습니다! 되찾아보세요!
+      - 你在比賽中的位置被超越了！ 搶回來！
+      - 競争中の位置が超えられました！取り戻しましょう！
+      - Votre position dans la compétition a été dépassée! Récupérez-la!
+      - Deine Position im Wettbewerb wurde überholt! Hol es zurück!
+      - Тебя опередили в соревновании! Верни свое место!
+      - ¡Tu posición en la competencia ha sido superada! ¡Recupérala!
+      - Sua posição na competição foi superada! Recupere!
+      - Il tuo posto nella competizione è stato superato! Riprenditelo!
+      - Tempat Anda dalam kompetisi telah terlampaui! Dapatkan kembali!
+      - Vị trí của bạn trong cuộc thi đã bị vượt qua! Lấy lại nó!
+      - ตำแหน่งของคุณในการแข่งขันได้ถูกเหลือเชื่อ! รับกลับมา!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice4
+      TermType: 0
+      Languages:
+      - Everyone is playing Goods Merge now! What are you stillwaiting for?
+      - 现在每个人都在玩Goods Merge!你还在等什么？
+      - 지금 모두가 Goods Merge를 즐기고 있어요! 더 기다리지 마세요!
+      - 現在每個人都在玩Goods Merge!你還在等什麼？
+      - 今、みんながGoods Mergeを遊んでいます！まだ何を待っていますか？
+      - Tout le monde joue à Goods Merge maintenant! Qu'attendez-vous ?
+      - Jeder spielt jetzt Goods Merge! Was wartest du noch?
+      - Все играют в Goods Merge! Чего ты ждешь?
+      - ¡Todos están jugando a Goods Merge ahora! ¿A qué estás esperando?
+      - Todos estão jogando a Mescla de Produtos agora! O que você está esperando?
+      - Tutti stanno giocando a Goods Merge ora! Cosa stai aspettando?
+      - Semua orang sedang bermain Goods Merge sekarang! Apa yang masih Anda tunggu?
+      - Mọi người đều đang chơi Goods Merge ngay bây giờ! Bạn còn chần chừ gì nữa?
+      - ทุกคนกำลังเล่นGoods Mergeตอนนี้! คุณยังคงรออะไรอยู่?
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice5
+      TermType: 0
+      Languages:
+      - If you have nothing to do, come and join Goods Merge!
+      - 闲来无事，来局Goods Merge吧！
+      - 할 일이 없을 때는 Goods Merge를 즐겨보세요!
+      - 閒來無事，來局Goods Merge吧！
+      - 何もすることがないときは、Goods Mergeをプレイしましょう！
+      - Rien à faire, jouez à Goods Merge!
+      - Langeweile? Wie wäre es mit einer Runde Goods Merge!
+      - Если у тебя нет занятий, приходи и присоединяйся к Goods Merge!
+      - Si no tienes nada que hacer, ¡ven y únete a Goods Merge!
+      - Se não tem nada para fazer, venha e participe da Mescla de Produtos!
+      - Se non hai niente da fare, vieni e unisciti a Goods Merge!
+      - Jika Anda tidak memiliki apa-apa untuk dilakukan, datang dan bergabunglah dengan Goods Merge!
+      - Nếu bạn không có gì để làm, hãy đến và tham gia Goods Merge!
+      - ถ้าคุณไม่มีอะไรทำ มาเล่นGoods Mergeกัน!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice6
+      TermType: 0
+      Languages:
+      - The manager has called you to sort out the goods! Work harder!
+      - 店长喊你来整理商品了！加把劲！
+      - 매니저가 상품 정리를 부탁했습니다! 힘내세요!
+      - 店長喊你來整理商品了！ 加把勁！
+      - 店長が商品整理をお願いしています！頑張りましょう！
+      - Le gérant vous appelle pour organiser les produits! Donnez le meilleur de vous-même!
+      - Der Manager ruft dich, um die Produkte zu sortieren! Gib dein Bestes!
+      - Тебя вызвал менеджер, пора упорядочить товары! Работай усерднее!
+      - ¡El gerente te ha llamado para organizar la mercancía! ¡Trabaja más duro!
+      - O gerente te chamou para organizar a mercadoria! Trabalhe mais!
+      - Il manager ti ha chiamato per sistemare la merce! Lavora più duramente!
+      - Manajer telah memanggil Anda untuk menyortir barang! Kerja lebih keras!
+      - Quản lý đã gọi bạn để sắp xếp hàng hóa! Làm việc chăm chỉ hơn!
+      - ผู้จัดการเรียกคุณมาเรียงสินค้า! ทำงานหนัก!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: prop_warn1
+      TermType: 0
+      Languages:
+      - You have used this prop, it cannot be used again!
+      - 你已经用过这个道具了，不能再用了！
+      - 이 아이템은 이미 사용되었습니다. 더 이상 사용할 수 없습니다!
+      - 你已经用过这个道具了，不能再用了！
+      - このアイテムは既に使用されています、もう使用できません！
+      - Vous avez déjà utilisé cet objet, il ne peut pas être réutilisé!
+      - Du hast diesen Gegenstand bereits verwendet, er kann nicht erneut verwendet werden!
+      - Ты уже использовал это улучшение, его нельзя использовать снова!
+      - Has usado este potenciador, ¡no se puede usar de nuevo!
+      - Você usou este item, não pode ser usado novamente!
+      - Hai usato questo power-up, non può essere usato di nuovo!
+      - Anda telah menggunakan properti ini, itu tidak bisa digunakan lagi!
+      - Bạn đã sử dụng đạo cụ này, không thể sử dụng lại nữa!
+      - คุณได้ใช้พร็อพนี้แล้ว มันไม่สามารถใช้ซ้ำได้!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: prop_warn2
+      TermType: 0
+      Languages:
+      - Too few goods, this prop cannot be used!
+      - 商品太少，这个道具无法使用！
+      - 상품이 부족하면 이 아이템을 사용할 수 없습니다!
+      - 商品太少，这个道具无法使用！
+      - 商品が少なすぎて、このアイテムは使用できません！
+      - Trop peu de produits, cet objet ne peut pas être utilisé!
+      - Zu wenige Produkte, dieser Gegenstand kann nicht verwendet werden!
+      - Слишком мало товаров, этот предмет нельзя использовать!
+      - Demasiado pocos productos, ¡no se puede usar este potenciador!
+      - Poucas mercadorias, este item não pode ser usado!
+      - Troppo poche merci, questo power-up non può essere usato!
+      - Terlalu sedikit barang, properti ini tidak bisa digunakan!
+      - Hàng hóa quá ít, đạo cụ này không thể sử dụng được!
+      - สินค้าไม่เพียงพอ พร็อพนี้ไม่สามารถใช้ได้!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: skin_warn
+      TermType: 0
+      Languages:
+      - You can only try one skin at a time!
+      - 您一次只能试用一种皮肤！
+      - 한 번에 하나의 스킨 만 무료로 사용할 수 있습니다!
+      - 您一次只能试用一种皮肤！
+      - 1つのスキンしか試用できません！
+      - Vous ne pouvez essayer qu'une seule peau à la fois!
+      - Du kannst nur eine Haut gleichzeitig ausprobieren!
+      - Ты можешь пробовать только одну скин в одно время!
+      - Solo puedes probar una piel a la vez !
+      - Você só pode experimentar uma skin por vez!
+      - Puoi provare solo una skin alla volta!
+      - Anda hanya bisa mencoba satu kulit pada satu waktu!
+      - Bạn chỉ có thể thử một da vào một lúc!
+      - คุณสามารถลองสกินได้เพียงหนึ่งในเวลาเดียว!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_purchase
+      TermType: 0
+      Languages:
+      - Purchase the shopping pass to claim it!
+      - 购买购物通行证来领取它！
+      - 구매하고 받으세요!
+      - 购买购物通行证来领取它！
+      - それを手に入れるためにショッピングパスを購入しましょう！
+      - Achetez la passe d'achat pour la recevoir!
+      - Kaufe den Einkaufspass, um es zu erhalten!
+      - Купи пропуск для получения этого!
+      - ¡Compra el pase de compras para reclamarlo!
+      - Compre o passe de compras para reivindicar!
+      - Acquista il pass per lo shopping per richiederlo!
+      - Beli pengelana belanja untuk mengklaimnya!
+      - Mua thẻ mua hàng để nhận nó!
+      - ซื้อบัตรช้อปปิ้งเพื่อสิทธิ์เข้าถึง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_fill
+      TermType: 0
+      Languages:
+      - You should fill up the progress to claim it!
+      - 您应该填满进度条才能领取它！
+      - 진행률 막대를 채우십시오!
+      - 您应该填满进度条才能领取它！
+      - プログレスバーを埋める必要があります！
+      - Vous devez remplir la barre de progression pour la recevoir!
+      - Du musst die Fortschrittsleiste füllen, um es zu erhalten!
+      - Ты должен заполнить прогресс, чтобы получить это!
+      - Debes completar el progreso para reclamarlo !
+      - Você deve preencher o progresso para reivindicar!
+      - Dovresti riempire il progresso per richiederlo!
+      - Anda harus mengisi kemajuan untuk mengklaimnya!
+      - Bạn nên điền đầy đủ tiến trình để nhận nó!
+      - คุณควรเติมแถบความคืบหน้าให้เต็มก่อนถึงจะได้รับ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_gold
+      TermType: 0
+      Languages:
+      - Pass level to get gold note to claim it!
+      - 通过关卡，获得金钞来领取它！
+      - 스테이지를 클리어하고 동전을 얻으세요!
+      - 通过关卡，获得金钞来领取它！
+      - ステージをクリアしてコインを手に入れましょう！
+      - Terminez des niveaux, collectez de l'or pour la recevoir!
+      - Schließe Levels ab, sammle Gold, um es zu erhalten!
+      - Пройди уровень, чтобы получить золотую банкноту и получить это!
+      - Supera el nivel para obtener una nota de oro y reclamarlo !
+      - Passe de nível para obter nota de ouro para reivindicar!
+      - Supera il livello per ottenere la nota d'oro per richiederlo!
+      - Lewati level untuk mendapatkan catatan emas untuk mengklaimnya!
+      - Vượt qua cấp độ để nhận ghi chú vàng để nhận nó!
+      - ผ่านเลเวลเพื่อรับบันทึกเงินทองเพื่อเคลม!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: dead
+      TermType: 0
+      Languages:
+      - You are dead!
+      - 你没命了！
+      - 다 끝났습니다!
+      - 你没命了！
+      - もう一命がありません！
+      - Vous êtes à court de vie!
+      - Du bist am Ende!
+      - Ты проиграл!
+      - Estás muerto !
+      - Você está morto!
+      - Sei morto!
+      - Anda mati!
+      - Bạn đã chết!
+      - คุณตายแล้ว!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: bonus_bak
+      TermType: 0
+      Languages:
+      - Bonus Bank
+      - 超级银行
+      - 슈퍼 뱅크
+      - 超级银行
+      - スーパーバンク
+      - Super banque
+      - Superbank
+      - Бонусный банк
+      - Super Banco
+      - Banco de Bônus
+      - Bonus Bank
+      - Bank Bonus
+      - Ngân Hàng Thưởng
+      - บัญชีโบนัส
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: level_chest
+      TermType: 0
+      Languages:
+      - Level Chest
+      - 关卡宝箱
+      - 스테이지 상자
+      - 关卡宝箱
+      - ステージボックス
+      - Coffre de niveau
+      - Levelkiste
+      - Сундук уровня
+      - Cofre de nivel
+      - Cofre de Nível
+      - Cofano del livello
+      - Kotak Level
+      - Hòm cấp độ
+      - หีบเลเวล
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: chest_info
+      TermType: 0
+      Languages:
+      - Win more key to open!
+      - 赢取更多钥匙打开！
+      - 더 많은 키를 얻어 열어보세요!
+      - 赢取更多钥匙打开！
+      - もっと鍵を獲得して開けよう！
+      - Gagnez plus de clés pour les ouvrir!
+      - Gewinne mehr Schlüssel, um sie zu öffnen!
+      - Выиграй больше ключей, чтобы открыть!
+      - Gana más llaves para abrirlo !
+      - Ganhe mais chaves para abrir!
+      - Vinci più chiavi per aprire!
+      - Menangkan lebih banyak kunci untuk membukanya!
+      - Thắng thêm chìa khóa để mở!
+      - ชนะเพิ่มเติมเพื่อเปิด!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: month_time
+      TermType: 0
+      Languages:
+      - This month ends in {0}
+      - 本月结束于{0}
+      - 이 달은{0}에 종료됩니다.
+      - 本月结束于{0}
+      - 今月は{0}に終了
+      - Ce mois se termine le {0}
+      - Dieser Monat endet am {0}
+      - Этот месяц заканчивается через {0}
+      - Este mes termina en {0}
+      - Este mês termina em {0}
+      - Questo mese termina in {0}
+      - Bulan ini berakhir dalam {0}
+      - Tháng này kết thúc vào {0}
+      - เดือนนี้จะสิ้นสุดใน {0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: ranking
+      TermType: 0
+      Languages:
+      - Ranking
+      - 排行榜
+      - 랭킹
+      - 排行榜
+      - ランキング
+      - Classement
+      - Bestenliste
+      - Рейтинг
+      - Clasificación
+      - Classificação
+      - Classifica
+      - Peringkat
+      - Xếp hạng
+      - อันดับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_levels
+      TermType: 0
+      Languages:
+      - Pass levels
+      - 通过关卡
+      - 스테이지 클리어
+      - 通过关卡
+      - ステージをクリア
+      - En terminant des niveaux
+      - Durch Levels abschließen
+      - Пройди уровни
+      - Supera niveles
+      - Passar de níveis
+      - Supera i livelli
+      - Lewati level
+      - Vượt qua cấp độ
+      - ผ่านเลเวล
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: collect_gold
+      TermType: 0
+      Languages:
+      - Collect gold notes
+      - 收集金券
+      - 쿠폰 수집
+      - 收集金券
+      - クーポンを集める
+      - Collecter des coupons
+      - Gutschein sammeln
+      - Собери золотые записи
+      - Recoge notas de oro
+      - Coletar notas de ouro
+      - Raccogli le note d'oro
+      - Kumpulkan catatan emas
+      - Thu thập ghi chú vàng
+      - รวบรวมบันทึกทอง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: unlock_rewards
+      TermType: 0
+      Languages:
+      - Unlock rewards
+      - 解锁奖励
+      - 보상 잠금 해제
+      - 解锁奖励
+      - 報酬をアンロック
+      - Débloquer des récompenses
+      - Belohnungen freischalten
+      - Открой награды
+      - Desbloquea recompensas
+      - Desbloquear recompensas
+      - Sblocca le ricompense
+      - Buka hadiah
+      - Mở khóa phần thưởng
+      - ปลดล็อครางวัล
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_info7
+      TermType: 0
+      Languages:
+      - You can activate the shopping pass to get additional exclusive rewards!
+      - 您可以激活购物通行证以获得额外的特殊奖励！
+      - 추가 보상을 받기 위해 쇼핑 패스를 활성화하세요!
+      - 您可以激活购物通行证以获得额外的特殊奖励！
+      - ショッピングパスをアクティベートして追加の特別報酬を手に入れましょう！
+      - Vous pouvez activer la passe d'achat pour recevoir des récompenses spéciales supplémentaires!
+      - Du kannst den Einkaufspass aktivieren, um zusätzliche spezielle Belohnungen zu erhalten!
+      - Ты можешь активировать пропуск для получения дополнительных эксклюзивных наград!
+      - Puedes activar el pase de compras para obtener recompensas exclusivas adicionales !
+      - Você pode ativar o passe de compras para obter recompensas exclusivas adicionais!
+      - Puoi attivare il pass per lo shopping per ottenere ricompense esclusive aggiuntive!
+      - Anda dapat mengaktifkan pengelana belanja untuk mendapatkan hadiah eksklusif tambahan!
+      - Bạn có thể kích hoạt thẻ mua hàng để nhận phần thưởng độc quyền thêm!
+      - คุณสามารถเปิดใช้งานบัตรช้อปปิ้งเพื่อรับรางวัลพิเศษเพิ่มเติม!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: tap_continue
+      TermType: 0
+      Languages:
+      - Tap to continue
+      - 点击继续
+      - 계속 클릭
+      - 点击继续
+      - クリックして続行
+      - Cliquez pour continuer
+      - Klicke, um fortzufahren
+      - Нажми, чтобы продолжить
+      - Toca para continuar
+      - Toque para continuar
+      - Tocca per continuare
+      - Ketuk untuk melanjutkan
+      - Chạm để tiếp tục
+      - แตะเพื่อดำเนินการต่อ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: energy_full
+      TermType: 0
+      Languages:
+      - Energy is full
+      - 能量充沛
+      - 에너지 풍부
+      - 能量充沛
+      - エネルギー満タン
+      - Énergisé
+      - Energiegeladen
+      - Энергия полная
+      - La energía está llena
+      - A energia está cheia
+      - L'energia è al massimo
+      - Energi penuh
+      - Năng lượng đầy
+      - พลังงานเต็มแล้ว
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: frame1
+      TermType: 0
+      Languages:
+      - At the end of the month, the top 100 in the monthly ranking will get it.
+      - 月底时，月排行前100名获得。
+      - 마지막 날에는 월간 랭킹 상위100위가 받습니다.
+      - 月底时，月排行前100名获得。
+      - 月末には、月間ランキングの上位100名がもらえます。
+      - À la fin du mois, les 100 premiers du classement mensuel reçoivent des récompenses.
+      - Am Ende des Monats erhalten die Top 100 der Monatsrangliste.
+      - В конце месяца топ-100 по месячному рейтингу получат это.
+      - Al final del mes, los primeros 100 en la clasificación mensual lo obtendrán .
+      - No final do mês, os 100 melhores na classificação mensal receberão.
+      - Alla fine del mese, i primi 100 nella classifica mensile lo otterranno.
+      - Pada akhir bulan, 100 besar dalam peringkat bulanan akan mendapatkannya.
+      - Cuối tháng, 100 người đứng đầu trong bảng xếp hạng hàng tháng sẽ nhận được.
+      - เมื่อสิ้นเดือน 100 อันดับแรกในอันดับเดือนจะได้รับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: frame2
+      TermType: 0
+      Languages:
+      - The top 10 in the overall ranking will get it.
+      - 总排行前10名获得。
+      - 총 랭킹 상위10명이 받습니다.
+      - 总排行前10名获得。
+      - 総合ランキングの上位10名がもらえます。
+      - Les 10 premiers du classement général reçoivent des récompenses.
+      - Die Top 10 der Gesamtrangliste erhalten am Ende des Monats Belohnungen.
+      - Топ-10 по общему рейтингу получат это.
+      - Los primeros 10 en la clasificación general lo obtendrán .
+      - Os 10 melhores na classificação geral receberão.
+      - I primi 10 nella classifica generale lo otterranno.
+      - 10 besar dalam peringkat keseluruhan akan mendapatkannya.
+      - 10 người đứng đầu trong bảng xếp hạng tổng thể sẽ nhận được.
+      - อันดับ 10 อันดับแรกในอันดับรวมจะได้รับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: frame3
+      TermType: 0
+      Languages:
+      - Win first place in the Shopping Contest will get it.
+      - 购物大赛获得第一名。
+      - 쇼핑 대회에서1등에 달하십시오.
+      - 购物大赛获得第一名。
+      - ショッピングコンテストで1位になりましょう。
+      - Le vainqueur du concours d'achats reçoit la première place.
+      - Der Gewinner des Shopping-Wettbewerbs erhält den ersten Platz.
+      - Выиграй первое место в конкурсе шопинга и получи это.
+      - Ganar el primer lugar en el concurso de compras lo obtendrá .
+      - Ganhe o primeiro lugar no Concurso de Compras para conseguir.
+      - Vincere il primo posto nel Contest dello Shopping lo otterrà.
+      - Menangkan tempat pertama dalam Kontes Belanja akan mendapatkannya.
+      - Người chiến thắng hạng nhất trong Cuộc thi Mua sắm sẽ nhận được.
+      - ชนะอันดับหนึ่งในการแข่งขันซื้อของจะได้รับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: frame4
+      TermType: 0
+      Languages:
+      - Win first place in the Speed Contest will get it.
+      - 竞速大赛获得第一名。
+      - 레이스 대회에서1등에 달하십시오.
+      - 竞速大赛获得第一名。
+      - レースコンテストで1位になりましょう。
+      - Le vainqueur de la course reçoit la première place.
+      - Der Gewinner des Rennwettbewerbs erhält den ersten Platz.
+      - Побеждай в конкурсе скорости и получай это.
+      - Ganar el primer lugar en el concurso de velocidad lo obtendrá .
+      - Ganhe o primeiro lugar no Concurso de Velocidade para conseguir.
+      - Vincere il primo posto nel Contest della Velocità lo otterrà.
+      - Menangkan tempat pertama dalam Kontes Kecepatan akan mendapatkannya.
+      - Người chiến thắng hạng nhất trong Cuộc thi Tốc độ sẽ nhận được.
+      - ชนะอันดับหนึ่งในการแข่งขันความเร็วจะได้รับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: frame5
+      TermType: 0
+      Languages:
+      - Goods Reward reach level 20 will get it.
+      - 集物奖励到达第20级。
+      - 컬렉션 보상이20레벨에 도달합니다.
+      - 集物奖励到达第20级。
+      - コレクション報酬が20レベルに達します。
+      - La récompense de collection atteint le niveau 20.
+      - Die Belohnungssammlung erreicht Stufe 20.
+      - Награда за товары на уровне 20 — получи это.
+      - Alcanzar el nivel 20 de recompensa de productos lo obtendrá .
+      - Recompensa de mercadorias ao alcançar o nível 20.
+      - Raggiungere il livello 20 di Goods Reward lo otterrà.
+      - Hadiah Barang mencapai level 20 akan mendapatkannya.
+      - Phần thưởng Hàng hóa đạt cấp độ 20 sẽ nhận được.
+      - ได้รับรางวัลสะสมเมื่อมาถึงเลเวลที่ 20
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: frame6
+      TermType: 0
+      Languages:
+      - Get it in Daily Bonus.
+      - 在每日奖励中获得。
+      - 매일 보상으로 받습니다.
+      - 在每日奖励中获得。
+      - デイリーリワードで手に入れましょう。
+      - Obtenez-le dans la récompense quotidienne.
+      - Erhalte es in der täglichen Belohnung.
+      - Получи это в ежедневном бонусе.
+      - Obténlo en el Bono Diario .
+      - Obtenha no Bônus Diário.
+      - Prendilo nel Bonus Giornaliero.
+      - Dapatkan itu di Bonus Harian.
+      - Nhận nó trong Thưởng Hàng ngày.
+      - ได้รับในโบนัสประจำวัน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: frame7
+      TermType: 0
+      Languages:
+      - Purchase Shopping Pass will get it.
+      - 购买购物通行证来获得。
+      - 구매하여 받습니다.
+      - 购买购物通行证来获得。
+      - 購入して手に入れましょう。
+      - Achetez la passe d'achat pour l'obtenir.
+      - Kaufe den Einkaufspass, um es zu erhalten.
+      - Купи пропуск шопинга и получи это.
+      - Comprar el Pase de Compras lo obtendrá .
+      - Compre o Passe de Compras para obter.
+      - Acquistare il Pass per lo Shopping lo otterrà.
+      - Pembelian Pengelana Belanja akan mendapatkannya.
+      - Mua Thẻ Mua hàng sẽ nhận được.
+      - ซื้อบัตรช้อปปิ้งเพื่อรับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: app_name
+      TermType: 0
+      Languages:
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      - Goods Merge
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: feed_back
+      TermType: 0
+      Languages:
+      - Suggestion
+      - 意见反馈
+      - 피드백
+      - 意见反馈
+      - フィードバック
+      - Retour d'information
+      - Feedback
+      - Предложение
+      - Sugerencia
+      - Sugestão
+      - Suggerimento
+      - Saran
+      - Gợi ý
+      - คำแนะนำ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: ok
+      TermType: 0
+      Languages:
+      - OK
+      - 好的
+      - 좋아요
+      - 好的
+      - はい
+      - D'accord
+      - OK
+      - OK
+      - Aceptar
+      - OK
+      - OK
+      - OK
+      - Được
+      - ตกลง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: revoke_more_short
+      TermType: 0
+      Languages:
+      - '{0} Moves'
+      - 回退{0}次
+      - '{0}번뒤로가기'
+      - 回退{0}次
+      - '{0}回戻る'
+      - '{0} Mouvements'
+      - '{0} Züge'
+      - '{0} Ходов'
+      - '{0} Movimientos'
+      - '{0} Movimentos'
+      - '{0} Mosse'
+      - Gerakan {0}
+      - '{0} Nước đi'
+      - '{0} การเลื่อน'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: choose_account
+      TermType: 0
+      Languages:
+      - Choose Your Account
+      - 选择你的账户
+      - 로그인할 계정 선택
+      - 选择你的账户
+      - アカウントを選択してください
+      - Sélectionnez votre compte
+      - Wähle deinen Account aus
+      - Выбери свой аккаунт
+      - Elige tu cuenta
+      - Escolha sua conta
+      - Scegli il tuo account
+      - Pilih Akun Anda
+      - Chọn Tài Khoản Của Bạn
+      - เลือกบัญชีของคุณ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: remote_progress
+      TermType: 0
+      Languages:
+      - 'Remote Progress:'
+      - 远端进度：
+      - '원격 진행 :'
+      - 远端进度：
+      - リモートプログレス：
+      - 'Progression à distance :'
+      - 'Fernfortschritt:'
+      - 'Удаленный прогресс:'
+      - 'Progreso remoto:'
+      - 'Progresso remoto:'
+      - 'Progresso remoto:'
+      - 'Progres Jarak Jauh:'
+      - 'Tiến Trình Từ Xa:'
+      - 'ความก้าวหน้าระยะไกล:'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: local_progress
+      TermType: 0
+      Languages:
+      - 'Local Progress:'
+      - 本地进度：
+      - '로컬 진행 :'
+      - 本地进度：
+      - ローカルプログレス：
+      - 'Progression locale :'
+      - 'Lokaler Fortschritt:'
+      - 'Локальный прогресс:'
+      - 'Progreso local:'
+      - 'Progresso local:'
+      - 'Progresso locale:'
+      - 'Progres Lokal:'
+      - 'Tiến Trình Cục Bộ:'
+      - 'ความก้าวหน้าท้องถิ่น:'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: use
+      TermType: 0
+      Languages:
+      - Use
+      - 使用
+      - 사용
+      - 使用
+      - 使用する
+      - Utiliser
+      - Verwenden
+      - Использовать
+      - Usar
+      - Usar
+      - Usa
+      - Gunakan
+      - Sử Dụng
+      - ใช้
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: login_sure
+      TermType: 0
+      Languages:
+      - Are you sure to log in?
+      - 你确定要登录吗？
+      - 로그인 하시겠습니까?
+      - 你确定要登录吗？
+      - ログインしてもよろしいですか？
+      - Voulez-vous vraiment vous déconnecter ?
+      - Möchtest du dich wirklich anmelden?
+      - Ты уверен, что хочешь войти?
+      - ¿Estás seguro de iniciar sesión?
+      - Você tem certeza de que deseja fazer login?
+      - Sei sicuro di voler effettuare l'accesso?
+      - Anda yakin ingin masuk?
+      - Bạn có chắc chắn muốn đăng nhập không?
+      - คุณแน่ใจหรือไม่ว่าต้องการเข้าสู่ระบบ?
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: fb_progress
+      TermType: 0
+      Languages:
+      - 'Facebook Account Progress:'
+      - Facebook账号进度：
+      - 'Facebook 계정 진행 :'
+      - Facebook账号进度：
+      - Facebookアカウントプログレス：
+      - 'Progression du compte Facebook :'
+      - 'Facebook Kontofortschritt:'
+      - 'Прогресс аккаунта Facebook:'
+      - 'Progreso de la cuenta de Facebook:'
+      - 'Progresso da conta do Facebook:'
+      - 'Progresso dell''account Facebook:'
+      - 'Progres Akun Facebook:'
+      - 'Tiến Trình Tài Khoản Facebook:'
+      - 'ความก้าวหน้าของบัญชี Facebook:'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: you_have
+      TermType: 0
+      Languages:
+      - 'You Have:'
+      - 你有：
+      - '당신은 가지고 있습니다 :'
+      - 你有：
+      - あなたは持っています：
+      - 'Vous avez :'
+      - 'Du hast:'
+      - 'У тебя есть:'
+      - 'Tienes:'
+      - 'Você tem:'
+      - 'Hai:'
+      - 'Anda Memiliki:'
+      - 'Bạn Có:'
+      - 'คุณมี:'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: progress
+      TermType: 0
+      Languages:
+      - 'Progress:'
+      - 进度：
+      - '진행 :'
+      - 进度：
+      - 進捗：
+      - 'Progression :'
+      - 'Fortschritt:'
+      - 'Прогресс:'
+      - 'Progreso:'
+      - 'Progresso:'
+      - 'Progresso:'
+      - 'Progres:'
+      - 'Tiến Trình:'
+      - 'ความก้าวหน้า:'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: new_skin
+      TermType: 0
+      Languages:
+      - New Skin
+      - 新皮肤
+      - 새로운 스킨
+      - 新皮肤
+      - 新しいスキン
+      - Nouvelle peau
+      - Neue Haut
+      - Новый скин
+      - Nueva piel
+      - Nova Skin
+      - Nuova skin
+      - Kulit Baru
+      - Da Mới
+      - สกินใหม่
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: try_new_skin
+      TermType: 0
+      Languages:
+      - Try New Skin!
+      - 试用新皮肤！
+      - 새로운 스킨 사용！
+      - 试用新皮肤！
+      - 新しいスキンを試用する！
+      - Essayer une nouvelle peau！
+      - Neue Haut ausprobieren！
+      - Попробуй новый скин!
+      - Prueba una nueva piel
+      - Experimente a Nova Skin!
+      - Prova la nuova skin!
+      - Coba Kulit Baru!
+      - Thử Da Mới!
+      - ลองสกินใหม่!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: no
+      TermType: 0
+      Languages:
+      - No
+      - 不了
+      - 아니오
+      - 不了
+      - いいえ
+      - Non
+      - Nein
+      - Нет
+      - No
+      - Não
+      - No
+      - Tidak
+      - Không
+      - ไม่
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: win_1
+      TermType: 0
+      Languages:
+      - Win 1
+      - 赢1
+      - 1승
+      - 赢1
+      - 勝つ1
+      - Gagner 1
+      - Gewinn 1
+      - Победа 1
+      - Gana 1
+      - Ganhe 1
+      - Vinci 1
+      - Menang 1
+      - Thắng 1
+      - ชนะ 1
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: win_2
+      TermType: 0
+      Languages:
+      - Win 2
+      - 赢2
+      - 2승
+      - 赢2
+      - 勝つ2
+      - Gagner 2
+      - Gewinn 2
+      - Победа 2
+      - Gana 2
+      - Ganhe 2
+      - Vinci 2
+      - Menang 2
+      - Thắng 2
+      - ชนะ 2
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: win_3
+      TermType: 0
+      Languages:
+      - Win 3
+      - 赢3
+      - 3승
+      - 赢3
+      - 勝つ3
+      - Gagner 3
+      - Gewinn 3
+      - Победа 3
+      - Gana 3
+      - Ganhe 3
+      - Vinci 3
+      - Menang 3
+      - Thắng 3
+      - ชนะ 3
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: tnt
+      TermType: 0
+      Languages:
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      - TNT
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: like_game
+      TermType: 0
+      Languages:
+      - Like The Game?
+      - 喜欢我们的游戏吗？
+      - 게임이 마음에 드시나요?
+      - 喜欢我们的游戏吗？
+      - ゲームが好きですか？
+      - Aimez-vous notre jeu?
+      - Gefällt dir unser Spiel?
+      - Нравится игра?
+      - ¿Te gusta el juego?
+      - Gostou do jogo?
+      - Ti piace il gioco?
+      - Suka Gim ini?
+      - Thích Trò chơi này?
+      - ชอบเกมนี้หรือไม่?
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: submit
+      TermType: 0
+      Languages:
+      - Submit
+      - 提交
+      - 제출
+      - 提交
+      - 提出
+      - Soumettre
+      - Senden
+      - Отправить
+      - Enviar
+      - Enviar
+      - Invia
+      - Kirim
+      - Gửi
+      - ส่ง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: feed_back_placeholder
+      TermType: 0
+      Languages:
+      - Your feedback helps us to improve upcoming releases, please input...
+      - 你的建议将帮助我们改善新版本，请输入...
+      - 귀하의 제안은 새로운 버전을 개선하는 데 도움이됩니다. 입력하십시오.
+      - 你的建议将帮助我们改善新版本，请输入...
+      - あなたの提案は新しいバージョンの改善に役立ちます、入力してください...
+      - Vos suggestions nous aideront à améliorer les nouvelles versions. Veuillez entrer...
+      - Dein Feedback wird uns helfen, in neuen Versionen zu verbessern. Bitte geben Sie ein...
+      - Твой отзыв помогает нам улучшать новые релизы, пожалуйста, введи...
+      - Tu opinión nos ayuda a mejorar las próximas versiones, por favor, ingresa…
+      - Seu feedback nos ajuda a melhorar futuros lançamentos, por favor, digite...
+      - Il tuo feedback ci aiuta a migliorare le prossime versioni, per favore inserisci...
+      - Masukan Anda membantu kami meningkatkan rilis mendatang, silakan masukkan...
+      - Phản hồi của bạn giúp chúng tôi cải thiện các bản phát hành sắp tới, vui lòng nhập...
+      - ความคิดเห็นของคุณช่วยให้เราปรับปรุงการเผยแพร่ต่อไปได้ โปรดระบุ...
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: unlock
+      TermType: 0
+      Languages:
+      - Unlock
+      - 解锁
+      - 잠금 해제
+      - 解锁
+      - アンロック
+      - Débloquer
+      - Entsperren
+      - Открой
+      - Desbloq
+      - Abrir
+      - Sblocca
+      - Buka
+      - Mở khóa
+      - ปลดล็อค
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: buy
+      TermType: 0
+      Languages:
+      - Buy
+      - 购买
+      - 구매
+      - 购买
+      - 購入
+      - Acheter
+      - Kaufen
+      - Купи
+      - Comprar
+      - Comprar
+      - Compra
+      - Beli
+      - Mua
+      - ซื้อ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: pass_levels_open
+      TermType: 0
+      Languages:
+      - Pass more levels to open!
+      - 通过更多关卡来打开！
+      - 더 많은 스테이지를 클리어하여 열어보세요!
+      - 通过更多关卡来打开！
+      - もっとステージをクリアして開こう！
+      - Pour débloquer plus de niveaux!
+      - Um mehr Levels freizuschalten!
+      - Пройди больше уровней, чтобы открыть!
+      - Supera más niveles para abrirlo !
+      - Passe mais níveis para abrir!
+      - Supera più livelli per aprire!
+      - Lewati lebih banyak level untuk membukanya!
+      - Vượt qua nhiều cấp độ để mở!
+      - ผ่านเลเวลเพิ่มเติมเพื่อเปิด!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: claim
+      TermType: 0
+      Languages:
+      - Claim
+      - 获得
+      - 받기
+      - 获得
+      - 得る
+      - Recevoir
+      - Erhalten
+      - Забери
+      - Recoger
+      - Pegar
+      - Ritirare
+      - Ambil
+      - Nhận
+      - ได้รับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: claim_x2
+      TermType: 0
+      Languages:
+      - Claim X2
+      - 获得 X2
+      - 받기 X2
+      - 获得 X2
+      - 得る X2
+      - Recevoir X2
+      - Erhalten X2
+      - Забери X2
+      - Recoger x2
+      - Pegar X2
+      - Ritirare X2
+      - Ambil X2
+      - Nhận x2
+      - ได้รับ X2
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: quit
+      TermType: 0
+      Languages:
+      - Quit
+      - 退出
+      - 나가기
+      - 退出
+      - 退出
+      - Quitter
+      - Beenden
+      - Выход
+      - Salir
+      - Sair
+      - Esci
+      - Keluar
+      - Thoát
+      - ออก
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: rank_world
+      TermType: 0
+      Languages:
+      - Congratulations on finishing {0} in overall rank!
+      - 恭喜在世界排行获得了{0}
+      - 축하합니다, 세계 랭킹에서{0}을(를) 얻었습니다.
+      - 恭喜在世界排行获得了{0}
+      - おめでとうございます、世界ランキングで{0}を獲得しました
+      - Félicitations d'avoir atteint le {0} dans le classement mondial!
+      - Herzlichen Glückwunsch zum Erreichen des {0} in der Weltrangliste!
+      - Поздравляю с завершением {0} в общем рейтинге!
+      - ¡Felicitaciones por terminar en el puesto {0} en la clasificación general!
+      - Parabéns por terminar em {0} na classificação geral!
+      - Congratulazioni per aver finito al {0}° posto nella classifica generale!
+      - Selamat atas penyelesaian {0} dalam peringkat keseluruhan!
+      - Chúc mừng bạn đã hoàn thành {0} trong tổng sắp xếp!
+      - ขอแสดงความยินดีที่คุณจบ {0} ในอันดับโดยรวม!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: rank_last_month
+      TermType: 0
+      Languages:
+      - Congratulations on finishing {0} last month!
+      - 恭喜在上个月排行获得了{0}
+      - 지난 달 랭킹에서{0}을(를) 얻었습니다.
+      - 恭喜在上个月排行获得了{0}
+      - おめでとうございます、先月のランキングで{0}を獲得しました
+      - Félicitations d'avoir atteint le {0} le mois dernier!
+      - Herzlichen Glückwunsch zum Erreichen des {0} im letzten Monat!
+      - Поздравляю с завершением {0} в прошлом месяце!
+      - ¡Felicitaciones por terminar en el puesto {0} el mes pasado!
+      - Parabéns por terminar em {0} no mês passado!
+      - Congratulazioni per aver finito al {0}° il mese scorso!
+      - Selamat atas penyelesaian {0} bulan lalu!
+      - Chúc mừng bạn đã hoàn thành {0} tháng trước!
+      - ขอแสดงความยินดีที่คุณจบ {0} เดือนที่แล้ว!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: rank_num
+      TermType: 0
+      Languages:
+      - '{0}th'
+      - 第{0}名
+      - '{0}위'
+      - 第{0}名
+      - '{0}位'
+      - Place {0}
+      - Platz {0}
+      - '{0}-е'
+      - '{0}º'
+      - '{0}º'
+      - '{0}°'
+      - ke-{0}
+      - Hạng {0}
+      - อันดับที่ {0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: level
+      TermType: 0
+      Languages:
+      - Level
+      - 关卡
+      - 수준
+      - 关卡
+      - レベル
+      - Niveau
+      - Level
+      - Уровень
+      - Nivel
+      - Nível
+      - Livello
+      - Level
+      - Cấp
+      - ระดับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: level_id
+      TermType: 0
+      Languages:
+      - Level {0}
+      - 关卡{0}
+      - 수준{0}
+      - 关卡{0}
+      - レベル{0}
+      - Niveau {0}
+      - Level {0}
+      - УР {0}
+      - Nivel {0}
+      - Nível {0}
+      - Livello {0}
+      - Level {0}
+      - Cấp {0}
+      - ระดับ {0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: level_id_short
+      TermType: 0
+      Languages:
+      - LV {0}
+      - 关卡{0}
+      - 수준{0}
+      - 关卡{0}
+      - レベル{0}
+      - Niv{0}
+      - LV {0}
+      - УР {0}
+      - Nvl {0}
+      - Nív{0}
+      - LV {0}
+      - LV {0}
+      - Cấp {0}
+      - ระดับ {0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: rank_month_end
+      TermType: 0
+      Languages:
+      - This month ends in {0}
+      - 月排行将在{0}之后结束
+      - 월간 랭킹은{0} 후에 종료됩니다.
+      - 月排行将在{0}之后结束
+      - 月間ランキングは{0}後に終了します
+      - Ce mois se termine dans {0}
+      - Dieser Monat endet im {0}
+      - Этот месяц заканчивается через {0}
+      - Este mes termina en {0}
+      - Este mês termina em {0}
+      - Questo mese termina in {0}
+      - Bulan ini berakhir dalam {0}
+      - Tháng này kết thúc trong {0}
+      - เดือนนี้จะสิ้นสุดใน {0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: lose_position
+      TermType: 0
+      Languages:
+      - You lose your position!
+      - 你的排名后退了！
+      - 당신의 순위가 물러났습니다!
+      - 你的排名后退了！
+      - 立場を失うんだよ！
+      - Vous perdez votre position!
+      - Du verlierst deine Position!
+      - Ты потерял свою позицию!
+      - Has perdido tu posición!
+      - Você perdeu sua posição!
+      - Perdi la tua posizione!
+      - Anda kehilangan posisi Anda!
+      - Bạn mất vị trí của mình!
+      - คุณจะเสียตำแหน่งของคุณ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: end
+      TermType: 0
+      Languages:
+      - End
+      - 结束了
+      - 끝
+      - 结束了
+      - 終了
+      - Terminé
+      - Ende
+      - Конец
+      - Fin
+      - Fim
+      - Fine
+      - Akhir
+      - Kết thúc
+      - สิ้นสุด
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: hour_min_short
+      TermType: 0
+      Languages:
+      - '{0}h {1}m'
+      - '{0}时{1}分'
+      - '{0}시{1}분'
+      - '{0}时{1}分'
+      - '{0}時{1}分'
+      - '{0}h {1}m'
+      - '{0}h {1}m'
+      - '{0}ч {1}м'
+      - '{0}h {1}m'
+      - '{0}h {1}m'
+      - '{0}h {1}m'
+      - '{0}j {1}m'
+      - '{0}g {1}p'
+      - '{0}h {1}m'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: day_hour_short
+      TermType: 0
+      Languages:
+      - '{0}d {1}h'
+      - '{0}天{1}时'
+      - '{0}일{1}시'
+      - '{0}天{1}时'
+      - '{0}日{1}時'
+      - '{0}j {1}h'
+      - '{0}d {1}h'
+      - '{0}д {1}ч'
+      - '{0}d {1}h'
+      - '{0}d {1}h'
+      - '{0}g {1}h'
+      - '{0}h {1}j'
+      - '{0}n {1}g'
+      - '{0}d {1}h'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: min_sec_short
+      TermType: 0
+      Languages:
+      - '{0}m {1}s'
+      - '{0}分{1}秒'
+      - '{0}분{1}초'
+      - '{0}分{1}秒'
+      - '{0}分{1}秒'
+      - '{0}m {1}s'
+      - '{0}m {1}s'
+      - '{0}м {1}с'
+      - '{0}m {1}s'
+      - '{0}m {1}s'
+      - '{0}m {1}s'
+      - '{0}m {1}d'
+      - '{0}p {1}s'
+      - '{0}m {1}s'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: hour_short
+      TermType: 0
+      Languages:
+      - '{0}h'
+      - '{0}时'
+      - '{0}시'
+      - '{0}时'
+      - '{0}時'
+      - '{0}h'
+      - '{0}h'
+      - '{0}ч'
+      - '{0}h'
+      - '{0}h'
+      - '{0}h'
+      - '{0}j'
+      - '{0}g'
+      - '{0}h'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: min_short
+      TermType: 0
+      Languages:
+      - '{0}m'
+      - '{0}分'
+      - '{0}분'
+      - '{0}分'
+      - '{0}分'
+      - '{0}m'
+      - '{0}m'
+      - '{0}м'
+      - '{0}m'
+      - '{0}m'
+      - '{0}m'
+      - '{0}m'
+      - '{0}p'
+      - '{0}m'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: day_short
+      TermType: 0
+      Languages:
+      - '{0}d'
+      - '{0}天'
+      - '{0}일'
+      - '{0}天'
+      - '{0}日'
+      - '{0}j'
+      - '{0}d'
+      - '{0}д'
+      - '{0}d'
+      - '{0}d'
+      - '{0}g'
+      - '{0}h'
+      - '{0}n'
+      - '{0}d'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: sec_short
+      TermType: 0
+      Languages:
+      - '{0}s'
+      - '{0}秒'
+      - '{0}초'
+      - '{0}秒'
+      - '{0}秒'
+      - '{0}s'
+      - '{0}s'
+      - '{0}с'
+      - '{0}s'
+      - '{0}s'
+      - '{0}s'
+      - '{0}d'
+      - '{0}s'
+      - '{0}s'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: FZLT
+      TermType: 1
+      Languages:
+      - FZLT
+      - CN
+      - KO
+      - ZH-TW
+      - JP
+      - FZLT
+      - FZLT
+      - Russian
+      - Spanish
+      - Spanish
+      - FZLT
+      - FZLT
+      - Vietnamese
+      - Thai
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: CN
+      TermType: 1
+      Languages:
+      - FZLT
+      - CN
+      - KO
+      - ZH-TW
+      - JP
+      - FZLT
+      - FZLT
+      - Russian
+      - Spanish
+      - Spanish
+      - FZLT
+      - FZLT
+      - Vietnamese
+      - Thai
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: DINBOLD
+      TermType: 1
+      Languages:
+      - DINBOLD
+      - CN
+      - KO
+      - ZH-TW
+      - JP
+      - DINBOLD
+      - DINBOLD
+      - Russian
+      - Spanish
+      - Spanish
+      - DINBOLD
+      - DINBOLD
+      - Vietnamese
+      - Thai
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: JP
+      TermType: 1
+      Languages:
+      - FZLT
+      - CN
+      - KO
+      - ZH-TW
+      - JP
+      - FZLT
+      - FZLT
+      - Russian
+      - Spanish
+      - Spanish
+      - FZLT
+      - FZLT
+      - Vietnamese
+      - Thai
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: KO
+      TermType: 1
+      Languages:
+      - FZLT
+      - CN
+      - KO
+      - ZH-TW
+      - JP
+      - FZLT
+      - FZLT
+      - Russian
+      - Spanish
+      - Spanish
+      - FZLT
+      - FZLT
+      - Vietnamese
+      - Thai
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: offline_tips
+      TermType: 0
+      Languages:
+      - You are now in offline mode!
+      - 你现在处于离线模式
+      - 당신은 현재 오프라인 모드입니다
+      - 你现在处于离线模式
+      - あなたは現在オフラインモードです
+      - Vous êtes actuellement en mode hors ligne
+      - Du befindest dich jetzt im offline Modus
+      - Ты сейчас в автономном режиме!
+      - Ahora estás en modo sin conexión
+      - Agora você está no modo offline!
+      - Ora sei in modalità offline!
+      - Anda sekarang dalam mode offline!
+      - Bạn đang ở chế độ ngoại tuyến bây giờ!
+      - คุณกำลังอยู่ในโหมดออฟไลน์ตอนนี้!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: fb_logout_error
+      TermType: 0
+      Languages:
+      - Logout Facebook error,please try again later!
+      - 登出Facebook异常，请稍后重试！
+      - Facebook 로그 아웃이 실패했습니다. 나중에 다시 시도하십시오!
+      - 登出Facebook异常，请稍后重试！
+      - Facebookからログアウトしました。後で再試行してください！
+      - La déconnexion de Facebook a échoué, veuillez réessayer plus tard!
+      - Facebook Abmeldung fehlgeschlagen, bitte versuche es später erneut!
+      - Ошибка выхода из Facebook, попробуйте позже!
+      - Error al cerrar sesión en Facebook, inténtalo de nuevo más tarde !
+      - Erro ao sair do Facebook, tente novamente mais tarde!
+      - Errore di logout da Facebook, riprova più tardi!
+      - Logout Facebook error, silakan coba lagi nanti!
+      - Đăng xuất Lỗi Facebook, vui lòng thử lại sau!
+      - ออกจากระบบ Facebook ข้อผิดพลาด โปรดลองอีกครั้งในภายหลัง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: bind_fb_error
+      TermType: 0
+      Languages:
+      - Bind Facebook error,please try again later!
+      - 绑定Facebook异常，请稍后重试！
+      - Facebook에 연결할 수 없습니다. 나중에 다시 시도하십시오!
+      - 绑定Facebook异常，请稍后重试！
+      - Facebookにバインドできませんでした、後で再試行してください！
+      - L'association à Facebook a échoué, veuillez réessayer plus tard!
+      - Facebook Verknüpfung fehlgeschlagen, bitte versuche es später erneut!
+      - Ошибка привязки Facebook, попробуйте позже!
+      - Error al vincular a Facebook, inténtalo de nuevo más tarde !
+      - Erro ao vincular ao Facebook, tente novamente mais tarde!
+      - Errore di associazione a Facebook, riprova più tardi!
+      - Bind Facebook error, silakan coba lagi nanti!
+      - Lỗi Ràng buộc Facebook, vui lòng thử lại sau!
+      - ผูกข้อผิดพลาด Facebook โปรดลองอีกครั้งในภายหลัง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: suggestion_content
+      TermType: 0
+      Languages:
+      - 'My problem/suggestion is:'
+      - '我的问题/建议是:'
+      - '나의 문제/제안 사항 :'
+      - '我的問題/建議是:'
+      - 私の問題/提案は：
+      - 'Ma question/mon avis est :'
+      - 'Meine Frage/Mein Vorschlag ist:'
+      - 'Моя проблема/предложение:'
+      - 'Mi problema/sugerencia es:'
+      - 'Meu problema/sugestão é:'
+      - 'Il mio problema/suggerimento è:'
+      - 'Masalah/Saran saya adalah:'
+      - 'Vấn đề/Gợi ý của tôi là:'
+      - 'ปัญหา/คำแนะนำของฉันคือ:'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: suggestion_tip1
+      TermType: 0
+      Languages:
+      - Please don't delete the important info below!
+      - 请不要删除底部信息！
+      - 바닥 정보를 삭제하지 마십시오!
+      - 請不要刪除底部資訊！
+      - 底部の情報を削除しないでください！
+      - Veuillez ne pas supprimer les informations en bas!
+      - Bitte lösche die unteren Informationen nicht!
+      - Пожалуйста, не удаляйте важную информацию ниже!
+      - Por favor, no elimines la información importante a continuación
+      - Por favor, não apague as informações importantes abaixo!
+      - Per favore, non cancellare le informazioni importanti qui sotto!
+      - Tolong jangan hapus info penting di bawah ini!
+      - Vui lòng không xóa thông tin quan trọng dưới đây!
+      - กรุณาอย่าลบข้อมูลสำคัญด้านล่าง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: delete_account_error
+      TermType: 0
+      Languages:
+      - Delete account error,please try again later!
+      - 删除账号异常，请稍后重试！
+      - 계정 삭제 오류, 나중에 다시 시도하십시오!
+      - 删除账号异常，请稍后重试！
+      - アカウントの削除に失敗しました、後で再試行してください！
+      - La suppression du compte a échoué, veuillez réessayer plus tard!
+      - Konto löschen fehlgeschlagen, bitte versuche es später erneut!
+      - Ошибка удаления аккаунта, попробуйте позже!
+      - Error al eliminar la cuenta, inténtalo de nuevo más tarde
+      - Erro ao excluir a conta, tente novamente mais tarde!
+      - Errore di eliminazione dell'account, riprova più tardi!
+      - Delete account error, silakan coba lagi nanti!
+      - Xóa tài khoản Lỗi, vui lòng thử lại sau!
+      - ลบบัญชี ข้อผิดพลาด โปรดลองอีกครั้งในภายหลัง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: own_time
+      TermType: 0
+      Languages:
+      - 'Own time : {0}'
+      - 拥有时间：{0}
+      - '소지 시간 : {0}'
+      - 拥有时间：{0}
+      - 所有時間：{0}
+      - 'Temps restant : {0}'
+      - 'Verbleibende Zeit: {0}'
+      - 'Твоё время: {0}'
+      - 'Tu tiempo: {0}'
+      - 'Tempo próprio: {0}'
+      - 'Tempo proprio: {0}'
+      - 'Waktu Anda sendiri: {0}'
+      - 'Thời gian của riêng bạn: {0}'
+      - 'เวลาของคุณ : {0}'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: try_skin_end
+      TermType: 0
+      Languages:
+      - Try end, purchase the skin?
+      - 试用结束，是否购买皮肤？
+      - 체험 종료, 스킨을 구매하시겠습니까?
+      - 试用结束，是否购买皮肤？
+      - トライアルが終了しました、スキンを購入しますか？
+      - L'essai gratuit est terminé, souhaitez-vous acheter la peau ?
+      - Testphase abgelaufen, möchtest du die Haut kaufen?
+      - Окончание попыток, купи скин?
+      - ¿Terminar prueba, comprar la piel?
+      - Fim da tentativa, comprar a skin?
+      - Prova a terminare, acquista la skin?
+      - Coba berakhir, beli skin?
+      - Cố gắng kết thúc, mua da?
+      - ลองจบ, ซื้อสกิน?
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: purchased_skin
+      TermType: 0
+      Languages:
+      - You have purchased skin!
+      - 你已经成功购买此皮肤！
+      - 이 스킨은 이미 성공적으로 구매되었습니다!
+      - 你已经成功购买此皮肤！
+      - このスキンは既に購入済みです！
+      - Vous avez acheté avec succès cette peau!
+      - Du hast diese Haut erfolgreich gekauft!
+      - Ты купил скин!
+      - Has comprado una piel !
+      - Você comprou a skin!
+      - Hai acquistato la skin!
+      - Anda telah membeli skin!
+      - Bạn đã mua da!
+      - คุณได้ซื้อสกิน!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: restart
+      TermType: 0
+      Languages:
+      - Restart
+      - 重新开始
+      - 다시 시작
+      - 重新开始
+      - やり直す
+      - Redémarrer
+      - Neustart
+      - Перезапуск
+      - Reiniciar
+      - Reiniciar
+      - Riavvia
+      - Reset
+      - Đặt lại
+      - เริ่มใหม่
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: lose_goods_and_streak
+      TermType: 0
+      Languages:
+      - You will lose your goods and winning streak!
+      - 你将会失去商品和连胜！
+      - 상품과 연승이 손실됩니다!
+      - 你将会失去货物和连胜！
+      - アイテムと連勝がリセットされます！
+      - Vous perdrez des marchandises et une série victorieuse!
+      - Du wirst Waren und Siegesserie verlieren!
+      - Ты потеряешь свои товары и победную серию!
+      - Perderás tus productos y tu racha ganadora !
+      - Você perderá suas mercadorias e sequência de vitórias!
+      - Perderai le tue merci e la tua striscia vincente!
+      - Anda akan kehilangan barang dan streak kemenangan Anda!
+      - Bạn sẽ mất hàng hóa và chuỗi chiến thắng của mình!
+      - คุณจะสูญเสียสินค้าและชุดชนะเลิศของคุณ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: choose_language
+      TermType: 0
+      Languages:
+      - Choose Language
+      - 选择语言
+      - 언어 선택
+      - 选择语言
+      - 言語を選択する
+      - Choisissez la langue
+      - Sprache auswählen
+      - Выбери язык
+      - Elegir idioma
+      - Escolha o idioma
+      - Scegli la lingua
+      - Pilih Bahasa
+      - Chọn Ngôn ngữ
+      - เลือกภาษา
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice_daily_bonus
+      TermType: 0
+      Languages:
+      - Daily Bonus is ready, come to claim it!
+      - 每日奖励已经准备好了，快来领取吧！
+      - 매일 보상이 이미 준비되었습니다. 수령하러 가세요!
+      - 每日獎勵已經準備好了，快來領取吧！
+      - デイリーリワードが準備できました、受け取りに来てください！
+      - La récompense quotidienne est prête, venez la chercher!
+      - Die tägliche Belohnung ist bereit, hol sie dir jetzt!
+      - Ежедневный бонус готов, приходи за ним!
+      - ¡El Bono Diario está listo, ven a reclamarlo!
+      - O Bônus Diário está pronto, venha reivindicar!
+      - Il Bonus Giornaliero è pronto, vieni a richiederlo!
+      - Bonus Harian sudah siap, datang dan klaim!
+      - Tiền thưởng Hàng ngày đã sẵn sàng, đến nhận nó!
+      - โบนัสประจำวันพร้อมใช้งาน มาเรียกรับ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: try_skin_tips
+      TermType: 0
+      Languages:
+      - You can only try one skin at a time!
+      - 你一次只能试用一个皮肤！
+      - 한 번에 하나의 스킨만 무료로 사용할 수 있습니다!
+      - 你一次只能试用一个皮肤！
+      - 1回に1つのスキンしか試用できません！
+      - Vous ne pouvez essayer qu'une peau à la fois!
+      - Du kannst nur eine Haut gleichzeitig ausprobieren!
+      - Ты можешь пробовать только один скин в одно время!
+      - Solo puedes probar una piel a la vez
+      - Você só pode experimentar uma skin de cada vez!
+      - Puoi solo provare una skin alla volta!
+      - Anda hanya dapat mencoba satu skin pada satu waktu!
+      - Bạn chỉ có thể thử một da vào một thời điểm!
+      - คุณสามารถลองสกินได้เพียงหนึ่งชุดในเวลาเดียว!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: activate_shop_pass_tips
+      TermType: 0
+      Languages:
+      - Activate the Shopping Pass to claim it!
+      - 激活购物通行证来领取！
+      - 쇼핑 패스를 활성화하여 얻으세요!
+      - 激活购物通行证来领取！
+      - ショッピングパスをアクティベートして手に入れましょう！
+      - Activez la passe d'achat pour l'obtenir!
+      - Aktiviere den Einkaufspass, um ihn zu bekommen!
+      - Активируй пропуск шопинга, чтобы получить это!
+      - ¡Activa el Pase de Compras para reclamarlo !
+      - Ative o Passe de Compras para reivindicar!
+      - Attiva il Pass per lo Shopping per richiederlo!
+      - Aktifkan Shopping Pass untuk klaim itu!
+      - Kích hoạt Shopping Pass để nhận nó!
+      - เปิดใช้งาน Shopping Pass เพื่อเรียกรับ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: remove_ads_purchased
+      TermType: 0
+      Languages:
+      - Remove Ads has been purchased!
+      - 去广告已经被购买！
+      - 광고 제거가 이미 구매되었습니다!
+      - 去广告已经被购买！
+      - 広告なしはすでに購入済みです！
+      - La publicité a été supprimée!
+      - Werbung wurde entfernt!
+      - Реклама удалена!
+      - Se ha comprado la eliminación de anuncios !
+      - Remover anúncios foi comprado!
+      - Hai acquistato la rimozione degli annunci!
+      - Iklan telah dibeli!
+      - Loại bỏ Quảng cáo đã được mua!
+      - ลบโฆษณาได้รับการซื้อแล้ว!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: gift_pack_purchased
+      TermType: 0
+      Languages:
+      - Gift Pack has been purchased!
+      - 新手大礼包已经被购买！
+      - 초보자 선물 팩이 이미 구매되었습니다!
+      - 新手大礼包已经被购买！
+      - 初心者ギフトパックはすでに購入済みです！
+      - Le pack débutant a été acheté!
+      - Anfänger Paket wurde gekauft!
+      - Подарочный пакет получен!
+      - Se ha comprado el Paquete de regalo !
+      - Pacote de presente foi comprado!
+      - Hai acquistato il pacchetto regalo!
+      - Paket Hadiah telah dibeli!
+      - Quà tặng Pack đã được mua!
+      - ได้รับของขวัญแพคได้รับการซื้อแล้ว!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: remove_ads_offer_purchased
+      TermType: 0
+      Languages:
+      - Remove Ads Offer has been purchased!
+      - 去广告大礼包已经被购买！
+      - 광고 제거 대화창이 이미 구매되었습니다!
+      - 去广告大礼包已经被购买！
+      - 広告なし大プレゼントパックはすでに購入されています！
+      - Le pack publicité supprimée a été acheté!
+      - Werbungspass wurde gekauft!
+      - Предложение "Убрать рекламу" получено!
+      - Se ha comprado la oferta de eliminación de anuncios !
+      - Oferta de Remover Anúncios foi comprada!
+      - Hai acquistato l'offerta di rimozione degli annunci!
+      - Penawaran Hapus Iklan telah dibeli!
+      - Loại bỏ Quảng cáo Đề xuất đã được mua!
+      - ข้อเสนอลบโฆษณาได้รับการซื้อแล้ว!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: shop_pass_purchased
+      TermType: 0
+      Languages:
+      - Shopping Pass has been purchased!
+      - 购物通行证已经被购买！
+      - 구매 통행증이 이미 구매되었습니다!
+      - 购物通行证已经被购买！
+      - ショッピングパスはすでに購入済みです！
+      - La passe d'achat a été achetée!
+      - Einkaufspass wurde gekauft!
+      - Пропуск шопинга получен!
+      - Se ha comprado el Pase de Compras !
+      - Passe de Compras foi comprado!
+      - Hai acquistato il Pass per lo Shopping!
+      - Shopping Pass telah dibeli!
+      - Shopping Pass đã được mua!
+      - Shopping Pass ได้รับการซื้อแล้ว!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: purchase_fail
+      TermType: 0
+      Languages:
+      - Purchase Failed!
+      - 购买失败！
+      - 구매 실패!
+      - 购买失败！
+      - 購入に失敗しました！
+      - Achat échoué!
+      - Kauf fehlgeschlagen!
+      - Ошибка покупки!
+      - ¡Compra fallida!
+      - Compra falhou!
+      - Acquisto fallito!
+      - Pembelian Gagal!
+      - Mua Thất bại!
+      - การซื้อล้มเหลว!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: please_input_feedback
+      TermType: 0
+      Languages:
+      - Please input the feedback to us!
+      - 请输入反馈意见！
+      - 피드백을 입력하세요!
+      - 请输入反馈意见！
+      - フィードバックコメントを入力してください！
+      - Veuillez saisir vos commentaires!
+      - Bitte gib dein Feedback ein!
+      - Внесите свой отзыв!
+      - Ingresa tu opinión !
+      - Por favor, forneça feedback para nós!
+      - Inserisci il feedback per noi!
+      - Silakan masukkan umpan balik kepada kami!
+      - Vui lòng nhập phản hồi cho chúng tôi!
+      - กรุณาป้อนความคิดเห็นให้เรา!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: thanks_feedback
+      TermType: 0
+      Languages:
+      - Thanks for your feedback!
+      - 非常感谢你的反馈！
+      - 피드백 주셔서 감사합니다!
+      - 非常感谢你的反馈！
+      - ご意見に感謝します！
+      - Merci beaucoup pour vos commentaires!
+      - Vielen Dank für dein Feedback!
+      - Спасибо за твой отзыв!
+      - ¡Gracias por tu opinión!
+      - Obrigado pelo seu feedback!
+      - Grazie per il tuo feedback!
+      - Terima kasih atas masukan Anda!
+      - Cảm ơn bạn về phản hồi của bạn!
+      - ขอบคุณสำหรับความคิดเห็นของคุณ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: fb_logout
+      TermType: 0
+      Languages:
+      - FB Logout
+      - FB登出
+      - FB로그아웃
+      - FB登出
+      - FBログアウト
+      - Déconnexion FB
+      - FB ausloggen
+      - Выход из FB
+      - Cerrar sesión de Facebook
+      - Sair FB
+      - Logout FB
+      - Logout FB
+      - Đăng xuất FB
+      - ออกจากระบบ FB
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: notice_energy
+      TermType: 0
+      Languages:
+      - Your energy is full, come to play it!
+      - 你的体力满了，快来玩游戏吧！
+      - 체력이 가득 찼어, 지금 게임을 즐겨봐!
+      - 你的體力滿了，快來玩遊戲吧！
+      - 体力が満タンです、ゲームをプレイしましょう！
+      - Votre énergie est pleine, venez jouer au jeu!
+      - Deine Energie ist voll, komm und spiele das Spiel!
+      - Твоя энергия полна, приходи поиграть!
+      - Tu energía está llena, ¡ven a jugar!
+      - Sua energia está cheia, venha jogar!
+      - La tua energia è al massimo, vieni a giocare!
+      - Energi Anda penuh, datang dan mainkan!
+      - Năng lượng của bạn đã đầy, hãy đến chơi nó!
+      - พลังงานของคุณเต็มแล้ว มาเล่นกันเถอะ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: flare_title
+      TermType: 0
+      Languages:
+      - Flare Onslaught
+      - 照明弹来袭
+      - 조명탄 출격
+      - 照明弹来袭
+      - 照明弾襲来
+      - Promotion Fusée
+      - Flare-Angriff
+      - Вспышки приближаются
+      - Embargo de bengalas
+      - Ataque Luminoso
+      - Invasione di Bagliori
+      - Serangan Flare
+      - Phát đạn sáng
+      - การระเบิดไฟ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: flare_desc
+      TermType: 0
+      Languages:
+      - Flares can illuminate unknown goods.
+      - 照明弹可以照亮未知的商品。
+      - 조명탄으로 알 수 없는 상품을 밝힐 수 있습니다.
+      - 照明弹可以照亮未知的商品。
+      - 照明弾は未知の商品を照らすことができます。
+      - Les fusées peuvent illuminer des marchandises inconnues.
+      - Lichtzeichen können unbekannte Waren beleuchten.
+      - Вспышки могут освещать неизвестные товары.
+      - Las bengalas pueden iluminar productos desconocidos.
+      - Os luminoso podem iluminar produtos desconhecidos.
+      - I bagliori possono illuminare merci sconosciute.
+      - Flare dapat menerangi barang-barang yang tidak diketahui.
+      - Quảng cáo có thể làm sáng tỏ hàng hóa không biết.
+      - การระเบิดสามารถทำให้สินค้าที่ไม่รู้จักมีแสงสว่างได้.
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: flare_streak
+      TermType: 0
+      Languages:
+      - Win streak and get flares!
+      - 连胜可以获得更多照明弹。
+      - 연승으로 더 많은 조명탄 보상 획득 가능합니다.
+      - 连胜可以获得更多照明弹。
+      - 連勝でより多くの照明弾を獲得できます。
+      - Enchaînez les victoires et obtenez de fusées !
+      - Gewinne eine Siegesserie und erhalte Flare!
+      - Победы в ряд приносят больше вспышек.
+      - ¡Gana seguidillas y obtén bengalas!
+      - Sequência de vitórias e obtenha luminoso!
+      - Vincere di fila e ottenere bagliori!
+      - Win streak and get flares!
+      - Dã trải qua chuỗi chiến thắng và nhận được các đèn sáng!
+      - ชนะต่อเนื่องและได้รับแสงไฟ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: truck_title
+      TermType: 0
+      Languages:
+      - Truck Activity
+      - 卡车活动
+      - 트럭 이벤트
+      - 卡车活动
+      - トラックイベント
+      - Activité du camion
+      - LKW-Aktivität
+      - Активность грузовика
+      - Actividad de camiones
+      - Atividade de Camião
+      - Attività del Camion
+      - Aktivitas Truk
+      - Hoạt động Xe Tải
+      - กิจกรรมรถบรรทุก
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: truck_desc
+      TermType: 0
+      Languages:
+      - Truck Activity has started!  Winning consecutively to earn abundant rewards!
+      - 卡车活动开始了！通过连续胜利获得大量奖励！
+      - 트럭 이벤트 시작했습니다! 연승으로 다양한 보상을 획득하세요!
+      - 卡车活动开始了！通过连续胜利获得大量奖励！
+      - トラックイベントが始まりました！連続した勝利で豪華な報酬を手に入れよう！
+      - L'activité du camion a commencé ! Gagnez de manière consécutive pour obtenir des récompenses abondantes !
+      - Die LKW-Aktivität hat begonnen! Durch aufeinanderfolgende Siege kannst du reichlich Belohnungen verdienen!
+      - Активность грузовика началась! Побеждайте подряд, чтобы получать обильные награды!
+      - ¡Ha comenzado la actividad de camiones! ¡Gana de forma consecutiva para obtener recompensas abundantes!
+      - A Atividade de Caminhões começou! Ganhe consecutivamente para obter recompensas abundantes!
+      - L'attività del camion è iniziata! Vinci consecutivamente per guadagnare ricompense abbondanti!
+      - Aktivitas Truk telah dimulai! Menang secara beruntun untuk mendapatkan hadiah yang melimpah!
+      - Hoạt động Xe Tải đã bắt đầu! Liên tục chiến thắng để kiếm những phần thưởng phong phú!
+      - กิจกรรมรถบรรทุกได้เริ่มขึ้นแล้ว! ชนะต่อเนื่องเพื่อรับรางวัลมากมาย!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: flare_help1
+      TermType: 0
+      Languages:
+      - Consecutive victories
+      - 连续胜利
+      - 연속 승리
+      - 连续胜利
+      - 連続勝利
+      - Victoires consécutives
+      - Aufeinanderfolgende Siege
+      - Подряд победы
+      - Victorias consecutivas
+      - Vitórias consecutivas
+      - Vittorie consecutive
+      - Kemenangan beruntun
+      - Chiến thắng liên tiếp
+      - ชนะต่อเนื่อง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: flare_help2
+      TermType: 0
+      Languages:
+      - Get flares
+      - 获得照明弹
+      - 조명탄 획득
+      - 获得照明弹
+      - 照明弾獲得
+      - Obtenez des fusées
+      - Hol dir Lichtzeichen
+      - получить вспышки
+      - Obtén bengalas
+      - Obtenha luminoso
+      - Ottieni bagliori
+      - Dapatkan flares
+      - Nhận đèn sáng
+      - ได้รับแสงไฟ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: flare_help3
+      TermType: 0
+      Languages:
+      - Illuminate the Unknown
+      - 照亮未知
+      - 알 수 없는 것을 밝히다
+      - 照亮未知商品
+      - 未知を照らす
+      - Éclairer l'inconnu
+      - Das Unbekannte erhellen
+      - Освещайте неизвестное
+      - Ilumina lo desconocido
+      - Ilumine o Desconhecido
+      - Illumina l'Ignoto
+      - Menerangi Barang
+      - Chiếu sáng vùng không rõ
+      - แสงสว่างสว่างอาทิตย์
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: flare_help4
+      TermType: 0
+      Languages:
+      - Continuous victories yield more flare illumination to light up unknown goods.
+      - 连续胜利可获得更多的照明弹来可以照亮未知商品。
+      - 연속된 승리는 알려지지 않은 지역을 밝히기 위해 더 많은 플레어 조명을 가져옵니다.
+      - 连续胜利可获得更多的照明弹来可以照亮未知商品。
+      - 連続した勝利は、未知の領域を照らすためにより多くのフレア照明をもたらします。
+      - Des victoires continues apportent plus de fusées éclairantes pour illuminer des territoires inconnus.
+      - Fortlaufende Siege bringen mehr Leuchtkörper, um unbekannte Gebiete zu erhellen.
+      - Последовательные победы приносят больше сигнальных ракет для освещения неизвестных территорий.
+      - Las victorias continuas proporcionan más bengalas de iluminación para iluminar territorios desconocidos.
+      - Vitórias contínuas trazem mais sinalizadores luminosos para iluminar territórios desconhecidos.
+      - Vittorie continue portano più razzi illuminanti per illuminare territori sconosciuti.
+      - Kemenangan beruntun menghasilkan lebih banyak penerangan flare untuk menerangi barang yang tidak diketahui.
+      - Những chiến thắng liên tiếp mang lại nhiều ánh sáng hơn để chiếu sáng các mặt hàng không rõ ràng.
+      - ชนะต่อเนื่องจะได้รับการแสดงแสงไฟมากขึ้นเพื่อเปิดแสงสินค้าที่ไม่รู้จัก
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: flare_count
+      TermType: 0
+      Languages:
+      - Flare {0}
+      - 照明弹 {0}
+      - 플레어 {0}
+      - 照明弹 {0}
+      - 照明弾 {0}
+      - Fusée {0}
+      - Flare {0}
+      - Вспышки {0}
+      - Bengala {0}
+      - Luminoso {0}
+      - Bagliori {0}
+      - Flare {0}
+      - Đèn sáng {0}
+      - ไฟ {0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: truck_count
+      TermType: 0
+      Languages:
+      - Truck {0}
+      - 卡车 {0}
+      - 트럭 {0}
+      - 卡车 {0}
+      - トラック {0}
+      - Camion {0}
+      - LKW {0}
+      - Грузовик {0}
+      - Camión {0}
+      - Camião {0}
+      - Camion {0}
+      - Truk {0}
+      - Xe Tải {0}
+      - รถบรรทุก {0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: truck_help1
+      TermType: 0
+      Languages:
+      - Reach gas station
+      - 到达加油站
+      - 주유소 도착
+      - 到达加油站
+      - ガソリンスタンド到着
+      - Arriver à la station
+      - Tankstelle erreichen
+      - Прибыть на заправку
+      - Llegar a la gasolinera
+      - Chegar à estação
+      - Arrivare alla stazione
+      - Mencapai pom bensin
+      - Đạt đến trạm xăng
+      - เดินทางไปที่ปั๊มน้ำมัน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: truck_help2
+      TermType: 0
+      Languages:
+      - Receive rewards
+      - 获得奖励
+      - 보상 받기
+      - 获得奖励
+      - 報酬を得る
+      - Obtenir des récompenses
+      - Belohnungen erhalten
+      - Получить награду
+      - Obtener recompensas
+      - Receber recompensas
+      - Ottenere ricompense
+      - Menerima hadiah
+      - Nhận phần thưởng
+      - รับรางวัล
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: truck_help3
+      TermType: 0
+      Languages:
+      - Game over
+      - 游戏失败
+      - 게임 실패
+      - 游戏失败
+      - ゲームオーバー
+      - Échec du jeu
+      - Spiel verloren
+      - Проигрыш в игре
+      - Juego perdido
+      - Jogo perdido
+      - Gioco fallito
+      - Game over
+      - Kết thúc trò chơi
+      - เกมเสร็จสิ้น
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: truck_help4
+      TermType: 0
+      Languages:
+      - Truck returns
+      - 卡车返回
+      - 트럭이 돌아감
+      - 卡车返回
+      - トラックが戻る
+      - Le camion revient
+      - LKW kehrt zurück
+      - Грузовик возвращается
+      - El camión regresa
+      - O caminhão retorna
+      - Il camion ritorna
+      - Truk kembali
+      - Xe Tải trở lại
+      - รถบรรทุกกลับมา
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: truck_help5
+      TermType: 0
+      Languages:
+      - Reset progress
+      - 进度重置
+      - 진행 상태 초기화
+      - 进度重置
+      - 進捗をリセットする
+      - Réinitialiser la progression
+      - Fortschritt zurücksetzen
+      - Сбросить прогресс
+      - Reiniciar el progreso
+      - Resetar o progresso
+      - Reimposta il progresso
+      - Reset progres
+      - Đặt lại tiến trình
+      - รีเซ็ตความคืบหน้า
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: truck_help6
+      TermType: 0
+      Languages:
+      - Only by maintaining a winning streak will you receive rewards faster.
+      - 保持连胜，才会更快的获得奖励。
+      - 연승을 유지할 때만 더 빨리 보상을 받을 수 있습니다.
+      - 保持连胜，才会更快的获得奖励。
+      - 連勝を保持しないと、報酬をより速く得ることはできません。
+      - Seulement en maintenant une série de victoires, vous recevrez des récompenses plus rapidement.
+      - Nur durch das Aufrechterhalten einer Siegesserie erhalten Sie schneller Belohnungen.
+      - Только поддерживая победную серию, вы получите награды быстрее.
+      - Solo manteniendo una racha de victorias recibirás recompensas más rápido.
+      - Apenas ao manter uma sequência de vitórias, você receberá recompensas mais rapidamente.
+      - Solo mantenendo una serie di vittorie riceverai ricompense più velocemente.
+      - Hanya dengan mempertahankan kemenangan berturut-turut, Anda akan mendapatkan hadiah lebih cepat.
+      - Chỉ bằng cách duy trì một chuỗi chiến thắng, bạn sẽ nhận được phần thưởng nhanh hơn.
+      - เพียงแค่รักษาชุดความสำเร็จ คุณจะได้รับรางวัลเร็วขึ้น
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: battle_title
+      TermType: 0
+      Languages:
+      - Battle Royale
+      - 大逃杀
+      - 배틀로얄
+      - 大逃杀
+      - バトルロイヤル
+      - Battle Royale
+      - Battle Royale
+      - Битва Роял
+      - Batalla Real
+      - Batalha Real
+      - Battaglia reale
+      - Battle Royale
+      - Battle Royale
+      - Battle Royale
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: battle_help
+      TermType: 0
+      Languages:
+      - Beat 7 levels within 3 hours and share 10000 coins!
+      - 3个小时内通关7次的玩家平分10000金币！
+      - 3시간 내에 7개의 레벨을 이기고 10000 코인 나누기!
+      - 3个小时内通关7次的玩家平分10000金币！
+      - 3時間以内に7レベルをクリアし、10000コインを分け合おう！
+      - Battez 7 niveaux en 3 heures et partagez 10000 pièces !
+      - Besiege 7 Level innerhalb von 3 Stunden und teile 10000 Münzen!
+      - Победите 7 уровней в течение 3 часов и поделитесь 10000 монет!
+      - ¡Supera 7 niveles en 3 horas y comparte 10000 monedas!
+      - Supera 7 livelli entro 3 ore e condividi 10000 monete!
+      - Beat 7 levels within 3 hours and share 10000 coins!
+      - Kalahkan 7 level dalam waktu 3 jam dan bagikan 10000 koin!
+      - Vượt qua 7 cấp độ trong vòng 3 giờ và chia sẻ 10000 xu!
+      - ชนะ 7 ระดับภายใน 3 ชั่วโมงและแบ่งปันเหรียญ 10000!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: battle_help1
+      TermType: 0
+      Languages:
+      - Beat 7 levels
+      - 通关7次
+      - 7레벨을 이기다
+      - 通关7次
+      - 7レベルをクリアする
+      - Battre 7 niveaux
+      - 7 Level schlagen
+      - Пройдите 7 уровней
+      - Vence 7 niveles
+      - Vença 7 níveis
+      - Battere 7 livelli
+      - Kalahkan 7 level
+      - Vượt qua 7 cấp độ
+      - ชนะ 7 ระดับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: battle_help2
+      TermType: 0
+      Languages:
+      - Bonus distribution
+      - 分奖金
+      - 보너스 나누기
+      - 分奖金
+      - ボーナス分配
+      - Répartition des bonus
+      - Bonus aufteilen
+      - Разделение бонуса
+      - Repartir bonificaciones
+      - Divisão de bônus
+      - Divisione del bonus
+      - Distribusi bonus
+      - Phân phối thưởng
+      - การกระจายโบนัส
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: time_title
+      TermType: 0
+      Languages:
+      - Time Contest
+      - 争分夺秒
+      - 초콜릿 경주
+      - 争分夺秒
+      - 時間との競争
+      - Concours temps
+      - Zeitwettbewerb
+      - Соревнование времени
+      - Concurso tiempo
+      - Concurso tempo
+      - Contest tempo
+      - Pertandingan Waktu
+      - Cuộc thi Thời gian
+      - การแข่งขันเวลา
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: time_help1
+      TermType: 0
+      Languages:
+      - Beat levels
+      - 通关
+      - 레벨 클리어
+      - 通关
+      - レベルをクリア
+      - Battre les niveaux
+      - Level schlagen
+      - Пройдите уровни
+      - Vence los niveles
+      - Vencer os níveis
+      - Battere i livelli
+      - Kalahkan level
+      - Vượt qua các cấp độ
+      - ชนะเลเวล
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: time_help2
+      TermType: 0
+      Languages:
+      - Progress increased
+      - 购物车前进
+      - 진행률 증가
+      - 购物车前进
+      - 進捗が増加
+      - Progrès accru
+      - Fortschritt erhöht
+      - Увеличился прогресс
+      - Progreso aumentado
+      - Progresso aumentado
+      - Progresso aumentato
+      - Progres meningkat
+      - Tiến triển tăng lên
+      - ความคืบหน้าเพิ่มขึ้น
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: time_help3
+      TermType: 0
+      Languages:
+      - Aim for top 3
+      - 争取前三
+      - 상위 3위를 목표로 삼다
+      - 争取前三
+      - トップ3を目指す
+      - Viser le top 3
+      - Auf die Top 3 abzielen
+      - Стремиться к топ-3
+      - Apuntar al top 3
+      - Apontar para o top 3
+      - Mirare al top 3
+      - Bersaing untuk top 3
+      - Nhắm vào top 3
+      - มุ่งหวังสู่ 3 อันดับแรก
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: time_help4
+      TermType: 0
+      Languages:
+      - Obtain a chest
+      - 获得宝箱
+      - 상자 획득
+      - 获得宝箱
+      - 宝箱を取得する
+      - Obtenir un coffre
+      - Eine Truhe erhalten
+      - Получить сундук
+      - Obtener un cofre
+      - Obter um baú
+      - Ottenere un baule
+      - Dapatkan kotak
+      - Nhận một cái rương
+      - ได้รับหีบห่อ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: battle_fail
+      TermType: 0
+      Languages:
+      - 'You failed the challenge.Next Battle Royale will start in:'
+      - 你未能完成挑战。下一轮大逃杀开始于：
+      - 도전에 실패했습니다. 다음 배틀로얄은 시작될 것입니다：
+      - 你未能完成挑战。下一轮大逃杀开始于：
+      - チャレンジに失敗しました。次のバトルロイヤルは始まります：
+      - 'Vous avez échoué au défi. La prochaine Battle Royale commencera dans:'
+      - 'Du hast die Herausforderung nicht geschafft. Das nächste Battle Royale beginnt in:'
+      - 'Вы провалили вызов. Следующий бой рояль начнется через:'
+      - 'Fallaste el desafío. La próxima Batalla Real comenzará en:'
+      - 'Você falhou no desafio. O próximo Battle Royale começará em:'
+      - 'Hai fallito la sfida. Il prossimo Battle Royale inizierà tra:'
+      - 'Anda gagal dalam tantangan. Pertempuran Royale berikutnya akan dimulai dalam:'
+      - 'Bạn đã thất bại trong thách thức. Cuộc Battle Royale tiếp theo sẽ bắt đầu trong:'
+      - 'คุณล้มเหลวในการท้าทายครั้งต่อไป Battle Royale ถัดไปจะเริ่มต้นใน:'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: battle_revive
+      TermType: 0
+      Languages:
+      - You are sharing 10,000 coins with {0} other winners!
+      - 你与其他{0}名获胜者分享了10,000金币！
+      - 당신은 다른 {0} 명의 우승자와 10,000 코인을 나눠 가지고 있습니다!
+      - 你与其他{0}名获胜者分享了10,000金币！
+      - あなたは他の{0}人の勝者と10,000コインを共有しています！
+      - Vous partagez 10 000 pièces avec {0} autres gagnants !
+      - Sie teilen 10.000 Münzen mit {0} anderen Gewinnern!
+      - Вы делитесь 10 000 монет с {0} другими победителями!
+      - ¡Estás compartiendo 10,000 monedas con {0} otros ganadores!
+      - Você está compartilhando 10.000 moedas com {0} outros vencedores!
+      - Stai condividendo 10.000 monete con {0} altri vincitori!
+      - Anda sedang berbagi 10.000 koin dengan {0} pemenang lainnya!
+      - Bạn đang chia sẻ 10.000 xu với {0} người chiến thắng khác!
+      - คุณกำลังแบ่งปัน 10,000 เหรียญกับ {0} ผู้ชนะอื่น ๆ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: time_desc
+      TermType: 0
+      Languages:
+      - Beat 12 levels before others to win amazing chest!
+      - 通过12关越快，获得宝箱越丰厚！
+      - 다른 사람보다 12단계를 먼저 이겨서 놀라운 상자를 획득하세요!
+      - 通过12关越快，获得宝箱越丰厚！
+      - 他人よりも12レベル先にクリアして、素晴らしい宝箱を手に入れよう！
+      - Battez 12 niveaux avant les autres pour gagner une superbe boîte !
+      - Schlage 12 Level vor anderen, um eine erstaunliche Truhe zu gewinnen!
+      - Пройдите 12 уровней раньше других, чтобы выиграть удивительный сундук!
+      - ¡Supera 12 niveles antes que los demás para ganar un cofre increíble!
+      - Vença 12 níveis antes dos outros para ganhar um baú incrível!
+      - Batti 12 livelli prima degli altri per vincere una fantastica cassa!
+      - Kalahkan 12 level sebelum yang lain untuk memenangkan kotak luar biasa!
+      - Vượt qua 12 cấp độ trước người khác để giành chiếc rương tuyệt vời!
+      - ชนะ 12 ระดับก่อนคนอื่นเพื่อชนะหีบห่อที่น่าทึ่ง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: you_failed
+      TermType: 0
+      Languages:
+      - You Failed!
+      - 你失败了！
+      - 실패했습니다!
+      - 你失败了！
+      - 失敗しました！
+      - Vous avez échoué !
+      - Du hast versagt!
+      - Ты провалился!
+      - ¡Fallaste!
+      - Você falhou!
+      - Hai fallito!
+      - Anda Gagal!
+      - Bạn đã thất bại!
+      - คุณล้มเหลว!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: battle_desc
+      TermType: 0
+      Languages:
+      - You will share 10,000 coins with other winners!
+      - 你将和其他胜利者分享10000金币！
+      - 당신은 다른 승자들과 10,000 코인을 나누게 될 것입니다!
+      - 你将和其他胜利者分享10000金币！
+      - あなたは他の勝者と10,000コインを共有します！
+      - Vous partagerez 10 000 pièces avec les autres gagnants !
+      - Du wirst 10.000 Münzen mit anderen Gewinnern teilen!
+      - Вы поделитесь 10 000 монет с другими победителями!
+      - ¡Compartirás 10,000 monedas con otros ganadores!
+      - Você vai compartilhar 10.000 moedas com outros vencedores!
+      - Condividerai 10.000 monete con gli altri vincitori!
+      - Anda akan berbagi 10.000 koin dengan pemenang lainnya!
+      - Bạn sẽ chia sẻ 10.000 xu với những người chiến thắng khác!
+      - คุณจะแบ่งปัน 10,000 เหรียญกับผู้ชนะอื่น ๆ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: apple_logout_error
+      TermType: 0
+      Languages:
+      - Logout Apple error,please try again later!
+      - 登出Apple异常，请稍后重试！
+      - Apple 로그아웃 오류, 나중에 다시 시도하십시오!
+      - 登出Apple异常，请稍后重试！
+      - Apple ログアウトエラー、後で再試行してください！
+      - Erreur de déconnexion Apple, veuillez réessayer plus tard !
+      - Apple Logout Fehler, bitte versuchen Sie es später erneut!
+      - Ошибка выхода из Apple, попробуйте снова позже!
+      - Error de cierre de sesión de Apple, ¡inténtalo de nuevo más tarde!
+      - Erro de logout da Apple, por favor, tente novamente mais tarde!
+      - Errore di logout di Apple, si prega di riprovare più tardi!
+      - Logout Apple error, silakan coba lagi nanti!
+      - Lỗi đăng xuất Apple, vui lòng thử lại sau!
+      - ข้อผิดพลาดในการออกจากระบบ Apple โปรดลองอีกครั้งในภายหลัง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: bind_apple_error
+      TermType: 0
+      Languages:
+      - Bind Apple error,please try again later!
+      - 绑定Apple异常，请稍后重试！
+      - Apple 바인딩 오류, 나중에 다시 시도하십시오!
+      - 绑定Apple异常，请稍后重试！
+      - Apple バインドエラー、後で再試行してください！
+      - Erreur de liaison Apple, veuillez réessayer plus tard !
+      - Apple Bindungsfehler, bitte versuchen Sie es später erneut!
+      - Ошибка привязки Apple, попробуйте снова позже!
+      - Error de enlace de Apple, ¡inténtalo de nuevo más tarde!
+      - Erro de ligação da Apple, por favor, tente novamente mais tarde!
+      - Errore di associazione di Apple, si prega di riprovare più tardi!
+      - Bind Apple error, silakan coba lagi nanti!
+      - Lỗi ràng buộc Apple, vui lòng thử lại sau!
+      - ข้อผิดพลาดในการผูก Apple โปรดลองอีกครั้งในภายหลัง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: apple_progress
+      TermType: 0
+      Languages:
+      - 'Apple Account Progress:'
+      - Apple账号进度：
+      - 'Apple 계정 진행 상황:'
+      - Apple账号进度：
+      - 'Appleアカウントの進捗:'
+      - 'Progression du compte Apple :'
+      - 'Fortschritt des Apple-Kontos:'
+      - 'Прогресс учетной записи Apple:'
+      - 'Progreso de la cuenta de Apple:'
+      - 'Progresso da conta da Apple:'
+      - 'Progresso dell''account Apple:'
+      - 'Progres Akun Apple:'
+      - 'Tiến trình Tài khoản Apple:'
+      - 'ความคืบหน้าของบัญชี Apple:'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: apple_login
+      TermType: 0
+      Languages:
+      - Sign in with Apple
+      - Apple登入
+      - Apple로 로그인
+      - Apple登入
+      - Appleでサインイン
+      - Connexion avec Apple
+      - Anmelden mit Apple
+      - Вход с помощью Apple
+      - Iniciar sesión con Apple
+      - Entrar com Apple
+      - Accedi con Apple
+      - Masuk dengan Apple
+      - Đăng nhập bằng Apple
+      - เข้าสู่ระบบด้วย Apple
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: apple_logout
+      TermType: 0
+      Languages:
+      - Apple Logout
+      - Apple登出
+      - Apple 로그아웃
+      - Apple登出
+      - Apple ログアウト
+      - Déconnexion Apple
+      - Apple Abmelden
+      - Выход из Apple
+      - Cerrar sesión en Apple
+      - Sair da Apple
+      - Logout da Apple
+      - Logout Apple
+      - Đăng xuất Apple
+      - ออกจากระบบ Apple
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: slime_title
+      TermType: 0
+      Languages:
+      - Slime
+      - 史莱姆
+      - 슬라임
+      - 史莱姆
+      - スライム
+      - Limace
+      - Schleim
+      - Слизь
+      - Limo
+      - Limo
+      - Melma
+      - Lendir
+      - Chất nhờn
+      - น้ำเสีย
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: slime_desc
+      TermType: 0
+      Languages:
+      - Each merge will make the slime jump to another item!
+      - 每次合并会让史莱姆跳到其他商品！
+      - 매번 병합할 때마다 슬라임이 다른 항목으로 점프합니다!
+      - 每次合并会让史莱姆跳到其他商品！
+      - 各マージはスライムを他のアイテムにジャンプさせます！
+      - Chaque fusion fera sauter le slime vers un autre objet !
+      - Jede Fusion lässt den Schleim auf ein anderes Element springen!
+      - Каждое слияние заставит слизь перепрыгнуть на другой предмет!
+      - ¡Cada fusión hará que el limo salte a otro artículo!
+      - Cada fusão fará o slime pular para outro item!
+      - Ogni fusione farà saltare lo slime su un altro oggetto!
+      - Setiap penggabungan akan membuat lendir melompat ke item lain!
+      - Mỗi lần hợp nhất sẽ khiến chất nhờn nhảy tới một mặt hàng khác!
+      - ทุกการผสมจะทำให้สารเหนี่ยวหินกระโดดไปยังสิ่งของอื่น ๆ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: spider_title
+      TermType: 0
+      Languages:
+      - Spider
+      - 蜘蛛
+      - 거미
+      - 蜘蛛
+      - クモ
+      - Araignée
+      - Spinne
+      - Паук
+      - Araña
+      - Aranha
+      - Ragno
+      - Laba-laba
+      - Nhện
+      - แมงมุม
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: spider_desc
+      TermType: 0
+      Languages:
+      - Moving goods multiple times will make the spider jump to other containers!
+      - 多次移动商品会让蜘蛛跳到其他货柜上！
+      - 상품을 여러 번 이동하면 거미가 다른 컨테이너로 점프합니다!
+      - 多次移动商品会让蜘蛛跳到其他货柜上！
+      - 商品を何度も移動すると、クモが他のコンテナに飛びます！
+      - Déplacer plusieurs fois les articles fera sauter l'araignée sur d'autres conteneurs!
+      - Das mehrmalige Bewegen von Gegenständen lässt die Spinne auf andere Container springen!
+      - Повторное перемещение товаров заставит паука прыгнуть на другие контейнеры!
+      - ¡Mover los artículos varias veces hará que la araña salte a otros contenedores!
+      - Mover os itens várias vezes fará a aranha pular para outros contêineres!
+      - Spostare gli articoli più volte farà saltare il ragno su altri contenitori!
+      - Memindahkan barang beberapa kali akan membuat laba-laba melompat ke kontainer lain!
+      - Di chuyển hàng hóa nhiều lần sẽ khiến con nhện nhảy tới các thùng khác!
+      - การเคลื่อนย้ายสินค้าหลายครั้งจะทำให้แมงมุมกระโดดไปยังคอนเทนเนอร์อื่น ๆ!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: bubble_title
+      TermType: 0
+      Languages:
+      - Bubble
+      - 气泡
+      - 거품
+      - 气泡
+      - バブル
+      - Bulle
+      - Blase
+      - Пузырь
+      - Burbuja
+      - Bolha
+      - Bolla
+      - Gelembung
+      - Bong bóng
+      - ฟอง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: bubble_desc
+      TermType: 0
+      Languages:
+      - Merging goods wrapped in bubbles will make the bubbles fly away!
+      - 合并被气泡包裹的商品会让气泡飞走！
+      - 버블로 포장된 상품을 병합하면 버블이 날아갑니다!
+      - 合并被气泡包裹的商品会让气泡飞走！
+      - バブルで包まれた商品をマージすると、バブルが飛んでいきます！
+      - Fusionner les articles enveloppés dans des bulles fera s'envoler les bulles !
+      - Das Zusammenführen von Gegenständen, die in Blasen verpackt sind, lässt die Blasen davonfliegen!
+      - Слияние товаров, завернутых в пузыри, заставит пузыри улетать!
+      - ¡La fusión de artículos envueltos en burbujas hará que las burbujas vuelen!
+      - A fusão de itens envolvidos em bolhas fará as bolhas voarem!
+      - Unire gli oggetti avvolti nelle bolle farà volare via le bolle!
+      - Menggabungkan barang yang dibungkus dalam gelembung akan membuat gelembung terbang!
+      - Goods Merge được bọc trong bong bóng sẽ khiến bong bóng bay đi!
+      - Goods Mergeที่ถูกห่อด้วยฟองฟองจะทำให้ฟองบินไปทางอื่น!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: curtain_title
+      TermType: 0
+      Languages:
+      - Curtain
+      - 帘子
+      - 커튼
+      - 帘子
+      - カーテン
+      - Rideau
+      - Vorhang
+      - Штора
+      - Cortina
+      - Cortina
+      - Tenda
+      - Tirai
+      - Rèm cửa
+      - ม่าน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: curtain_desc
+      TermType: 0
+      Languages:
+      - Each time you move the goods, the red curtain changes its state.
+      - 每次移动商品会让红帘子切换状态！
+      - 상품을 이동할 때마다 붉은 커튼이 상태를 변경합니다.
+      - 每次移动商品会让红帘子切换状态！
+      - 商品を移動するたびに、赤いカーテンが状態を変えます。
+      - Chaque fois que vous déplacez la marchandise, le rideau rouge change d'état.
+      - Jedes Mal, wenn Sie die Ware bewegen, ändert sich der rote Vorhangzustand.
+      - Каждый раз, когда вы перемещаете товар, красные шторы меняют свое состояние.
+      - Cada vez que mueves la mercancía, la cortina roja cambia de estado.
+      - Cada vez que você move a mercadoria, a cortina vermelha muda de estado.
+      - Ogni volta che sposti la merce, il tendaggio rosso cambia stato.
+      - Setiap kali Anda memindahkan barang, tirai merah mengubah keadaannya.
+      - Mỗi lần bạn di chuyển hàng hóa, rèm đỏ sẽ thay đổi trạng thái của nó.
+      - ทุกครั้งที่คุณเคลื่อนย้ายสินค้าม่านสีแดงจะเปลี่ยนสถานะของมัน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: fog_title
+      TermType: 0
+      Languages:
+      - Fog
+      - 迷雾
+      - 안개
+      - 迷雾
+      - 霧
+      - Brouillard
+      - Nebel
+      - Туман
+      - Niebla
+      - Névoa
+      - Nebbia
+      - Kabut
+      - Sương mù
+      - หมอก
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: fog_desc
+      TermType: 0
+      Languages:
+      - Merging multiple times will cause the fog to dissipate or appear!
+      - 合并多次会让迷雾消散或者出现！
+      - 여러 번 병합하면 안개가 사라지거나 나타납니다!
+      - 合并多次会让迷雾消散或者出现！
+      - 複数回のマージングで霧が消失したり出現したりします！
+      - Fusionner plusieurs fois fera disparaître ou apparaître le brouillard !
+      - Mehrmaliges Verschmelzen lässt den Nebel verschwinden oder erscheinen!
+      - Несколько слияний приведут к тому, что туман исчезнет или появится!
+      - ¡La fusión varias veces hará que la niebla se disipe o aparezca!
+      - Fundir várias vezes fará com que a névoa se dissipe ou apareça!
+      - Unire più volte farà dissipare o far apparire la nebbia!
+      - Menggabungkan beberapa kali akan menyebabkan kabut menghilang atau muncul!
+      - Hợp nhất nhiều lần sẽ làm cho sương mù tan biến hoặc xuất hiện!
+      - การผสมหลายครั้งจะทำให้หมอกละเมิดหรือปรากฏขึ้น!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: lock_title
+      TermType: 0
+      Languages:
+      - Lock
+      - 锁
+      - 잠금
+      - 锁
+      - ロック
+      - Verrouiller
+      - Schloss
+      - Замок
+      - Bloquear
+      - Travar
+      - Bloccare
+      - Kunci
+      - Khóa
+      - กุญแจ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: lock_desc
+      TermType: 0
+      Languages:
+      - Merge key goods to unlock locked containers!
+      - 合并钥匙商品打开带锁的货柜！
+      - 열쇠 상품을 병합하여 잠금 해제된 컨테이너를 엽니다!
+      - 合并钥匙商品打开带锁的货柜！
+      - 鍵アイテムをマージしてロックされたコンテナを開けます！
+      - Fusionnez les articles clés pour déverrouiller les conteneurs verrouillés !
+      - Verschmelzen Sie Schlüsselgegenstände, um verschlossene Container zu entsperren!
+      - Объедините ключевые предметы, чтобы открыть запертые контейнеры!
+      - ¡Combina los elementos clave para desbloquear los contenedores cerrados con llave!
+      - Combine itens-chave para desbloquear contêineres trancados!
+      - Unisci gli oggetti chiave per sbloccare i contenitori chiusi a chiave!
+      - Gabungkan barang kunci untuk membuka kontainer terkunci!
+      - Goods Merge chính để mở khóa các thùng bị khóa!
+      - Goods Mergeกุญแจเพื่อปลดล็อกคอนเทนเนอร์ที่ถูกล็อก!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: mysterious_title
+      TermType: 0
+      Languages:
+      - Mysterious
+      - 神秘
+      - 신비한
+      - 神秘
+      - 神秘な
+      - Mystérieux
+      - Geheimnisvoll
+      - Таинственный
+      - Misterioso
+      - Misterioso
+      - Misterioso
+      - Misterius
+      - Bí ẩn
+      - ลึกลับ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: mysterious_desc
+      TermType: 0
+      Languages:
+      - Goods with shapes only, without color!
+      - 只有形状，没有色彩的商品！
+      - 색상이없는 모양 만있는 제품!
+      - 只有形状，没有色彩的商品！
+      - 色彩のない形状だけの商品！
+      - Produits uniquement avec des formes, sans couleur !
+      - Produkte nur mit Formen, ohne Farbe!
+      - Только форма товаров, без цвета!
+      - ¡Productos solo con formas, sin color!
+      - Produtos apenas com formas, sem cor!
+      - Prodotti solo con forme, senza colore!
+      - Barang dengan bentuk saja, tanpa warna!
+      - Hàng hóa chỉ có hình dạng, không có màu sắc!
+      - สินค้าที่มีรูปร่างเท่านั้น โดยไม่มีสี!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: time_limit_title
+      TermType: 0
+      Languages:
+      - Time
+      - 时间
+      - 시간
+      - 时间
+      - 時間
+      - Temps
+      - Zeit
+      - время
+      - Tiempo
+      - Tempo
+      - Tempo
+      - Waktu
+      - Thời gian
+      - เวลา
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: time_limit_desc
+      TermType: 0
+      Languages:
+      - The switch state of the container will change every 30 seconds!
+      - 每30秒会切换货柜的开关状态！
+      - 매 30초마다 컨테이너의 스위치 상태가 변경됩니다!
+      - 每30秒会切换货柜的开关状态！
+      - 30秒ごとにコンテナのスイッチ状態が切り替わります！
+      - L'état de l'interrupteur du conteneur changera toutes les 30 secondes!
+      - Der Schaltzustand des Containers wird alle 30 Sekunden gewechselt!
+      - Состояние переключателя контейнера изменится каждые 30 секунд!
+      - ¡El estado del interruptor del contenedor cambiará cada 30 segundos!
+      - O estado do interruptor do contêiner mudará a cada 30 segundos!
+      - Lo stato dell'interruttore del contenitore cambierà ogni 30 secondi!
+      - Kondisi switch kontainer akan berubah setiap 30 detik!
+      - Trạng thái công tắc của thùng sẽ thay đổi mỗi 30 giây!
+      - สถานะการสลับของคอนเทนเนอร์จะเปลี่ยนทุก ๆ 30 วินาที!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: glass_title
+      TermType: 0
+      Languages:
+      - Glass
+      - 玻璃
+      - 유리
+      - 玻璃
+      - ガラス
+      - Verre
+      - Glas
+      - Стекло
+      - Vidrio
+      - Vidro
+      - Vetro
+      - Kaca
+      - Kính
+      - แก้ว
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: glass_desc
+      TermType: 0
+      Languages:
+      - Merging four times will shatter the glass container!
+      - 合并4次会击碎玻璃货柜！
+      - 4번 병합하면 유리 컨테이너가 깨집니다!
+      - 合并4次会击碎玻璃货柜！
+      - 4回マージするとガラス容器が割れます！
+      - Fusionner quatre fois brisera le conteneur en verre!
+      - Viermaliges Zusammenführen zerbricht den Glastransportbehälter!
+      - Четыре слияния разобьют стеклянный контейнер!
+      - ¡La fusión cuatro veces romperá el contenedor de vidrio!
+      - Fundir quatro vezes vai quebrar o recipiente de vidro!
+      - Unire quattro volte farà frantumare il contenitore di vetro!
+      - Menggabungkan empat kali akan menghancurkan kontainer kaca!
+      - Hợp nhất bốn lần sẽ làm vỡ thùng kính!
+      - การผสมสี่ครั้งจะทำให้คอนเทนเนอร์แก้วแตก!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: prohibited_title
+      TermType: 0
+      Languages:
+      - Prohibited
+      - 禁止
+      - 금지
+      - 禁止
+      - 禁止
+      - Interdit
+      - Verboten
+      - Запрещено
+      - Prohibido
+      - Proibido
+      - Vietato
+      - Dilarang
+      - Cấm
+      - ห้าม
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: prohibited_desc
+      TermType: 0
+      Languages:
+      - Prohibited goods cannot be moved.
+      - 禁止的商品无法移动！
+      - 금지된 상품은 이동할 수 없습니다.
+      - 禁止的商品无法移动！
+      - 禁止された商品は移動できません。
+      - Les marchandises interdites ne peuvent pas être déplacées.
+      - Verbotene Waren können nicht bewegt werden.
+      - Запрещенные товары нельзя перемещать.
+      - Los productos prohibidos no se pueden mover.
+      - As mercadorias proibidas não podem ser movidas.
+      - Le merci vietate non possono essere spostate.
+      - Barang yang dilarang tidak boleh dipindahkan.
+      - Hàng hóa cấm không thể di chuyển.
+      - สินค้าที่ถูกห้ามไม่สามารถย้ายได้.
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: video_reward
+      TermType: 0
+      Languages:
+      - VIDEO REWARD
+      - 视频奖励
+      - 비디오 보상
+      - 视频奖励
+      - ビデオ報酬
+      - RÉCOMPENSE VIDÉO
+      - VIDEO BELONNUNG
+      - ВИДЕО ВОЗНАГРАЖДЕНИЕ
+      - RECOMPENSA VÍDEO
+      - RECOMPENSA VÍDEO
+      - RICOMPENSA VIDEO
+      - HADIAH VIDEO
+      - PHẦN THƯỞNG VIDEO
+      - รางวัลวิดีโอ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: video_desc1
+      TermType: 0
+      Languages:
+      - Watch videos
+      - 观看视频
+      - 동영상 시청
+      - 观看视频
+      - 動画を見る
+      - Regarder des vidéos
+      - Videos ansehen
+      - Смотреть видео
+      - Ver videos
+      - Assistir vídeos
+      - Guardare video
+      - Menonton video
+      - Xem video
+      - ดูวิดีโอ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: video_desc2
+      TermType: 0
+      Languages:
+      - Fill the meter
+      - 填充进度条
+      - 진행 막대를 채우다
+      - 填充进度条
+      - メーターを満たす
+      - Remplir le compteur
+      - Den Zähler füllen
+      - Заполнить счетчик
+      - Llenar el medidor
+      - Preencher o medidor
+      - Riempire il contatore
+      - Isi meteran
+      - Điền vào đồng hồ đo
+      - เติมเมตร
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: video_desc3
+      TermType: 0
+      Languages:
+      - Win amazing rewards!
+      - 赢取惊人的奖励！
+      - 놀라운 보상을 획득하세요!
+      - 赢取惊人的奖励！
+      - 素晴らしい報酬を獲得！
+      - Gagnez des récompenses incroyables!
+      - Gewinnen Sie erstaunliche Belohnungen!
+      - Выиграйте удивительные награды!
+      - ¡Gana increíbles recompensas!
+      - Ganhe recompensas incríveis!
+      - Vinci premi incredibili!
+      - Menangkan hadiah menakjubkan!
+      - Chiến thắng những phần thưởng tuyệt vời!
+      - ชนะรางวัลที่น่าทึ่ง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: watch
+      TermType: 0
+      Languages:
+      - Watch
+      - 观看
+      - 보다
+      - 观看
+      - 観る
+      - Regarder
+      - Anschauen
+      - Смотреть
+      - Ver
+      - Assistir
+      - Guardare
+      - Menonton
+      - Xem
+      - ดู
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: choose_one
+      TermType: 0
+      Languages:
+      - CHOOSE ONE
+      - 选择一个
+      - 하나를 선택하다
+      - 选择一个
+      - 一つを選ぶ
+      - CHOISISSEZ UN
+      - WÄHLE EINS
+      - ВЫБЕРИТЕ ОДИН
+      - ELIGE UNO
+      - ESCOLHA UM
+      - SCEGLI UNO
+      - PILIH SALAH SATU
+      - CHỌN MỘT
+      - เลือกหนึ่ง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: buy_off
+      TermType: 0
+      Languages:
+      - Buy all {0}% OFF
+      - 购买所有{0}%折扣
+      - '{0}% 할인으로 모두 구매'
+      - 购买所有{0}%折扣
+      - '{0}%オフで全て購入'
+      - Acheter tout à {0}% de réduction
+      - Kaufen Sie alles mit {0}% Rabatt
+      - Приобретите все со скидкой {0}%
+      - Compre todo con un {0}% de descuento
+      - Compre tudo com {0}% de desconto
+      - Acquista tutto con il {0}% di sconto
+      - Beli semua dengan {0}% OFF
+      - Mua tất cả với {0}% GIẢM GIÁ
+      - ซื้อทั้งหมดด้วยส่วนลด {0}%
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: lucky_spin
+      TermType: 0
+      Languages:
+      - LUCKY SPIN
+      - 幸运转盘
+      - 행운의 스핀
+      - 幸运转盘
+      - ラッキースピン
+      - TOUR DE CHANCE
+      - GLÜCKSRAD
+      - СЧАСТЛИВЫЙ СПИН
+      - GIRO DE LA SUERTE
+      - GIRAR DA SORTE
+      - GIRO FORTUNATO
+      - PUTARAN KESEMPATAN
+      - VÒNG QUAY MAY MẮN
+      - หมุนโชคดี
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: spin_title
+      TermType: 0
+      Languages:
+      - SPIN
+      - 旋转
+      - 회전
+      - 旋转
+      - スピン
+      - TOUR
+      - DREHEN
+      - ВРАЩЕНИЕ
+      - GIRO
+      - GIRAR
+      - GIRARE
+      - PUTAR
+      - QUAY
+      - หมุน
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: spin_limit
+      TermType: 0
+      Languages:
+      - Daily Spin Limit:{0}/2
+      - 每日旋转限制：{0}/2
+      - '매일 회전 한도: {0}/2'
+      - 每日旋转限制：{0}/2
+      - 'デイリースピン制限: {0}/2'
+      - 'Limite de rotation quotidienne : {0}/2'
+      - 'Tägliches Drehlimit: {0}/2'
+      - 'Лимит ежедневных вращений: {0}/2'
+      - 'Límite diario de giros: {0}/2'
+      - 'Limite diário de giros: {0}/2'
+      - 'Limite di rotazione giornaliero: {0}/2'
+      - 'Batas Putaran Harian: {0}/2'
+      - 'Hạn chế quay hàng ngày: {0}/2'
+      - 'จำกัดการหมุนรายวัน: {0}/2'
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: free_desc
+      TermType: 0
+      Languages:
+      - Unlock each offer to reveal further.
+      - 获得更多星星来解锁宝箱！
+      - 더 많은 별을 얻어 상자를 열어보세요!
+      - 获得更多星星来解锁宝箱！
+      - もっと星を取って箱を開けよう！
+      - Obtenez plus d'étoiles pour débloquer la boîte !
+      - Hol dir mehr Sterne, um die Kiste zu öffnen!
+      - Получите больше звезд, чтобы открыть ящик!
+      - ¡Consigue más estrellas para desbloquear la caja!
+      - Obtenha mais estrelas para desbloquear a caixa!
+      - Ottieni più stelle per sbloccare la scatola!
+      - Dapatkan lebih banyak bintang untuk membuka kotak!
+      - Nhận thêm ngôi sao để mở khóa hộp!
+      - ได้รับดาวเพิ่มเติมเพื่อปลดล็อคกล่อง!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: welcome_title
+      TermType: 0
+      Languages:
+      - Welcome Back!
+      - 欢迎回来！
+      - 다시 오신 것을 환영합니다!
+      - 欢迎回来！
+      - お帰りなさい！
+      - Bienvenue de retour !
+      - Willkommen zurück!
+      - Добро пожаловать назад!
+      - ¡Bienvenido de nuevo!
+      - Bem-vindo de volta!
+      - Benvenuto di nuovo!
+      - Selamat datang kembali!
+      - Chào mừng trở lại!
+      - ยินดีต้อนรับกลับมา!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: welcome_desc
+      TermType: 0
+      Languages:
+      - Here are some gifts for you to pick up where you left!
+      - 欢迎你回来，收下这些礼物继续挑战吧！
+      - 다시 오신 것을 환영합니다! 이 선물들을 받고 계속 도전하세요!
+      - 欢迎你回来，收下这些礼物继续挑战吧！
+      - お帰りなさい！これらのプレゼントを受け取って、挑戦を続けてください！
+      - Voici des cadeaux pour que vous puissiez reprendre là où vous avez laissé !
+      - Hier sind einige Geschenke für Sie, um dort abzuholen, wo Sie aufgehört haben!
+      - Вот несколько подарков для вас, чтобы забрать там, где вы остановились!
+      - ¡Aquí hay algunos regalos para que los recojas donde los dejaste!
+      - Aqui estão alguns presentes para você pegar onde você parou!
+      - Ecco alcuni regali per te da prendere da dove hai lasciato!
+      - Berikut adalah beberapa hadiah untuk Anda ambil di tempat Anda tinggalkan!
+      - Dưới đây là một số món quà cho bạn lấy nơi bạn dừng lại!
+      - นี่คือของขวัญบางอย่างสำหรับคุณให้เก็บที่คุณหยุด!
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: tap_claim
+      TermType: 0
+      Languages:
+      - Tap to Claim
+      - 点击领取
+      - 탭하여 요구
+      - 点击领取
+      - クリックして受け取る
+      - Appuyez pour réclamer
+      - Tippen zum beanspruchen
+      - Нажмите, чтобы получить
+      - Toque para reclamar
+      - Toque para reivindicar
+      - Tocca per reclamare
+      - Ketuk untuk klaim
+      - Chạm để đòi lại
+      - แตะเพื่อเรียกร้อง
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: purchase_success
+      TermType: 0
+      Languages:
+      - Purchase Success
+      - 购买成功
+      - 구매 성공
+      - 购买成功
+      - 購入成功
+      - Achat réussi
+      - Kauf erfolgreich
+      - Успешная покупка
+      - Compra exitosa
+      - Compra bem-sucedida
+      - Acquisto riuscito
+      - Pembelian Berhasil
+      - Mua hàng thành công
+      - ซื้อสำเร็จ
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    - Term: loading
+      TermType: 0
+      Languages:
+      - Loading {0}
+      - 加载中{0}
+      - 로딩 {0}
+      - 加载中{0}
+      - '{0}をロード中'
+      - Chargement {0}
+      - Laden von {0}
+      - Загрузка {0}
+      - Cargando {0}
+      - Carregando {0}
+      - Caricamento {0}
+      - Memuat {0}
+      - Đang tải {0}
+      - กำลังโหลด {0}
+      Flags: 0000000000000000000000000000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName: app_name
+    mLanguages:
+    - Name: English
+      Code: en-US
+      Flags: 0
+    - Name: ChineseSimplified
+      Code: zh
+      Flags: 0
+    - Name: Korean
+      Code: ko
+      Flags: 0
+    - Name: ChineseTraditional
+      Code: zh-TW
+      Flags: 0
+    - Name: Japanese
+      Code: ja
+      Flags: 0
+    - Name: French
+      Code: fr
+      Flags: 0
+    - Name: German
+      Code: de
+      Flags: 0
+    - Name: Russian
+      Code: ru
+      Flags: 0
+    - Name: Spanish
+      Code: es
+      Flags: 0
+    - Name: Portuguese
+      Code: pt
+      Flags: 0
+    - Name: Italian
+      Code: it
+      Flags: 0
+    - Name: Indonesian
+      Code: id
+      Flags: 0
+    - Name: Vietnamese
+      Code: vi
+      Flags: 0
+    - Name: Thai
+      Code: th
+      Flags: 0
+    IgnoreDeviceLanguage: 1
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/macros/s/AKfycbwhFVnRqjYzO27A3RvHb_6BjMoFd5Qf0Y3Wic1GlOyVuictvNukLTA0aORvmZYVlE8D2A/exec
+    Google_SpreadsheetKey: 1i_NO_S935UqU5gcif-kmPXsbUeXI8T8Q8iJSZGxpHPo
+    Google_SpreadsheetName: I2Loc GoodsMerge Localization
+    Google_LastUpdatedVersion: 1716351704628
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 1
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 0
+    Assets:
+    - {fileID: 12800000, guid: f63c86efa9b165c43a52e76baa5ff436, type: 3}
+    - {fileID: 12800000, guid: d21c39dcabb18cb4c89108ff34592622, type: 3}
+    - {fileID: 12800000, guid: 4082f4465efe12b4bab8c999b8dc2829, type: 3}
+    - {fileID: 12800000, guid: 8b60eaf9d7aae1f44b245e3abe4cff2e, type: 3}
+    - {fileID: 12800000, guid: 06895800307c48744bdf7b4d2c43e5e5, type: 3}
+    - {fileID: 12800000, guid: 0f52acec4b4ce79409af3184b98d9fcb, type: 3}
+    - {fileID: 12800000, guid: 6fa7aa6356f744a47bb8ad62bc584dfa, type: 3}
+    - {fileID: 12800000, guid: 15592bd2d6803944696b545e562ec77c, type: 3}
+    - {fileID: 12800000, guid: c1dffdcb52927484584b994f23d9ef4f, type: 3}
+    - {fileID: 12800000, guid: 7aa028ea3d30d6847b50bf9aac755861, type: 3}
+    - {fileID: 12800000, guid: 2fe31131b785acf40ae9c131d620b6d2, type: 3}
