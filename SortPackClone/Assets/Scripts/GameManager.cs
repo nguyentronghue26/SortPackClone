@@ -186,11 +186,18 @@ public class GameManager : MonoBehaviour
 
     private void SpawnItem(GameObject prefab, Cell cell, int id)
     {
-        if (prefab == null) return;
+        if (prefab == null || cell == null)
+        {
+            Debug.LogWarning("[GameManager] SpawnItem prefab hoặc cell null");
+            return;
+        }
 
+        // Lấy world position gợi ý
         Vector3 spawnPos = cell.GetNextItemPosition();
 
         GameObject itemObj = Instantiate(prefab, spawnPos, Quaternion.identity);
+
+        // scale & sorting
         itemObj.transform.localScale = Vector3.one * itemScale;
 
         SpriteRenderer sr = itemObj.GetComponent<SpriteRenderer>();
@@ -202,20 +209,23 @@ public class GameManager : MonoBehaviour
 
         Item item = itemObj.GetComponent<Item>();
         if (item == null)
-        {
             item = itemObj.AddComponent<Item>();
-        }
 
         if (string.IsNullOrEmpty(item.itemType))
-        {
             item.itemType = prefab.name.ToLower();
-        }
 
         item.itemID = id;
         item.OnItemDropped += OnItemDropped;
 
-        cell.AddItem(item);
+        // THÊM: nếu AddItem fail thì destroy cho chắc, không để rơi lạc ngoài scene
+        bool added = cell.AddItem(item);
+        if (!added)
+        {
+            Debug.LogWarning($"[GameManager] Cell {cell.name} không nhận thêm được item, huỷ {itemObj.name}");
+            Destroy(itemObj);
+        }
     }
+
 
     // ========== GAME LOGIC ==========
 
@@ -280,30 +290,20 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator RemoveMatchedItems(Cell cell, List<Item> matchedItems)
     {
-        // Delay nhỏ để player thấy match
+        // Cho 1 chút delay để player nhìn thấy trạng thái full 3 item
         yield return new WaitForSeconds(matchDelay);
 
-        // Xóa items
-        for (int i = 0; i < itemsToMatch && i < matchedItems.Count; i++)
-        {
-            Item item = matchedItems[i];
-            cell.RemoveItem(item);
-
-            // Animation biến mất
-            StartCoroutine(ItemDisappearAnimation(item.gameObject));
-        }
+        
 
         totalMatches++;
         OnMatchFound?.Invoke(cell);
 
         Debug.Log($"Match found! Type: {matchedItems[0].itemType}. Total matches: {totalMatches}");
 
-        // OnCellBecameEmpty sẽ tự động được gọi khi cell trống
-        // Không cần gọi ReplaceCellFromBelow ở đây nữa
-
-        // Check win
+        // Win condition nếu Huệ muốn giữ:
         CheckWinCondition();
     }
+
 
     // Cell trống → bay lên biến mất, cell mới từ dưới đẩy lên
     private void ReplaceCellFromBelow(Cell emptyCell)
@@ -329,7 +329,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Spawn items ngẫu nhiên vào 1 cell
-    private void SpawnItemsInCell(Cell cell)
+    public void SpawnItemsInCell(Cell cell)
     {
         if (itemPrefabs.Count == 0) return;
 

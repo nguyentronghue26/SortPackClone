@@ -11,16 +11,19 @@ public class BoardController : MonoBehaviour
 
     [Header("Clear Animation")]
     [SerializeField] private float clearDuration = 0.6f;
-    [SerializeField] private float slideDistance = 2.0f;
+    [SerializeField] private float slideDistance = 12.0f;   // bay đủ xa để ra khỏi màn hình
+    [SerializeField] private float forwardDistance = 1.0f;  // lao gần camera trước khi bay
     [SerializeField] private AnimationCurve clearCurve;
 
     [Header("Respawn Animation")]
     [SerializeField] private float respawnDuration = 0.5f;
-    [SerializeField] private float respawnOffsetY = -3f;
+    // khoảng cách spawn phía SAU kệ (trên trục Z, xa camera hơn)
+    [SerializeField] private float respawnOffsetZ = 2f;
+
 
     [Header("Spawn Item")]
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private int itemsPerNewCell = 3;
+    
 
     private HashSet<Cell> clearingCells = new HashSet<Cell>();
 
@@ -29,14 +32,15 @@ public class BoardController : MonoBehaviour
         if (gridSpawner == null)
             gridSpawner = FindObjectOfType<GridSpawner>();
 
-        InitCellsFromGrid();
-
         if (gameManager == null)
             gameManager = GameManager.Instance;
+
+        InitCellsFromGrid();
 
         if (clearCurve == null || clearCurve.keys.Length == 0)
             clearCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     }
+
 
     private void InitCellsFromGrid()
     {
@@ -87,66 +91,85 @@ public class BoardController : MonoBehaviour
     // ==== Clear & Respawn như mình gửi hôm trước ====
     private IEnumerator ClearAndRespawnCell(Cell cell)
     {
+        if (cell == null) yield break;
+
         clearingCells.Add(cell);
 
+        // --- 1. Chuẩn bị ---
+        Vector3 basePos = cell.transform.position;
+
+        // Tắt collider của item
         List<Item> items = cell.GetItems();
-
-        if (items.Count > 0)
+        foreach (var it in items)
         {
-            foreach (var it in items)
-            {
-                if (it == null) continue;
-                var col = it.GetComponent<Collider>();
-                if (col != null) col.enabled = false;
-            }
-
-            Vector3 slideDir = GetFreeSideDirection(cell);
-
-            Vector3[] startPos = new Vector3[items.Count];
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (items[i] != null)
-                    startPos[i] = items[i].transform.position;
-            }
-
-            float t = 0f;
-            while (t < clearDuration)
-            {
-                t += Time.deltaTime;
-                float n = Mathf.Clamp01(t / clearDuration);
-                float upAmount = clearCurve.Evaluate(n);
-
-                for (int i = 0; i < items.Count; i++)
-                {
-                    if (items[i] == null) continue;
-
-                    Vector3 basePos = startPos[i];
-                    Vector3 pos =
-                        basePos +
-                        Vector3.up * upAmount * 1.5f +
-                        slideDir * slideDistance * n;
-
-                    items[i].transform.position = pos;
-                }
-
-                yield return null;
-            }
-
-            foreach (var it in items)
-            {
-                if (it != null)
-                    Destroy(it.gameObject);
-            }
-
-            cell.ClearItems();
+            if (it == null) continue;
+            var col = it.GetComponent<Collider>();
+            if (col != null) col.enabled = false;
         }
+
+        // Hướng sâu theo trục Z (lao ra gần camera)
+        Camera cam = Camera.main;
+        Vector3 depthDir;
+        if (cam != null)
+            depthDir = (cam.transform.position - basePos).normalized; // hướng từ kệ tới camera
+        else
+            depthDir = Vector3.back; // fallback
+
+        // Hướng trượt ngang (trái/phải)
+        Vector3 sideDir = GetFreeSideDirection(cell);   // Vector3.left hoặc Vector3.right
+
+        // Đích kết thúc pha 1 (chỉ đi theo Z)
+        Vector3 midPos = basePos + depthDir * forwardDistance;
+
+        float t = 0f;
+
+        while (t < clearDuration)
+        {
+            t += Time.deltaTime;
+            float n = Mathf.Clamp01(t / clearDuration);
+            float curve = (clearCurve != null && clearCurve.keys.Length > 0)
+                ? clearCurve.Evaluate(n)
+                : n;
+
+            if (n < 0.5f)
+            {
+                // ===== PHA 1: chỉ bay theo Z (không đổi X/Y) =====
+                float p = curve / 0.5f;    // 0..1 trong n = 0..0.5
+                cell.transform.position = Vector3.Lerp(basePos, midPos, Mathf.Clamp01(p));
+            }
+            else
+            {
+                // ===== PHA 2: giữ nguyên Z, chỉ trượt ngang =====
+                float p = (curve - 0.5f) / 0.5f;  // 0..1 trong n = 0.5..1
+                Vector3 endPos = midPos + sideDir * slideDistance;
+                cell.transform.position = Vector3.Lerp(midPos, endPos, Mathf.Clamp01(p));
+            }
+
+            yield return null;
+        }
+
+        // --- 2. Clear items trong ô ---
+        foreach (var it in items)
+        {
+            if (it != null)
+                Destroy(it.gameObject);
+        }
+        cell.ClearItems();
+
+        // Ẩn cell, trả lại vị trí logic
+        cell.gameObject.SetActive(false);
+        cell.transform.position = basePos;
 
         yield return new WaitForSeconds(0.1f);
 
-        yield return StartCoroutine(RespawnCellWithItems(cell));
+        // --- 3. Respawn từ phía sau (theo Z) + spawn item mới ---
+        yield return StartCoroutine(RespawnCellWithItems(cell, basePos));
 
         clearingCells.Remove(cell);
     }
+
+
+
 
     private Vector3 GetFreeSideDirection(Cell cell)
     {
@@ -162,16 +185,23 @@ public class BoardController : MonoBehaviour
         return Vector3.right;
     }
 
-    private IEnumerator RespawnCellWithItems(Cell cell)
+    private IEnumerator RespawnCellWithItems(Cell cell, Vector3 basePos)
     {
-        if (cell == null)
-            yield break;
+        if (cell == null) yield break;
 
-        // 1) Animate cell đi từ dưới lên (giữ nguyên như cũ)
-        Vector3 basePos = cell.transform.position;
-        float offset = Mathf.Abs(respawnOffsetY);
-        Vector3 startPos = basePos + Vector3.down * offset;
+        // Bật lại ô
+        cell.gameObject.SetActive(true);
 
+        // Hướng từ camera → ra phía kệ
+        Camera cam = Camera.main;
+        Vector3 fromBehindDir;
+        if (cam != null)
+            fromBehindDir = (basePos - cam.transform.position).normalized;
+        else
+            fromBehindDir = Vector3.forward; // fallback
+
+        // Spawn từ phía sau (xa camera hơn)
+        Vector3 startPos = basePos + fromBehindDir * respawnOffsetZ;
         cell.transform.position = startPos;
 
         float t = 0f;
@@ -179,56 +209,27 @@ public class BoardController : MonoBehaviour
         {
             t += Time.deltaTime;
             float n = Mathf.Clamp01(t / respawnDuration);
-            cell.transform.position = Vector3.Lerp(startPos, basePos, n);
+            float curve = Mathf.SmoothStep(0f, 1f, n);
+
+            cell.transform.position = Vector3.Lerp(startPos, basePos, curve);
             yield return null;
         }
+
         cell.transform.position = basePos;
 
-        // 2) Spawn item mới với scale & layer giống GameManager
-
-        if (gameManager == null || gameManager.ItemPrefabs == null || gameManager.ItemPrefabs.Count == 0)
+        // Sau khi ô đã “chui” từ phía sau ra → spawn item mới bằng rule GameManager
+        if (gameManager != null)
         {
-            Debug.LogError("[BoardController] GameManager hoặc ItemPrefabs bị null, kiểm tra lại.");
-            yield break;
+            gameManager.SpawnItemsInCell(cell);
         }
-
-        var prefabList = gameManager.ItemPrefabs;
-        int spawnCount = Mathf.Max(1, itemsPerNewCell);
-
-        for (int i = 0; i < spawnCount; i++)
+        else
         {
-            GameObject prefabGO = prefabList[Random.Range(0, prefabList.Count)];
-            if (prefabGO == null)
-                continue;
-
-            Vector3 spawnPos = cell.GetNextItemPosition();
-
-            // 👉 instantiate
-            GameObject itemObj = Instantiate(prefabGO, spawnPos, Quaternion.identity);
-
-            // 👉 dùng cùng itemScale với GameManager
-            float scale = gameManager != null ? gameManager.ItemScale : 1f;
-            itemObj.transform.localScale = Vector3.one * scale;
-
-            // 👉 dùng cùng sorting layer với GameManager
-            SpriteRenderer sr = itemObj.GetComponent<SpriteRenderer>();
-            if (sr != null && gameManager != null)
-            {
-                sr.sortingLayerName = gameManager.ItemSortingLayer;
-                sr.sortingOrder = gameManager.ItemSortingOrder;
-            }
-
-            // Lấy/ thêm component Item
-            Item newItem = itemObj.GetComponent<Item>();
-            if (newItem == null)
-                newItem = itemObj.AddComponent<Item>();
-
-            if (string.IsNullOrEmpty(newItem.itemType))
-                newItem.itemType = prefabGO.name.ToLower();
-
-            // Cho cell quản lý & snap lại
-            cell.AddItem(newItem);
+            Debug.LogWarning("[BoardController] gameManager null, không spawn item cho cell mới.");
         }
     }
+
+
+
+
 
 }

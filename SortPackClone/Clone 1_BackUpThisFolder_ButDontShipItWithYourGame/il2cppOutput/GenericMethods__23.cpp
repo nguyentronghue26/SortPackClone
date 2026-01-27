@@ -20463,7 +20463,7 @@ IL2CPP_EXTERN_C  JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 GPUInstance
 	_returnValue = GPUInstanceDataBufferUploader_WriteInstanceDataJob_TisIl2CppFullySharedGenericStruct_m99D15EEB14C0B8D96081CF14F55F4798FA073FE8(_thisAdjusted, ___0_parameterIndex, ___1_instanceData, ___2_gatherIndices, method);
 	return _returnValue;
 }
-// Method Definition Index: 66122
+// Method Definition Index: 66126
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_ShuffleList_TisRuntimeObject_m3172CC068E571D86E9CDC6977ACDA4DE3A00359B_gshared (GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* __this, List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* ___0_list, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -20471,7 +20471,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_ShuffleList_TisRuntimeObject
 	int32_t V_1 = 0;
 	RuntimeObject* V_2 = NULL;
 	{
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:380>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:386>
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_0 = ___0_list;
 		NullCheck(L_0);
 		int32_t L_1;
@@ -20482,19 +20482,19 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_ShuffleList_TisRuntimeObject
 
 IL_000b:
 	{
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:382>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:388>
 		int32_t L_2 = V_0;
 		int32_t L_3;
 		L_3 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, ((int32_t)il2cpp_codegen_add(L_2, 1)), NULL);
 		V_1 = L_3;
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:383>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:389>
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_4 = ___0_list;
 		int32_t L_5 = V_0;
 		NullCheck(L_4);
 		RuntimeObject* L_6;
 		L_6 = List_1_get_Item_m33561245D64798C2AB07584C0EC4F240E4839A38(L_4, L_5, il2cpp_rgctx_method(method->rgctx_data, 2));
 		V_2 = L_6;
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:384>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:390>
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_7 = ___0_list;
 		int32_t L_8 = V_0;
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_9 = ___0_list;
@@ -20504,20 +20504,20 @@ IL_000b:
 		L_11 = List_1_get_Item_m33561245D64798C2AB07584C0EC4F240E4839A38(L_9, L_10, il2cpp_rgctx_method(method->rgctx_data, 2));
 		NullCheck(L_7);
 		List_1_set_Item_m3C58DBC69A321AF2826595584FF3E9F43C07EA56(L_7, L_8, L_11, il2cpp_rgctx_method(method->rgctx_data, 4));
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:385>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:391>
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_12 = ___0_list;
 		int32_t L_13 = V_1;
 		RuntimeObject* L_14 = V_2;
 		NullCheck(L_12);
 		List_1_set_Item_m3C58DBC69A321AF2826595584FF3E9F43C07EA56(L_12, L_13, L_14, il2cpp_rgctx_method(method->rgctx_data, 4));
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:380>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:386>
 		int32_t L_15 = V_0;
 		V_0 = ((int32_t)il2cpp_codegen_subtract(L_15, 1));
 	}
 
 IL_0037:
 	{
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:380>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:386>
 		int32_t L_16 = V_0;
 		if ((((int32_t)L_16) > ((int32_t)0)))
 		{
@@ -20525,11 +20525,11 @@ IL_0037:
 		}
 	}
 	{
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:387>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:393>
 		return;
 	}
 }
-// Method Definition Index: 66122
+// Method Definition Index: 66126
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_ShuffleList_TisIl2CppFullySharedGenericAny_m42EBA0527C5FF0E444302894D94ED0D99F45E44C_gshared (GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* __this, List_1_tDBA89B0E21BAC58CFBD3C1F76E4668E3B562761A* ___0_list, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -20542,7 +20542,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_ShuffleList_TisIl2CppFullySh
 	Il2CppFullySharedGenericAny V_2 = alloca(SizeOf_T_t28514CA3A97F59BD1E4B5B2448FB93E0518EAC11);
 	memset(V_2, 0, SizeOf_T_t28514CA3A97F59BD1E4B5B2448FB93E0518EAC11);
 	{
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:380>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:386>
 		List_1_tDBA89B0E21BAC58CFBD3C1F76E4668E3B562761A* L_0 = ___0_list;
 		NullCheck(L_0);
 		int32_t L_1;
@@ -20553,18 +20553,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_ShuffleList_TisIl2CppFullySh
 
 IL_000b:
 	{
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:382>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:388>
 		int32_t L_2 = V_0;
 		int32_t L_3;
 		L_3 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, ((int32_t)il2cpp_codegen_add(L_2, 1)), NULL);
 		V_1 = L_3;
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:383>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:389>
 		List_1_tDBA89B0E21BAC58CFBD3C1F76E4668E3B562761A* L_4 = ___0_list;
 		int32_t L_5 = V_0;
 		NullCheck(L_4);
 		InvokerActionInvoker2< int32_t, Il2CppFullySharedGenericAny* >::Invoke(il2cpp_codegen_get_direct_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 2), L_4, L_5, (Il2CppFullySharedGenericAny*)L_6);
 		il2cpp_codegen_memcpy(V_2, L_6, SizeOf_T_t28514CA3A97F59BD1E4B5B2448FB93E0518EAC11);
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:384>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:390>
 		List_1_tDBA89B0E21BAC58CFBD3C1F76E4668E3B562761A* L_7 = ___0_list;
 		int32_t L_8 = V_0;
 		List_1_tDBA89B0E21BAC58CFBD3C1F76E4668E3B562761A* L_9 = ___0_list;
@@ -20573,20 +20573,20 @@ IL_000b:
 		InvokerActionInvoker2< int32_t, Il2CppFullySharedGenericAny* >::Invoke(il2cpp_codegen_get_direct_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 2), L_9, L_10, (Il2CppFullySharedGenericAny*)L_11);
 		NullCheck(L_7);
 		InvokerActionInvoker2< int32_t, Il2CppFullySharedGenericAny >::Invoke(il2cpp_codegen_get_direct_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)), il2cpp_rgctx_method(method->rgctx_data, 4), L_7, L_8, (il2cpp_codegen_class_is_value_type(il2cpp_rgctx_data_no_init(method->rgctx_data, 3)) ? L_11: *(void**)L_11));
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:385>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:391>
 		List_1_tDBA89B0E21BAC58CFBD3C1F76E4668E3B562761A* L_12 = ___0_list;
 		int32_t L_13 = V_1;
 		il2cpp_codegen_memcpy(L_14, V_2, SizeOf_T_t28514CA3A97F59BD1E4B5B2448FB93E0518EAC11);
 		NullCheck(L_12);
 		InvokerActionInvoker2< int32_t, Il2CppFullySharedGenericAny >::Invoke(il2cpp_codegen_get_direct_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)), il2cpp_rgctx_method(method->rgctx_data, 4), L_12, L_13, (il2cpp_codegen_class_is_value_type(il2cpp_rgctx_data_no_init(method->rgctx_data, 3)) ? L_14: *(void**)L_14));
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:380>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:386>
 		int32_t L_15 = V_0;
 		V_0 = ((int32_t)il2cpp_codegen_subtract(L_15, 1));
 	}
 
 IL_0037:
 	{
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:380>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:386>
 		int32_t L_16 = V_0;
 		if ((((int32_t)L_16) > ((int32_t)0)))
 		{
@@ -20594,7 +20594,7 @@ IL_0037:
 		}
 	}
 	{
-		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:387>
+		//<source_info:C:/Sonat/CloneSortPack/SortPackClone/SortPackClone/Assets/Scripts/GameManager.cs:393>
 		return;
 	}
 }
@@ -37913,7 +37913,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t UnsafeList_1_get_Capacity
 		return L_1;
 	}
 }
-// Method Definition Index: 67449
+// Method Definition Index: 67453
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952* ILSupport_AsRef_TisFixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952_m630073FF4D9A6EF9122092466AADDB187F5834ED_gshared_inline (FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952* ___0_thing, const RuntimeMethod* method) 
 {
 	{
@@ -37921,7 +37921,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString128Bytes_tEBC488E0CC30
 		return L_0;
 	}
 }
-// Method Definition Index: 67449
+// Method Definition Index: 67453
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824* ILSupport_AsRef_TisFixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824_mA71E69E902D8DDF286A0CEEAD8E1D29605C6EDC6_gshared_inline (FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824* ___0_thing, const RuntimeMethod* method) 
 {
 	{
@@ -37929,7 +37929,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString32Bytes_t0FB200DC48282
 		return L_0;
 	}
 }
-// Method Definition Index: 67449
+// Method Definition Index: 67453
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21* ILSupport_AsRef_TisFixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21_m096CE4305D6523DEDF56B42E078674DF8BC53DEF_gshared_inline (FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21* ___0_thing, const RuntimeMethod* method) 
 {
 	{
@@ -37937,7 +37937,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString4096Bytes_t0F6BC703C74
 		return L_0;
 	}
 }
-// Method Definition Index: 67449
+// Method Definition Index: 67453
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E* ILSupport_AsRef_TisFixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E_mD7122EE8F9F7BCF9F3CE5DAF1DCC391F6E2E94B7_gshared_inline (FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E* ___0_thing, const RuntimeMethod* method) 
 {
 	{
@@ -37945,7 +37945,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString512Bytes_t0C425B0F2C07
 		return L_0;
 	}
 }
-// Method Definition Index: 67449
+// Method Definition Index: 67453
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5* ILSupport_AsRef_TisFixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5_m0FEBA4BC8DE3310D268E25E270607ACD5EE737CA_gshared_inline (FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5* ___0_thing, const RuntimeMethod* method) 
 {
 	{
@@ -37953,7 +37953,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString64Bytes_t0F1B6FFAFD8C1
 		return L_0;
 	}
 }
-// Method Definition Index: 67449
+// Method Definition Index: 67453
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR UnsafeText_t93F5D82C1FF7AB12B0E621B9D0EC9855D005FF67* ILSupport_AsRef_TisUnsafeText_t93F5D82C1FF7AB12B0E621B9D0EC9855D005FF67_mFAF1D7058D23717A69DBCF2DAAC5BA43E26FEDFC_gshared_inline (UnsafeText_t93F5D82C1FF7AB12B0E621B9D0EC9855D005FF67* ___0_thing, const RuntimeMethod* method) 
 {
 	{
@@ -37961,7 +37961,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR UnsafeText_t93F5D82C1FF7AB12B0E62
 		return L_0;
 	}
 }
-// Method Definition Index: 67449
+// Method Definition Index: 67453
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR ReadOnly_t7FCE1D9551E2596FECD15F574B336E3F361F7AD0* ILSupport_AsRef_TisReadOnly_t7FCE1D9551E2596FECD15F574B336E3F361F7AD0_m65CDBDA6684A5DFA49EB489B560472561BA48E8A_gshared_inline (ReadOnly_t7FCE1D9551E2596FECD15F574B336E3F361F7AD0* ___0_thing, const RuntimeMethod* method) 
 {
 	{

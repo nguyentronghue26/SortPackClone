@@ -236,7 +236,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 3
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -347,13 +347,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0907861, y: -0.0964181, z: -0.083966, w: 0.98762906}
+  m_LocalRotation: {x: -0.08792627, y: -0.072226144, z: -0.08198913, w: 0.99011624}
   m_LocalPosition: {x: 1.27, y: 2.38, z: -4.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -11.275, y: -10.291, z: -8.7}
+  m_LocalEulerAnglesHint: {x: -10.717, y: -7.521, z: -8.761}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_CustomShadowLayers: 0
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 1
+  m_SoftShadowQuality: 0
   m_RenderingLayersMask:
     serializedVersion: 0
     m_Bits: 1
@@ -611,6 +611,7 @@ MonoBehaviour:
   gridSpawner: {fileID: 872633881}
   clearDuration: 0.6
   slideDistance: 2
+  forwardDistance: 1
   clearCurve:
     serializedVersion: 2
     m_Curve: []
@@ -618,9 +619,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   respawnDuration: 0.5
-  respawnOffsetY: -3
-  itemPrefab: {fileID: 0}
-  itemsPerNewCell: 3
+  respawnOffsetZ: 2
+  gameManager: {fileID: 1793123925}
 --- !u!4 &1348790469
 Transform:
   m_ObjectHideFlags: 0
