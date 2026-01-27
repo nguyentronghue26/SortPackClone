@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 33732087971217148}
   - component: {fileID: 23012094696427404}
   - component: {fileID: 994226150073013623}
-  m_Layer: 0
+  - component: {fileID: -8554873679322247931}
+  m_Layer: 7
   m_Name: Goods_3_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,3 +112,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.61, y: 0.8834285, z: 0.61}
   m_Center: {x: 0, y: 0.4417149, z: 0}
+--- !u!114 &-8554873679322247931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128736821751409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9d6b0426f64f545a86a0491a4dfa40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  itemType: Good5
+  itemID: 5
+  dragSpeed: 20
+  snapSpeed: 15
+  dragZOffset: -1

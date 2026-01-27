@@ -1,0 +1,2 @@
+C:\Sonat\CloneSortPack\SortPackClone\SortPackClone\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Sonat\CloneSortPack\SortPackClone\SortPackClone\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
