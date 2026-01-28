@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23463884577367234}
   - component: {fileID: 7054455910377194675}
   - component: {fileID: 3305839598346198313}
+  - component: {fileID: -4109199233253595229}
   m_Layer: 0
   m_Name: Goods_23_2
   m_TagString: Untagged
@@ -129,3 +130,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.61155176, y: 0.8476259, z: 0.32616848}
   m_Center: {x: 0, y: 0.42106053, z: 0}
+--- !u!114 &-4109199233253595229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059725819698019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bf00f6ee3eb2c49a1ad0eecfe16106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemAnimator
+  pickUpScale: 1.15
+  pickUpDuration: 0.15
+  pickUpEase: 27
+  dropDuration: 0.3
+  squashScaleY: 0.7
+  stretchScaleY: 1.1
+  dropEase: 30
+  mergeDuration: 0.4
+  mergeScaleUp: 1.3
+  mergeRotation: 360
+  mergeEase: 26
+  enableIdleAnimation: 0
+  idleBounceDuration: 2
+  idleBounceAmount: 0.05
+  hoverFloatAmount: 0.1
+  hoverFloatDuration: 0.5
+  shakeDuration: 0.3
+  shakeStrength: 0.1

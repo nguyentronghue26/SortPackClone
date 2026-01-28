@@ -64,6 +64,7 @@ public class BoardController : MonoBehaviour
                 {
                     cells.Add(cell);
                     cell.OnCellSorted += HandleCellSorted;
+                    cell.OnCellEmpty += HandleCellEmpty;  // Khi cell trống
                     cell.OnLayerDepleted += HandleLayerDepleted;
                 }
             }
@@ -87,6 +88,28 @@ public class BoardController : MonoBehaviour
         }
     }
 
+    // Khi cell trống (player kéo hết items ra)
+    void HandleCellEmpty(Cell cell)
+    {
+        if (clearingCells.Contains(cell)) return;
+
+        Debug.Log($"Cell {cell.name} is empty - clearing");
+
+        // Giảm 1 layer
+        cell.UseLayer();
+
+        // Nếu còn layer thì respawn
+        if (cell.HasLayersRemaining())
+        {
+            StartCoroutine(ClearAndRespawnCell(cell));
+        }
+        else
+        {
+            // Hết layer - clear vĩnh viễn
+            StartCoroutine(ClearCellPermanently(cell));
+        }
+    }
+
     // Khi cell hết tất cả layers
     void HandleLayerDepleted(Cell cell)
     {
@@ -99,11 +122,14 @@ public class BoardController : MonoBehaviour
     // Clear cell và KHÔNG respawn (hết layers)
     private IEnumerator ClearCellPermanently(Cell cell)
     {
+        // Nếu ngay từ đầu đã null thì thôi
         if (cell == null) yield break;
 
         clearingCells.Add(cell);
 
+        // Cache vị trí & tên ngay đầu (phòng khi sau này cell bị Destroy ở chỗ khác)
         Vector3 basePos = cell.transform.position;
+        string cellName = cell.name;
 
         // Tắt collider của items
         List<Item> items = cell.GetItems();
@@ -123,6 +149,10 @@ public class BoardController : MonoBehaviour
         float t = 0f;
         while (t < clearDuration)
         {
+            // 🔹 Quan trọng: nếu cell đã bị Destroy ở nơi khác thì dừng coroutine
+            if (cell == null)
+                yield break;
+
             t += Time.deltaTime;
             float n = Mathf.Clamp01(t / clearDuration);
             float curve = clearCurve != null ? clearCurve.Evaluate(n) : n;
@@ -142,19 +172,23 @@ public class BoardController : MonoBehaviour
             yield return null;
         }
 
+        // Nếu đến đây mà cell đã bị destroy ở đâu đó thì thôi, đừng đụng nữa
+        if (cell == null) yield break;
+
         // Destroy items
         foreach (var it in items)
         {
-            if (it != null) Destroy(it.gameObject);
+            if (it != null)
+                Destroy(it.gameObject);
         }
         cell.ClearItems();
 
         // Destroy cell vĩnh viễn
-        cells.Remove(cell);
+        cells.Remove(cell);          // nhớ check list này không chứa null ở chỗ khác nữa
         clearingCells.Remove(cell);
         Destroy(cell.gameObject);
 
-        Debug.Log($"Cell {cell.name} permanently removed (no layers remaining)");
+        Debug.Log($"Cell {cellName} permanently removed (no layers remaining)");
     }
 
     // Clear cell và respawn (còn layers)
