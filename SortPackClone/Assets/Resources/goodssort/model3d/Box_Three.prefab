@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23825426517847893}
   - component: {fileID: 3078595592174744985}
   - component: {fileID: 5826178819988073245}
+  - component: {fileID: 615623824128623892}
   m_Layer: 6
   m_Name: Box_Three
   m_TagString: Untagged
@@ -128,14 +129,42 @@ MonoBehaviour:
   maxItems: 3
   itemContainer: {fileID: 4743818688344127611}
   startSpot: {fileID: 4743818688344127611}
-  itemSpacing: 0.6
+  spotSpacing: 0.6
   arrangeHorizontal: 1
   tiltItems: 1
   tiltAngleX: -45
   highlightObject: {fileID: 0}
   validDropColor: {r: 0, g: 1, b: 0, a: 1}
   invalidDropColor: {r: 1, g: 0, b: 0, a: 1}
-  alignToBottom: 1
+--- !u!114 &615623824128623892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718262195369745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bb16e26db9f914182611df3d3b70ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  highlightPulseScale: 1.05
+  highlightPulseDuration: 0.4
+  highlightValidColor: {r: 0.5, g: 1, b: 0.5, a: 0.5}
+  highlightInvalidColor: {r: 1, g: 0.5, b: 0.5, a: 0.5}
+  spawnDuration: 0.5
+  spawnBounceStrength: 1.2
+  spawnEase: 27
+  clearDuration: 0.4
+  clearFlyUpDistance: 2
+  clearEase: 26
+  respawnDuration: 0.5
+  respawnOffsetZ: 0.5
+  respawnEase: 27
+  shakeDuration: 0.3
+  shakeStrength: 0.15
+  successScaleUp: 1.1
+  successDuration: 0.3
 --- !u!1 &7275141885809603665
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 7275141885809603665}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0.2, z: 0.5}
+  m_LocalPosition: {x: -0.28, y: 0.2, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

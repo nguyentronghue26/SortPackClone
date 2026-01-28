@@ -7,24 +7,29 @@ public class Cell : MonoBehaviour
     [SerializeField] private int maxItems = 3;
     [SerializeField] private Transform itemContainer;
 
-    [Header("Spawn Settings")]
-    [SerializeField] private Transform startSpot;  // Chỉ cần 1 spot làm điểm bắt đầu
-    [SerializeField] private float itemSpacing = 1.0f;  // Khoảng cách giữa các item
+    [Header("Layer System")]
+    [SerializeField] private int maxLayers = 3;  // Số tầng (mạng) của cell
+    private int currentLayer;  // Tầng hiện tại (còn lại)
+
+    [Header("Spot Settings")]
+    [SerializeField] private Transform startSpot;  // Spot đầu tiên (trái)
+    [SerializeField] private float spotSpacing = 0.6f;  // Khoảng cách giữa các spots
     [SerializeField] private bool arrangeHorizontal = true;  // Xếp ngang hay dọc
 
     [Header("Item Rotation")]
-    [SerializeField] private bool tiltItems = true;  // Nghiêng items
-    [SerializeField] private float tiltAngleX = 15f;  // Góc nghiêng theo trục X (nghiêng vào trong)
-
-
+    [SerializeField] private bool tiltItems = true;
+    [SerializeField] private float tiltAngleX = 15f;
 
     [Header("Visual Feedback")]
-    [SerializeField] private GameObject highlightObject;  // Object highlight khi hover
+    [SerializeField] private GameObject highlightObject;
     [SerializeField] private Color validDropColor = Color.green;
     [SerializeField] private Color invalidDropColor = Color.red;
 
+    // Spot system - mỗi spot có thể chứa 1 item hoặc null
+    private Item[] spots;
+    private Vector3[] spotPositions;
+
     // Data
-    private List<Item> items = new List<Item>();
     public int Row { get; set; }
     public int Column { get; set; }
 
@@ -32,10 +37,14 @@ public class Cell : MonoBehaviour
     public System.Action<Cell> OnCellFull;
     public System.Action<Cell> OnCellEmpty;
     public System.Action<Cell> OnCellSorted;
-    public System.Action<Cell, Item> OnItemAdded;  // Khi item được thêm vào cell
+    public System.Action<Cell, Item> OnItemAdded;
+    public System.Action<Cell> OnLayerUsed;      // Khi dùng hết 1 layer
+    public System.Action<Cell> OnLayerDepleted;  // Khi hết tất cả layers
 
     void Awake()
     {
+        // Khởi tạo layers
+        currentLayer = maxLayers;
         // Tự động tìm ItemContainer
         if (itemContainer == null)
         {
@@ -46,7 +55,7 @@ public class Cell : MonoBehaviour
                 itemContainer = transform;
         }
 
-        // Tự động tìm StartSpot nếu chưa assign
+        // Tự động tìm StartSpot
         if (startSpot == null)
         {
             startSpot = FindChildRecursive(transform, "Spot");
@@ -58,6 +67,38 @@ public class Cell : MonoBehaviour
 
         if (highlightObject != null)
             highlightObject.SetActive(false);
+
+        // Khởi tạo spots
+        InitializeSpots();
+    }
+
+    private void InitializeSpots()
+    {
+        spots = new Item[maxItems];
+        spotPositions = new Vector3[maxItems];
+
+        Vector3 startPos = Vector3.zero;
+        if (startSpot != null)
+        {
+            startPos = startSpot.localPosition;
+        }
+
+        // Tạo vị trí cho từng spot
+        for (int i = 0; i < maxItems; i++)
+        {
+            Vector3 offset = Vector3.zero;
+            if (arrangeHorizontal)
+            {
+                offset.x = i * spotSpacing;
+            }
+            else
+            {
+                offset.y = -i * spotSpacing;
+            }
+
+            spotPositions[i] = startPos + offset;
+            spotPositions[i].z = -1f;  // Đưa ra phía trước cell
+        }
     }
 
     private Transform FindChildRecursive(Transform parent, string childName)
@@ -74,29 +115,98 @@ public class Cell : MonoBehaviour
         return null;
     }
 
+    // ========== SPOT SYSTEM ==========
+
+    // Tìm spot gần nhất với vị trí drop
+    public int GetNearestSpotIndex(Vector3 worldPosition)
+    {
+        int nearestIndex = -1;
+        float nearestDistance = float.MaxValue;
+
+        for (int i = 0; i < maxItems; i++)
+        {
+            // Chỉ xét spot trống
+            if (spots[i] != null) continue;
+
+            Vector3 spotWorldPos = itemContainer.TransformPoint(spotPositions[i]);
+            float distance = Vector3.Distance(worldPosition, spotWorldPos);
+
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                nearestIndex = i;
+            }
+        }
+
+        return nearestIndex;
+    }
+
+    // Lấy vị trí world của spot
+    public Vector3 GetSpotWorldPosition(int spotIndex)
+    {
+        if (spotIndex < 0 || spotIndex >= maxItems)
+            return itemContainer.position;
+
+        return itemContainer.TransformPoint(spotPositions[spotIndex]);
+    }
+
+    // Check spot có trống không
+    public bool IsSpotEmpty(int spotIndex)
+    {
+        if (spotIndex < 0 || spotIndex >= maxItems)
+            return false;
+
+        return spots[spotIndex] == null;
+    }
+
+    // Đếm số spots trống
+    public int GetEmptySpotCount()
+    {
+        int count = 0;
+        for (int i = 0; i < maxItems; i++)
+        {
+            if (spots[i] == null) count++;
+        }
+        return count;
+    }
+
     // ========== ITEM MANAGEMENT ==========
 
     public bool CanAcceptItem(Item item)
     {
-        // Check còn chỗ không
-        if (items.Count >= maxItems)
-            return false;
-
-        // Có thể thêm logic khác:
-        // - Chỉ nhận item cùng loại
-        // - Chỉ nhận khi cell trống
-        // etc.
-
-        return true;
+        // Check còn spot trống không
+        return GetEmptySpotCount() > 0;
     }
 
+    // Thêm item vào spot gần nhất
     public bool AddItem(Item item)
     {
-        if (!CanAcceptItem(item))
+        return AddItemAtPosition(item, item.transform.position);
+    }
+
+    // Thêm item vào spot gần vị trí drop nhất
+    public bool AddItemAtPosition(Item item, Vector3 dropPosition)
+    {
+        int spotIndex = GetNearestSpotIndex(dropPosition);
+
+        if (spotIndex < 0)
             return false;
 
-        items.Add(item);
+        return AddItemToSpot(item, spotIndex);
+    }
+
+    // Thêm item vào spot cụ thể
+    public bool AddItemToSpot(Item item, int spotIndex)
+    {
+        if (spotIndex < 0 || spotIndex >= maxItems)
+            return false;
+
+        if (spots[spotIndex] != null)
+            return false;
+
+        spots[spotIndex] = item;
         item.SetCell(this);
+        item.SetSpotIndex(spotIndex);
 
         // Set parent
         if (itemContainer != null)
@@ -104,14 +214,14 @@ public class Cell : MonoBehaviour
         else
             item.transform.SetParent(transform);
 
-        // Sắp xếp lại vị trí các items
-        ArrangeItems();
+        // Đặt item vào vị trí spot
+        PositionItemAtSpot(item, spotIndex);
 
-        // Fire event - QUAN TRỌNG cho match check
+        // Fire event
         OnItemAdded?.Invoke(this, item);
 
         // Check events
-        if (items.Count >= maxItems)
+        if (GetEmptySpotCount() == 0)
         {
             OnCellFull?.Invoke(this);
         }
@@ -121,131 +231,70 @@ public class Cell : MonoBehaviour
         return true;
     }
 
+    private void PositionItemAtSpot(Item item, int spotIndex)
+    {
+        Vector3 localPos = spotPositions[spotIndex];
+
+        // Căn theo đáy nếu cần
+        SpriteRenderer sr = item.GetComponent<SpriteRenderer>();
+        if (sr != null && sr.sprite != null)
+        {
+            float spriteHeight = sr.bounds.size.y;
+            float pivotOffsetY = sr.bounds.center.y - item.transform.position.y;
+            localPos.y += (spriteHeight / 2f) - pivotOffsetY;
+        }
+
+        item.transform.localPosition = localPos;
+
+        // Xoay item
+        if (tiltItems)
+        {
+            item.transform.localRotation = Quaternion.Euler(tiltAngleX, 0f, 0f);
+        }
+    }
+
     public bool RemoveItem(Item item)
     {
-        if (!items.Contains(item))
-            return false;
+        // Tìm và xóa item khỏi spots
+        for (int i = 0; i < maxItems; i++)
+        {
+            if (spots[i] == item)
+            {
+                spots[i] = null;
+                item.transform.SetParent(null);
+                item.SetSpotIndex(-1);
 
-        bool wasFull = items.Count >= maxItems;
+                // KHÔNG trigger OnCellEmpty ở đây
+                // Để GameManager/BoardController tự check sau
 
-        items.Remove(item);
-        item.transform.SetParent(null);
+                return true;
+            }
+        }
 
-        // Sắp xếp lại
-        ArrangeItems();
+        return false;
+    }
 
-        // Check events
-        if (items.Count == 0)
+    // Gọi function này khi cần check và trigger event
+    public void CheckEmpty()
+    {
+        if (GetItemCount() == 0)
         {
             OnCellEmpty?.Invoke(this);
         }
-
-        return true;
     }
 
     public void ClearItems()
     {
-        foreach (var item in items)
-        {
-            if (item != null)
-            {
-                Destroy(item.gameObject);
-            }
-        }
-     
-        items.Clear();
-        OnCellEmpty?.Invoke(this);
-
-    }
-
-    // ========== POSITIONING ==========
-
-    [Header("Alignment")]
-    [SerializeField] private bool alignToBottom = true;  // Căn theo đáy item
-
-    private void ArrangeItems()
-    {
-        for (int i = 0; i < items.Count; i++)
-        {
-            Vector3 localPos = GetItemLocalPosition(i);
-
-            if (alignToBottom)
-            {
-                SpriteRenderer sr = items[i].GetComponent<SpriteRenderer>();
-                if (sr != null && sr.sprite != null)
-                {
-                    float spriteHeight = sr.bounds.size.y;
-                    float pivotOffsetY = sr.bounds.center.y - items[i].transform.position.y;
-                    localPos.y += (spriteHeight / 2f) - pivotOffsetY;
-                }
-            }
-
-            items[i].transform.localPosition = localPos;
-
-            // Xoay item nghiêng tựa vào thành hộp
-            if (tiltItems)
-            {
-                items[i].transform.localRotation = Quaternion.Euler(tiltAngleX, 0f, 0f);
-            }
-        }
-    }
-
-    private Vector3 GetItemLocalPosition(int index)
-    {
-        Vector3 startPos = Vector3.zero;
-
-        // Lấy vị trí từ startSpot nếu có
-        if (startSpot != null)
-        {
-            startPos = startSpot.localPosition;
-        }
-
-        // Tính offset dựa vào index
-        Vector3 offset = Vector3.zero;
-        if (arrangeHorizontal)
-        {
-            offset.x = index * itemSpacing;
-        }
-        else
-        {
-            offset.y = -index * itemSpacing;
-        }
-
-        // Đảm bảo Z ở phía trước cell (âm hơn để không bị cell che)
-        Vector3 result = startPos + offset;
-        result.z = -1f;  // Đưa items ra phía trước cell
-
-        return result;
-    }
-
-    public Vector3 GetNextItemPosition()
-    {
-        // Trả về world position cho item tiếp theo
-        // Bắt đầu từ vị trí của ItemContainer + offset
-        Vector3 localPos = GetItemLocalPosition(items.Count);
-
-        // Debug
-        Vector3 worldPos = itemContainer.TransformPoint(localPos);
-        Debug.Log($"Cell {name}: NextItemPos = {worldPos}, ItemContainer pos = {itemContainer.position}");
-
-        return worldPos;
-    }
-
-    // Gọi function này từ Inspector để test vị trí
-    [ContextMenu("Debug Item Positions")]
-    private void DebugItemPositions()
-    {
-        Debug.Log($"=== Cell: {name} ===");
-        Debug.Log($"ItemContainer: {(itemContainer != null ? itemContainer.name : "NULL")}");
-        Debug.Log($"ItemContainer Position: {(itemContainer != null ? itemContainer.position.ToString() : "N/A")}");
-        Debug.Log($"Start Spot: {(startSpot != null ? startSpot.position.ToString() : "NULL")}");
-        Debug.Log($"Item Spacing: {itemSpacing}");
-
         for (int i = 0; i < maxItems; i++)
         {
-            Vector3 pos = itemContainer.TransformPoint(GetItemLocalPosition(i));
-            Debug.Log($"  Item {i} position: {pos}");
+            if (spots[i] != null)
+            {
+                Destroy(spots[i].gameObject);
+                spots[i] = null;
+            }
         }
+
+        OnCellEmpty?.Invoke(this);
     }
 
     // ========== VISUAL FEEDBACK ==========
@@ -256,7 +305,6 @@ public class Cell : MonoBehaviour
         {
             highlightObject.SetActive(active);
 
-            // Đổi màu theo valid/invalid
             SpriteRenderer sr = highlightObject.GetComponent<SpriteRenderer>();
             if (sr != null)
             {
@@ -269,6 +317,7 @@ public class Cell : MonoBehaviour
 
     public bool IsSorted()
     {
+        List<Item> items = GetItems();
         if (items.Count < 2)
             return true;
 
@@ -285,7 +334,7 @@ public class Cell : MonoBehaviour
 
     public bool IsFull()
     {
-        return items.Count >= maxItems;
+        return GetEmptySpotCount() == 0;
     }
 
     public bool IsFullAndSorted()
@@ -305,20 +354,53 @@ public class Cell : MonoBehaviour
 
     public List<Item> GetItems()
     {
-        return new List<Item>(items);
+        List<Item> items = new List<Item>();
+        for (int i = 0; i < maxItems; i++)
+        {
+            if (spots[i] != null)
+            {
+                items.Add(spots[i]);
+            }
+        }
+        return items;
     }
 
     public int GetItemCount()
     {
-        return items.Count;
+        int count = 0;
+        for (int i = 0; i < maxItems; i++)
+        {
+            if (spots[i] != null) count++;
+        }
+        return count;
+    }
+
+    public Item GetItemAtSpot(int spotIndex)
+    {
+        if (spotIndex < 0 || spotIndex >= maxItems)
+            return null;
+        return spots[spotIndex];
+    }
+
+    public Vector3 GetNextItemPosition()
+    {
+        // Tìm spot trống đầu tiên
+        for (int i = 0; i < maxItems; i++)
+        {
+            if (spots[i] == null)
+            {
+                return GetSpotWorldPosition(i);
+            }
+        }
+        return itemContainer.position;
     }
 
     public string GetDominantItemType()
     {
+        List<Item> items = GetItems();
         if (items.Count == 0)
             return null;
 
-        // Đếm số lượng mỗi loại
         Dictionary<string, int> typeCounts = new Dictionary<string, int>();
 
         foreach (var item in items)
@@ -328,7 +410,6 @@ public class Cell : MonoBehaviour
             typeCounts[item.itemType]++;
         }
 
-        // Tìm loại nhiều nhất
         string dominant = null;
         int maxCount = 0;
 
@@ -342,5 +423,97 @@ public class Cell : MonoBehaviour
         }
 
         return dominant;
+    }
+
+    // ========== DEBUG ==========
+
+    // ========== LAYER SYSTEM ==========
+
+    // Gọi khi merge thành công - giảm 1 layer
+    public void UseLayer()
+    {
+        if (currentLayer <= 0) return;
+
+        currentLayer--;
+        OnLayerUsed?.Invoke(this);
+
+        Debug.Log($"Cell {name}: Layer used. Remaining: {currentLayer}/{maxLayers}");
+
+        if (currentLayer <= 0)
+        {
+            OnLayerDepleted?.Invoke(this);
+            Debug.Log($"Cell {name}: All layers depleted!");
+        }
+    }
+
+    // Check còn layer không
+    public bool HasLayersRemaining()
+    {
+        return currentLayer > 0;
+    }
+
+    // Lấy số layer còn lại
+    public int GetRemainingLayers()
+    {
+        return currentLayer;
+    }
+
+    // Lấy tổng số layers
+    public int GetMaxLayers()
+    {
+        return maxLayers;
+    }
+
+    // Reset layers (nếu cần)
+    public void ResetLayers()
+    {
+        currentLayer = maxLayers;
+    }
+
+    // ========== DEBUG SPOTS ==========
+
+    [ContextMenu("Debug Spot Positions")]
+    private void DebugSpotPositions()
+    {
+        Debug.Log($"=== Cell: {name} ===");
+        for (int i = 0; i < maxItems; i++)
+        {
+            Vector3 worldPos = GetSpotWorldPosition(i);
+            string itemName = spots[i] != null ? spots[i].name : "EMPTY";
+            Debug.Log($"  Spot {i}: {worldPos} - {itemName}");
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Vẽ spots trong Editor
+        if (spotPositions == null || spotPositions.Length == 0)
+        {
+            // Preview khi chưa play
+            Vector3 startPos = startSpot != null ? startSpot.localPosition : Vector3.zero;
+
+            for (int i = 0; i < maxItems; i++)
+            {
+                Vector3 offset = arrangeHorizontal ? new Vector3(i * spotSpacing, 0, 0) : new Vector3(0, -i * spotSpacing, 0);
+                Vector3 pos = transform.TransformPoint(startPos + offset);
+
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(pos, 0.1f);
+                Gizmos.color = Color.white;
+                Gizmos.DrawLine(pos + Vector3.left * 0.15f, pos + Vector3.right * 0.15f);
+                Gizmos.DrawLine(pos + Vector3.up * 0.15f, pos + Vector3.down * 0.15f);
+            }
+        }
+        else
+        {
+            // Vẽ khi đang play
+            for (int i = 0; i < maxItems; i++)
+            {
+                Vector3 pos = GetSpotWorldPosition(i);
+
+                Gizmos.color = spots[i] != null ? Color.red : Color.green;
+                Gizmos.DrawWireSphere(pos, 0.1f);
+            }
+        }
     }
 }

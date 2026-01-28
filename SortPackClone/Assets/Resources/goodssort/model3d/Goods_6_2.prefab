@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23595662299407148}
   - component: {fileID: -6640342971926357311}
   - component: {fileID: -3458191526061821583}
+  - component: {fileID: -5205322396898824485}
   m_Layer: 7
   m_Name: Goods_6_2
   m_TagString: Untagged
@@ -105,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemType: Good7
   itemID: 7
-  dragSpeed: 20
+  dragSpeed: 50
   snapSpeed: 15
   dragZOffset: -1
 --- !u!65 &-3458191526061821583
@@ -129,3 +130,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.52, y: 1.0742805, z: 0.52}
   m_Center: {x: 0, y: 0.53715956, z: 0}
+--- !u!114 &-5205322396898824485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034139088844445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bf00f6ee3eb2c49a1ad0eecfe16106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemAnimator
+  pickUpScale: 1.15
+  pickUpDuration: 0.15
+  pickUpEase: 27
+  dropDuration: 0.3
+  squashScaleY: 0.7
+  stretchScaleY: 1.1
+  dropEase: 30
+  mergeDuration: 0.4
+  mergeScaleUp: 1.3
+  mergeRotation: 360
+  mergeEase: 26
+  enableIdleAnimation: 1
+  idleBounceDuration: 2
+  idleBounceAmount: 0.05
+  hoverFloatAmount: 0.1
+  hoverFloatDuration: 0.5
+  shakeDuration: 0.3
+  shakeStrength: 0.1

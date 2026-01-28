@@ -2,12 +2,12 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Clock2Anim
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -17,52 +17,21 @@ AnimationClip:
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
-  m_PPtrCurves:
-  - serializedVersion: 2
-    curve:
-    - time: 0
-      value: {fileID: 21300000, guid: 012940e126ebcf24299837cc002facc7, type: 2}
-    - time: 1.1
-      value: {fileID: 21300000, guid: ce3544a33fc3df94cbdb4ab19ae97abe, type: 2}
-    - time: 2.3333333
-      value: {fileID: 21300000, guid: 7ddbd60a59e8f354687f218754af2801, type: 2}
-    - time: 3.7
-      value: {fileID: 21300000, guid: 1fa06ccec91c2674aba16f0de0d1aa29, type: 2}
-    - time: 5.05
-      value: {fileID: 21300000, guid: 012940e126ebcf24299837cc002facc7, type: 2}
-    attribute: script_0x7822D856_UsmorHH
-    path:
-    classID: 114
-    script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
-    flags: 2
+  m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 2015549526
-      script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
-      typeID: 114
-      customType: 0
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    pptrCurveMapping:
-    - {fileID: 21300000, guid: 012940e126ebcf24299837cc002facc7, type: 2}
-    - {fileID: 21300000, guid: ce3544a33fc3df94cbdb4ab19ae97abe, type: 2}
-    - {fileID: 21300000, guid: 7ddbd60a59e8f354687f218754af2801, type: 2}
-    - {fileID: 21300000, guid: 1fa06ccec91c2674aba16f0de0d1aa29, type: 2}
-    - {fileID: 21300000, guid: 012940e126ebcf24299837cc002facc7, type: 2}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 5.066667
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

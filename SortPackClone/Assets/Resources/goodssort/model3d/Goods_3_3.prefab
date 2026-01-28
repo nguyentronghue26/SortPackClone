@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23012094696427404}
   - component: {fileID: 994226150073013623}
   - component: {fileID: -8554873679322247931}
+  - component: {fileID: -3526078947872445226}
   m_Layer: 7
   m_Name: Goods_3_3
   m_TagString: Untagged
@@ -126,6 +127,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemType: Good5
   itemID: 5
-  dragSpeed: 20
+  dragSpeed: 50
   snapSpeed: 15
   dragZOffset: -1
+--- !u!114 &-3526078947872445226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128736821751409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bf00f6ee3eb2c49a1ad0eecfe16106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemAnimator
+  pickUpScale: 1.15
+  pickUpDuration: 0.15
+  pickUpEase: 27
+  dropDuration: 0.3
+  squashScaleY: 0.7
+  stretchScaleY: 1.1
+  dropEase: 30
+  mergeDuration: 0.4
+  mergeScaleUp: 1.3
+  mergeRotation: 360
+  mergeEase: 26
+  enableIdleAnimation: 1
+  idleBounceDuration: 2
+  idleBounceAmount: 0.05
+  hoverFloatAmount: 0.1
+  hoverFloatDuration: 0.5
+  shakeDuration: 0.3
+  shakeStrength: 0.1

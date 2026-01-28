@@ -5,16 +5,13 @@ public class Item : MonoBehaviour
     [Header("Item Settings")]
     public string itemType;  // Loại item: "carrot", "fries", "coke"...
     public int itemID;       // ID để phân biệt các item cùng loại
+    private int spotIndex = -1;  // Vị trí spot trong cell (-1 = không có)
 
     [Header("Drag Settings")]
-    [SerializeField] private float dragSpeed = 20f;
-    [SerializeField] private float snapSpeed = 15f;
+    [SerializeField] private float dragSpeed = 50f;  // Tăng mạnh để mượt hơn
+    [SerializeField] private float snapSpeed = 20f;
     [SerializeField] private float dragZOffset = -1f;  // Đưa item lên trước khi kéo
 
-
-    private Vector3 dragVelocity = Vector3.zero;
-
-    [SerializeField] private float smoothTime = 0.05f; //0.03-0,1
     // State
     private bool isDragging = false;
     private Vector3 originalPosition;
@@ -25,6 +22,7 @@ public class Item : MonoBehaviour
     private Cell currentCell;      // Cell đang chứa item này
     private Cell hoveredCell;      // Cell đang hover khi kéo
     private Collider itemCollider; // 3D Collider
+    private ItemAnimator itemAnimator;
 
     // Events
     public System.Action<Item> OnItemPickedUp;
@@ -34,15 +32,12 @@ public class Item : MonoBehaviour
     {
         mainCamera = Camera.main;
         itemCollider = GetComponent<Collider>();
+        itemAnimator = GetComponent<ItemAnimator>();
         originalZ = transform.position.z;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Mouse down somewhere");
-        }
         // Check input
         if (Input.GetMouseButtonDown(0) && !isDragging)
         {
@@ -53,17 +48,21 @@ public class Item : MonoBehaviour
         {
             EndDrag();
         }
+    }
 
+    void LateUpdate()
+    {
+        // Drag trong LateUpdate để mượt hơn
         if (isDragging)
         {
-            Vector3 mousePos = GetInputPosition();
-            mousePos.z = originalZ + dragZOffset;
+            Vector3 targetPos = GetInputPosition();
+            targetPos.z = originalZ + dragZOffset;
 
-            transform.position = Vector3.SmoothDamp(
+            // Lerp với tốc độ cao để mượt và responsive
+            transform.position = Vector3.Lerp(
                 transform.position,
-                mousePos,
-                ref dragVelocity,
-                smoothTime
+                targetPos,
+                dragSpeed * Time.deltaTime
             );
 
             CheckHoveredCell();
@@ -80,7 +79,6 @@ public class Item : MonoBehaviour
             // Check xem có click vào chính item này không
             if (hit.collider.gameObject == gameObject)
             {
-                Debug.Log($"Item {name} clicked via raycast!");
                 StartDrag();
             }
         }
@@ -90,21 +88,28 @@ public class Item : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log($"Item {name} clicked!");
         StartDrag();
     }
 
     void OnMouseUp()
     {
-        Debug.Log($"Item {name} released!");
         EndDrag();
     }
 
     // Cho touch trên mobile
     public void StartDrag()
     {
+        if (isDragging) return;  // Tránh gọi 2 lần
+
         isDragging = true;
         originalPosition = transform.position;
+
+        // Animation pick up
+        if (itemAnimator != null)
+        {
+            itemAnimator.StopIdleAnimation();
+            itemAnimator.PlayPickUp();
+        }
 
         // Đưa lên layer trên cùng
         SetSortingOrder(100);
@@ -126,26 +131,53 @@ public class Item : MonoBehaviour
         if (itemCollider != null)
             itemCollider.enabled = true;
 
+        bool dropSuccess = false;
+        Cell oldCell = currentCell;
+
         // Xử lý drop
-        if (hoveredCell != null && hoveredCell.CanAcceptItem(this))
+        if (hoveredCell != null)
         {
-            // Drop vào cell mới
-            Cell oldCell = currentCell;
-
-            // Remove from old cell
-            if (currentCell != null)
+            if (hoveredCell == currentCell)
             {
-                currentCell.RemoveItem(this);
+                // Cùng cell - đổi spot
+                int newSpotIndex = hoveredCell.GetNearestSpotIndex(transform.position);
+                if (newSpotIndex >= 0 && newSpotIndex != spotIndex)
+                {
+                    // Remove khỏi spot cũ, add vào spot mới
+                    currentCell.RemoveItem(this);
+                    currentCell.AddItemToSpot(this, newSpotIndex);
+                    dropSuccess = true;
+                }
             }
+            else if (hoveredCell.CanAcceptItem(this))
+            {
+                // Khác cell
+                if (currentCell != null)
+                {
+                    currentCell.RemoveItem(this);
+                }
 
-            // Add to new cell
-            hoveredCell.AddItem(this);
-            currentCell = hoveredCell;
+                hoveredCell.AddItemAtPosition(this, transform.position);
+                currentCell = hoveredCell;
+                dropSuccess = true;
 
-            // Snap vào vị trí trong cell
-            //SnapToCell(hoveredCell);
+                // Check cell cũ có trống không
+                if (oldCell != null && oldCell != hoveredCell)
+                {
+                    oldCell.CheckEmpty();
+                }
 
-            OnItemDropped?.Invoke(this, hoveredCell);
+                OnItemDropped?.Invoke(this, hoveredCell);
+            }
+        }
+
+        if (dropSuccess)
+        {
+            // Animation drop bounce
+            if (itemAnimator != null)
+            {
+                itemAnimator.PlayDropBounce();
+            }
         }
         else
         {
@@ -155,15 +187,19 @@ public class Item : MonoBehaviour
 
         // Reset sorting order
         SetSortingOrder(0);
-        hoveredCell = null;
+
+        // Clear highlight
+        if (hoveredCell != null)
+        {
+            hoveredCell.SetHighlight(false);
+            hoveredCell = null;
+        }
     }
 
     // ========== HELPER METHODS ==========
 
     private Vector3 GetInputPosition()
     {
-        Vector3 inputPos = transform.position;
-
         // Tạo ray từ camera qua vị trí mouse
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -173,10 +209,10 @@ public class Item : MonoBehaviour
         float distance;
         if (plane.Raycast(ray, out distance))
         {
-            inputPos = ray.GetPoint(distance);
+            return ray.GetPoint(distance);
         }
 
-        return inputPos;
+        return transform.position;
     }
 
     private void CheckHoveredCell()
@@ -190,7 +226,7 @@ public class Item : MonoBehaviour
         foreach (var hit in hits)
         {
             Cell cell = hit.collider.GetComponent<Cell>();
-            if (cell != null && cell != currentCell)
+            if (cell != null)
             {
                 foundCell = cell;
                 break;
@@ -205,7 +241,20 @@ public class Item : MonoBehaviour
             }
 
             hoveredCell = foundCell;
-            hoveredCell.SetHighlight(foundCell.CanAcceptItem(this));
+
+            // Check có thể drop không (kể cả cùng cell nhưng khác spot)
+            bool canAccept = false;
+            if (foundCell == currentCell)
+            {
+                // Cùng cell - check có spot trống khác không
+                canAccept = foundCell.GetEmptySpotCount() > 0;
+            }
+            else
+            {
+                canAccept = foundCell.CanAcceptItem(this);
+            }
+
+            hoveredCell.SetHighlight(canAccept);
         }
         else
         {
@@ -264,5 +313,20 @@ public class Item : MonoBehaviour
     {
         itemType = type;
         itemID = id;
+    }
+
+    public ItemAnimator GetAnimator()
+    {
+        return itemAnimator;
+    }
+
+    public void SetSpotIndex(int index)
+    {
+        spotIndex = index;
+    }
+
+    public int GetSpotIndex()
+    {
+        return spotIndex;
     }
 }

@@ -11,19 +11,16 @@ public class BoardController : MonoBehaviour
 
     [Header("Clear Animation")]
     [SerializeField] private float clearDuration = 0.6f;
-    [SerializeField] private float slideDistance = 12.0f;   // bay đủ xa để ra khỏi màn hình
-    [SerializeField] private float forwardDistance = 1.0f;  // lao gần camera trước khi bay
+    [SerializeField] private float slideDistance = 12.0f;
+    [SerializeField] private float forwardDistance = 1.0f;
     [SerializeField] private AnimationCurve clearCurve;
 
     [Header("Respawn Animation")]
     [SerializeField] private float respawnDuration = 0.5f;
-    // khoảng cách spawn phía SAU kệ (trên trục Z, xa camera hơn)
-    [SerializeField] private float respawnOffsetZ = 2f;
-
+    [SerializeField] private float respawnOffsetZ = 0.5f;
 
     [Header("Spawn Item")]
     [SerializeField] private GameManager gameManager;
-    
 
     private HashSet<Cell> clearingCells = new HashSet<Cell>();
 
@@ -41,7 +38,6 @@ public class BoardController : MonoBehaviour
             clearCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     }
 
-
     private void InitCellsFromGrid()
     {
         cells.Clear();
@@ -49,7 +45,7 @@ public class BoardController : MonoBehaviour
         GameObject[,] grid = gridSpawner.GetAllCells();
         if (grid == null)
         {
-            Debug.LogWarning("BoardController: grid is null, chắc Start chạy trước khi GridSpawner SpawnGrid");
+            Debug.LogWarning("BoardController: grid is null");
             return;
         }
 
@@ -68,37 +64,48 @@ public class BoardController : MonoBehaviour
                 {
                     cells.Add(cell);
                     cell.OnCellSorted += HandleCellSorted;
-                    cell.OnCellEmpty += HandleCellEmpty;
+                    cell.OnLayerDepleted += HandleLayerDepleted;
                 }
             }
         }
 
-        Debug.Log($"BoardController: Registered {cells.Count} cells from GridSpawner");
+        Debug.Log($"BoardController: Registered {cells.Count} cells");
     }
 
+    // Khi cell sorted (merge thành công)
     void HandleCellSorted(Cell cell)
     {
-        if (!clearingCells.Contains(cell))
+        if (clearingCells.Contains(cell)) return;
+
+        // Giảm 1 layer
+        cell.UseLayer();
+
+        // Nếu còn layer thì respawn, không thì để HandleLayerDepleted xử lý
+        if (cell.HasLayersRemaining())
+        {
             StartCoroutine(ClearAndRespawnCell(cell));
+        }
     }
 
-    void HandleCellEmpty(Cell cell)
+    // Khi cell hết tất cả layers
+    void HandleLayerDepleted(Cell cell)
     {
-        if (!clearingCells.Contains(cell))
-            StartCoroutine(ClearAndRespawnCell(cell));
+        if (clearingCells.Contains(cell)) return;
+
+        // Cell hết mạng - chỉ clear, không respawn
+        StartCoroutine(ClearCellPermanently(cell));
     }
 
-    // ==== Clear & Respawn như mình gửi hôm trước ====
-    private IEnumerator ClearAndRespawnCell(Cell cell)
+    // Clear cell và KHÔNG respawn (hết layers)
+    private IEnumerator ClearCellPermanently(Cell cell)
     {
         if (cell == null) yield break;
 
         clearingCells.Add(cell);
 
-        // --- 1. Chuẩn bị ---
         Vector3 basePos = cell.transform.position;
 
-        // Tắt collider của item
+        // Tắt collider của items
         List<Item> items = cell.GetItems();
         foreach (var it in items)
         {
@@ -107,40 +114,27 @@ public class BoardController : MonoBehaviour
             if (col != null) col.enabled = false;
         }
 
-        // Hướng sâu theo trục Z (lao ra gần camera)
+        // Animation bay đi
         Camera cam = Camera.main;
-        Vector3 depthDir;
-        if (cam != null)
-            depthDir = (cam.transform.position - basePos).normalized; // hướng từ kệ tới camera
-        else
-            depthDir = Vector3.back; // fallback
-
-        // Hướng trượt ngang (trái/phải)
-        Vector3 sideDir = GetFreeSideDirection(cell);   // Vector3.left hoặc Vector3.right
-
-        // Đích kết thúc pha 1 (chỉ đi theo Z)
+        Vector3 depthDir = cam != null ? (cam.transform.position - basePos).normalized : Vector3.back;
+        Vector3 sideDir = GetFreeSideDirection(cell);
         Vector3 midPos = basePos + depthDir * forwardDistance;
 
         float t = 0f;
-
         while (t < clearDuration)
         {
             t += Time.deltaTime;
             float n = Mathf.Clamp01(t / clearDuration);
-            float curve = (clearCurve != null && clearCurve.keys.Length > 0)
-                ? clearCurve.Evaluate(n)
-                : n;
+            float curve = clearCurve != null ? clearCurve.Evaluate(n) : n;
 
             if (n < 0.5f)
             {
-                // ===== PHA 1: chỉ bay theo Z (không đổi X/Y) =====
-                float p = curve / 0.5f;    // 0..1 trong n = 0..0.5
+                float p = curve / 0.5f;
                 cell.transform.position = Vector3.Lerp(basePos, midPos, Mathf.Clamp01(p));
             }
             else
             {
-                // ===== PHA 2: giữ nguyên Z, chỉ trượt ngang =====
-                float p = (curve - 0.5f) / 0.5f;  // 0..1 trong n = 0.5..1
+                float p = (curve - 0.5f) / 0.5f;
                 Vector3 endPos = midPos + sideDir * slideDistance;
                 cell.transform.position = Vector3.Lerp(midPos, endPos, Mathf.Clamp01(p));
             }
@@ -148,28 +142,85 @@ public class BoardController : MonoBehaviour
             yield return null;
         }
 
-        // --- 2. Clear items trong ô ---
+        // Destroy items
         foreach (var it in items)
         {
-            if (it != null)
-                Destroy(it.gameObject);
+            if (it != null) Destroy(it.gameObject);
         }
         cell.ClearItems();
 
-        // Ẩn cell, trả lại vị trí logic
+        // Destroy cell vĩnh viễn
+        cells.Remove(cell);
+        clearingCells.Remove(cell);
+        Destroy(cell.gameObject);
+
+        Debug.Log($"Cell {cell.name} permanently removed (no layers remaining)");
+    }
+
+    // Clear cell và respawn (còn layers)
+    private IEnumerator ClearAndRespawnCell(Cell cell)
+    {
+        if (cell == null) yield break;
+
+        clearingCells.Add(cell);
+
+        Vector3 basePos = cell.transform.position;
+
+        // Tắt collider của items
+        List<Item> items = cell.GetItems();
+        foreach (var it in items)
+        {
+            if (it == null) continue;
+            var col = it.GetComponent<Collider>();
+            if (col != null) col.enabled = false;
+        }
+
+        // Animation bay đi
+        Camera cam = Camera.main;
+        Vector3 depthDir = cam != null ? (cam.transform.position - basePos).normalized : Vector3.back;
+        Vector3 sideDir = GetFreeSideDirection(cell);
+        Vector3 midPos = basePos + depthDir * forwardDistance;
+
+        float t = 0f;
+        while (t < clearDuration)
+        {
+            t += Time.deltaTime;
+            float n = Mathf.Clamp01(t / clearDuration);
+            float curve = clearCurve != null ? clearCurve.Evaluate(n) : n;
+
+            if (n < 0.5f)
+            {
+                float p = curve / 0.5f;
+                cell.transform.position = Vector3.Lerp(basePos, midPos, Mathf.Clamp01(p));
+            }
+            else
+            {
+                float p = (curve - 0.5f) / 0.5f;
+                Vector3 endPos = midPos + sideDir * slideDistance;
+                cell.transform.position = Vector3.Lerp(midPos, endPos, Mathf.Clamp01(p));
+            }
+
+            yield return null;
+        }
+
+        // Destroy items
+        foreach (var it in items)
+        {
+            if (it != null) Destroy(it.gameObject);
+        }
+        cell.ClearItems();
+
+        // Ẩn cell
         cell.gameObject.SetActive(false);
         cell.transform.position = basePos;
 
         yield return new WaitForSeconds(0.1f);
 
-        // --- 3. Respawn từ phía sau (theo Z) + spawn item mới ---
+        // Respawn
         yield return StartCoroutine(RespawnCellWithItems(cell, basePos));
 
         clearingCells.Remove(cell);
     }
-
-
-
 
     private Vector3 GetFreeSideDirection(Cell cell)
     {
@@ -189,18 +240,14 @@ public class BoardController : MonoBehaviour
     {
         if (cell == null) yield break;
 
-        // Bật lại ô
         cell.gameObject.SetActive(true);
 
-        // Hướng từ camera → ra phía kệ
+        // Spawn từ phía sau
         Camera cam = Camera.main;
-        Vector3 fromBehindDir;
-        if (cam != null)
-            fromBehindDir = (basePos - cam.transform.position).normalized;
-        else
-            fromBehindDir = Vector3.forward; // fallback
+        Vector3 fromBehindDir = cam != null
+            ? (basePos - cam.transform.position).normalized
+            : Vector3.forward;
 
-        // Spawn từ phía sau (xa camera hơn)
         Vector3 startPos = basePos + fromBehindDir * respawnOffsetZ;
         cell.transform.position = startPos;
 
@@ -217,19 +264,12 @@ public class BoardController : MonoBehaviour
 
         cell.transform.position = basePos;
 
-        // Sau khi ô đã “chui” từ phía sau ra → spawn item mới bằng rule GameManager
+        // Spawn items mới
         if (gameManager != null)
         {
             gameManager.SpawnItemsInCell(cell);
         }
-        else
-        {
-            Debug.LogWarning("[BoardController] gameManager null, không spawn item cho cell mới.");
-        }
+
+        Debug.Log($"Cell {cell.name} respawned. Layers remaining: {cell.GetRemainingLayers()}/{cell.GetMaxLayers()}");
     }
-
-
-
-
-
 }
