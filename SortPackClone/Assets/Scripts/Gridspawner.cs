@@ -24,8 +24,9 @@ public class GridSpawner : MonoBehaviour
 
     [Header("Screen Fit")]
     [SerializeField] private bool autoFitToScreen = true;
-    [SerializeField] private float screenPadding = 0.1f;
+    [SerializeField] private float screenPadding = 0.25f;  // Tăng padding để grid nhỏ lại
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private float verticalOffset = 0.5f;  // Đẩy grid lên cao hơn
 
     [Header("Expand Animation")]
     [SerializeField] private float expandAnimDuration = 0.3f;
@@ -252,12 +253,16 @@ public class GridSpawner : MonoBehaviour
         float scaleX = availableWidth / gridWidth;
         float scaleY = availableHeight / gridHeight;
 
+        // Lấy scale nhỏ hơn để vừa khít
         float finalScale = Mathf.Min(scaleX, scaleY);
 
         transform.localScale = Vector3.one * finalScale;
-        transform.position = mainCamera.transform.position + new Vector3(0, 0, 10f);
 
-        Debug.Log($"Grid scaled to {finalScale:F2} to fit screen");
+        // Đặt vị trí - đẩy lên cao hơn
+        Vector3 camPos = mainCamera.transform.position;
+        transform.position = new Vector3(camPos.x, camPos.y + verticalOffset, camPos.z + 10f);
+
+        Debug.Log($"Grid scaled to {finalScale:F2}, offset Y: {verticalOffset}");
     }
 
     private void CalculateCellSize()
@@ -356,30 +361,18 @@ public class GridSpawner : MonoBehaviour
         StartCoroutine(ReplaceCellCoroutine(oldCell, onComplete));
     }
 
-    private System.Collections.IEnumerator ReplaceCellCoroutine(Cell cell, System.Action<Cell> onComplete)
+    private System.Collections.IEnumerator ReplaceCellCoroutine(Cell oldCell, System.Action<Cell> onComplete)
     {
-        if (cell == null)
-        {
-            onComplete?.Invoke(null);
-            yield break;
-        }
+        int row = oldCell.Row;
+        int col = oldCell.Column;
+        GameObject oldCellObj = oldCell.gameObject;
 
-        // Nếu đã xử lý cell này rồi thì thôi
-        if (cellsBeingReplaced.Contains(cell))
-        {
-            onComplete?.Invoke(cell);
-            yield break;
-        }
+        // Lưu thông tin của cell cũ TRƯỚC khi xóa
+        Vector3 originalWorldPos = oldCellObj.transform.position;
+        Vector3 originalScale = oldCellObj.transform.localScale;
+        Quaternion originalRotation = oldCellObj.transform.rotation;
 
-        cellsBeingReplaced.Add(cell);
-
-        Transform tr = cell.transform;
-
-        // Lưu trạng thái ban đầu
-        Vector3 originalWorldPos = tr.position;
-        Vector3 originalLocalScale = tr.localScale;
-
-        // 1. Cell cũ bay lên và nhỏ dần
+        // 1. Animation: Cell cũ bay lên và biến mất
         float flyUpDuration = 0.3f;
         float elapsed = 0f;
         Vector3 startPos = originalWorldPos;
@@ -390,42 +383,80 @@ public class GridSpawner : MonoBehaviour
             elapsed += Time.deltaTime;
             float t = elapsed / flyUpDuration;
 
-            tr.position = Vector3.Lerp(startPos, endPos, t);
-            tr.localScale = Vector3.Lerp(originalLocalScale, Vector3.zero, t);
+            if (oldCellObj != null)
+            {
+                oldCellObj.transform.position = Vector3.Lerp(startPos, endPos, t);
+                oldCellObj.transform.localScale = Vector3.Lerp(originalScale, Vector3.zero, t);
+            }
 
             yield return null;
         }
 
-        // 2. Đưa cell về đúng vị trí X,Y nhưng "tụt vào trong" Z + 0.2
-        float zOffset = 0.2f; // muốn sâu hơn thì tăng số này
-        Vector3 insidePos = new Vector3(
+        // Xóa cell cũ khỏi list
+        if (row < cellRows.Count && col < cellRows[row].Count)
+        {
+            cellRows[row][col] = null;
+        }
+
+        // Xóa khỏi tracking set
+        cellsBeingReplaced.Remove(oldCell);
+
+        // DESTROY CELL CŨ
+        if (oldCellObj != null)
+        {
+            Destroy(oldCellObj);
+        }
+
+        // Đợi end of frame để đảm bảo cell cũ đã bị xóa
+        yield return new WaitForEndOfFrame();
+
+        // 2. Spawn cell mới tại vị trí tụt vào trong (Z + 0.5 để ở hàng 2)
+        Vector3 spawnWorldPos = new Vector3(
             originalWorldPos.x,
             originalWorldPos.y,
-            originalWorldPos.z + zOffset
+            originalWorldPos.z + 0.5f  // Tụt sâu để ở hàng 2
         );
 
-        tr.position = insidePos;
-        tr.localScale = Vector3.zero;   // chuẩn bị pop ra từ 0
+        GameObject newCellObj = Instantiate(cellPrefab, spawnWorldPos, originalRotation, transform);
+        newCellObj.transform.localScale = originalScale;
+        newCellObj.name = $"Cell_{row}_{col}";
 
-        // 3. Pop cell mới từ 0 lên full scale (không đổi vị trí nữa)
-        float popDuration = 0.4f;
+        Cell newCell = newCellObj.GetComponent<Cell>();
+        if (newCell != null)
+        {
+            newCell.Row = row;
+            newCell.Column = col;
+        }
+
+        // Cập nhật list
+        if (row < cellRows.Count && col < cellRows[row].Count)
+        {
+            cellRows[row][col] = newCellObj;
+        }
+
+        // 3. Animation: Cell mới scale từ nhỏ lên to (không di chuyển Z)
+        float pushDuration = 0.4f;
         elapsed = 0f;
 
-        while (elapsed < popDuration)
+        // Scale từ 0 lên full
+        Vector3 startScale = Vector3.zero;
+
+        newCellObj.transform.localScale = startScale;
+
+        while (elapsed < pushDuration)
         {
             elapsed += Time.deltaTime;
-            float t = Mathf.SmoothStep(0f, 1f, elapsed / popDuration);
-            tr.localScale = Vector3.Lerp(Vector3.zero, originalLocalScale, t);
+            float t = Mathf.SmoothStep(0, 1, elapsed / pushDuration);
+            newCellObj.transform.localScale = Vector3.Lerp(startScale, originalScale, t);
             yield return null;
         }
 
-        tr.localScale = originalLocalScale;
+        newCellObj.transform.localScale = originalScale;
+        // Giữ nguyên position tụt sâu (Z + 0.5)
 
-        // Kết thúc
-        cellsBeingReplaced.Remove(cell);
-        onComplete?.Invoke(cell);
+        // Callback
+        onComplete?.Invoke(newCell);
     }
-
 
     [ContextMenu("Spawn Grid")]
     private void SpawnGridEditor() => SpawnGrid();

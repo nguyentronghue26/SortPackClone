@@ -441,6 +441,7 @@ UnityEngine.CanvasRenderer::set_hasPopInstruction_Injected
 UnityEngine.CanvasRenderer::set_materialCount_Injected
 UnityEngine.CanvasRenderer::set_popMaterialCount_Injected
 UnityEngine.Collider::get_enabled_Injected
+UnityEngine.Collider::get_attachedRigidbody_Injected
 UnityEngine.Collider::ClosestPoint_Injected
 UnityEngine.Collider::get_bounds_Injected
 UnityEngine.Collider::set_enabled_Injected

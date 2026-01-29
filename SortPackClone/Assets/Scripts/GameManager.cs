@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool enableGridExpand = true;
     [SerializeField] private int maxRows = 7;
     [SerializeField] private float expandDelay = 0.5f;
+    [Header("Initial Board Empty Slots")]
+    [SerializeField] private int initialEmptySlots = 6;   // số slot trống muốn có ở tầng 1
 
     // State
     private List<Cell> allCells = new List<Cell>();
@@ -99,6 +101,7 @@ public class GameManager : MonoBehaviour
         if (gridSpawner == null)
             gridSpawner = FindObjectOfType<GridSpawner>();
 
+        // 1) Lấy tất cả cell trong grid chính
         if (gridSpawner != null)
         {
             var cellArray = gridSpawner.GetAllCells();
@@ -106,24 +109,28 @@ public class GameManager : MonoBehaviour
             {
                 foreach (var cellObj in cellArray)
                 {
-                    if (cellObj != null)
+                    if (cellObj == null) continue;
+
+                    Cell cell = cellObj.GetComponent<Cell>();
+                    if (cell != null && !allCells.Contains(cell))
                     {
-                        Cell cell = cellObj.GetComponent<Cell>();
-                        if (cell != null)
-                        {
-                            allCells.Add(cell);
-                        }
+                        allCells.Add(cell);
                     }
                 }
             }
         }
 
-        if (allCells.Count == 0)
+        // 2) THÊM bước này: add TẤT CẢ Cell khác trong scene (lock row, ô đặc biệt,...)
+        Cell[] allSceneCells = FindObjectsOfType<Cell>();
+        foreach (var c in allSceneCells)
         {
-            allCells.AddRange(FindObjectsOfType<Cell>());
+            if (c != null && !allCells.Contains(c))
+            {
+                allCells.Add(c);
+            }
         }
 
-        Debug.Log($"GameManager found {allCells.Count} cells");
+        Debug.Log($"GameManager found {allCells.Count} cells (including lock cells)");
     }
 
     // ========== SMART ITEM SPAWNING ==========
@@ -145,17 +152,34 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        // ========== TÍNH TOÁN SLOT CHO TOÀN BOARD ==========
-        int totalCells = allCells.Count;
-        int slotsPerCell = itemsPerMatch;            // 3 slots per cell
-        int slotsPerLayer = totalCells * slotsPerCell;    // VD: 9 cells × 3 = 27 slots/tầng
+        // ========== TÍNH TOÁN SLOT CHO TOÀN BOARD (CHỈ CELL THƯỜNG) ==========
+
+        // Đếm CHỈ những cell KHÔNG phải lock để spawn
+        int totalCells = 0;
+        foreach (var c in allCells)
+        {
+            if (c == null) continue;
+            if (c.GetComponent<LockedCell>() != null) continue; // bỏ cell lock
+            totalCells++;
+        }
+
+        if (totalCells <= 0)
+        {
+            Debug.LogWarning("SpawnItemsSmart: không có cell thường nào để spawn!");
+            return;
+        }
+
+        int slotsPerCell = itemsPerMatch;              // 3 slots per cell
+        int slotsPerLayer = totalCells * slotsPerCell; // VD: 12 cells × 3 = 36 slots/tầng
+                                                       // VD: 9 cells × 3 = 27 slots/tầng
 
         // Ví dụ: totalLayers = 3
         int totalSlots = slotsPerLayer * totalLayers;      // VD: 27 × 3 = 81 slots tổng
 
-        // CHỈ để 3-4 slots trống ở tầng 1 để di chuyển
-        int layer1EmptySlots = 4;
-        int layer1Slots = Mathf.Max(0, slotsPerLayer - layer1EmptySlots); // VD: 27 - 4 = 23 slots
+       
+        int layer1EmptySlots = Mathf.Clamp(initialEmptySlots, 1, slotsPerLayer - 1);
+        int layer1Slots = Mathf.Max(0, slotsPerLayer - layer1EmptySlots);
+
 
         // Tầng 2,3 cũng để 2 slots trống mỗi tầng
         int otherLayersSlots = Mathf.Max(0, (slotsPerLayer - 2) * (totalLayers - 1));
@@ -278,22 +302,37 @@ public class GameManager : MonoBehaviour
 
         // ========== SPAWN TẦNG 1 ==========
         SpawnLayer1Items(layer1Items);
+        ValidateGlobalItemCounts();
+
     }
 
 
     private void SpawnLayer1Items(List<GameObject> items)
     {
-        List<Cell> shuffledCells = new List<Cell>(allCells);
+        // Chỉ spawn lên cell thường, bỏ cell nào có LockedCell
+        List<Cell> shuffledCells = new List<Cell>();
+
+        foreach (var c in allCells)
+        {
+            if (c == null) continue;
+
+            // Nếu trên GameObject này có component LockedCell => bỏ qua
+            if (c.GetComponent<LockedCell>() != null)
+                continue;
+
+            shuffledCells.Add(c);
+        }
+
         ShuffleList(shuffledCells);
 
         int totalItemsSpawned = 0;
 
-        // Track items trong mỗi cell để tránh 3 cùng loại
         Dictionary<Cell, List<string>> cellItems = new Dictionary<Cell, List<string>>();
         foreach (var cell in shuffledCells)
         {
             cellItems[cell] = new List<string>();
         }
+
 
         // Shuffle items trước
         ShuffleList(items);
@@ -543,10 +582,108 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[SpawnItemsInCell] Cell {cell.name} respawned {itemsSpawned} items. " +
                   $"Queue left={itemQueue.Count}");
+        ValidateGlobalItemCounts();
+
     }
 
 
 
+    /// <summary>
+    /// Đảm bảo mỗi itemType chỉ xuất hiện tối đa itemsPerMatch lần
+    /// (trên toàn bộ board + queue). Nếu queue có thừa thì cắt bớt.
+    /// </summary>
+    private void ValidateGlobalItemCounts()
+    {
+        // Đếm trên board
+        Dictionary<string, int> counts = new Dictionary<string, int>();
+
+        foreach (var cell in allCells)
+        {
+            foreach (var it in cell.GetItems())
+            {
+                if (it == null) continue;
+                string type = it.itemType;
+                if (string.IsNullOrEmpty(type)) continue;
+
+                if (!counts.ContainsKey(type))
+                    counts[type] = 0;
+                counts[type]++;
+            }
+        }
+
+        // Đếm thêm trong queue
+        List<GameObject> queueList = new List<GameObject>(itemQueue);
+
+        foreach (var prefab in queueList)
+        {
+            if (prefab == null) continue;
+            string type = prefab.name.ToLower();
+
+            if (!counts.ContainsKey(type))
+                counts[type] = 0;
+            counts[type]++;
+        }
+
+        // Nếu loại nào vượt quá itemsPerMatch (thường = 3) thì cắt bớt trong queue
+        Queue<GameObject> newQueue = new Queue<GameObject>();
+
+        // Copy lại counts để còn biết đã cho phép bao nhiêu
+        Dictionary<string, int> allowed = new Dictionary<string, int>(counts);
+
+        foreach (var kvp in counts)
+        {
+            // Giới hạn tối đa
+            if (allowed[kvp.Key] > itemsPerMatch)
+                allowed[kvp.Key] = itemsPerMatch;
+        }
+
+        // Bây giờ rebuild queue: chỉ giữ lại những prefab mà chưa vượt quota
+        foreach (var prefab in queueList)
+        {
+            if (prefab == null) continue;
+            string type = prefab.name.ToLower();
+
+            // Nếu loại này không bị limit thì cứ giữ
+            if (!allowed.ContainsKey(type))
+            {
+                newQueue.Enqueue(prefab);
+                continue;
+            }
+
+            // Số lượng hiện tại trên board (không tính queue mới)
+            int currentOnBoard = 0;
+            foreach (var cell in allCells)
+            {
+                foreach (var it in cell.GetItems())
+                {
+                    if (it != null && it.itemType == type)
+                        currentOnBoard++;
+                }
+            }
+
+            // Nếu currentOnBoard đã >= quota thì bỏ prefab này, không enqueue nữa
+            if (currentOnBoard >= allowed[type])
+            {
+                // bỏ qua prefab này
+                continue;
+            }
+
+            // Ngược lại còn slot cho loại này
+            newQueue.Enqueue(prefab);
+            currentOnBoard++;
+
+            // Cập nhật lại allowed[type] nếu muốn chặt chẽ hơn
+            // (ở đây không bắt buộc vì ta luôn check lại currentOnBoard)
+        }
+
+        itemQueue = newQueue;
+
+        // Debug xem còn bao nhiêu mỗi loại
+        foreach (var kvp in allowed)
+        {
+            Debug.Log($"[ValidateGlobalItemCounts] Type={kvp.Key}, allowedMax={itemsPerMatch}");
+        }
+    }
 
 
     private GameObject FindImmediateMergeItemInQueue()
@@ -719,37 +856,82 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     private IEnumerator RemoveMatchedItems(Cell cell, List<Item> matchedItems)
     {
+        // Delay chút cho đẹp
         yield return new WaitForSeconds(matchDelay);
 
+        if (matchedItems == null || matchedItems.Count == 0)
+            yield break;
+
+        // Loại item vừa được merge
         string itemType = matchedItems[0].itemType;
 
-        for (int i = 0; i < itemsPerMatch && i < matchedItems.Count; i++)
-        {
-            Item item = matchedItems[i];
-            cell.RemoveItem(item);
+        // 1) TÌM TẤT CẢ Item cùng loại đó trong toàn scene
+        Item[] allItems = FindObjectsOfType<Item>();
+        List<Item> allItemsOfType = new List<Item>();
+        HashSet<Cell> affectedCells = new HashSet<Cell>();   // các cell có item bị xóa
 
-            StartCoroutine(ItemDisappearAnimation(item.gameObject));
+        foreach (var it in allItems)
+        {
+            if (it != null && it.itemType == itemType)
+            {
+                allItemsOfType.Add(it);
+
+                Cell owner = it.GetCurrentCell();   // Item.GetCurrentCell của em
+                if (owner != null)
+                    affectedCells.Add(owner);
+            }
         }
 
-        // Update tracking
+        // 2) Xoá toàn bộ item loại này
+        foreach (var it in allItemsOfType)
+        {
+            Cell ownerCell = it.GetCurrentCell();
+
+            if (ownerCell != null)
+            {
+                ownerCell.RemoveItem(it);  // xoá khỏi spots của cell (kể cả cell lock)
+            }
+
+            StartCoroutine(ItemDisappearAnimation(it.gameObject));
+        }
+
+        int removedCount = allItemsOfType.Count;
+
+        // 3) Cell nào vì thế mà trống ⇒ bắn OnCellEmpty (BoardController / LockedCell xử lý)
+        foreach (var c in affectedCells)
+        {
+            if (c != null && c.GetItemCount() == 0)
+            {
+                c.CheckEmpty();    // sẽ gọi OnCellEmpty
+            }
+            // nếu sau này muốn clear theo full+sorted loại khác thì có thể thêm CheckSorted() ở đây
+        }
+
+        // 4) Cập nhật đếm loại đó (nếu có dùng)
         if (itemTypeCounts.ContainsKey(itemType))
         {
-            itemTypeCounts[itemType] -= itemsPerMatch;
+            itemTypeCounts[itemType] -= removedCount;
+            if (itemTypeCounts[itemType] < 0)
+                itemTypeCounts[itemType] = 0;
         }
 
         totalMatches++;
         OnMatchFound?.Invoke(cell);
 
-        Debug.Log($"Match! Type: {itemType}. Total matches: {totalMatches}");
+        Debug.Log($"Match! Type: {itemType}. Removed {removedCount} items. Total matches: {totalMatches}");
 
-        // Trigger cell sorted (để BoardController handle clear + respawn)
-        // OnCellSorted sẽ được gọi trong Cell.cs
+        // 5) Xoá loại này khỏi queue spawn luôn (để không spawn lại)
         DisableItemTypeCompletely(itemType);
 
+        // 6) Kiểm tra thắng
         CheckWinCondition();
     }
+
+
+
 
     private IEnumerator ItemDisappearAnimation(GameObject itemObj)
     {

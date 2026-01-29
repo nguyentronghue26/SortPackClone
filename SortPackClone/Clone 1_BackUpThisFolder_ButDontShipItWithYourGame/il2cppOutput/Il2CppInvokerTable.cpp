@@ -596,7 +596,12 @@ struct ObjectPool_1_t0A06268D6A397ECD4FD7AAA40AA7A20172FA19EC;
 struct ObjectPool_1_t82A23F94CF978AD6719D0EF277CDDAECC926E633;
 struct ObjectPool_1_tBA82261436E949FCDE3517424082CE673E88B99C;
 struct ObjectPool_1_t99595E72EFE3F4492DB424138C3B94C9E0C18B58;
+struct Queue_1_t511BA32B92964BEC1458E4CF6F295292576243B8;
+struct Queue_1_tCA24E420CB13C6411AEFC3ECE9E62219F7937A1E;
+struct Queue_1_t9F41BF6CFC5D32AA799C92FDAE83FEBE7D98DAC9;
+struct Queue_1_tE9EF546915795972C3BFD68FBB8FA859D3BAF3B5;
 struct Queue_1_t488F4FFC87B785BACAAF18A6B2E9307E5451DF68;
+struct Queue_1_t75840AD230E9D2498F813412770B56A17D0281F1;
 struct RefCounted_t6B975CD3D06E8D955346FC0D66E8F6E449D49A44;
 struct RefCounted_t0E133AD36715877AE1CE72539A0199B4D3AA8CD1;
 struct RefCounted_t81BCBAE57D930C934CF7A439452D65303AC6A8CD;
@@ -2458,6 +2463,13 @@ struct Enumerator_t9DBCD072C72E44AB8959D9884EF7F528028F20EC
 	int32_t ____version;
 	int32_t ____current;
 };
+struct Enumerator_tC5D53D94AA54C1739681E6FC364E9CD8AE31ECE0 
+{
+	Queue_1_tCA24E420CB13C6411AEFC3ECE9E62219F7937A1E* ____q;
+	int32_t ____version;
+	int32_t ____index;
+	int32_t ____currentElement;
+};
 struct Enumerator_t1ED2EFBA8997D05D3B6586A9FF9D467F8D5482F0 
 {
 	Stack_1_t3197E0F5EA36E611B259A88751D31FC2396FE4B6* ____stack;
@@ -2563,6 +2575,13 @@ struct Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A
 	int32_t ____index;
 	int32_t ____version;
 	RuntimeObject* ____current;
+};
+struct Enumerator_t30E3290EE12437374037B3CF0EE4D614F96D030A 
+{
+	Queue_1_tE9EF546915795972C3BFD68FBB8FA859D3BAF3B5* ____q;
+	int32_t ____version;
+	int32_t ____index;
+	RuntimeObject* ____currentElement;
 };
 struct Enumerator_t13B0EDB01F0A85A952803970AFD1073D96A46C94 
 {
@@ -15852,6 +15871,13 @@ struct Enumerator_t83390730FC1AEADB5A2D398B039AD6815BD5CD89
 	NativeSlice_1_t7591FC942F923C6C3D5066DBCE25E2B91AAD3BD8 ___m_Array;
 	int32_t ___m_Index;
 };
+struct Enumerator_t010464636F36FAEAEA939F0C460D9B4D3742028B 
+{
+	Queue_1_t9F41BF6CFC5D32AA799C92FDAE83FEBE7D98DAC9* ____q;
+	int32_t ____version;
+	int32_t ____index;
+	JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ____currentElement;
+};
 struct Enumerator_t046B653D7701BD349BB77F73CFD3F06F0C0980A7 
 {
 	UnsafeQueueBlockHeader_t93BDD5BE3C4A0486BE2A07B68862CFF1F5870D9C* ___m_FirstBlock;
@@ -16264,6 +16290,13 @@ struct Enumerator_t8E71E3162A14D26A339D3561D43523590F594C86
 	int32_t ____index;
 	DispatchContext_tFA37790A5FF30508B0146B79E4FF1880EB82E455 ____currentElement;
 };
+struct Enumerator_t3B7550C1130BBD2F1A4BAE88FB62305FC7A95602 
+{
+	Queue_1_t488F4FFC87B785BACAAF18A6B2E9307E5451DF68* ____q;
+	int32_t ____version;
+	int32_t ____index;
+	EventRecord_tEC2901C48A23F5AFE20A9E8D4F05F3799EA62BF2 ____currentElement;
+};
 struct Enumerator_tC40C530F62540E93BDAAFF42E8BDE3B3B3328EA0 
 {
 	List_1_t1E327CB749CA1F2F2DA41B2D4DFF57FD6BE0FF66* ____list;
@@ -16283,6 +16316,13 @@ struct Enumerator_tAFC110EBB18881FA1964B9D7637A27E43962178A
 	int32_t ____index;
 	int32_t ____version;
 	BindingOverrideJson_t32DC7BCB9A35C133E2B4F4BB185592F1C0A97AC2 ____current;
+};
+struct Enumerator_t388482DB0A98B84F0E9A2C3F7C6F6DD949077710 
+{
+	Queue_1_t75840AD230E9D2498F813412770B56A17D0281F1* ____q;
+	int32_t ____version;
+	int32_t ____index;
+	CallbackInfo_tAAF5B235D20558849D45390E3FFA7A0FF2183A08 ____currentElement;
 };
 struct Enumerator_t6FFB1C365FAC345FA1F2532147624A50557CB5E3 
 {
@@ -49380,6 +49420,13 @@ struct Enumerator_tF52E8863109353BCC2DBB0F71B12AC8B14DCA599
 	int32_t ____index;
 	int32_t ____version;
 	Event_tDC1CE7179A25C1AC33BD07C5B4F161045A672215 ____current;
+};
+struct Enumerator_t329C281175018D15B72F177193D05EC5E98EBF18 
+{
+	Queue_1_t511BA32B92964BEC1458E4CF6F295292576243B8* ____q;
+	int32_t ____version;
+	int32_t ____index;
+	Event_tDC1CE7179A25C1AC33BD07C5B4F161045A672215 ____currentElement;
 };
 struct Enumerator_t1761CC40B515D3EEEF28C40678DCB2B504824DC4 
 {
@@ -121427,6 +121474,12 @@ void RuntimeInvoker_TrueEnumerator_tF52E8863109353BCC2DBB0F71B12AC8B14DCA599 (Il
 	*((Enumerator_tF52E8863109353BCC2DBB0F71B12AC8B14DCA599*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
 }
 
+void RuntimeInvoker_TrueEnumerator_t329C281175018D15B72F177193D05EC5E98EBF18 (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
+{
+	typedef Enumerator_t329C281175018D15B72F177193D05EC5E98EBF18 (*Func)(void* obj, const RuntimeMethod* method);
+	*((Enumerator_t329C281175018D15B72F177193D05EC5E98EBF18*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
+}
+
 void RuntimeInvoker_TrueEnumerator_t0D1401C0611E0CB7F53B5135FB51B2072C4D7AF3 (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
 {
 	typedef Enumerator_t0D1401C0611E0CB7F53B5135FB51B2072C4D7AF3 (*Func)(void* obj, const RuntimeMethod* method);
@@ -121829,6 +121882,12 @@ void RuntimeInvoker_TrueEnumerator_t46DEFCA5D67D99C561D5D88FB64821B86088C57F (Il
 	*((Enumerator_t46DEFCA5D67D99C561D5D88FB64821B86088C57F*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
 }
 
+void RuntimeInvoker_TrueEnumerator_tC5D53D94AA54C1739681E6FC364E9CD8AE31ECE0 (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
+{
+	typedef Enumerator_tC5D53D94AA54C1739681E6FC364E9CD8AE31ECE0 (*Func)(void* obj, const RuntimeMethod* method);
+	*((Enumerator_tC5D53D94AA54C1739681E6FC364E9CD8AE31ECE0*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
+}
+
 void RuntimeInvoker_TrueEnumerator_t1ED2EFBA8997D05D3B6586A9FF9D467F8D5482F0 (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
 {
 	typedef Enumerator_t1ED2EFBA8997D05D3B6586A9FF9D467F8D5482F0 (*Func)(void* obj, const RuntimeMethod* method);
@@ -121971,6 +122030,12 @@ void RuntimeInvoker_TrueEnumerator_t83390730FC1AEADB5A2D398B039AD6815BD5CD89 (Il
 {
 	typedef Enumerator_t83390730FC1AEADB5A2D398B039AD6815BD5CD89 (*Func)(void* obj, const RuntimeMethod* method);
 	*((Enumerator_t83390730FC1AEADB5A2D398B039AD6815BD5CD89*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
+}
+
+void RuntimeInvoker_TrueEnumerator_t010464636F36FAEAEA939F0C460D9B4D3742028B (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
+{
+	typedef Enumerator_t010464636F36FAEAEA939F0C460D9B4D3742028B (*Func)(void* obj, const RuntimeMethod* method);
+	*((Enumerator_t010464636F36FAEAEA939F0C460D9B4D3742028B*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
 }
 
 void RuntimeInvoker_TrueEnumerator_t046B653D7701BD349BB77F73CFD3F06F0C0980A7 (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
@@ -122283,6 +122348,12 @@ void RuntimeInvoker_TrueEnumerator_t1B1AD56D82B50E96C18718581C02EF749816886D (Il
 {
 	typedef Enumerator_t1B1AD56D82B50E96C18718581C02EF749816886D (*Func)(void* obj, const RuntimeMethod* method);
 	*((Enumerator_t1B1AD56D82B50E96C18718581C02EF749816886D*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
+}
+
+void RuntimeInvoker_TrueEnumerator_t30E3290EE12437374037B3CF0EE4D614F96D030A (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
+{
+	typedef Enumerator_t30E3290EE12437374037B3CF0EE4D614F96D030A (*Func)(void* obj, const RuntimeMethod* method);
+	*((Enumerator_t30E3290EE12437374037B3CF0EE4D614F96D030A*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
 }
 
 void RuntimeInvoker_TrueEnumerator_t13B0EDB01F0A85A952803970AFD1073D96A46C94 (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
@@ -123617,6 +123688,12 @@ void RuntimeInvoker_TrueEnumerator_t8E71E3162A14D26A339D3561D43523590F594C86 (Il
 	*((Enumerator_t8E71E3162A14D26A339D3561D43523590F594C86*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
 }
 
+void RuntimeInvoker_TrueEnumerator_t3B7550C1130BBD2F1A4BAE88FB62305FC7A95602 (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
+{
+	typedef Enumerator_t3B7550C1130BBD2F1A4BAE88FB62305FC7A95602 (*Func)(void* obj, const RuntimeMethod* method);
+	*((Enumerator_t3B7550C1130BBD2F1A4BAE88FB62305FC7A95602*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
+}
+
 void RuntimeInvoker_TrueEnumerator_t7C6C9B187BC566CC3B1B0C1686A9D10BC6044162 (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
 {
 	typedef Enumerator_t7C6C9B187BC566CC3B1B0C1686A9D10BC6044162 (*Func)(void* obj, const RuntimeMethod* method);
@@ -123795,6 +123872,12 @@ void RuntimeInvoker_TrueEnumerator_t06B71EF17663E35C7B0EA1A12263D9A5C5E116EB (Il
 {
 	typedef Enumerator_t06B71EF17663E35C7B0EA1A12263D9A5C5E116EB (*Func)(void* obj, const RuntimeMethod* method);
 	*((Enumerator_t06B71EF17663E35C7B0EA1A12263D9A5C5E116EB*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
+}
+
+void RuntimeInvoker_TrueEnumerator_t388482DB0A98B84F0E9A2C3F7C6F6DD949077710 (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
+{
+	typedef Enumerator_t388482DB0A98B84F0E9A2C3F7C6F6DD949077710 (*Func)(void* obj, const RuntimeMethod* method);
+	*((Enumerator_t388482DB0A98B84F0E9A2C3F7C6F6DD949077710*)returnAddress) = ((Func)methodPointer)(obj, methodMetadata);
 }
 
 void RuntimeInvoker_TrueEnumerator_tE5C83163901E84EB8F5AD608580161BB0729C083 (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args, void* returnAddress)
@@ -199320,7 +199403,7 @@ void RuntimeInvoker_FalseMonoScriptData_t7C1EFF89409588A65507FDF01648DD5646A1DA3
 }
 
 IL2CPP_EXTERN_C const InvokerMethod g_Il2CppInvokerPointers[];
-const InvokerMethod g_Il2CppInvokerPointers[23015] = 
+const InvokerMethod g_Il2CppInvokerPointers[23021] = 
 {
 	RuntimeInvoker_F57671A1A271362DE5576D4120520430DEAD6EAE,
 	RuntimeInvoker_7C7502B48E2131BE322E25A4A5423517C2046CC6,
@@ -210347,6 +210430,7 @@ const InvokerMethod g_Il2CppInvokerPointers[23015] =
 	RuntimeInvoker_TrueEnumerator_tBDECD9E8DE672E33BAA72A6CB665098B9A80D7D2,
 	RuntimeInvoker_TrueEnumerator_t489CCDBDDEC36210EB9A783FF31D5BE4DD8816E4,
 	RuntimeInvoker_TrueEnumerator_tF52E8863109353BCC2DBB0F71B12AC8B14DCA599,
+	RuntimeInvoker_TrueEnumerator_t329C281175018D15B72F177193D05EC5E98EBF18,
 	RuntimeInvoker_TrueEnumerator_t0D1401C0611E0CB7F53B5135FB51B2072C4D7AF3,
 	RuntimeInvoker_TrueEnumerator_t27FB015045D452CE2FC29B9AA1DF91279EEC3DE7,
 	RuntimeInvoker_TrueEnumerator_t4956E8A75B95E2086DECD4051425FA36B1316E29,
@@ -210414,6 +210498,7 @@ const InvokerMethod g_Il2CppInvokerPointers[23015] =
 	RuntimeInvoker_TrueEnumerator_t7767C5CF41D19BF6C7326C9870C530F1AD3CAC30,
 	RuntimeInvoker_TrueEnumerator_t5E20D4F966F1EB0CF7D4B7A74F095DCE906063D6,
 	RuntimeInvoker_TrueEnumerator_t46DEFCA5D67D99C561D5D88FB64821B86088C57F,
+	RuntimeInvoker_TrueEnumerator_tC5D53D94AA54C1739681E6FC364E9CD8AE31ECE0,
 	RuntimeInvoker_TrueEnumerator_t1ED2EFBA8997D05D3B6586A9FF9D467F8D5482F0,
 	RuntimeInvoker_TrueEnumerator_t37839615D82C9BDB7D4A9DC4A5D719BBF9CF423D,
 	RuntimeInvoker_TrueEnumerator_t1181DEB8E185E6E08C25E0385A140587B73A5120,
@@ -210438,6 +210523,7 @@ const InvokerMethod g_Il2CppInvokerPointers[23015] =
 	RuntimeInvoker_TrueEnumerator_tE6CCDF227E9085054AF3C0D563BFAD6AC81C377A,
 	RuntimeInvoker_TrueEnumerator_t9764B29593C6202A790A5C17E69D1CBFDE116019,
 	RuntimeInvoker_TrueEnumerator_t83390730FC1AEADB5A2D398B039AD6815BD5CD89,
+	RuntimeInvoker_TrueEnumerator_t010464636F36FAEAEA939F0C460D9B4D3742028B,
 	RuntimeInvoker_TrueEnumerator_t046B653D7701BD349BB77F73CFD3F06F0C0980A7,
 	RuntimeInvoker_TrueEnumerator_tDE6BE0E1EE72E3345F6E7CFC3F964FEEB56FCE88,
 	RuntimeInvoker_TrueEnumerator_tA9CEDC14C48B65D85D1D7B20C547542F3F2AE57B,
@@ -210490,6 +210576,7 @@ const InvokerMethod g_Il2CppInvokerPointers[23015] =
 	RuntimeInvoker_TrueEnumerator_tC25D6382B2C7E2606E12FC6637F714A98D52DE22,
 	RuntimeInvoker_TrueEnumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A,
 	RuntimeInvoker_TrueEnumerator_t1B1AD56D82B50E96C18718581C02EF749816886D,
+	RuntimeInvoker_TrueEnumerator_t30E3290EE12437374037B3CF0EE4D614F96D030A,
 	RuntimeInvoker_TrueEnumerator_t13B0EDB01F0A85A952803970AFD1073D96A46C94,
 	RuntimeInvoker_TrueEnumerator_t852186DADC50D976C4BD8FE59C506354ED48B974,
 	RuntimeInvoker_TrueEnumerator_t57A78D289FDDA170CCE0D57634C17C08AABC5358,
@@ -210712,6 +210799,7 @@ const InvokerMethod g_Il2CppInvokerPointers[23015] =
 	RuntimeInvoker_TrueEnumerator_tD97C98C8AA749156CECC60E8ED112C7771E69B84,
 	RuntimeInvoker_TrueEnumerator_t3B367DB4E88110F0F90313AF159B54F9F2189310,
 	RuntimeInvoker_TrueEnumerator_t8E71E3162A14D26A339D3561D43523590F594C86,
+	RuntimeInvoker_TrueEnumerator_t3B7550C1130BBD2F1A4BAE88FB62305FC7A95602,
 	RuntimeInvoker_TrueEnumerator_t7C6C9B187BC566CC3B1B0C1686A9D10BC6044162,
 	RuntimeInvoker_TrueEnumerator_tC40C530F62540E93BDAAFF42E8BDE3B3B3328EA0,
 	RuntimeInvoker_TrueEnumerator_tE6CBCE1FF111B513F35E1EA1BA1DEA53517586D6,
@@ -210742,6 +210830,7 @@ const InvokerMethod g_Il2CppInvokerPointers[23015] =
 	RuntimeInvoker_TrueEnumerator_t1874D95035A442031B8C36586E1AE56A46273BA9,
 	RuntimeInvoker_TrueEnumerator_t6B278D7150538B4759AE25D9EB936EB7F2CC85ED,
 	RuntimeInvoker_TrueEnumerator_t06B71EF17663E35C7B0EA1A12263D9A5C5E116EB,
+	RuntimeInvoker_TrueEnumerator_t388482DB0A98B84F0E9A2C3F7C6F6DD949077710,
 	RuntimeInvoker_TrueEnumerator_tE5C83163901E84EB8F5AD608580161BB0729C083,
 	RuntimeInvoker_TrueEnumerator_t6FFB1C365FAC345FA1F2532147624A50557CB5E3,
 	RuntimeInvoker_TrueEnumerator_t85BE84590B45EA87CA607680BCD144728A680AE1,

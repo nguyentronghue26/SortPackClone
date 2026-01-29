@@ -226,7 +226,8 @@ public class Cell : MonoBehaviour
             OnCellFull?.Invoke(this);
         }
 
-        CheckSorted();
+        // KHÔNG check sorted ở đây - để GameManager check khi player drop
+        // CheckSorted();
 
         return true;
     }
@@ -342,7 +343,7 @@ public class Cell : MonoBehaviour
         return IsFull() && IsSorted();
     }
 
-    private void CheckSorted()
+    public void CheckSorted()
     {
         if (IsFullAndSorted())
         {
@@ -425,8 +426,6 @@ public class Cell : MonoBehaviour
         return dominant;
     }
 
-    // ========== DEBUG ==========
-
     // ========== LAYER SYSTEM ==========
 
     // Gọi khi merge thành công - giảm 1 layer
@@ -469,6 +468,19 @@ public class Cell : MonoBehaviour
     {
         currentLayer = maxLayers;
     }
+
+    // ========== PUBLIC GETTERS/SETTERS FOR LOCKED CELL ==========
+
+    public int GetMaxItems() => maxItems;
+
+    public void SetSpotSpacing(float spacing)
+    {
+        spotSpacing = spacing;
+        // Reinitialize spots với spacing mới
+        InitializeSpots();
+    }
+
+    public float GetSpotSpacing() => spotSpacing;
 
     // ========== DEBUG SPOTS ==========
 
