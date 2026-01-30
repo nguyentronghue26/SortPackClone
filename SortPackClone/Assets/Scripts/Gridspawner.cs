@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GridSpawner : MonoBehaviour
 {
@@ -27,10 +28,21 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] private float screenPadding = 0.25f;  // Tăng padding để grid nhỏ lại
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float verticalOffset = 0.5f;  // Đẩy grid lên cao hơn
-
+    [Header("Auto Spawn")]
+    [SerializeField] private bool autoSpawnOnStart = true;
     [Header("Expand Animation")]
     [SerializeField] private float expandAnimDuration = 0.3f;
 
+    [Header("Clear Animation")]
+    [SerializeField] private float clearFlyZOffset = -1.0f;   // Bay về phía camera (Z nhỏ lại)
+    [SerializeField] private float clearFlyDuration = 0.25f;
+    [SerializeField] private float clearSlideDistance = 8f;   // Trượt ra viền màn hình
+    [SerializeField] private float clearSlideDuration = 0.35f;
+    [SerializeField] private Ease clearFlyEase = Ease.OutQuad;
+    [SerializeField] private Ease clearSlideEase = Ease.InQuad;
+    [Header("Layer Visual")]
+    [SerializeField] private float zScaleReducePerLayer = 0.3f;
+    
     // Dynamic grid storage
     private List<List<GameObject>> cellRows = new List<List<GameObject>>();
     private int currentRows = 0;
@@ -39,6 +51,23 @@ public class GridSpawner : MonoBehaviour
 
     void Start()
     {
+        if (autoSpawnOnStart)
+        {
+            SpawnGrid();
+        }
+    }
+    public void SpawnGridForLevel(SortPackLevelData levelData)
+    {
+        if (levelData == null)
+        {
+            Debug.LogError("GridSpawner: levelData null!");
+            return;
+        }
+
+        // X = số hàng (Row), Y = số cột (Column)
+        columns = levelData.sizeY;
+        initialRows = levelData.sizeX;
+
         SpawnGrid();
     }
 
@@ -345,6 +374,7 @@ public class GridSpawner : MonoBehaviour
     public int GetColumns() => columns;
 
     // Tracking cells đang được replace để tránh gọi 2 lần
+    // Tracking cells đang được replace để tránh gọi 2 lần
     private HashSet<Cell> cellsBeingReplaced = new HashSet<Cell>();
 
     // Cell cũ bay lên biến mất, cell mới từ dưới đẩy lên
@@ -358,105 +388,183 @@ public class GridSpawner : MonoBehaviour
         }
 
         cellsBeingReplaced.Add(oldCell);
-        StartCoroutine(ReplaceCellCoroutine(oldCell, onComplete));
-    }
 
-    private System.Collections.IEnumerator ReplaceCellCoroutine(Cell oldCell, System.Action<Cell> onComplete)
-    {
         int row = oldCell.Row;
         int col = oldCell.Column;
         GameObject oldCellObj = oldCell.gameObject;
 
-        // Lưu thông tin của cell cũ TRƯỚC khi xóa
+        // Lưu transform gốc
         Vector3 originalWorldPos = oldCellObj.transform.position;
         Vector3 originalScale = oldCellObj.transform.localScale;
         Quaternion originalRotation = oldCellObj.transform.rotation;
 
-        // 1. Animation: Cell cũ bay lên và biến mất
-        float flyUpDuration = 0.3f;
-        float elapsed = 0f;
-        Vector3 startPos = originalWorldPos;
-        Vector3 endPos = originalWorldPos + Vector3.up * 2f;
+        // Xác định hướng trượt sang trái / phải:
+        float centerCol = (columns - 1) / 2f;
+        int dirSign = (col <= centerCol) ? -1 : 1;   // trái = -1, phải = +1
+        Vector3 sideDir = Vector3.right * dirSign;
 
-        while (elapsed < flyUpDuration)
+        // Vị trí bay theo Z
+        Vector3 flyPos = originalWorldPos + new Vector3(0f, 0f, clearFlyZOffset);
+        Vector3 slidePos = flyPos + sideDir * clearSlideDistance;
+
+        // Tạo sequence DOTween
+        Sequence seq = DOTween.Sequence();
+
+        // Bước 1: Bay theo trục Z
+        seq.Append(
+            oldCellObj.transform.DOMove(flyPos, clearFlyDuration)
+                .SetEase(clearFlyEase)
+        );
+
+        // Bước 2: Trượt qua trái/phải ra mép rồi biến mất
+        seq.Append(
+            oldCellObj.transform.DOMove(slidePos, clearSlideDuration)
+                .SetEase(clearSlideEase)
+        );
+
+        // OnComplete: xoá cell cũ, spawn cell mới ở cùng vị trí nhưng MỎNG Z HƠN
+        seq.OnComplete(() =>
         {
-            elapsed += Time.deltaTime;
-            float t = elapsed / flyUpDuration;
+            // Xoá cell cũ khỏi list
+            if (row < cellRows.Count && col < cellRows[row].Count)
+            {
+                cellRows[row][col] = null;
+            }
+
+            cellsBeingReplaced.Remove(oldCell);
 
             if (oldCellObj != null)
             {
-                oldCellObj.transform.position = Vector3.Lerp(startPos, endPos, t);
-                oldCellObj.transform.localScale = Vector3.Lerp(originalScale, Vector3.zero, t);
+                Destroy(oldCellObj);
             }
 
-            yield return null;
-        }
+            // ❌ KHÔNG tụt Z nữa → dùng đúng vị trí cũ
+            Vector3 spawnWorldPos = originalWorldPos;
 
-        // Xóa cell cũ khỏi list
-        if (row < cellRows.Count && col < cellRows[row].Count)
-        {
-            cellRows[row][col] = null;
-        }
+            GameObject newCellObj = Instantiate(cellPrefab, spawnWorldPos, originalRotation, transform);
 
-        // Xóa khỏi tracking set
-        cellsBeingReplaced.Remove(oldCell);
+            // ✅ Giảm độ dày theo trục Z thay vì dời position
+            Vector3 newScale = originalScale;
+            newScale.z = Mathf.Max(originalScale.z - zScaleReducePerLayer, 0.05f); // tránh về 0
+            newCellObj.transform.localScale = newScale;
 
-        // DESTROY CELL CŨ
-        if (oldCellObj != null)
-        {
-            Destroy(oldCellObj);
-        }
+            newCellObj.name = $"Cell_{row}_{col}";
 
-        // Đợi end of frame để đảm bảo cell cũ đã bị xóa
-        yield return new WaitForEndOfFrame();
+            Cell newCell = newCellObj.GetComponent<Cell>();
+            if (newCell != null)
+            {
+                newCell.Row = row;
+                newCell.Column = col;
+            }
 
-        // 2. Spawn cell mới tại vị trí tụt vào trong (Z + 0.5 để ở hàng 2)
-        Vector3 spawnWorldPos = new Vector3(
-            originalWorldPos.x,
-            originalWorldPos.y,
-            originalWorldPos.z + 0.5f  // Tụt sâu để ở hàng 2
-        );
+            // Cập nhật list
+            if (row < cellRows.Count && col < cellRows[row].Count)
+            {
+                cellRows[row][col] = newCellObj;
+            }
 
-        GameObject newCellObj = Instantiate(cellPrefab, spawnWorldPos, originalRotation, transform);
-        newCellObj.transform.localScale = originalScale;
-        newCellObj.name = $"Cell_{row}_{col}";
-
-        Cell newCell = newCellObj.GetComponent<Cell>();
-        if (newCell != null)
-        {
-            newCell.Row = row;
-            newCell.Column = col;
-        }
-
-        // Cập nhật list
-        if (row < cellRows.Count && col < cellRows[row].Count)
-        {
-            cellRows[row][col] = newCellObj;
-        }
-
-        // 3. Animation: Cell mới scale từ nhỏ lên to (không di chuyển Z)
-        float pushDuration = 0.4f;
-        elapsed = 0f;
-
-        // Scale từ 0 lên full
-        Vector3 startScale = Vector3.zero;
-
-        newCellObj.transform.localScale = startScale;
-
-        while (elapsed < pushDuration)
-        {
-            elapsed += Time.deltaTime;
-            float t = Mathf.SmoothStep(0, 1, elapsed / pushDuration);
-            newCellObj.transform.localScale = Vector3.Lerp(startScale, originalScale, t);
-            yield return null;
-        }
-
-        newCellObj.transform.localScale = originalScale;
-        // Giữ nguyên position tụt sâu (Z + 0.5)
-
-        // Callback
-        onComplete?.Invoke(newCell);
+            // Gọi callback cho GameManager spawn item layer dưới (giữ nguyên logic cũ)
+            onComplete?.Invoke(newCell);
+        });
     }
+
+
+    //private System.Collections.IEnumerator ReplaceCellCoroutine(Cell oldCell, System.Action<Cell> onComplete)
+    //{
+    //    int row = oldCell.Row;
+    //    int col = oldCell.Column;
+    //    GameObject oldCellObj = oldCell.gameObject;
+
+    //    // Lưu thông tin của cell cũ TRƯỚC khi xóa
+    //    Vector3 originalWorldPos = oldCellObj.transform.position;
+    //    Vector3 originalScale = oldCellObj.transform.localScale;
+    //    Quaternion originalRotation = oldCellObj.transform.rotation;
+
+    //    // 1. Animation: Cell cũ bay lên và biến mất
+    //    float flyUpDuration = 0.3f;
+    //    float elapsed = 0f;
+    //    Vector3 startPos = originalWorldPos;
+    //    Vector3 endPos = originalWorldPos + Vector3.up * 2f;
+
+    //    while (elapsed < flyUpDuration)
+    //    {
+    //        elapsed += Time.deltaTime;
+    //        float t = elapsed / flyUpDuration;
+
+    //        if (oldCellObj != null)
+    //        {
+    //            oldCellObj.transform.position = Vector3.Lerp(startPos, endPos, t);
+    //            oldCellObj.transform.localScale = Vector3.Lerp(originalScale, Vector3.zero, t);
+    //        }
+
+    //        yield return null;
+    //    }
+
+    //    // Xóa cell cũ khỏi list
+    //    if (row < cellRows.Count && col < cellRows[row].Count)
+    //    {
+    //        cellRows[row][col] = null;
+    //    }
+
+    //    // Xóa khỏi tracking set
+    //    cellsBeingReplaced.Remove(oldCell);
+
+    //    // DESTROY CELL CŨ
+    //    if (oldCellObj != null)
+    //    {
+    //        Destroy(oldCellObj);
+    //    }
+
+    //    // Đợi end of frame để đảm bảo cell cũ đã bị xóa
+    //    yield return new WaitForEndOfFrame();
+
+    //    // 2. Spawn cell mới tại vị trí tụt vào trong (Z + 0.5 để ở hàng 2)
+    //    Vector3 spawnWorldPos = new Vector3(
+    //        originalWorldPos.x,
+    //        originalWorldPos.y,
+    //        originalWorldPos.z + 0.5f  // Tụt sâu để ở hàng 2
+    //    );
+
+    //    GameObject newCellObj = Instantiate(cellPrefab, spawnWorldPos, originalRotation, transform);
+    //    newCellObj.transform.localScale = originalScale;
+    //    newCellObj.name = $"Cell_{row}_{col}";
+
+    //    Cell newCell = newCellObj.GetComponent<Cell>();
+    //    if (newCell != null)
+    //    {
+    //        newCell.Row = row;
+    //        newCell.Column = col;
+    //    }
+
+    //    // Cập nhật list
+    //    if (row < cellRows.Count && col < cellRows[row].Count)
+    //    {
+    //        cellRows[row][col] = newCellObj;
+    //    }
+
+    //    // 3. Animation: Cell mới scale từ nhỏ lên to (không di chuyển Z)
+    //    float pushDuration = 0.4f;
+    //    elapsed = 0f;
+
+    //    // Scale từ 0 lên full
+    //    Vector3 startScale = Vector3.zero;
+
+    //    newCellObj.transform.localScale = startScale;
+
+    //    while (elapsed < pushDuration)
+    //    {
+    //        elapsed += Time.deltaTime;
+    //        float t = Mathf.SmoothStep(0, 1, elapsed / pushDuration);
+    //        newCellObj.transform.localScale = Vector3.Lerp(startScale, originalScale, t);
+    //        yield return null;
+    //    }
+
+    //    newCellObj.transform.localScale = originalScale;
+    //    // Giữ nguyên position tụt sâu (Z + 0.5)
+
+    //    // Callback
+    //    onComplete?.Invoke(newCell);
+    //}
 
     [ContextMenu("Spawn Grid")]
     private void SpawnGridEditor() => SpawnGrid();
@@ -490,5 +598,70 @@ public class GridSpawner : MonoBehaviour
                 Gizmos.DrawWireCube(position, new Vector3(cellWidth * 0.95f, cellHeight * 0.95f, 0.1f));
             }
         }
+    }
+    /// <summary>
+    /// Cell bay đi và biến mất, KHÔNG spawn cell mới
+    /// </summary>
+    public void RemoveCellWithAnimation(Cell cell, System.Action onComplete)
+    {
+        if (cell == null || cellsBeingReplaced.Contains(cell))
+        {
+            onComplete?.Invoke();
+            return;
+        }
+
+        cellsBeingReplaced.Add(cell);
+
+        int row = cell.Row;
+        int col = cell.Column;
+        GameObject cellObj = cell.gameObject;
+
+        Vector3 originalWorldPos = cellObj.transform.position;
+        Vector3 originalScale = cellObj.transform.localScale;
+
+        // Animation: Cell bay lên và biến mất
+        float flyUpDuration = 0.3f;
+        float elapsed = 0f;
+        Vector3 startPos = originalWorldPos;
+        Vector3 endPos = originalWorldPos + Vector3.up * 2f;
+
+        StartCoroutine(RemoveCellCoroutine(cell, cellObj, row, col, startPos, endPos, originalScale, flyUpDuration, onComplete));
+    }
+
+    private System.Collections.IEnumerator RemoveCellCoroutine(Cell cell, GameObject cellObj, int row, int col,
+        Vector3 startPos, Vector3 endPos, Vector3 originalScale, float duration, System.Action onComplete)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            if (cellObj != null)
+            {
+                cellObj.transform.position = Vector3.Lerp(startPos, endPos, t);
+                cellObj.transform.localScale = Vector3.Lerp(originalScale, Vector3.zero, t);
+            }
+
+            yield return null;
+        }
+
+        // Xóa cell khỏi list
+        if (row < cellRows.Count && col < cellRows[row].Count)
+        {
+            cellRows[row][col] = null;
+        }
+
+        cellsBeingReplaced.Remove(cell);
+
+        // Destroy cell
+        if (cellObj != null)
+        {
+            Destroy(cellObj);
+        }
+
+        // Callback
+        onComplete?.Invoke();
     }
 }

@@ -256,7 +256,6 @@ public class Cell : MonoBehaviour
 
     public bool RemoveItem(Item item)
     {
-        // Tìm và xóa item khỏi spots
         for (int i = 0; i < maxItems; i++)
         {
             if (spots[i] == item)
@@ -265,15 +264,17 @@ public class Cell : MonoBehaviour
                 item.transform.SetParent(null);
                 item.SetSpotIndex(-1);
 
-                // KHÔNG trigger OnCellEmpty ở đây
-                // Để GameManager/BoardController tự check sau
+                if (GetItemCount() == 0)
+                {
+                    OnCellEmpty?.Invoke(this);
+                }
 
                 return true;
             }
         }
-
         return false;
     }
+
 
     // Gọi function này khi cần check và trigger event
     public void CheckEmpty()
@@ -525,6 +526,24 @@ public class Cell : MonoBehaviour
 
                 Gizmos.color = spots[i] != null ? Color.red : Color.green;
                 Gizmos.DrawWireSphere(pos, 0.1f);
+            }
+        }
+    }
+
+
+    /// <summary>
+    /// Clear items reference nhưng KHÔNG destroy chúng (để bay theo cell)
+    /// </summary>
+    public void ClearItemsWithoutDestroy()
+    {
+        // Chỉ clear reference, không destroy
+        for (int i = 0; i < maxItems; i++)
+        {
+            if (spots[i] != null)
+            {
+                spots[i].SetCell(null);
+                spots[i].SetSpotIndex(-1);
+                spots[i] = null;
             }
         }
     }
