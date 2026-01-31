@@ -112,11 +112,15 @@ MonoBehaviour:
   lockIcon: {fileID: 4105568920688275300}
   cell: {fileID: 5066620003724786145}
   startLocked: 1
-  unlockAnimDuration: 0.3
-  maxLockLayers: 3
-  itemPadding: 0.1
-  itemYOffset: 0.2
-  itemScale: 0.4
+  clearFlyZOffset: -1
+  clearFlyDuration: 0.25
+  clearSlideDistance: 8
+  clearSlideDuration: 0.25
+  clearFlyEase: 6
+  clearSlideEase: 5
+  respawnDelay: 0.2
+  respawnDuration: 0.4
+  respawnEase: 27
 --- !u!114 &5066620003724786145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3420,7 +3424,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.9}
-  m_LocalScale: {x: 0.8, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2020757709903777365}

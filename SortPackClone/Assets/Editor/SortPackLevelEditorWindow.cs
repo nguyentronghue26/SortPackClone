@@ -9,7 +9,7 @@ public class SortPackLevelEditorWindow : EditorWindow
     // =========================
     // UI SCALE SETTINGS
     // =========================
-    private const float UI_SCALE = 2f;   // Tăng/giảm toàn bộ lưới (1.0 = size cũ)
+    private const float UI_SCALE = 2.5f;
 
     private const float CELL_BASE_WIDTH = 90f;
     private const float CELL_BASE_HEIGHT = 90f;
@@ -30,29 +30,27 @@ public class SortPackLevelEditorWindow : EditorWindow
     private SortPackLevelData currentLevel;
     private Vector2 scrollPos;
     private Vector2 statsScrollPos;
+    private Vector2 quickButtonsScrollPos;  // NEW: scroll cho quick buttons
 
-    // NEW: ItemList để map ID -> Prefab
     [SerializeField] private ItemList itemList;
 
     // Cache: ID -> Prefab, ID -> Preview
     private Dictionary<int, GameObject> idToPrefab = new Dictionary<int, GameObject>();
     private Dictionary<int, Texture2D> idToPreview = new Dictionary<int, Texture2D>();
 
-    // Layer đang chọn (0-based)
+    // NEW: Cache danh sách tất cả IDs từ ItemList
+    private List<int> availableItemIDs = new List<int>();
+
     private int selectedLayer = 0;
 
-    // Ô + slot đang chọn
     private bool hasSelection = false;
     private int selX, selY, selZ, selSlot;
 
-    // Buffer edit
     private int editItemID = -1;
 
-    // Item counts cache
     private Dictionary<int, int> itemCounts = new Dictionary<int, int>();
     private List<int> invalidItemIDs = new List<int>();
 
-    // Colors
     private readonly Color validColor = new Color(0.3f, 0.8f, 0.3f);
     private readonly Color invalidColor = new Color(1f, 0.3f, 0.3f);
     private readonly Color selectedColor = new Color(0.3f, 0.7f, 1f);
@@ -70,7 +68,6 @@ public class SortPackLevelEditorWindow : EditorWindow
         EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
         EditorGUILayout.LabelField("SortPack Level Editor", EditorStyles.boldLabel, GUILayout.Width(150));
 
-        // Chọn level data
         EditorGUI.BeginChangeCheck();
         currentLevel = (SortPackLevelData)EditorGUILayout.ObjectField(
             currentLevel,
@@ -83,7 +80,6 @@ public class SortPackLevelEditorWindow : EditorWindow
             RefreshItemCounts();
         }
 
-        // NEW: chọn ItemList
         EditorGUI.BeginChangeCheck();
         itemList = (ItemList)EditorGUILayout.ObjectField(
             itemList,
@@ -111,7 +107,7 @@ public class SortPackLevelEditorWindow : EditorWindow
         // Main layout - 2 columns
         EditorGUILayout.BeginHorizontal();
 
-        // LEFT COLUMN - Settings + Grid
+        // LEFT COLUMN
         EditorGUILayout.BeginVertical(GUILayout.Width(position.width * 0.65f - 10));
         DrawLevelSettings();
         EditorGUILayout.Space(5);
@@ -124,13 +120,15 @@ public class SortPackLevelEditorWindow : EditorWindow
 
         EditorGUILayout.Space(10);
 
-        // RIGHT COLUMN - Statistics + Tools
+        // RIGHT COLUMN
         EditorGUILayout.BeginVertical(GUILayout.Width(position.width * 0.35f - 10));
         DrawItemStatistics();
         EditorGUILayout.Space(5);
         DrawValidationStatus();
         EditorGUILayout.Space(5);
         DrawTools();
+        EditorGUILayout.Space(5);
+        DrawQuickButtons();  // NEW: Quick Select ở đây
         EditorGUILayout.EndVertical();
 
         EditorGUILayout.EndHorizontal();
@@ -145,7 +143,6 @@ public class SortPackLevelEditorWindow : EditorWindow
 
         Undo.RecordObject(currentLevel, "Edit Level");
 
-        // Row 1: Level + Items/Match
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Level:", GUILayout.Width(50));
         currentLevel.levelIndex = EditorGUILayout.IntField(currentLevel.levelIndex, GUILayout.Width(50));
@@ -156,7 +153,6 @@ public class SortPackLevelEditorWindow : EditorWindow
 
         EditorGUILayout.Space(3);
 
-        // Row 2: Description
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Desc:", GUILayout.Width(50));
         currentLevel.description = EditorGUILayout.TextField(currentLevel.description);
@@ -164,7 +160,6 @@ public class SortPackLevelEditorWindow : EditorWindow
 
         EditorGUILayout.Space(3);
 
-        // Row 3: Board Size
         EditorGUILayout.BeginHorizontal();
 
         EditorGUILayout.LabelField("Rows(X):", GUILayout.Width(55));
@@ -187,7 +182,6 @@ public class SortPackLevelEditorWindow : EditorWindow
 
         EditorGUILayout.EndHorizontal();
 
-        // Clamp selected layer
         selectedLayer = Mathf.Clamp(selectedLayer, 0, currentLevel.sizeZ - 1);
 
         EditorGUILayout.EndVertical();
@@ -223,10 +217,8 @@ public class SortPackLevelEditorWindow : EditorWindow
         EditorGUILayout.BeginVertical("box");
         EditorGUILayout.LabelField($"Grid - Layer {selectedLayer}", EditorStyles.boldLabel);
 
-        // dùng chiều cao có scale
         scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Height(GRID_SCROLL_HEIGHT));
 
-        // Draw grid
         for (int x = 0; x < currentLevel.sizeX; x++)
         {
             EditorGUILayout.BeginHorizontal();
@@ -239,7 +231,6 @@ public class SortPackLevelEditorWindow : EditorWindow
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
 
-            // tăng khoảng cách giữa các hàng
             EditorGUILayout.Space(4 * UI_SCALE);
         }
 
@@ -251,14 +242,12 @@ public class SortPackLevelEditorWindow : EditorWindow
     {
         bool isSelected = hasSelection && selX == x && selY == y && selZ == z;
 
-        // Cell container
         GUIStyle cellStyle = new GUIStyle("box");
         if (isSelected)
         {
             GUI.backgroundColor = new Color(0.3f, 0.5f, 0.7f, 0.8f);
         }
 
-        // dùng size có scale
         EditorGUILayout.BeginVertical(
             cellStyle,
             GUILayout.Width(CELL_WIDTH),
@@ -267,10 +256,8 @@ public class SortPackLevelEditorWindow : EditorWindow
 
         GUI.backgroundColor = Color.white;
 
-        // Cell label
         EditorGUILayout.LabelField($"({x},{y})", EditorStyles.miniLabel);
 
-        // Slots - vertical cho rộng ảnh hơn
         for (int slot = 0; slot < currentLevel.slotsPerCell; slot++)
         {
             var placement = FindPlacement(x, y, z, slot);
@@ -285,7 +272,6 @@ public class SortPackLevelEditorWindow : EditorWindow
                 label = placement.itemID.ToString();
                 btnColor = invalidItemIDs.Contains(placement.itemID) ? invalidColor : validColor;
 
-                // Lấy preview từ cache
                 if (idToPrefab.TryGetValue(placement.itemID, out var prefab) && prefab != null)
                 {
                     tooltip = prefab.name;
@@ -301,7 +287,6 @@ public class SortPackLevelEditorWindow : EditorWindow
                 }
             }
 
-            // Selected slot highlight
             if (hasSelection && selX == x && selY == y && selZ == z && selSlot == slot)
             {
                 btnColor = selectedColor;
@@ -336,7 +321,6 @@ public class SortPackLevelEditorWindow : EditorWindow
         selSlot = slot;
         editItemID = (placement != null) ? placement.itemID : -1;
 
-        // Force repaint
         Repaint();
     }
 
@@ -369,13 +353,11 @@ public class SortPackLevelEditorWindow : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
 
-        // Item ID input
         EditorGUILayout.LabelField("Item ID:", GUILayout.Width(55));
         editItemID = EditorGUILayout.IntField(editItemID, GUILayout.Width(50));
 
         EditorGUILayout.Space(10);
 
-        // Buttons
         if (GUILayout.Button("Set", GUILayout.Width(45)))
         {
             ApplySelection();
@@ -390,20 +372,137 @@ public class SortPackLevelEditorWindow : EditorWindow
 
         EditorGUILayout.Space(3);
 
-        // Quick buttons
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Quick:", GUILayout.Width(45));
+        EditorGUILayout.EndVertical();
+    }
 
-        for (int i = 0; i <= 9; i++)
+    /// <summary>
+    /// Vẽ Quick Buttons từ ItemList - hiển thị tất cả ID có trong prefabs
+    /// </summary>
+    private void DrawQuickButtons()
+    {
+        EditorGUILayout.BeginVertical("box");
+
+        // Header
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Quick Select", EditorStyles.boldLabel);
+
+        if (itemList != null && availableItemIDs.Count > 0)
         {
-            if (GUILayout.Button(i.ToString(), GUILayout.Width(25), GUILayout.Height(20)))
-            {
-                editItemID = i;
-                ApplySelection();
-            }
+            EditorGUILayout.LabelField($"({availableItemIDs.Count} items)", EditorStyles.miniLabel);
+        }
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.Space(3);
+
+        if (itemList == null)
+        {
+            EditorGUILayout.HelpBox("Assign ItemList to see items", MessageType.Info);
+            EditorGUILayout.EndVertical();
+            return;
         }
 
-        EditorGUILayout.EndHorizontal();
+        if (availableItemIDs.Count == 0)
+        {
+            EditorGUILayout.LabelField("No items in ItemList", EditorStyles.miniLabel);
+            EditorGUILayout.EndVertical();
+            return;
+        }
+
+        if (!hasSelection)
+        {
+            EditorGUILayout.HelpBox("Select a slot first", MessageType.Info);
+            EditorGUILayout.EndVertical();
+            return;
+        }
+
+        // Scroll view cho items
+        float buttonWidth = 55f;   // Tăng width
+        float buttonHeight = 55f;  // Tăng height
+        float spacing = 4f;
+        float availableWidth = position.width * 0.35f - 30;
+        int buttonsPerRow = Mathf.Max(1, (int)(availableWidth / (buttonWidth + spacing)));
+
+        float maxScrollHeight = 280f;
+
+        quickButtonsScrollPos = EditorGUILayout.BeginScrollView(
+            quickButtonsScrollPos,
+            GUILayout.Height(maxScrollHeight)
+        );
+
+        int index = 0;
+        while (index < availableItemIDs.Count)
+        {
+            EditorGUILayout.BeginHorizontal();
+
+            for (int col = 0; col < buttonsPerRow && index < availableItemIDs.Count; col++)
+            {
+                int itemID = availableItemIDs[index];
+
+                // Lấy preview và tên
+                Texture2D preview = null;
+                string itemName = $"ID: {itemID}";
+
+                if (idToPrefab.TryGetValue(itemID, out var prefab) && prefab != null)
+                {
+                    itemName = $"{itemID}: {prefab.name}";
+
+                    if (!idToPreview.TryGetValue(itemID, out preview) || preview == null)
+                    {
+                        preview = AssetPreview.GetAssetPreview(prefab);
+                        if (preview == null)
+                            preview = AssetPreview.GetMiniThumbnail(prefab);
+                        idToPreview[itemID] = preview;
+                    }
+                }
+
+                // Highlight nếu đang chọn ID này
+                if (editItemID == itemID)
+                {
+                    GUI.backgroundColor = selectedColor;
+                }
+                else
+                {
+                    GUI.backgroundColor = Color.white;
+                }
+
+                // Vẽ button với layout custom: ảnh trên, ID dưới
+                EditorGUILayout.BeginVertical(GUILayout.Width(buttonWidth));
+
+                // Button với ảnh
+                GUIStyle btnStyle = new GUIStyle(GUI.skin.button);
+                btnStyle.padding = new RectOffset(2, 2, 2, 2);
+
+                GUIContent btnContent = preview != null
+                    ? new GUIContent(preview, itemName)
+                    : new GUIContent("?", itemName);
+
+                if (GUILayout.Button(btnContent, btnStyle, GUILayout.Width(buttonWidth), GUILayout.Height(buttonHeight - 18)))
+                {
+                    editItemID = itemID;
+                    ApplySelection();
+                }
+
+                // Label ID bên dưới - căn giữa, font đậm
+                GUIStyle idStyle = new GUIStyle(EditorStyles.miniLabel);
+                idStyle.alignment = TextAnchor.MiddleCenter;
+                idStyle.fontStyle = FontStyle.Bold;
+                idStyle.normal.textColor = editItemID == itemID ? Color.white : Color.gray;
+
+                EditorGUILayout.LabelField(itemID.ToString(), idStyle, GUILayout.Width(buttonWidth), GUILayout.Height(16));
+
+                EditorGUILayout.EndVertical();
+
+                index++;
+            }
+
+            GUI.backgroundColor = Color.white;
+            GUILayout.FlexibleSpace();
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.Space(2);
+        }
+
+        EditorGUILayout.EndScrollView();
 
         EditorGUILayout.EndVertical();
     }
@@ -418,7 +517,6 @@ public class SortPackLevelEditorWindow : EditorWindow
 
         if (editItemID < 0)
         {
-            // Remove
             if (placement != null)
             {
                 currentLevel.placements.Remove(placement);
@@ -426,7 +524,6 @@ public class SortPackLevelEditorWindow : EditorWindow
         }
         else
         {
-            // Add or update
             if (placement == null)
             {
                 placement = new CellSlotItemData
@@ -459,19 +556,17 @@ public class SortPackLevelEditorWindow : EditorWindow
     {
         if (currentLevel == null) return;
 
-        // Cache thống kê
         itemCounts = currentLevel.GetItemCountsByID();
         invalidItemIDs = currentLevel.GetInvalidItemIDs();
 
-        // Cache map ID -> Prefab một lần
         BuildIdPrefabCache();
     }
 
-    // NEW: xây cache ID -> Prefab từ ItemList
     private void BuildIdPrefabCache()
     {
         idToPrefab.Clear();
         idToPreview.Clear();
+        availableItemIDs.Clear();
 
         if (itemList == null || itemList.itemPrefabs == null) return;
 
@@ -485,8 +580,12 @@ public class SortPackLevelEditorWindow : EditorWindow
             if (!idToPrefab.ContainsKey(id))
             {
                 idToPrefab.Add(id, prefab);
+                availableItemIDs.Add(id);
             }
         }
+
+        // Sắp xếp theo ID
+        availableItemIDs.Sort();
     }
 
     private void DrawItemStatistics()
@@ -502,7 +601,6 @@ public class SortPackLevelEditorWindow : EditorWindow
         {
             statsScrollPos = EditorGUILayout.BeginScrollView(statsScrollPos, GUILayout.Height(120));
 
-            // Header
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("ID", EditorStyles.boldLabel, GUILayout.Width(30));
             EditorGUILayout.LabelField("Count", EditorStyles.boldLabel, GUILayout.Width(45));
@@ -510,7 +608,6 @@ public class SortPackLevelEditorWindow : EditorWindow
             EditorGUILayout.LabelField("Prefab", EditorStyles.boldLabel);
             EditorGUILayout.EndHorizontal();
 
-            // Data rows
             foreach (var kvp in itemCounts.OrderBy(k => k.Key))
             {
                 int itemID = kvp.Key;
@@ -521,13 +618,11 @@ public class SortPackLevelEditorWindow : EditorWindow
 
                 EditorGUILayout.LabelField(itemID.ToString(), GUILayout.Width(30));
 
-                // Count with color
                 GUIStyle countStyle = new GUIStyle(EditorStyles.label);
                 countStyle.normal.textColor = isValid ? validColor : invalidColor;
                 countStyle.fontStyle = FontStyle.Bold;
                 EditorGUILayout.LabelField(count.ToString(), countStyle, GUILayout.Width(45));
 
-                // Status
                 if (isValid)
                 {
                     int sets = count / currentLevel.itemsPerMatch;
@@ -541,7 +636,6 @@ public class SortPackLevelEditorWindow : EditorWindow
                     EditorGUILayout.LabelField($"✗ +{need}", errStyle, GUILayout.Width(80));
                 }
 
-                // NEW: hiện tên prefab
                 string prefabName = "";
                 if (idToPrefab.TryGetValue(itemID, out var prefab) && prefab != null)
                     prefabName = prefab.name;
@@ -662,8 +756,15 @@ public class SortPackLevelEditorWindow : EditorWindow
 
         Undo.RecordObject(currentLevel, "Fill Random");
 
-        // Random item types
-        int numTypes = Random.Range(3, 6);
+        // Sử dụng IDs từ ItemList nếu có
+        List<int> idsToUse = availableItemIDs.Count > 0
+            ? availableItemIDs
+            : Enumerable.Range(0, 6).ToList();
+
+        int numTypes = Mathf.Min(Random.Range(3, 6), idsToUse.Count);
+
+        // Shuffle và lấy random types
+        var shuffledIDs = idsToUse.OrderBy(x => Random.value).Take(numTypes).ToList();
 
         for (int x = 0; x < currentLevel.sizeX; x++)
         {
@@ -671,21 +772,19 @@ public class SortPackLevelEditorWindow : EditorWindow
             {
                 for (int slot = 0; slot < currentLevel.slotsPerCell; slot++)
                 {
-                    // Remove existing
                     var existing = FindPlacement(x, y, layer, slot);
                     if (existing != null)
                     {
                         currentLevel.placements.Remove(existing);
                     }
 
-                    // Add random
                     currentLevel.placements.Add(new CellSlotItemData
                     {
                         x = x,
                         y = y,
                         z = layer,
                         slotIndex = slot,
-                        itemID = Random.Range(0, numTypes)
+                        itemID = shuffledIDs[Random.Range(0, shuffledIDs.Count)]
                     });
                 }
             }

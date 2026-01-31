@@ -717,12 +717,27 @@ public class GameManager : MonoBehaviour
 
         if (cell == null) return;
 
-        // Nếu đang reset level thì bỏ qua, không cho cell bay
+        // Nếu đang reset level thì bỏ qua
         if (suppressCellEmptyEvents)
         {
             Debug.Log($"[OnCellBecameEmpty] Suppressed for {cell.name} (clearing level)");
             return;
         }
+
+        // ========== THÊM DÒNG NÀY ==========
+        // Skip nếu cell thuộc LockedCell - để LockedCell tự xử lý
+        LockedCell lockedCell = cell.GetComponent<LockedCell>();
+        if (lockedCell == null)
+        {
+            lockedCell = cell.GetComponentInParent<LockedCell>();
+        }
+
+        if (lockedCell != null)
+        {
+            Debug.Log($"[OnCellBecameEmpty] Skip {cell.name} - belongs to LockedCell");
+            return;  // LockedCell sẽ tự xử lý logic của nó
+        }
+        // ===================================
 
         // Bình thường: cell rỗng => bay lên & lôi layer dưới lên
         TryRaiseCellFromNextLayer(cell);
@@ -737,6 +752,23 @@ public class GameManager : MonoBehaviour
             Debug.Log($"[CheckForMatch] Skipping - cell {cell.name} is in animation");
             return;
         }
+
+        // ========== THÊM DÒNG NÀY ==========
+        // Skip nếu cell thuộc LockedCell - LockedCell có logic riêng
+        LockedCell lockedCell = cell.GetComponent<LockedCell>();
+        if (lockedCell == null)
+        {
+            lockedCell = cell.GetComponentInParent<LockedCell>();
+        }
+
+        if (lockedCell != null)
+        {
+            Debug.Log($"[CheckForMatch] Skip {cell.name} - belongs to LockedCell, let LockedCell handle it");
+            // Gọi CheckSorted để trigger OnCellSorted cho LockedCell
+            cell.CheckSorted();
+            return;
+        }
+        // ===================================
 
         List<Item> items = cell.GetItems();
 
@@ -758,27 +790,23 @@ public class GameManager : MonoBehaviour
         {
             if (kvp.Value.Count >= itemsPerMatch)
             {
-                // THAY ĐỔI QUAN TRỌNG: Gọi ClearCellWithAnimation thay vì xóa items riêng
                 StartCoroutine(ClearCellWithAnimation(cell, kvp.Key));
                 break;
             }
         }
     }
 
-    /// <summary>
-    /// THAY ĐỔI CHÍNH: Khi match, cell (cùng items bên trong) sẽ bay đi
-    /// Items là child của cell nên sẽ bay theo!
-    /// </summary>
+
+
+
     private IEnumerator ClearCellWithAnimation(Cell cell, string matchedItemType)
     {
         yield return new WaitForSeconds(matchDelay);
 
         if (cell == null) yield break;
 
-        // Đánh dấu cell đang animation
         cellsInAnimation.Add(cell);
 
-        // Tìm TẤT CẢ cells có items cùng loại để clear cùng lúc
         List<Cell> cellsToClear = new List<Cell>();
         int totalItemsRemoved = 0;
 
@@ -805,7 +833,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Đảm bảo cell gốc cũng trong list
         if (!cellsToClear.Contains(cell))
         {
             cellsToClear.Add(cell);
@@ -813,14 +840,11 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[ClearCellWithAnimation] Clearing {cellsToClear.Count} cells with type '{matchedItemType}'");
 
-        // Xóa items khỏi tracking của Cell (nhưng KHÔNG destroy - để bay theo cell)
         foreach (var c in cellsToClear)
         {
-            // Chỉ clear reference, không destroy items
             c.ClearItemsWithoutDestroy();
         }
 
-        // Cập nhật counts
         if (itemTypeCounts.ContainsKey(matchedItemType))
         {
             itemTypeCounts[matchedItemType] -= totalItemsRemoved;
@@ -833,23 +857,57 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"Match! Type: {matchedItemType}. Removed {totalItemsRemoved} items from {cellsToClear.Count} cells");
 
-        // Gọi GridSpawner để thay thế từng cell (cell bay đi, items bay theo vì là child)
+        // ============ SỬA PHẦN NÀY ============
         foreach (var c in cellsToClear)
         {
-            // Lưu thông tin trước khi replace
             int row = c.Row;
             int col = c.Column;
 
-            gridSpawner.ReplaceCellWithNewFromBelow(c, (newCell) =>
+            // Lấy layer hiện tại của cell
+            int curLayer = 0;
+            if (cellCurrentLayer.TryGetValue(c, out int layer))
             {
-                OnCellReplacedAfterMatch(c, newCell, matchedItemType);
-            });
-        }
+                curLayer = layer;
+            }
 
-        // Disable item type
+            int nextLayer = curLayer + 1;
+
+            // Check xem có items ở layer tiếp theo không
+            bool hasNextLayer = false;
+            if (itemsByLayer.ContainsKey(nextLayer))
+            {
+                List<CellSlotItemData> itemsForThisCell = itemsByLayer[nextLayer].FindAll(
+                    p => p.x == row && p.y == col
+                );
+                hasNextLayer = itemsForThisCell.Count > 0;
+            }
+
+            if (hasNextLayer)
+            {
+                // CÓ layer tiếp → Replace cell và spawn items mới
+                gridSpawner.ReplaceCellWithNewFromBelow(c, (newCell) =>
+                {
+                    OnCellReplacedAfterMatch(c, newCell, matchedItemType);
+                });
+            }
+            else
+            {
+                // KHÔNG còn layer → Cell bay đi và biến mất, KHÔNG spawn cell mới
+                gridSpawner.RemoveCellWithAnimation(c, () =>
+                {
+                    // Xóa khỏi tracking
+                    allCells.Remove(c);
+                    cellCurrentLayer.Remove(c);
+                    cellsInAnimation.Remove(c);
+
+                    Debug.Log($"[ClearCellWithAnimation] Cell ({row},{col}) removed - no more layers after merge");
+                });
+            }
+        }
+        // =====================================
+
         DisableItemTypeCompletely(matchedItemType);
 
-        // Check win sau 1 chút để đợi animations
         yield return new WaitForSeconds(0.5f);
         CheckWinCondition();
     }

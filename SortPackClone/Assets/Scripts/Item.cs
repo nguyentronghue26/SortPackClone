@@ -3,14 +3,14 @@
 public class Item : MonoBehaviour
 {
     [Header("Item Settings")]
-    public string itemType;  // Loại item: "carrot", "fries", "coke"...
-    public int itemID;       // ID để phân biệt các item cùng loại
-    private int spotIndex = -1;  // Vị trí spot trong cell (-1 = không có)
+    public string itemType;
+    public int itemID;
+    private int spotIndex = -1;
 
     [Header("Drag Settings")]
-    [SerializeField] private float dragSpeed = 50f;  // Tăng mạnh để mượt hơn
+    [SerializeField] private float dragSpeed = 50f;
     [SerializeField] private float snapSpeed = 20f;
-    [SerializeField] private float dragZOffset = -1f;  // Đưa item lên trước khi kéo
+    [SerializeField] private float dragZOffset = -1f;
 
     // State
     private bool isDragging = false;
@@ -19,10 +19,13 @@ public class Item : MonoBehaviour
 
     // References
     private Camera mainCamera;
-    private Cell currentCell;      // Cell đang chứa item này
-    private Cell hoveredCell;      // Cell đang hover khi kéo
-    private Collider itemCollider; // 3D Collider
+    private Cell currentCell;
+    private Cell hoveredCell;
+    private Collider itemCollider;
     private ItemAnimator itemAnimator;
+
+    // Cache cell gốc khi bắt đầu drag
+    private Cell dragStartCell;
 
     // Events
     public System.Action<Item> OnItemPickedUp;
@@ -38,7 +41,6 @@ public class Item : MonoBehaviour
 
     void Update()
     {
-        // Check input
         if (Input.GetMouseButtonDown(0) && !isDragging)
         {
             TryStartDrag();
@@ -52,13 +54,11 @@ public class Item : MonoBehaviour
 
     void LateUpdate()
     {
-        // Drag trong LateUpdate để mượt hơn
         if (isDragging)
         {
             Vector3 targetPos = GetInputPosition();
             targetPos.z = originalZ + dragZOffset;
 
-            // Lerp với tốc độ cao để mượt và responsive
             transform.position = Vector3.Lerp(
                 transform.position,
                 targetPos,
@@ -76,15 +76,12 @@ public class Item : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 100f))
         {
-            // Check xem có click vào chính item này không
             if (hit.collider.gameObject == gameObject)
             {
                 StartDrag();
             }
         }
     }
-
-    // ========== INPUT HANDLING ==========
 
     void OnMouseDown()
     {
@@ -96,25 +93,24 @@ public class Item : MonoBehaviour
         EndDrag();
     }
 
-    // Cho touch trên mobile
     public void StartDrag()
     {
-        if (isDragging) return;  // Tránh gọi 2 lần
+        if (isDragging) return;
 
         isDragging = true;
         originalPosition = transform.position;
 
-        // Animation pick up
+        // Cache cell gốc trước khi drag
+        dragStartCell = currentCell;
+
         if (itemAnimator != null)
         {
             itemAnimator.StopIdleAnimation();
             itemAnimator.PlayPickUp();
         }
 
-        // Đưa lên layer trên cùng
         SetSortingOrder(100);
 
-        // Tắt collider để không block raycast
         if (itemCollider != null)
             itemCollider.enabled = false;
 
@@ -127,14 +123,12 @@ public class Item : MonoBehaviour
 
         isDragging = false;
 
-        // Bật lại collider
         if (itemCollider != null)
             itemCollider.enabled = true;
 
         bool dropSuccess = false;
-        Cell oldCell = currentCell;
+        Cell oldCell = dragStartCell;  // Dùng cell gốc đã cache
 
-        // Xử lý drop
         if (hoveredCell != null)
         {
             if (hoveredCell == currentCell)
@@ -143,7 +137,6 @@ public class Item : MonoBehaviour
                 int newSpotIndex = hoveredCell.GetNearestSpotIndex(transform.position);
                 if (newSpotIndex >= 0 && newSpotIndex != spotIndex)
                 {
-                    // Remove khỏi spot cũ, add vào spot mới
                     currentCell.RemoveItem(this);
                     currentCell.AddItemToSpot(this, newSpotIndex);
                     dropSuccess = true;
@@ -151,7 +144,7 @@ public class Item : MonoBehaviour
             }
             else if (hoveredCell.CanAcceptItem(this))
             {
-                // Khác cell
+                // Khác cell - di chuyển item sang cell mới
                 if (currentCell != null)
                 {
                     currentCell.RemoveItem(this);
@@ -161,11 +154,13 @@ public class Item : MonoBehaviour
                 currentCell = hoveredCell;
                 dropSuccess = true;
 
-                // Check cell cũ có trống không
+                // ========== QUAN TRỌNG ==========
+                // Chỉ notify cell cũ SAU KHI item đã được drop thành công vào cell mới
                 if (oldCell != null && oldCell != hoveredCell)
                 {
-                    oldCell.CheckEmpty();
+                    oldCell.NotifyItemMovedToOtherCell();
                 }
+                // =================================
 
                 OnItemDropped?.Invoke(this, hoveredCell);
             }
@@ -173,7 +168,6 @@ public class Item : MonoBehaviour
 
         if (dropSuccess)
         {
-            // Animation drop bounce
             if (itemAnimator != null)
             {
                 itemAnimator.PlayDropBounce();
@@ -185,10 +179,8 @@ public class Item : MonoBehaviour
             SnapToPosition(originalPosition);
         }
 
-        // Reset sorting order
         SetSortingOrder(0);
 
-        // Clear highlight
         if (hoveredCell != null)
         {
             hoveredCell.SetHighlight(false);
@@ -200,10 +192,7 @@ public class Item : MonoBehaviour
 
     private Vector3 GetInputPosition()
     {
-        // Tạo ray từ camera qua vị trí mouse
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-        // Tạo plane ngang tại vị trí Z của item
         Plane plane = new Plane(Vector3.forward, new Vector3(0, 0, originalZ + dragZOffset));
 
         float distance;
@@ -217,7 +206,6 @@ public class Item : MonoBehaviour
 
     private void CheckHoveredCell()
     {
-        // 3D Raycast từ camera qua mouse position
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] hits = Physics.RaycastAll(ray, 100f);
 
@@ -242,11 +230,9 @@ public class Item : MonoBehaviour
 
             hoveredCell = foundCell;
 
-            // Check có thể drop không (kể cả cùng cell nhưng khác spot)
             bool canAccept = false;
             if (foundCell == currentCell)
             {
-                // Cùng cell - check có spot trống khác không
                 canAccept = foundCell.GetEmptySpotCount() > 0;
             }
             else

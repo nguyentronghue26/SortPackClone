@@ -8,13 +8,13 @@ public class Cell : MonoBehaviour
     [SerializeField] private Transform itemContainer;
 
     [Header("Layer System")]
-    [SerializeField] private int maxLayers = 3;  // Số tầng (mạng) của cell
-    private int currentLayer;  // Tầng hiện tại (còn lại)
+    [SerializeField] private int maxLayers = 3;
+    private int currentLayer;
 
     [Header("Spot Settings")]
-    [SerializeField] private Transform startSpot;  // Spot đầu tiên (trái)
-    [SerializeField] private float spotSpacing = 0.6f;  // Khoảng cách giữa các spots
-    [SerializeField] private bool arrangeHorizontal = true;  // Xếp ngang hay dọc
+    [SerializeField] private Transform startSpot;
+    [SerializeField] private float spotSpacing = 0.6f;
+    [SerializeField] private bool arrangeHorizontal = true;
 
     [Header("Item Rotation")]
     [SerializeField] private bool tiltItems = true;
@@ -25,7 +25,7 @@ public class Cell : MonoBehaviour
     [SerializeField] private Color validDropColor = Color.green;
     [SerializeField] private Color invalidDropColor = Color.red;
 
-    // Spot system - mỗi spot có thể chứa 1 item hoặc null
+    // Spot system
     private Item[] spots;
     private Vector3[] spotPositions;
 
@@ -38,14 +38,13 @@ public class Cell : MonoBehaviour
     public System.Action<Cell> OnCellEmpty;
     public System.Action<Cell> OnCellSorted;
     public System.Action<Cell, Item> OnItemAdded;
-    public System.Action<Cell> OnLayerUsed;      // Khi dùng hết 1 layer
-    public System.Action<Cell> OnLayerDepleted;  // Khi hết tất cả layers
+    public System.Action<Cell> OnLayerUsed;
+    public System.Action<Cell> OnLayerDepleted;
 
     void Awake()
     {
-        // Khởi tạo layers
         currentLayer = maxLayers;
-        // Tự động tìm ItemContainer
+
         if (itemContainer == null)
         {
             itemContainer = transform.Find("ItemContainer");
@@ -55,7 +54,6 @@ public class Cell : MonoBehaviour
                 itemContainer = transform;
         }
 
-        // Tự động tìm StartSpot
         if (startSpot == null)
         {
             startSpot = FindChildRecursive(transform, "Spot");
@@ -68,7 +66,6 @@ public class Cell : MonoBehaviour
         if (highlightObject != null)
             highlightObject.SetActive(false);
 
-        // Khởi tạo spots
         InitializeSpots();
     }
 
@@ -83,7 +80,6 @@ public class Cell : MonoBehaviour
             startPos = startSpot.localPosition;
         }
 
-        // Tạo vị trí cho từng spot
         for (int i = 0; i < maxItems; i++)
         {
             Vector3 offset = Vector3.zero;
@@ -97,7 +93,7 @@ public class Cell : MonoBehaviour
             }
 
             spotPositions[i] = startPos + offset;
-            spotPositions[i].z = -1f;  // Đưa ra phía trước cell
+            spotPositions[i].z = -1f;
         }
     }
 
@@ -117,7 +113,6 @@ public class Cell : MonoBehaviour
 
     // ========== SPOT SYSTEM ==========
 
-    // Tìm spot gần nhất với vị trí drop
     public int GetNearestSpotIndex(Vector3 worldPosition)
     {
         int nearestIndex = -1;
@@ -125,7 +120,6 @@ public class Cell : MonoBehaviour
 
         for (int i = 0; i < maxItems; i++)
         {
-            // Chỉ xét spot trống
             if (spots[i] != null) continue;
 
             Vector3 spotWorldPos = itemContainer.TransformPoint(spotPositions[i]);
@@ -141,7 +135,6 @@ public class Cell : MonoBehaviour
         return nearestIndex;
     }
 
-    // Lấy vị trí world của spot
     public Vector3 GetSpotWorldPosition(int spotIndex)
     {
         if (spotIndex < 0 || spotIndex >= maxItems)
@@ -150,7 +143,6 @@ public class Cell : MonoBehaviour
         return itemContainer.TransformPoint(spotPositions[spotIndex]);
     }
 
-    // Check spot có trống không
     public bool IsSpotEmpty(int spotIndex)
     {
         if (spotIndex < 0 || spotIndex >= maxItems)
@@ -159,7 +151,6 @@ public class Cell : MonoBehaviour
         return spots[spotIndex] == null;
     }
 
-    // Đếm số spots trống
     public int GetEmptySpotCount()
     {
         int count = 0;
@@ -174,17 +165,14 @@ public class Cell : MonoBehaviour
 
     public bool CanAcceptItem(Item item)
     {
-        // Check còn spot trống không
         return GetEmptySpotCount() > 0;
     }
 
-    // Thêm item vào spot gần nhất
     public bool AddItem(Item item)
     {
         return AddItemAtPosition(item, item.transform.position);
     }
 
-    // Thêm item vào spot gần vị trí drop nhất
     public bool AddItemAtPosition(Item item, Vector3 dropPosition)
     {
         int spotIndex = GetNearestSpotIndex(dropPosition);
@@ -195,7 +183,6 @@ public class Cell : MonoBehaviour
         return AddItemToSpot(item, spotIndex);
     }
 
-    // Thêm item vào spot cụ thể
     public bool AddItemToSpot(Item item, int spotIndex)
     {
         if (spotIndex < 0 || spotIndex >= maxItems)
@@ -208,26 +195,19 @@ public class Cell : MonoBehaviour
         item.SetCell(this);
         item.SetSpotIndex(spotIndex);
 
-        // Set parent
         if (itemContainer != null)
             item.transform.SetParent(itemContainer);
         else
             item.transform.SetParent(transform);
 
-        // Đặt item vào vị trí spot
         PositionItemAtSpot(item, spotIndex);
 
-        // Fire event
         OnItemAdded?.Invoke(this, item);
 
-        // Check events
         if (GetEmptySpotCount() == 0)
         {
             OnCellFull?.Invoke(this);
         }
-
-        // KHÔNG check sorted ở đây - để GameManager check khi player drop
-        // CheckSorted();
 
         return true;
     }
@@ -236,7 +216,6 @@ public class Cell : MonoBehaviour
     {
         Vector3 localPos = spotPositions[spotIndex];
 
-        // Căn theo đáy nếu cần
         SpriteRenderer sr = item.GetComponent<SpriteRenderer>();
         if (sr != null && sr.sprite != null)
         {
@@ -247,13 +226,15 @@ public class Cell : MonoBehaviour
 
         item.transform.localPosition = localPos;
 
-        // Xoay item
         if (tiltItems)
         {
             item.transform.localRotation = Quaternion.Euler(tiltAngleX, 0f, 0f);
         }
     }
 
+    /// <summary>
+    /// Remove item khi DRAG (nhấc lên) - KHÔNG gọi OnCellEmpty
+    /// </summary>
     public bool RemoveItem(Item item)
     {
         for (int i = 0; i < maxItems; i++)
@@ -264,10 +245,8 @@ public class Cell : MonoBehaviour
                 item.transform.SetParent(null);
                 item.SetSpotIndex(-1);
 
-                if (GetItemCount() == 0)
-                {
-                    OnCellEmpty?.Invoke(this);
-                }
+                // KHÔNG gọi OnCellEmpty ở đây!
+                // Sẽ gọi sau khi item được DROP thành công vào cell khác
 
                 return true;
             }
@@ -275,8 +254,22 @@ public class Cell : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Gọi sau khi item đã DROP THÀNH CÔNG vào cell khác
+    /// Kiểm tra nếu cell trống thì mới trigger OnCellEmpty
+    /// </summary>
+    public void NotifyItemMovedToOtherCell()
+    {
+        if (GetItemCount() == 0)
+        {
+            Debug.Log($"[Cell] {name} is now empty after item moved to other cell");
+            OnCellEmpty?.Invoke(this);
+        }
+    }
 
-    // Gọi function này khi cần check và trigger event
+    /// <summary>
+    /// Gọi function này khi cần check và trigger event (dùng cho các trường hợp khác)
+    /// </summary>
     public void CheckEmpty()
     {
         if (GetItemCount() == 0)
@@ -386,7 +379,6 @@ public class Cell : MonoBehaviour
 
     public Vector3 GetNextItemPosition()
     {
-        // Tìm spot trống đầu tiên
         for (int i = 0; i < maxItems; i++)
         {
             if (spots[i] == null)
@@ -429,7 +421,6 @@ public class Cell : MonoBehaviour
 
     // ========== LAYER SYSTEM ==========
 
-    // Gọi khi merge thành công - giảm 1 layer
     public void UseLayer()
     {
         if (currentLayer <= 0) return;
@@ -446,44 +437,39 @@ public class Cell : MonoBehaviour
         }
     }
 
-    // Check còn layer không
     public bool HasLayersRemaining()
     {
         return currentLayer > 0;
     }
 
-    // Lấy số layer còn lại
     public int GetRemainingLayers()
     {
         return currentLayer;
     }
 
-    // Lấy tổng số layers
     public int GetMaxLayers()
     {
         return maxLayers;
     }
 
-    // Reset layers (nếu cần)
     public void ResetLayers()
     {
         currentLayer = maxLayers;
     }
 
-    // ========== PUBLIC GETTERS/SETTERS FOR LOCKED CELL ==========
+    // ========== PUBLIC GETTERS/SETTERS ==========
 
     public int GetMaxItems() => maxItems;
 
     public void SetSpotSpacing(float spacing)
     {
         spotSpacing = spacing;
-        // Reinitialize spots với spacing mới
         InitializeSpots();
     }
 
     public float GetSpotSpacing() => spotSpacing;
 
-    // ========== DEBUG SPOTS ==========
+    // ========== DEBUG ==========
 
     [ContextMenu("Debug Spot Positions")]
     private void DebugSpotPositions()
@@ -499,10 +485,8 @@ public class Cell : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        // Vẽ spots trong Editor
         if (spotPositions == null || spotPositions.Length == 0)
         {
-            // Preview khi chưa play
             Vector3 startPos = startSpot != null ? startSpot.localPosition : Vector3.zero;
 
             for (int i = 0; i < maxItems; i++)
@@ -519,7 +503,6 @@ public class Cell : MonoBehaviour
         }
         else
         {
-            // Vẽ khi đang play
             for (int i = 0; i < maxItems; i++)
             {
                 Vector3 pos = GetSpotWorldPosition(i);
@@ -530,13 +513,11 @@ public class Cell : MonoBehaviour
         }
     }
 
-
     /// <summary>
-    /// Clear items reference nhưng KHÔNG destroy chúng (để bay theo cell)
+    /// Clear items reference nhưng KHÔNG destroy (để bay theo cell)
     /// </summary>
     public void ClearItemsWithoutDestroy()
     {
-        // Chỉ clear reference, không destroy
         for (int i = 0; i < maxItems; i++)
         {
             if (spots[i] != null)

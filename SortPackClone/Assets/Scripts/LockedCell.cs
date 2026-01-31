@@ -12,31 +12,44 @@ public class LockedCell : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private bool startLocked = true;
-    [SerializeField] private float unlockAnimDuration = 0.4f;
 
-    [Header("Layer System")]
-    [SerializeField] private int maxLockLayers = 3;
-    private int currentLockLayer = 0;
+    [Header("Clear Animation (giống GridSpawner)")]
+    [SerializeField] private float clearFlyZOffset = -1.0f;
+    [SerializeField] private float clearFlyDuration = 0.25f;
+    [SerializeField] private float clearSlideDistance = 8f;
+    [SerializeField] private float clearSlideDuration = 0.35f;
+    [SerializeField] private Ease clearFlyEase = Ease.OutQuad;
+    [SerializeField] private Ease clearSlideEase = Ease.InQuad;
 
-    [Header("Item Positioning")]
-    [SerializeField] private float itemPadding = 0.25f;    // Padding từ mép cell
-    [SerializeField] private float itemYOffset = 0.15f;    // Độ cao items
-    [SerializeField] private float itemScale = 0.8f;       // Scale items cho vừa cell
+    [Header("Respawn Animation")]
+    [SerializeField] private float respawnDelay = 0.2f;
+    [SerializeField] private float respawnDuration = 0.4f;
+    [SerializeField] private Ease respawnEase = Ease.OutBack;
 
     // State
     private bool isLocked = true;
     private bool isAnimating = false;
+    private bool isMerging = false;
     private Collider cellCollider;
 
-    // Calculated spot positions
-    private Vector3[] spotPositions;
-    private int maxItems = 3;
-    private float calculatedSpacing;
+    // Cache original values
+    private Vector3 originalLocalPosition;
+    private Vector3 originalWorldPosition;  // NEW: cache world position
+    private Vector3 originalScale;
+    private Quaternion originalRotation;
+    private Transform originalParent;  // NEW: cache parent
+
+    // Cache lock visuals original position
+    private Vector3 lockIconOriginalLocalPos;
+    private Vector3 lockContainerOriginalLocalPos;
 
     // Events
     public System.Action<LockedCell> OnUnlocked;
     public System.Action<LockedCell> OnRelocked;
-    public System.Action<LockedCell> OnAllLayersComplete;
+    public System.Action<LockedCell> OnMergeComplete;
+
+    // Property để GameManager biết đây là LockedCell
+    public bool IsLockedCell => true;
 
     void Awake()
     {
@@ -44,6 +57,9 @@ public class LockedCell : MonoBehaviour
             cell = GetComponent<Cell>();
 
         cellCollider = GetComponent<Collider>();
+
+        // KHÔNG cache position ở đây vì spawner chưa đặt vị trí
+        // Sẽ cache trong Start()
 
         if (lockContainer == null)
         {
@@ -63,6 +79,9 @@ public class LockedCell : MonoBehaviour
 
         if (lockIcon != null)
         {
+            // Cache vị trí gốc của lockIcon từ prefab
+            lockIconOriginalLocalPos = lockIcon.transform.localPosition;
+
             Collider col = lockIcon.GetComponent<Collider>();
             if (col == null)
             {
@@ -71,50 +90,18 @@ public class LockedCell : MonoBehaviour
             }
         }
 
-        CalculateSpotPositions();
-    }
-
-    private void CalculateSpotPositions()
-    {
-        if (cell != null)
-            maxItems = cell.GetMaxItems();
-
-        spotPositions = new Vector3[maxItems];
-
-        float cellWidth = 1.6f;
-        BoxCollider boxCol = GetComponent<BoxCollider>();
-        if (boxCol != null)
+        // Cache vị trí gốc của lockContainer
+        if (lockContainer != null)
         {
-            cellWidth = boxCol.size.x;
+            lockContainerOriginalLocalPos = lockContainer.transform.localPosition;
         }
-
-        float availableWidth = cellWidth - (itemPadding * 2f);
-
-        if (maxItems > 1)
-        {
-            calculatedSpacing = availableWidth / (maxItems - 1);
-        }
-        else
-        {
-            calculatedSpacing = 0f;
-        }
-
-        float startX = -availableWidth / 2f;
-
-        for (int i = 0; i < maxItems; i++)
-        {
-            spotPositions[i] = new Vector3(
-                startX + (i * calculatedSpacing),
-                itemYOffset,
-                -0.05f
-            );
-        }
-
-        Debug.Log($"LockedCell: cellWidth={cellWidth}, spacing={calculatedSpacing:F2}");
     }
 
     void Start()
     {
+        // Cache position SAU KHI spawner đã đặt vị trí
+        CacheOriginalTransform();
+
         if (startLocked)
         {
             Lock();
@@ -124,11 +111,25 @@ public class LockedCell : MonoBehaviour
             Unlock();
         }
 
+        // Subscribe to cell sorted event
         if (cell != null)
         {
             cell.OnCellSorted += HandleCellSorted;
-            cell.OnItemAdded += HandleItemAdded;
         }
+    }
+
+    /// <summary>
+    /// Cache vị trí gốc - gọi sau khi spawner đã đặt vị trí
+    /// </summary>
+    private void CacheOriginalTransform()
+    {
+        originalLocalPosition = transform.localPosition;
+        originalWorldPosition = transform.position;
+        originalScale = transform.localScale;
+        originalRotation = transform.localRotation;
+        originalParent = transform.parent;
+
+        Debug.Log($"[LockedCell] {name} cached position: local={originalLocalPosition}, world={originalWorldPosition}");
     }
 
     void OnDestroy()
@@ -136,70 +137,18 @@ public class LockedCell : MonoBehaviour
         if (cell != null)
         {
             cell.OnCellSorted -= HandleCellSorted;
-            cell.OnItemAdded -= HandleItemAdded;
         }
 
+        DOTween.Kill(transform);
         DOTween.Kill(lockContainer);
         DOTween.Kill(lockIcon);
-        DOTween.Kill(transform);
-    }
-
-    private void HandleItemAdded(Cell c, Item item)
-    {
-        if (c != cell) return;
-
-        // ❌ Không gọi RepositionItems nữa, để Cell tự xếp item như cell thường
-        // RepositionItems();
-
-        if (!isLocked && item != null)
-        {
-            var col = item.GetComponent<Collider>();
-            if (col != null) col.enabled = true;
-            item.enabled = true;
-        }
-    }
-
-    private void RepositionItems()
-    {
-        if (cell == null) return;
-
-        List<Item> items = cell.GetItems();
-
-        Item[] orderedItems = new Item[maxItems];
-        foreach (var item in items)
-        {
-            int spotIndex = item.GetSpotIndex();
-            if (spotIndex >= 0 && spotIndex < maxItems)
-            {
-                orderedItems[spotIndex] = item;
-            }
-        }
-
-        for (int i = 0; i < maxItems; i++)
-        {
-            Item item = orderedItems[i];
-            if (item == null) continue;
-
-            Vector3 localPos = spotPositions[i];
-
-            SpriteRenderer sr = item.GetComponent<SpriteRenderer>();
-            if (sr != null && sr.sprite != null)
-            {
-                float spriteHeight = sr.bounds.size.y * itemScale;
-                localPos.y = itemYOffset + spriteHeight * 0.3f;
-            }
-
-            item.transform.localPosition = localPos;
-            item.transform.localScale = Vector3.one * itemScale;
-            item.transform.localRotation = Quaternion.Euler(15f, 0f, 0f);
-        }
     }
 
     // ========== INPUT HANDLING ==========
 
     void Update()
     {
-        if (isLocked && !isAnimating && Input.GetMouseButtonDown(0))
+        if (isLocked && !isAnimating && !isMerging && Input.GetMouseButtonDown(0))
         {
             CheckLockClick();
         }
@@ -223,7 +172,7 @@ public class LockedCell : MonoBehaviour
 
     public void TryUnlock()
     {
-        if (!isLocked || isAnimating) return;
+        if (!isLocked || isAnimating || isMerging) return;
         PlayUnlockAnimation();
     }
 
@@ -236,18 +185,23 @@ public class LockedCell : MonoBehaviour
         if (lockContainer != null)
         {
             lockContainer.SetActive(true);
+            lockContainer.transform.localPosition = lockContainerOriginalLocalPos;
             lockContainer.transform.localScale = Vector3.one;
         }
 
         if (lockIcon != null)
         {
             lockIcon.SetActive(true);
+            lockIcon.transform.localPosition = lockIconOriginalLocalPos;
             lockIcon.transform.localScale = Vector3.one;
+            lockIcon.transform.localRotation = Quaternion.identity;
         }
 
+        // Disable cell collider - không cho kéo items vào
         if (cellCollider != null)
             cellCollider.enabled = false;
 
+        // Disable tất cả items trong cell (nếu có)
         if (cell != null)
         {
             foreach (var item in cell.GetItems())
@@ -272,9 +226,11 @@ public class LockedCell : MonoBehaviour
         if (lockIcon != null)
             lockIcon.SetActive(false);
 
+        // Enable cell collider - cho phép kéo items vào
         if (cellCollider != null)
             cellCollider.enabled = true;
 
+        // Enable tất cả items trong cell (nếu có)
         if (cell != null)
         {
             foreach (var item in cell.GetItems())
@@ -287,10 +243,173 @@ public class LockedCell : MonoBehaviour
         }
 
         OnUnlocked?.Invoke(this);
-        Debug.Log($"{name} UNLOCKED");
+        Debug.Log($"{name} UNLOCKED - hoạt động như cell thường");
     }
 
-    // ========== DOTWEEN ANIMATIONS ==========
+    // ========== CELL SORTED (MERGE) HANDLING ==========
+
+    private void HandleCellSorted(Cell sortedCell)
+    {
+        if (sortedCell != cell) return;
+        if (isMerging) return;
+
+        Debug.Log($"LockedCell {name}: Cell sorted! Starting merge animation...");
+        StartCoroutine(PlayMergeAndRespawn());
+    }
+
+    /// <summary>
+    /// Animation: Cell + Items bay đi CÙNG NHAU → Respawn locked cell
+    /// Items là child của cell nên sẽ tự động bay theo!
+    /// </summary>
+    private IEnumerator PlayMergeAndRespawn()
+    {
+        isMerging = true;
+
+        // Disable input cho cell và items
+        if (cellCollider != null)
+            cellCollider.enabled = false;
+
+        // Disable tất cả items (không cho drag trong khi animation)
+        List<Item> items = cell.GetItems();
+        foreach (var item in items)
+        {
+            if (item == null) continue;
+            item.enabled = false;
+            var col = item.GetComponent<Collider>();
+            if (col != null) col.enabled = false;
+        }
+
+        // ========== CELL + ITEMS BAY ĐI CÙNG NHAU ==========
+        // Items là child của cell → khi cell bay thì items tự động bay theo!
+
+        Debug.Log($"LockedCell {name}: Cell + Items flying out together...");
+
+        Vector3 originalWorldPos = transform.position;
+
+        // Xác định hướng slide (trái/phải dựa vào vị trí)
+        int dirSign = (transform.localPosition.x <= 0) ? -1 : 1;
+        Vector3 sideDir = Vector3.right * dirSign;
+
+        // Vị trí bay theo Z
+        Vector3 flyPos = originalWorldPos + new Vector3(0f, 0f, clearFlyZOffset);
+        Vector3 slidePos = flyPos + sideDir * clearSlideDistance;
+
+        // Tạo sequence animation cho CELL (items sẽ bay theo vì là child)
+        Sequence cellSeq = DOTween.Sequence();
+
+        // Bước 1: Bay theo trục Z (về phía camera)
+        cellSeq.Append(
+            transform.DOMove(flyPos, clearFlyDuration)
+                .SetEase(clearFlyEase)
+        );
+
+        // Bước 2: Trượt qua trái/phải + scale nhỏ lại
+        cellSeq.Append(
+            transform.DOMove(slidePos, clearSlideDuration)
+                .SetEase(clearSlideEase)
+        );
+        cellSeq.Join(
+            transform.DOScale(Vector3.zero, clearSlideDuration)
+                .SetEase(clearSlideEase)
+        );
+
+        yield return cellSeq.WaitForCompletion();
+
+        // ========== DESTROY ITEMS SAU KHI ANIMATION XONG ==========
+        foreach (var item in items)
+        {
+            if (item != null)
+                Destroy(item.gameObject);
+        }
+
+        // Clear cell references
+        cell.ClearItemsWithoutDestroy();
+
+        OnMergeComplete?.Invoke(this);
+
+        // ========== RESPAWN CELL (LOCKED, NO ITEMS) ==========
+        yield return new WaitForSeconds(respawnDelay);
+
+        Debug.Log($"LockedCell {name}: Respawning as locked cell at original position...");
+
+        // Đảm bảo parent vẫn đúng
+        if (originalParent != null && transform.parent != originalParent)
+        {
+            transform.SetParent(originalParent);
+        }
+
+        // Reset về vị trí gốc - dùng WORLD position để chắc chắn
+        transform.position = originalWorldPosition;
+        transform.localRotation = originalRotation;
+        transform.localScale = Vector3.zero;
+
+        // Reset lock visuals
+        ResetLockVisuals();
+
+        // Animation xuất hiện
+        Sequence respawnSeq = DOTween.Sequence();
+
+        // Scale cell lên
+        respawnSeq.Append(
+            transform.DOScale(originalScale, respawnDuration)
+                .SetEase(respawnEase)
+        );
+
+        // Lock animation
+        if (lockContainer != null)
+        {
+            lockContainer.SetActive(true);
+            lockContainer.transform.localScale = Vector3.zero;
+            respawnSeq.Join(
+                lockContainer.transform.DOScale(1f, respawnDuration)
+                    .SetEase(respawnEase)
+                    .SetDelay(0.1f)
+            );
+        }
+
+        if (lockIcon != null)
+        {
+            lockIcon.SetActive(true);
+            lockIcon.transform.localScale = Vector3.zero;
+            respawnSeq.Join(
+                lockIcon.transform.DOScale(1f, respawnDuration)
+                    .SetEase(respawnEase)
+                    .SetDelay(0.15f)
+            );
+        }
+
+        yield return respawnSeq.WaitForCompletion();
+
+        // Set state to locked
+        isLocked = true;
+        isMerging = false;
+
+        if (cellCollider != null)
+            cellCollider.enabled = false;
+
+        OnRelocked?.Invoke(this);
+
+        Debug.Log($"LockedCell {name}: Respawned as LOCKED (empty, no items)");
+    }
+
+    private void ResetLockVisuals()
+    {
+        if (lockIcon != null)
+        {
+            // Dùng vị trí gốc từ prefab thay vì Vector3.zero
+            lockIcon.transform.localPosition = lockIconOriginalLocalPos;
+            lockIcon.transform.localScale = Vector3.one;
+            lockIcon.transform.localRotation = Quaternion.identity;
+        }
+
+        if (lockContainer != null)
+        {
+            lockContainer.transform.localPosition = lockContainerOriginalLocalPos;
+            lockContainer.transform.localScale = Vector3.one;
+        }
+    }
+
+    // ========== UNLOCK ANIMATION ==========
 
     private void PlayUnlockAnimation()
     {
@@ -298,7 +417,6 @@ public class LockedCell : MonoBehaviour
 
         Sequence seq = DOTween.Sequence();
 
-        // Lock icon: shake → bay lên + scale down
         if (lockIcon != null)
         {
             Vector3 originalPos = lockIcon.transform.localPosition;
@@ -309,7 +427,6 @@ public class LockedCell : MonoBehaviour
             seq.Join(lockIcon.transform.DOLocalRotate(new Vector3(0, 0, 180), 0.25f, RotateMode.LocalAxisAdd));
         }
 
-        // Lock container (dây): rung nhẹ → scale down
         if (lockContainer != null)
         {
             seq.Insert(0.1f, lockContainer.transform.DOShakeScale(0.15f, 0.1f, 10, 90));
@@ -318,120 +435,61 @@ public class LockedCell : MonoBehaviour
 
         seq.OnComplete(() =>
         {
-            ResetLockVisuals();
             Unlock();
             isAnimating = false;
-        });
-    }
-
-    private void PlayLockAnimation()
-    {
-        if (lockContainer != null)
-        {
-            lockContainer.SetActive(true);
-            lockContainer.transform.localScale = Vector3.zero;
-            lockContainer.transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack);
-        }
-
-        if (lockIcon != null)
-        {
-            lockIcon.SetActive(true);
-            lockIcon.transform.localScale = Vector3.zero;
-            lockIcon.transform.localRotation = Quaternion.identity;
-            lockIcon.transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack).SetDelay(0.15f);
-        }
-    }
-
-    private void ResetLockVisuals()
-    {
-        if (lockIcon != null)
-        {
-            lockIcon.transform.localPosition = Vector3.zero;
-            lockIcon.transform.localScale = Vector3.one;
-            lockIcon.transform.localRotation = Quaternion.identity;
-        }
-
-        if (lockContainer != null)
-        {
-            lockContainer.transform.localScale = Vector3.one;
-        }
-    }
-
-    // ========== CELL SORTED HANDLING ==========
-
-    private void HandleCellSorted(Cell sortedCell)
-    {
-        if (sortedCell != cell) return;
-
-        currentLockLayer++;
-        Debug.Log($"LockedCell {name}: Layer {currentLockLayer}/{maxLockLayers}");
-
-        if (currentLockLayer >= maxLockLayers)
-        {
-            OnAllLayersComplete?.Invoke(this);
-            PlayDestroyCellAnimation();
-        }
-        else
-        {
-            StartCoroutine(RelockAfterDelay());
-        }
-    }
-
-    private IEnumerator RelockAfterDelay()
-    {
-        yield return new WaitForSeconds(0.5f);
-
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.SpawnItemsInCell(cell);
-        }
-
-        yield return new WaitForSeconds(0.3f);
-
-        // ❌ Không reposition nữa, giữ layout Cell
-        // RepositionItems();
-
-        isLocked = true;
-        if (cellCollider != null)
-            cellCollider.enabled = false;
-
-        if (cell != null)
-        {
-            foreach (var item in cell.GetItems())
-            {
-                if (item == null) continue;
-                var col = item.GetComponent<Collider>();
-                if (col != null) col.enabled = false;
-                item.enabled = false;
-            }
-        }
-
-        PlayLockAnimation();
-        OnRelocked?.Invoke(this);
-    }
-
-    private void PlayDestroyCellAnimation()
-    {
-        Sequence seq = DOTween.Sequence();
-
-        seq.Append(transform.DOShakeScale(0.2f, 0.2f, 10, 90));
-        seq.Append(transform.DOScale(0f, 0.3f).SetEase(Ease.InBack));
-        seq.Join(transform.DOLocalMoveY(transform.localPosition.y + 0.5f, 0.3f).SetEase(Ease.InQuad));
-
-        seq.OnComplete(() =>
-        {
-            Destroy(gameObject);
         });
     }
 
     // ========== PUBLIC METHODS ==========
 
     public bool IsLocked() => isLocked;
-    public int GetRemainingLayers() => maxLockLayers - currentLockLayer;
+    public bool IsMerging() => isMerging;
     public Cell GetCell() => cell;
 
     public bool CanAcceptItem()
     {
-        return !isLocked && cell != null && cell.CanAcceptItem(null);
+        return !isLocked && !isAnimating && !isMerging && cell != null && cell.CanAcceptItem(null);
+    }
+
+    public void ForceLock()
+    {
+        StopAllCoroutines();
+        DOTween.Kill(transform);
+        DOTween.Kill(lockContainer);
+        DOTween.Kill(lockIcon);
+        isAnimating = false;
+        isMerging = false;
+
+        // Reset về vị trí gốc - dùng world position
+        if (originalParent != null && transform.parent != originalParent)
+        {
+            transform.SetParent(originalParent);
+        }
+        transform.position = originalWorldPosition;
+        transform.localScale = originalScale;
+        transform.localRotation = originalRotation;
+
+        // Destroy any remaining items
+        if (cell != null)
+        {
+            foreach (var item in cell.GetItems())
+            {
+                if (item != null)
+                    Destroy(item.gameObject);
+            }
+            cell.ClearItemsWithoutDestroy();
+        }
+
+        Lock();
+        ResetLockVisuals();
+    }
+
+    public void ForceUnlock()
+    {
+        StopAllCoroutines();
+        DOTween.Kill(transform);
+        isAnimating = false;
+        isMerging = false;
+        Unlock();
     }
 }
