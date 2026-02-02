@@ -114,6 +114,10 @@ public class Item : MonoBehaviour
         if (itemCollider != null)
             itemCollider.enabled = false;
 
+        // 🔊 PHÁT SOUND PICK UP
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayPickUp();
+
         OnItemPickedUp?.Invoke(this);
     }
 
@@ -172,11 +176,19 @@ public class Item : MonoBehaviour
             {
                 itemAnimator.PlayDropBounce();
             }
+
+            // 🔊 PHÁT SOUND DROP
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayDrop();
         }
         else
         {
             // Trả về vị trí cũ
             SnapToPosition(originalPosition);
+
+            // 🔊 PHÁT SOUND INVALID DROP
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayInvalidDrop();
         }
 
         SetSortingOrder(0);

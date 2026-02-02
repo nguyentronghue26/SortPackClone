@@ -415,6 +415,10 @@ public class LockedCell : MonoBehaviour
     {
         isAnimating = true;
 
+        // 🔊 PHÁT SOUND UNLOCK
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayUnlock();
+
         Sequence seq = DOTween.Sequence();
 
         if (lockIcon != null)

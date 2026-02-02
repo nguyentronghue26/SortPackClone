@@ -855,6 +855,9 @@ public class GameManager : MonoBehaviour
         totalMatches++;
         OnMatchFound?.Invoke(cell);
 
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayMerge();
+
         Debug.Log($"Match! Type: {matchedItemType}. Removed {totalItemsRemoved} items from {cellsToClear.Count} cells");
 
         // ============ SỬA PHẦN NÀY ============
