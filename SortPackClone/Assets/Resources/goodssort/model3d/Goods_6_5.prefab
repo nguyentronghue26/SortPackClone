@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 532577352505337172}
   - component: {fileID: 404135647020440153}
   - component: {fileID: -2672376167673303843}
+  - component: {fileID: 445583481375564356}
   m_Layer: 0
   m_Name: Goods_6_5
   m_TagString: Untagged
@@ -182,3 +183,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.52, y: 1.0742805, z: 0.52}
   m_Center: {x: 0, y: 0.53715956, z: 0}
+--- !u!114 &445583481375564356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808509309453718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95b77134cd3f0940b781345aa6835d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemOutline
+  method: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 3
+  glowIntensity: 0
+  outlineMaterial: {fileID: 2100000, guid: 03f1915082f779d4fab11e96d9d18e39, type: 2}

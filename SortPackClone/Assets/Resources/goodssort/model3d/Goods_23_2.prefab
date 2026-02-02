@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7054455910377194675}
   - component: {fileID: 3305839598346198313}
   - component: {fileID: -4109199233253595229}
+  - component: {fileID: 4090796200139479918}
   m_Layer: 0
   m_Name: Goods_23_2
   m_TagString: Untagged
@@ -160,3 +161,20 @@ MonoBehaviour:
   hoverFloatDuration: 0.5
   shakeDuration: 0.3
   shakeStrength: 0.1
+--- !u!114 &4090796200139479918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059725819698019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95b77134cd3f0940b781345aa6835d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemOutline
+  method: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 3
+  glowIntensity: 0
+  outlineMaterial: {fileID: 2100000, guid: 03f1915082f779d4fab11e96d9d18e39, type: 2}

@@ -23,6 +23,7 @@ public class Item : MonoBehaviour
     private Cell hoveredCell;
     private Collider itemCollider;
     private ItemAnimator itemAnimator;
+    private ItemOutline itemOutline;  // NEW: Viền sáng
 
     // Cache cell gốc khi bắt đầu drag
     private Cell dragStartCell;
@@ -36,6 +37,7 @@ public class Item : MonoBehaviour
         mainCamera = Camera.main;
         itemCollider = GetComponent<Collider>();
         itemAnimator = GetComponent<ItemAnimator>();
+        itemOutline = GetComponent<ItemOutline>();  // NEW
         originalZ = transform.position.z;
     }
 
@@ -107,6 +109,12 @@ public class Item : MonoBehaviour
         {
             itemAnimator.StopIdleAnimation();
             itemAnimator.PlayPickUp();
+        }
+
+        // NEW: Bật viền sáng
+        if (itemOutline != null)
+        {
+            itemOutline.ShowOutline();
         }
 
         SetSortingOrder(100);
@@ -189,6 +197,12 @@ public class Item : MonoBehaviour
             // 🔊 PHÁT SOUND INVALID DROP
             if (AudioManager.Instance != null)
                 AudioManager.Instance.PlayInvalidDrop();
+        }
+
+        // NEW: Tắt viền sáng
+        if (itemOutline != null)
+        {
+            itemOutline.HideOutline();
         }
 
         SetSortingOrder(0);
